@@ -237,3 +237,20 @@ Quick checklist:
 > That is the main file to keep the Yatra Map current.
 
 For major content, layout, styling, or interactive changes, update the appropriate HTML/CSS/JS file instead.
+
+## Bhajans: search, tags and lyrics
+
+Bhajans are kept in **Hindi + Roman** side-by-side. The website does **not** provide an English translation for bhajans.
+
+Each bhajan card uses `data-tags` for filtering/search. Example:
+
+- जहाँ याद करो महावीर वहीं — tags: `mahavir, bhajan`
+- नाम है तेरा तारण हारा — tags: `bhajan, god`
+
+To add a new bhajan later:
+1. Copy an existing `.bhajan-card` in `index.html`.
+2. Update the title, Hindi lyrics, Roman lyrics and `data-tags`.
+3. Add any new tags to `data-tags`; the filter buttons are generated automatically.
+4. No English translation should be added to the bhajan card.
+
+The Bhakti section includes a search box that searches the title, tags and lyric text, plus clickable tag filters.
