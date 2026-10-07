@@ -260,3 +260,14 @@ The Bhakti section includes a search box that searches the title, tags and lyric
 The website shows each bhajan as **Hindi + Roman line by line** by default, with buttons to switch to Side by side, Hindi only or Roman only.
 
 For the line-by-line view to work, the Hindi and Roman text of a bhajan must have the **same number of stanzas (`<p>`) and the same number of lines (`<br>`) in each stanza**. If they differ, the card automatically falls back to the side-by-side view.
+
+### Maps
+
+Both maps (Yatra map and Our Mandir) use Leaflet with OpenStreetMap-based tiles, and need an internet connection. If tiles from the first server are blocked, the site automatically switches to a backup tile server.
+
+The Yatra map reads `data/yatra-data.json`. If that file cannot be fetched (for example when `index.html` is opened by double-clicking it), `script.js` falls back to a built-in copy called `YATRA_FALLBACK`. When you add a new trip, update the JSON and, ideally, that copy as well. The best way to test is through GitHub Pages or a local server (`python -m http.server`).
+
+### Instagram and YouTube embeds ("Follow our journey" section)
+
+- **Instagram:** shows the public profile feed for `@jainyouth.karnal`. No setup needed.
+- **YouTube:** shows the channel's latest videos once the channel ID is added. In `index.html`, find `id="yt-embed"` and paste your channel ID (it starts with `UC`) into `data-channel-id=""`. You can find it in YouTube Studio > Settings > Channel > Advanced settings. Until then, a "Open YouTube channel" card is shown.

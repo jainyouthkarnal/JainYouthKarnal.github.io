@@ -273,3 +273,22 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .footer-social .social-text{display:flex;flex-direction:column;line-height:1.25}
 .footer-social .social-text small{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#9fb5a9}
 .footer-social .social-text b{font-size:.92rem;font-weight:700;color:#fff;letter-spacing:.01em}
+
+/* Mandir map + social embeds */
+.mandir-map-canvas{width:100%;height:420px;position:relative;z-index:0;isolation:isolate;background:#eef2ee}
+.mandir-map-canvas iframe{width:100%;height:100%;border:0;display:block}
+.social-embeds{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px;align-items:stretch}
+.embed-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.embed-card.insta{border-top:4px solid #d6249f}
+.embed-card.yt{border-top:4px solid #e00000}
+.embed-head{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.embed-head img{width:42px;height:42px;object-fit:contain;flex:none}
+.embed-head strong{display:block;font-family:var(--serif);font-size:1.45rem;line-height:1.1;color:var(--green)}
+.embed-head span{font-size:.82rem;color:var(--muted)}
+.embed-head .button{margin-left:auto;padding:9px 16px;font-size:.8rem;white-space:nowrap}
+.embed-frame{position:relative;flex:1;min-height:560px;background:#fafaf7}
+.embed-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.embed-fallback{height:100%;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:40px 28px;background:radial-gradient(circle at 50% 30%,#fff5f5,#fafaf7)}
+.embed-fallback strong{font-family:var(--serif);font-size:1.7rem;color:var(--green)}
+.embed-fallback p{margin:0;max-width:320px;color:var(--muted)}
+@media(max-width:900px){.social-embeds{grid-template-columns:1fr}.embed-frame,.embed-fallback{min-height:500px}.mandir-map-canvas{height:330px}}

@@ -67,6 +67,10 @@ document.querySelectorAll('.audio-link[data-audio-url]').forEach(link=>{
 });
 
 
+// Built-in copy of data/yatra-data.json, used ONLY if the file cannot be fetched (e.g. index.html opened by double-click).
+// The real source of truth is data/yatra-data.json: keep this copy in sync when you add a trip.
+const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":"Karnal","coordinates":[29.6824999,76.7025384]},"trips":[{"id":"ranila-ji","place":"Ranila Ji","date":"2026-03-22","temple":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","coordinates":[28.7090507,76.3325388],"mapPosition":{"left":27.8,"top":29.5}},{"id":"jalabaad","place":"Jalabaad","date":"2026-04-05","temple":"Shri 1008 Parasnath Digamber Jain Mandir","coordinates":[29.6158372,77.4360981],"mapPosition":{"left":31.3,"top":27.2}},{"id":"hastinapur","place":"Hastinapur","date":"2026-05-09","temple":"Digamber Jain Bada Mandir","coordinates":[29.1613343,78.0010909],"mapPosition":{"left":33.7,"top":28.1}},{"id":"sonipat","place":"Sonipat","date":"2026-06-14","temple":"Shanti Nath Atishya Kshetra","coordinates":[29.0004214,77.0151195],"mapPosition":{"left":30.2,"top":28.6}},{"id":"hansi","place":"Hansi","date":"2026-07-18","temple":"Shri Digamber Jain Panchayati Mandir","coordinates":[29.1009391,75.9636061],"mapPosition":{"left":26.5,"top":28.3}},{"id":"vehlana-ji","place":"Vehlana Ji","date":"2026-08-16","temple":"Vehalna Digambar Jain Temple Atishaya Kshetra","coordinates":[29.4285143,77.6854437],"mapPosition":{"left":32.1,"top":27.4}},{"id":"gannaur","place":"Gannaur","date":"2026-09-07","temple":"Gupti Dhaam Digamber Jain Mandir","coordinates":[29.1412698,77.0371692],"mapPosition":{"left":30.0,"top":28.3}},{"id":"badegaon","place":"Badegaon","date":"2026-10-04","temple":"Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir","coordinates":[28.8776725,77.3152324],"mapPosition":{"left":31.3,"top":29.0}}]};
+
 // Monthly Yatra map: reads data/yatra-data.json (exact temple coordinates) and draws an interactive map.
 (async function renderYatraMap(){
   const canvas=document.getElementById('yatra-map-canvas'),list=document.getElementById('yatra-list'),count=document.getElementById('yatra-count');
@@ -84,8 +88,7 @@ document.querySelectorAll('.audio-link[data-audio-url]').forEach(link=>{
     if(!res.ok)throw new Error(res.status);
     data=await res.json();
   }catch(e){
-    canvas.innerHTML='<p class="map-error">The map could not load its data. Please open the site through GitHub Pages or a local server instead of opening index.html directly.</p>';
-    return;
+    data=YATRA_FALLBACK;
   }
   if(count)count.textContent=`${data.trips.length} places visited`;
 
@@ -104,10 +107,7 @@ document.querySelectorAll('.audio-link[data-audio-url]').forEach(link=>{
 
   const home=data.homeMandir&&data.homeMandir.coordinates;
   const map=L.map(canvas,{scrollWheelZoom:false});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
-    subdomains:'abcd',maxZoom:18,
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-  }).addTo(map);
+  jykTiles(map);
   // Scroll-zoom only after the visitor clicks the map, so the page can still scroll normally.
   map.on('click',()=>map.scrollWheelZoom.enable());
   canvas.addEventListener('mouseleave',()=>map.scrollWheelZoom.disable());
@@ -162,6 +162,30 @@ const tripEvents={
   '2026-09-07':{type:'trip',title:'Gannaur'},
   '2026-10-04':{type:'trip',title:'Badegaon'}
 };
+// Tirthankar Kalyanak dates (add new ones here: 'YYYY-MM-DD': [K(...)]).
+const KAL={garbh:['Garbh','गर्भ'],janma:['Janma','जन्म'],tap:['Tap','तप'],gyan:['Gyan','ज्ञान'],moksha:['Moksha','मोक्ष']};
+const K=(en,hi,kals,note,star)=>{const k=kals.split('+');
+  return{star:!!star,
+    en:`${en} — ${k.map(x=>KAL[x][0]).join(' + ')} Kalyanak${note?` (${note[0]})`:''}`,
+    hi:`${hi} भगवान — ${k.map(x=>KAL[x][1]).join(' + ')} कल्याणक${note?` (${note[1]})`:''}`};};
+const kalyanakEvents={
+  '2026-10-11':[K('Neminath','नेमिनाथ','gyan')],
+  '2026-10-19':[K('Shitalnath','शीतलनाथ','moksha')],
+  '2026-10-26':[K('Anantnath','अनंतनाथ','garbh')],
+  '2026-10-29':[K('Sambhavnath','संभवनाथ','gyan')],
+  '2026-11-07':[K('Padmaprabhu','पद्मप्रभु','janma+tap')],
+  '2026-11-09':[K('Mahavir','महावीर','moksha',['Nirvana','निर्वाण'],true)],
+  '2026-11-11':[K('Pushpadant','पुष्पदंत','gyan')],
+  '2026-11-15':[K('Neminath','नेमिनाथ','garbh')],
+  '2026-11-21':[K('Arahnath','अरहनाथ','gyan')],
+  '2026-11-24':[K('Sambhavnath','संभवनाथ','janma')],
+  '2026-12-03':[K('Mahavir','महावीर','tap',['Deeksha','दीक्षा'],true)],
+  '2026-12-09':[K('Pushpadant','पुष्पदंत','janma+tap')],
+  '2026-12-19':[K('Arahnath','अरहनाथ','tap')],
+  '2026-12-20':[K('Mallinath','मल्लिनाथ','janma+tap'),K('Naminath','नमिनाथ','gyan')],
+  '2026-12-23':[K('Sambhavnath','संभवनाथ','tap')],
+  '2026-12-25':[K('Mallinath','मल्लिनाथ','gyan')]
+};
 const calGrid=document.querySelector('#calendar-grid'),calMonth=document.querySelector('#cal-month'),prevCal=document.querySelector('#cal-prev'),nextCal=document.querySelector('#cal-next');
 let calDate=new Date(2026,9,1);
 function pad(n){return String(n).padStart(2,'0')}
@@ -179,7 +203,10 @@ function renderCalendar(){
     const n=document.createElement('strong');n.textContent=d;e.appendChild(n);
     const trip=tripEvents[dateKey];
     if(trip){e.classList.add('has-event','trip-day');const lab=document.createElement('span');lab.textContent=trip.title;e.appendChild(lab)}
-    if(dow===0){e.classList.add('path-day');if(!trip){const lab=document.createElement('span');lab.textContent=document.documentElement.lang==='hi'?'पाठशाला':'Pathshala';e.appendChild(lab)}}
+    const kal=kalyanakEvents[dateKey];
+    if(kal){e.classList.add('has-event','kalyanak-day');if(kal.some(k=>k.star))e.classList.add('mahavir-day');
+      kal.forEach(k=>{const lab=document.createElement('span');lab.className='kal'+(k.star?' star':'');const txt=document.documentElement.lang==='hi'?k.hi:k.en;lab.textContent=txt;lab.title=`${k.en} | ${k.hi}`;e.appendChild(lab)})}
+    if(dow===0){e.classList.add('path-day');if(!trip&&!kal){const lab=document.createElement('span');lab.textContent=document.documentElement.lang==='hi'?'पाठशाला':'Pathshala';e.appendChild(lab)}}
     calGrid.appendChild(e);
   }
 }
@@ -219,15 +246,15 @@ setLanguage=function(lang){oldSetLanguage(lang);renderCalendar();};
   if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);setTimeout(()=>{e.target.style.transitionDelay='';},900);}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.documentElement.classList.add('reveal-on');
-  document.querySelectorAll('.section-heading,.trip-card,.card,.knowledge-item,.announcement-card,.pathshala-points>div,.schedule-box,.stat,.bhajan-card,.map-list,.mandir-map-card,.join-form,.gallery img').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=`${(i%4)*70}ms`;io.observe(el);});
+  document.querySelectorAll('.section-heading,.trip-card,.card,.knowledge-item,.announcement-card,.pathshala-points>div,.schedule-box,.stat,.bhajan-card,.map-list,.mandir-map-card,.join-form,.embed-card,.gallery img').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=`${(i%4)*70}ms`;io.observe(el);});
 })();
 
 // ===== Creative layer =====
 const prefersReduced=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 
 // Stats-band labels in both languages (then re-apply the saved language).
-Object.assign(translations.en,{'stats.yatras':'Monthly Yatras','stats.mandirs':'Mandirs Visited','stats.bhajans':'Bhajans Shared','stats.sunday':'Sunday','stats.pathshala':'Pathshala • 8–9 AM'});
-Object.assign(translations.hi,{'stats.yatras':'मासिक यात्राएँ','stats.mandirs':'मंदिर दर्शन','stats.bhajans':'भजन','stats.sunday':'रविवार','stats.pathshala':'पाठशाला • सुबह 8–9 बजे'});
+Object.assign(translations.en,{'stats.yatras':'Monthly Yatras','stats.mandirs':'Mandirs Visited','stats.bhajans':'Bhajans Shared','stats.sunday':'Sunday','stats.pathshala':'Pathshala • 8–9 AM','calendar.kalyanakLegend':'Kalyanak','follow.eyebrow':'FOLLOW OUR JOURNEY','follow.title':'See us on Instagram & YouTube.','follow.intro':'Yatra moments, bhajans and community updates, straight from our channels.','follow.insta':'Follow →','follow.yt':'Subscribe →','follow.ytText':'Watch our yatra and bhajan videos on our YouTube channel.','follow.ytBtn':'Open YouTube channel →'});
+Object.assign(translations.hi,{'stats.yatras':'मासिक यात्राएँ','stats.mandirs':'मंदिर दर्शन','stats.bhajans':'भजन','stats.sunday':'रविवार','stats.pathshala':'पाठशाला • सुबह 8–9 बजे','calendar.kalyanakLegend':'कल्याणक','follow.eyebrow':'हमारी यात्रा से जुड़ें','follow.title':'Instagram और YouTube पर हमसे जुड़ें।','follow.intro':'यात्राओं के पल, भजन और सामुदायिक अपडेट, सीधे हमारे चैनलों से।','follow.insta':'फ़ॉलो करें →','follow.yt':'सब्सक्राइब करें →','follow.ytText':'हमारी यात्राओं और भजनों के वीडियो हमारे YouTube चैनल पर देखें।','follow.ytBtn':'YouTube चैनल खोलें →'});
 setLanguage(localStorage.getItem('jyk-language')||'en');
 
 // Scroll progress, back-to-top button, nav scroll-spy.
@@ -297,4 +324,42 @@ document.addEventListener('pointerdown',e=>{const b=e.target.closest&&e.target.c
   imgs.forEach((im,n)=>im.addEventListener('click',()=>open(n)));
   lb.addEventListener('click',e=>{if(e.target===lb||e.target.closest('.lb-close'))close();else if(e.target.closest('.lb-prev'))show(i-1);else if(e.target.closest('.lb-next'))show(i+1);});
   addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+})();
+
+// ===== Maps helper, mandir map, YouTube embed =====
+// Light basemap with an automatic fallback tile server if the first one is blocked or offline.
+function jykTiles(map){
+  const osm='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  const carto=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:osm+' &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
+  let fails=0;
+  carto.on('tileerror',()=>{if(++fails===4){map.removeLayer(carto);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:osm}).addTo(map);}});
+}
+
+// Our Mandir location: same map engine as the Yatra map (the Google embed stays as the fallback inside the box).
+(function initMandirMap(){
+  const box=document.getElementById('mandir-map');
+  if(!box||typeof L==='undefined')return;
+  const ll=[29.6824999,76.7025384];
+  box.innerHTML='';
+  const map=L.map(box,{scrollWheelZoom:false}).setView(ll,16);
+  jykTiles(map);
+  map.on('click',()=>map.scrollWheelZoom.enable());
+  box.addEventListener('mouseleave',()=>map.scrollWheelZoom.disable());
+  const icon=L.divIcon({className:'yp-wrap',html:'<span class="yp" style="--c:#b58a35"><b>★</b></span>',iconSize:[34,34],iconAnchor:[17,41],popupAnchor:[0,-38]});
+  L.marker(ll,{icon}).addTo(map).bindPopup(`<div class="yp-pop"><small>Home mandir</small><h4>Shree Digamber Jain Mandir</h4><p>Karnal</p><a href="https://www.google.com/maps/dir/?api=1&destination=${ll[0]},${ll[1]}" target="_blank" rel="noopener">Get directions →</a></div>`).openPopup();
+  setTimeout(()=>map.invalidateSize(),300);
+})();
+
+// YouTube: shows the channel's latest uploads once data-channel-id (UC...) is filled in index.html.
+(function initYouTubeEmbed(){
+  const box=document.getElementById('yt-embed');
+  if(!box)return;
+  const id=(box.dataset.channelId||'').trim();
+  if(!/^UC[\w-]{22}$/.test(id))return;
+  const f=document.createElement('iframe');
+  f.src=`https://www.youtube-nocookie.com/embed/videoseries?list=UU${id.slice(2)}`;
+  f.title='YouTube — @jainyouth.karnal';f.loading='lazy';f.allowFullscreen=true;
+  f.allow='accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share';
+  f.referrerPolicy='strict-origin-when-cross-origin';
+  box.innerHTML='';box.appendChild(f);
 })();
