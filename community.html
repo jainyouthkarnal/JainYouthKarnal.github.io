@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Calendar, events, Kalyanak dates, our mandir and our channels.">
+<meta name="theme-color" content="#148A45">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.svg">
+<title>Community | Jain Youth Karnal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-community">
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<div id="site-header"></div>
+<script src="layout.js"></script>
+<main id="main">
+<section class="page-banner"><div class="container"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-i18n="crumb.home">Home</a><span>/</span><span data-i18n="nav.community">Community</span></nav><p class="eyebrow" data-i18n="page.community.eyebrow">COMMUNITY</p><h1 data-i18n="page.community.title">Stay connected with the sangh.</h1><p class="intro" data-i18n="page.community.intro">Calendar, events, our mandir and our channels, all in one place.</p></div></section>
+
+<section id="calendar" class="section section-cream"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="calendar.eyebrow">COMMUNITY CALENDAR</p><h2 data-i18n="calendar.title">Keep every yatra, class & event in view.</h2><p class="section-intro" data-i18n="calendar.intro">A simple calendar for monthly trips, Sunday Pathshala and community events.</p></div><div class="calendar-controls"><button class="calendar-nav" id="cal-prev" type="button" aria-label="Previous month">‹</button><strong id="cal-month">October 2026</strong><button class="calendar-nav" id="cal-next" type="button" aria-label="Next month">›</button></div></div><div class="calendar-shell"><div class="calendar-week"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calendar-grid" class="calendar-grid"></div></div><div class="calendar-legend"><span><i class="legend-dot trip"></i><span data-i18n="calendar.tripLegend">Monthly Yatra</span></span><span><i class="legend-dot path"></i><span data-i18n="calendar.pathLegend">Sunday Pathshala</span></span><span><i class="legend-dot event"></i><span data-i18n="calendar.eventLegend">Community Event</span></span><span><i class="legend-dot kalyanak"></i><span data-i18n="calendar.kalyanakLegend">Kalyanak</span></span></div></div></section>
+
+<section id="events" class="section"><div class="container"><p class="eyebrow" data-i18n="events.eyebrow">COMMUNITY CALENDAR</p><h2 data-i18n="events.title">Events & activities</h2><div class="cards three"><article class="card"><span class="card-number">01</span><h3 data-i18n="events.c1t">Religious Events</h3><p data-i18n="events.c1p">Jain parvas, puja, bhakti and spiritual programmes.</p></article><article class="card"><span class="card-number">02</span><h3 data-i18n="events.c2t">Youth Events</h3><p data-i18n="events.c2p">Activities that bring Jain youth together through participation and connection.</p></article><article class="card"><span class="card-number">03</span><h3 data-i18n="events.c3t">Cultural & Seva</h3><p data-i18n="events.c3p">Community programmes, cultural activities and future seva initiatives.</p></article></div></div></section>
+
+<section id="mandir-location" class="section section-cream"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="mandirMap.eyebrow">OUR MANDIR • KARNAL</p><h2 data-i18n="mandirMap.title">Visit Our Shree Digamber Jain Mandir.</h2><p class="section-intro" data-i18n="mandirMap.intro">Find our mandir in Karnal and get directions directly from Google Maps.</p></div><a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=29.6824999,76.7025384" target="_blank" rel="noopener" data-i18n="mandirMap.button">Open in Google Maps →</a></div><div class="mandir-map-card"><div id="mandir-map" class="mandir-map-canvas" role="region" aria-label="Map of Shree Digamber Jain Mandir, Karnal"><iframe title="Shree Digamber Jain Mandir, Karnal — Google Maps" src="https://www.google.com/maps?q=29.6824999,76.7025384&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="mandir-map-details"><span class="pill">Shree Digamber Jain Mandir</span><p><strong>Karnal</strong><br><span>29.6824999, 76.7025384</span></p><a href="https://www.google.com/maps/search/?api=1&query=29.6824999,76.7025384" target="_blank" rel="noopener">Get directions →</a></div></div></div></section>
+
+<section id="follow" class="section"><div class="container">
+<div class="section-heading"><div><p class="eyebrow" data-i18n="follow.eyebrow">FOLLOW OUR JOURNEY</p><h2 data-i18n="follow.title">See us on Instagram & YouTube.</h2><p class="section-intro" data-i18n="follow.intro">Yatra moments, bhajans and community updates, straight from our channels.</p></div></div>
+<div class="social-embeds">
+<article class="embed-card insta"><header class="embed-head"><img src="assets/social/instagram.png" alt=""><div><strong>Instagram</strong><span>@jainyouth.karnal</span></div><a class="button secondary" href="https://www.instagram.com/jainyouth.karnal/" target="_blank" rel="noopener" data-i18n="follow.insta">Follow →</a></header>
+<div class="embed-frame"><iframe src="https://www.instagram.com/jainyouth.karnal/embed" title="Instagram profile — @jainyouth.karnal" loading="lazy" allowtransparency="true"></iframe></div></article>
+<article class="embed-card yt"><header class="embed-head"><img src="assets/social/youtube.png" alt=""><div><strong>YouTube</strong><span>@jainyouth.karnal</span></div><a class="button secondary" href="https://www.youtube.com/@jainyouth.karnal" target="_blank" rel="noopener" data-i18n="follow.yt">Subscribe →</a></header>
+<!-- To show the latest videos here, paste the channel ID (starts with UC) into data-channel-id. See WEBSITE-UPDATE-GUIDE.md -->
+<div class="embed-frame" id="yt-embed" data-channel-id=""><div class="embed-fallback"><img src="assets/social/youtube.png" alt="" width="72" height="72"><strong>@jainyouth.karnal</strong><p data-i18n="follow.ytText">Watch our yatra and bhajan videos on our YouTube channel.</p><a class="button primary" href="https://www.youtube.com/@jainyouth.karnal" target="_blank" rel="noopener" data-i18n="follow.ytBtn">Open YouTube channel →</a></div></div></article>
+</div></div></section>
+</main>
+<div id="site-footer"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body></html>
