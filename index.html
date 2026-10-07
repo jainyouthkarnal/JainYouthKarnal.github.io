@@ -1,76 +1,155 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Jain Youth Karnal — Jin Shasan Prabhavna Sangh. Darshan, yatras, Jain knowledge, bhakti, events and seva.">
-<meta name="theme-color" content="#148A45">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="alternate icon" href="favicon.svg">
-<title>Jain Youth Karnal | Jin Shasan Prabhavna Sangh</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Jain Youth Karnal — Jin Shasan Prabhavna Sangh. A digital home for Jain youth in Karnal through darshan, yatras, knowledge, bhakti, events and seva.">
+  <meta name="theme-color" content="#0c3b2e">
+  <title>Jain Youth Karnal | Jin Shasan Prabhavna Sangh</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-<header class="site-header"><div class="container nav-wrap">
-<a class="brand" href="#home"><img src="assets/circular-logo.png" alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal"><span>JAIN YOUTH KARNAL</span></a>
-<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-<nav id="nav" class="nav">
-<a href="#about" data-i18n="nav.about">About</a><a href="#trips" data-i18n="nav.trips">Monthly Trips</a><a href="#mandir-location" data-i18n="nav.mandirMap">Our Mandir</a><a href="#yatra-map" data-i18n="nav.map">Yatra Map</a><a href="#calendar" data-i18n="nav.calendar">Calendar</a><a href="#announcements" data-i18n="nav.announcements">Announcements</a><a href="#pathshala" data-i18n="nav.pathshala">Sunday Pathshala</a><a href="#events" data-i18n="nav.events">Events</a><a href="#knowledge" data-i18n="nav.knowledge">Knowledge</a><a href="#bhakti" data-i18n="nav.bhakti">Bhakti</a><a href="#darshan" data-i18n="nav.darshan">Darshan</a><a href="#join" data-i18n="nav.join">Join Us</a>
-</nav>
-<div class="site-language" role="group" aria-label="Website language"><button class="site-lang active" data-lang="en" type="button">EN</button><span>/</span><button class="site-lang" data-lang="hi" type="button">हिंदी</button></div>
-</div></header>
-<main id="home">
-<section class="hero"><div class="container hero-grid"><div class="hero-copy">
-<p class="eyebrow" data-i18n="hero.eyebrow">JIN SHASAN PRABHAVNA SANGH • KARNAL</p>
-<h1 data-i18n="hero.title">A digital home for <em>Jain youth</em> in Karnal.</h1>
-<p class="lead" data-i18n="hero.lead">Discover. Connect. Learn. Experience. Participate. Serve.</p>
-<p class="hero-text" data-i18n="hero.text">A community space for Jain darshan, yatras, knowledge, bhakti, events and seva — created to bring young Jains together.</p>
-<div class="actions"><a class="button primary" href="#join" data-i18n="hero.cta1">Join the Community</a><a class="button secondary" href="#bhakti" data-i18n="hero.cta2">Explore Bhakti</a></div>
-<div class="social-line"><a href="https://www.instagram.com/jainyouth.karnal/" target="_blank" rel="noopener">Instagram</a><span>•</span><a href="https://www.youtube.com/@jainyouth.karnal" target="_blank" rel="noopener">YouTube</a><span>•</span><a href="mailto:jainyouthkarnal@gmail.com">Email</a></div>
-</div><div class="hero-art"><div class="image-frame"><img src="assets/darshan-01.jpg" alt="Jain temple darshan"></div><div class="floating-card"><span data-i18n="hero.cardLabel">JIN DARSHAN</span><strong data-i18n="hero.cardText">Faith • Community • Journey</strong></div></div></div></section>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Jain Youth Karnal home">
+        <img src="assets/circular-logo.png" alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal">
+        <span>JAIN YOUTH KARNAL</span>
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav id="nav" class="nav">
+        <a href="#about">About</a>
+        <a href="#yatra">Yatra</a>
+        <a href="#events">Events</a>
+        <a href="#knowledge">Knowledge</a>
+        <a href="#darshan">Darshan</a>
+        <a href="#join">Join Us</a>
+      </nav>
+    </div>
+  </header>
 
-<section id="about" class="section section-light"><div class="container two-col"><div><p class="eyebrow" data-i18n="about.eyebrow">WHO WE ARE</p><h2 data-i18n="about.title">Building a connected Jain youth community.</h2></div><div class="copy"><p data-i18n="about.p1">Jain Youth Karnal is the public-facing youth identity of <strong>Jin Shasan Prabhavna Sangh Karnal</strong>. The initiative brings together young Jains through spirituality, Jain knowledge, temple visits, yatras, bhakti, community events and seva.</p><p data-i18n="about.p2">The website is designed to become a living archive and a community gateway — not simply an information page.</p></div></div></section>
+  <main id="home">
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">JIN SHASAN PRABHAVNA SANGH • KARNAL</p>
+          <h1>A digital home for <em>Jain youth</em> in Karnal.</h1>
+          <p class="lead">Discover. Connect. Learn. Experience. Participate. Serve.</p>
+          <p class="hero-text">A community space for Jain darshan, yatras, knowledge, bhakti, events and seva — created to bring young Jains together.</p>
+          <div class="actions">
+            <a class="button primary" href="#join">Join the Community</a>
+            <a class="button secondary" href="#yatra">Explore Yatra</a>
+          </div>
+          <div class="social-line">
+            <a href="https://www.instagram.com/jainyouth.karnal/" target="_blank" rel="noopener">Instagram</a>
+            <span>•</span>
+            <a href="https://www.youtube.com/@jainyouth.karnal" target="_blank" rel="noopener">YouTube</a>
+            <span>•</span>
+            <a href="mailto:jainyouthkarnal@gmail.com">Email</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="image-frame">
+            <img src="assets/darshan-01.jpg" alt="Jain temple darshan">
+          </div>
+          <div class="floating-card">
+            <span>JIN DARSHAN</span>
+            <strong>Faith • Community • Journey</strong>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="trips" class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="trips.eyebrow">MONTHLY JAIN TRIPS</p><h2 data-i18n="trips.title">A year of journeys, darshan & memories.</h2><p class="section-intro" data-i18n="trips.intro">Jin Shasan Prabhavna Sangh's 2026 monthly trip journey across Jain destinations.</p></div><span class="pill">2026</span></div>
-<div class="trip-grid">
-<article class="trip-card"><span>22 MAR 2026</span><h3>Ranila Ji</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Not specified</p><div class="trip-media-links"><a href="assets/trips/01-Ranila-Ji/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/01-Ranila-Ji/group/" data-i18n="trip.group">Group</a><a href="assets/trips/01-Ranila-Ji/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-<article class="trip-card"><span>05 APR 2026</span><h3>Jalabaad</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Not specified</p><div class="trip-media-links"><a href="assets/trips/02-Jalabaad/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/02-Jalabaad/group/" data-i18n="trip.group">Group</a><a href="assets/trips/02-Jalabaad/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-<article class="trip-card"><span>09 MAY 2026</span><h3>Hastinapur</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Not specified</p><div class="trip-media-links"><a href="assets/trips/03-Hastinapur/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/03-Hastinapur/group/" data-i18n="trip.group">Group</a><a href="assets/trips/03-Hastinapur/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-<article class="trip-card"><span>14 JUN 2026</span><h3>Sonipat</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Shantinath Temple</p><div class="trip-media-links"><a href="assets/trips/04-Sonipat/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/04-Sonipat/group/" data-i18n="trip.group">Group</a><a href="assets/trips/04-Sonipat/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-<article class="trip-card"><span>18 JUL 2026</span><h3>Hansi</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Not specified</p><div class="trip-media-links"><a href="assets/trips/05-Hansi/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/05-Hansi/group/" data-i18n="trip.group">Group</a><a href="assets/trips/05-Hansi/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-<article class="trip-card"><span>16 AUG 2026</span><h3>Vehlana Ji</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Not specified</p><div class="trip-media-links"><a href="assets/trips/06-Vehlana-Ji/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/06-Vehlana-Ji/group/" data-i18n="trip.group">Group</a><a href="assets/trips/06-Vehlana-Ji/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-<article class="trip-card"><span>07 SEP 2026</span><h3>Gannaur</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Guptidham and Ancient Temple</p><div class="trip-media-links"><a href="assets/trips/07-Gannaur/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/07-Gannaur/group/" data-i18n="trip.group">Group</a><a href="assets/trips/07-Gannaur/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-<article class="trip-card featured"><span>04 OCT 2026</span><h3>Badegaon</h3><p><span data-i18n="trip.visited">Mandir visited:</span> Trilok Teerth Dham, Shri 1008 Parshvanath Digambar Jain Atishay Kshetra, Shri Digamber Jain Bahubali Jinbimb Mandir</p><div class="trip-media-links"><a href="assets/trips/08-Badegaon/mandir/" data-i18n="trip.mandir">Mandir</a><a href="assets/trips/08-Badegaon/group/" data-i18n="trip.group">Group</a><a href="assets/trips/08-Badegaon/memories/" data-i18n="trip.memories">Trip Memories</a></div><p class="trip-folder-note" data-i18n="trip.folderNote">Add photos to the three folders to build this trip archive.</p></article>
-</div></div></section>
+    <section id="about" class="section section-light">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">WHO WE ARE</p>
+          <h2>Building a connected Jain youth community.</h2>
+        </div>
+        <div class="copy">
+          <p>Jain Youth Karnal is the public-facing youth identity of <strong>Jin Shasan Prabhavna Sangh Karnal</strong>. The initiative brings together young Jains through spirituality, Jain knowledge, cultural connection, and community service.</p>
+          <p>The website is designed to become a living archive and a community gateway — not simply an information page.</p>
+        </div>
+      </div>
+    </section>
 
-<section id="yatra-map" class="section section-map"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="map.eyebrow">MONTHLY YATRA MAP</p><h2 data-i18n="map.title">Our journeys across India.</h2><p class="section-intro" data-i18n="map.intro">Pinning the places visited so far as part of Jain Youth Karnal's monthly yatra journey.</p></div><span class="pill" id="yatra-count" data-i18n="map.count">8 places visited</span></div><div class="map-layout"><div class="india-map-card"><div class="india-map-wrap" id="india-map-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/India_states_and_union_territories_map.svg" alt="Political map of India with Jain Youth Karnal monthly yatra locations"><div id="yatra-pins" aria-label="Monthly Yatra locations"></div></div><p class="map-credit" data-i18n="map.credit">Map: India states & union territories map • yatra pins use the exact temple coordinates supplied for each visit • Wikimedia Commons</p></div><div class="map-list"><h3 data-i18n="map.listTitle">Visited so far</h3><ol id="yatra-list"></ol></div></div></div></section>
+    <section id="yatra" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">JAIN YATRA</p><h2>This Month's Destination</h2></div>
+          <span class="pill">Coming Soon</span>
+        </div>
+        <div class="destination-card">
+          <div class="destination-image"><img src="assets/darshan-02.jpg" alt="Jain temple darshan"></div>
+          <div class="destination-content">
+            <p class="eyebrow">MONTHLY JAIN YATRA</p>
+            <h3>Destination details will be announced here.</h3>
+            <p>Follow Jain Youth Karnal for the destination announcement, registration details, countdown, live journey updates and the post-yatra gallery.</p>
+            <a class="text-link" href="https://www.instagram.com/jainyouth.karnal/" target="_blank" rel="noopener">Follow the latest updates →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="calendar" class="section section-cream"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="calendar.eyebrow">COMMUNITY CALENDAR</p><h2 data-i18n="calendar.title">Keep every yatra, class & event in view.</h2><p class="section-intro" data-i18n="calendar.intro">A simple calendar for monthly trips, Sunday Pathshala and community events.</p></div><div class="calendar-controls"><button class="calendar-nav" id="cal-prev" type="button" aria-label="Previous month">‹</button><strong id="cal-month">October 2026</strong><button class="calendar-nav" id="cal-next" type="button" aria-label="Next month">›</button></div></div><div class="calendar-shell"><div class="calendar-week"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calendar-grid" class="calendar-grid"></div></div><div class="calendar-legend"><span><i class="legend-dot trip"></i><span data-i18n="calendar.tripLegend">Monthly Yatra</span></span><span><i class="legend-dot path"></i><span data-i18n="calendar.pathLegend">Sunday Pathshala</span></span><span><i class="legend-dot event"></i><span data-i18n="calendar.eventLegend">Community Event</span></span></div></div></section>
+    <section id="events" class="section section-cream">
+      <div class="container">
+        <p class="eyebrow">COMMUNITY CALENDAR</p>
+        <h2>Events & activities</h2>
+        <div class="cards three">
+          <article class="card"><span class="card-number">01</span><h3>Religious Events</h3><p>Jain parvas, puja, bhakti and spiritual programmes.</p></article>
+          <article class="card"><span class="card-number">02</span><h3>Youth Events</h3><p>Activities that bring Jain youth together through participation and connection.</p></article>
+          <article class="card"><span class="card-number">03</span><h3>Cultural & Seva</h3><p>Community programmes, cultural activities and future seva initiatives.</p></article>
+        </div>
+      </div>
+    </section>
 
-<section id="announcements" class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="ann.eyebrow">LATEST ANNOUNCEMENTS</p><h2 data-i18n="ann.title">What’s happening in our community.</h2><p class="section-intro" data-i18n="ann.intro">A dedicated space for new yatra announcements, Pathshala updates, events, seva notices and important community information.</p></div><a class="button secondary" href="#join" data-i18n="ann.cta">Share an Update</a></div><div class="announcement-grid"><article class="announcement-card featured"><span class="announcement-tag" data-i18n="ann.tag1">REGULAR</span><h3 data-i18n="ann.a1t">Sunday Pathshala</h3><p data-i18n="ann.a1p">Every Sunday • 8:00 AM – 9:00 AM • Karnal</p><a href="#pathshala" data-i18n="ann.more">View details →</a></article><article class="announcement-card"><span class="announcement-tag" data-i18n="ann.tag2">LATEST YATRA</span><h3 data-i18n="ann.a2t">Badegaon</h3><p data-i18n="ann.a2p">4 October 2026 • Trilok Teerth Dham and other Jain temples in Badegaon.</p><a href="#trips" data-i18n="ann.more">View trip →</a></article><article class="announcement-card"><span class="announcement-tag" data-i18n="ann.tag3">COMING SOON</span><h3 data-i18n="ann.a3t">Next Monthly Yatra</h3><p data-i18n="ann.a3p">The next destination can be announced here as soon as it is confirmed.</p><a href="#join" data-i18n="ann.more">Stay connected →</a></article></div></div></section>
+    <section id="knowledge" class="section">
+      <div class="container">
+        <p class="eyebrow">JAIN KNOWLEDGE</p>
+        <div class="section-heading"><h2>Learn Jain Dharma, one story at a time.</h2><span class="muted">Knowledge Hub</span></div>
+        <div class="knowledge-grid">
+          <div class="knowledge-item"><span>01</span><h3>Tirthankaras</h3><p>Profiles, teachings and important milestones.</p></div>
+          <div class="knowledge-item"><span>02</span><h3>Kalyanaks</h3><p>Explore the five Kalyanaks and their significance.</p></div>
+          <div class="knowledge-item"><span>03</span><h3>Jain Places</h3><p>Atishay Kshetras, Siddha Kshetras, Jinalayas and pilgrimage destinations.</p></div>
+          <div class="knowledge-item"><span>04</span><h3>Practices & Parvas</h3><p>Jaap, Bhaktamar, puja, parvas and other Jain practices.</p></div>
+        </div>
+      </div>
+    </section>
 
-<section id="pathshala" class="section section-cream"><div class="container pathshala-grid"><div><p class="eyebrow" data-i18n="path.eyebrow">SUNDAY PATHSHALA</p><h2 data-i18n="path.title">Learn, grow & stay connected with Jain values.</h2><p class="copy" data-i18n="path.text">Sunday Pathshala is a regular learning space for the Jain community in Karnal — bringing children and young learners together for Jain knowledge, values, stories and sanskar.</p><div class="schedule-box"><span data-i18n="path.every">EVERY SUNDAY</span><strong>8:00 AM – 9:00 AM</strong><small>Jin Shasan Prabhavna Sangh • Karnal</small></div></div><div class="pathshala-points"><div><span>01</span><h3 data-i18n="path.p1t">Jain Dharma</h3><p data-i18n="path.p1p">Learn foundational Jain principles and teachings.</p></div><div><span>02</span><h3 data-i18n="path.p2t">Stories & Sanskar</h3><p data-i18n="path.p2p">Build connection with Jain values through stories and activities.</p></div><div><span>03</span><h3 data-i18n="path.p3t">Community</h3><p data-i18n="path.p3p">Learn together and grow as part of the Jain community.</p></div></div></div></section>
+    <section id="darshan" class="section section-dark">
+      <div class="container">
+        <div class="section-heading light"><div><p class="eyebrow">JIN DARSHAN DIARIES</p><h2>Places of faith, captured with care.</h2></div><span class="muted">Darshan • Architecture • Memory</span></div>
+        <div class="gallery">
+          <img src="assets/darshan-01.jpg" alt="Jain temple darshan">
+          <img src="assets/darshan-02.jpg" alt="Jain temple darshan">
+          <img src="assets/darshan-03.jpg" alt="Jain temple darshan">
+          <img src="assets/darshan-04.jpg" alt="Jain temple darshan">
+        </div>
+      </div>
+    </section>
 
-<section id="events" class="section section-cream"><div class="container"><p class="eyebrow" data-i18n="events.eyebrow">COMMUNITY CALENDAR</p><h2 data-i18n="events.title">Events & activities</h2><div class="cards three"><article class="card"><span class="card-number">01</span><h3 data-i18n="events.c1t">Religious Events</h3><p data-i18n="events.c1p">Jain parvas, puja, bhakti and spiritual programmes.</p></article><article class="card"><span class="card-number">02</span><h3 data-i18n="events.c2t">Youth Events</h3><p data-i18n="events.c2p">Activities that bring Jain youth together through participation and connection.</p></article><article class="card"><span class="card-number">03</span><h3 data-i18n="events.c3t">Cultural & Seva</h3><p data-i18n="events.c3p">Community programmes, cultural activities and future seva initiatives.</p></article></div></div></section>
+    <section id="join" class="section section-light">
+      <div class="container join-grid">
+        <div><p class="eyebrow">BECOME A PART</p><h2>Join Jain Youth Karnal.</h2><p class="copy">Whether you want to join a yatra, volunteer at an event, contribute content, participate in seva or learn more about Jain dharma, there's a way for you to be involved.</p></div>
+        <form class="join-form" action="mailto:jainyouthkarnal@gmail.com" method="post" enctype="text/plain">
+          <label>Name<input name="name" required placeholder="Your name"></label>
+          <label>Email<input type="email" name="email" placeholder="Your email"></label>
+          <label>Phone<input name="phone" placeholder="Your phone number"></label>
+          <label>How would you like to participate? <select name="interest"><option>Jain Yatra</option><option>Events</option><option>Seva</option><option>Jain Education</option><option>Bhakti</option><option>Other</option></select></label>
+          <button class="button primary" type="submit">Connect With Us</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-<section id="knowledge" class="section"><div class="container"><p class="eyebrow" data-i18n="knowledge.eyebrow">JAIN KNOWLEDGE</p><div class="section-heading"><h2 data-i18n="knowledge.title">Learn Jain Dharma, one story at a time.</h2><span class="muted" data-i18n="knowledge.label">Knowledge Hub</span></div><div class="knowledge-grid"><div class="knowledge-item"><span>01</span><h3 data-i18n="knowledge.k1t">Tirthankaras</h3><p data-i18n="knowledge.k1p">Profiles, teachings and important milestones.</p></div><div class="knowledge-item"><span>02</span><h3 data-i18n="knowledge.k2t">Kalyanaks</h3><p data-i18n="knowledge.k2p">Explore the five Kalyanaks and their significance.</p></div><div class="knowledge-item"><span>03</span><h3 data-i18n="knowledge.k3t">Jain Places</h3><p data-i18n="knowledge.k3p">Atishay Kshetras, Siddha Kshetras, Jinalayas and pilgrimage destinations.</p></div><div class="knowledge-item"><span>04</span><h3 data-i18n="knowledge.k4t">Practices & Parvas</h3><p data-i18n="knowledge.k4p">Jaap, Bhaktamar, puja, parvas and other Jain practices.</p></div></div></div></section>
-
-<section id="bhakti" class="section section-bhakti"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="bhakti.eyebrow">BHAKTI SANGEET</p><h2 data-i18n="bhakti.title">Bhajans to read, reflect on and sing.</h2><p class="section-intro" data-i18n="bhakti.intro">Bhajans are shown in original Hindi with a Roman-script version for easy singing. There is no English translation.</p></div></div>
-<div class="bhajan-tools" aria-label="Bhajan search and filters"><label class="bhajan-search"><span class="sr-only">Search bhajans</span><input id="bhajan-search" type="search" placeholder="Search bhajans..." autocomplete="off" data-i18n-placeholder="bhakti.searchPlaceholder"></label><div class="bhajan-tags" id="bhajan-tags" aria-label="Filter bhajans by tag"></div></div>
-<div id="bhajan-empty" class="bhajan-empty" hidden>No bhajans found. Try another search or tag.</div>
-<article class="bhajan-card" data-tags="mahavir,bhajan" data-title="जहाँ याद करो महावीर वहीं"><div class="bhajan-head"><div><span class="bhajan-number">01</span><h3>🪷 जहाँ याद करो महावीर वहीं 🪷</h3><div class="bhajan-tag-list"><button type="button" class="bhajan-tag" data-tag="mahavir">mahavir</button><button type="button" class="bhajan-tag" data-tag="bhajan">bhajan</button></div></div><span class="bhajan-label" data-i18n="bhakti.label">Bhajan</span></div><div class="bhajan-media"><div class="bhajan-poster-slot"><span>POSTER</span><small>Optional: add poster to<br>assets/bhajans/01-Jahan-Yaad-Karo-Mahavir-Wahin/poster/poster.jpg</small></div><a class="audio-link disabled" href="#" aria-disabled="true" data-audio-url="" data-i18n="bhakti.audioUnavailable">🎧 Listen / Audio</a></div><div class="lyrics-columns"><div class="lyrics-column"><h4>हिंदी</h4><div class="lyrics-panel lyrics-hi"><p>महलों में नहीं, कुटिया में नहीं,<br>जहाँ याद करो महावीर वहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>क्यों पाप कमाके धन जोड़ा,<br>क्यों अपनों से रिश्ता तोड़ा,<br>सोने में नहीं, चाँदी में नहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>क्यों छुप कर जोड़ रहा माया,<br>तुझे देख रहा ऊपर वाला,<br>कंकड़ में नहीं, पत्थर में नहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>पाताल गगन और जल थल में,<br>भक्तों को सुनते पल भर में,<br>गंगा में नहीं, यमुना में नहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>यह सब प्रभु की माया है,<br>इसे कोई समझ नहीं पाया है,<br>कण-कण में वही, क्षण-क्षण में वही,<br>जहाँ याद करो महावीर वहीं। 🙏🪷</p><p>जहाँ याद करो महावीर वहीं…<br>जहाँ याद करो महावीर वहीं… 🙏🌸</p></div></div><div class="lyrics-column"><h4>Roman</h4><div class="lyrics-panel lyrics-roman"><p>Mahalon mein nahi, kutiya mein nahi,<br>Jaha yaad kro Mahavir wahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Kyu paap kamaake dhan joda,<br>Kyu apno se rishta toda,<br>Sone mein nahi, chaandi mein nahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Kyu chhup kar jod raha maya,<br>Tujhe dekh raha upar wala,<br>Kankar mein nahi, patthar mein nahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Pataal gagan aur jal thal mein,<br>Bhakton ko sunte pal bhar mein,<br>Ganga mein nahi, Yamuna mein nahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Yeh sab Prabhu ki maya hai,<br>Ise koi samajh nahi paaya hai,<br>Kan-kan mein wahi, kshan-kshan mein wahi,<br>Jaha yaad kro Mahavir wahi. 🙏🪷</p><p>Jaha yaad kro Mahavir wahi…<br>Jaha yaad kro Mahavir wahi… 🙏🌸</p></div></div></div></article>
-<article class="bhajan-card" data-tags="bhajan,god" data-title="नाम है तेरा तारण हारा"><div class="bhajan-head"><div><span class="bhajan-number">02</span><h3>🪷 नाम है तेरा तारण हारा 🪷</h3><div class="bhajan-tag-list"><button type="button" class="bhajan-tag" data-tag="bhajan">bhajan</button><button type="button" class="bhajan-tag" data-tag="god">god</button></div></div><span class="bhajan-label" data-i18n="bhakti.label">Bhajan</span></div><div class="bhajan-media"><div class="bhajan-poster-slot"><span>POSTER</span><small>Optional: add poster to<br>assets/bhajans/02-Naam-Hai-Tera-Taran-Hara/poster/poster.jpg</small></div><a class="audio-link disabled" href="#" aria-disabled="true" data-audio-url="" data-i18n="bhakti.audioUnavailable">🎧 Listen / Audio</a></div><div class="lyrics-columns"><div class="lyrics-column"><h4>हिंदी</h4><div class="lyrics-panel lyrics-hi"><p>नाम है तेरा तारण हारा,<br>कब तेरा दर्शन होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा ।</p><p>तुमने तारे लाखों प्राणी,<br>ये संतो की वाणी है,<br>तेरी छवि पर वो मेरे भगवन,<br>ये दुनिया दीवानी है,<br>भाव से तेरी पूजा रचाऊं,<br>जीवन में मंगल होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>सुरवर मुनिवर जिनके चरणे,<br>निशदिन शीश झुकाते है,<br>जो गाते है प्रभु की महिमा,<br>वो सब कुछ पा जाते है,<br>अपने कष्ट मिटाने को तेरे,<br>चरणों का वंदन होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>मन की मुरादें लेकर स्वामी,<br>तेरे चरण में आए है,<br>हम है बालक तेरे चरण में,<br>तेरे ही गुण गाते है,<br>भव से पार उतरने को तेरे,<br>गीतो का संगम होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>ऐसी दया कर देना दाता,<br>निश्छल गुजरे ये जीवन,<br>रंग लगे नहीं कपट झूठ का,<br>हो पावन मेरा तन मन,<br>सेवा में तेरी ओ मेरे स्वामी,<br>भक्तिभाव अर्पण होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>नाम है तेरा तारण हारा,<br>कब तेरा दर्शन होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p></div></div><div class="lyrics-column"><h4>Roman</h4><div class="lyrics-panel lyrics-roman"><p>Naam hai tera taaran haara,<br>Kab tera darshan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga.</p><p>Tumne taare laakhon praani,<br>Ye santo ki vaani hai,<br>Teri chhavi par vo mere Bhagwan,<br>Ye duniya deewani hai,<br>Bhaav se teri pooja rachaaun,<br>Jeevan mein mangal hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Survar munivar jinke charane,<br>Nishdin sheesh jhukaate hai,<br>Jo gaate hai Prabhu ki mahima,<br>Vo sab kuch paa jaate hai,<br>Apne kasht mitaane ko tere,<br>Charanon ka vandan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Man ki muraadein lekar Swami,<br>Tere charan mein aaye hai,<br>Hum hai baalak tere charan mein,<br>Tere hi gun gaate hai,<br>Bhav se paar utarne ko tere,<br>Geeton ka sangam hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Aisi daya kar dena daata,<br>Nishchal guzre ye jeevan,<br>Rang lage nahi kapat jhooth ka,<br>Ho paavan mera tan man,<br>Seva mein teri O mere Swami,<br>Bhaktibhaav arpan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Naam hai tera taaran haara,<br>Kab tera darshan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p></div></div></div></article>
-<div class="bhakti-note"><span>🪷</span><p data-i18n="bhakti.note"><strong>Bhakti Sangeet</strong><br>More Jain bhajans and devotional content can be added here over time.</p></div></div></section>
-
-<section id="darshan" class="section section-dark"><div class="container"><div class="section-heading light"><div><p class="eyebrow" data-i18n="darshan.eyebrow">JIN DARSHAN DIARIES</p><h2 data-i18n="darshan.title">Places of faith, captured with care.</h2><p class="section-intro section-intro-dark" data-i18n="darshan.intro">Karnal Mandir darshan will have its own dedicated gallery, including up to eight images of the deities.</p></div><span class="muted" data-i18n="darshan.label">Darshan • Architecture • Memories</span></div><div class="gallery"><img src="assets/darshan-01.jpg" alt="Jain temple darshan"><img src="assets/darshan-02.jpg" alt="Jain temple darshan"><img src="assets/darshan-03.jpg" alt="Jain temple darshan"><img src="assets/darshan-04.jpg" alt="Jain temple darshan"></div><div class="karnal-media-note"><div><strong data-i18n="darshan.karnalTitle">Karnal Mandir • Deity Gallery</strong><p data-i18n="darshan.karnalText">Eight image slots are prepared in <code>assets/karnal-mandir/god-images/</code>. Add files as <code>god-01</code> through <code>god-08</code> when ready.</p></div><span class="flag-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div></div></section>
-
-<section id="mandir-location" class="section section-cream"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="mandirMap.eyebrow">OUR MANDIR • KARNAL</p><h2 data-i18n="mandirMap.title">Visit Our Shree Digamber Jain Mandir.</h2><p class="section-intro" data-i18n="mandirMap.intro">Find our mandir in Karnal and get directions directly from Google Maps.</p></div><a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=29.6824999,76.7025384" target="_blank" rel="noopener" data-i18n="mandirMap.button">Open in Google Maps →</a></div><div class="mandir-map-card"><iframe title="Shree Digamber Jain Mandir, Karnal — Google Maps" src="https://www.google.com/maps?q=29.6824999,76.7025384&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="mandir-map-details"><span class="pill">Shree Digamber Jain Mandir</span><p><strong>Karnal</strong><br><span>29.6824999, 76.7025384</span></p><a href="https://www.google.com/maps/search/?api=1&query=29.6824999,76.7025384" target="_blank" rel="noopener">Get directions →</a></div></div></div></section>
-
-<section id="join" class="section section-light"><div class="container join-grid"><div><p class="eyebrow" data-i18n="join.eyebrow">BECOME A PART</p><h2 data-i18n="join.title">Join Jain Youth Karnal.</h2><p class="copy" data-i18n="join.text">Whether you want to join a yatra, volunteer at an event, contribute content, participate in seva or simply stay connected — we'd love to hear from you.</p></div><form class="join-form" action="mailto:jainyouthkarnal@gmail.com" method="post" enctype="text/plain"><label><span data-i18n="form.name">Name</span><input name="name" required placeholder="Your name" data-i18n-placeholder="form.nameph"></label><label><span data-i18n="form.email">Email</span><input type="email" name="email" placeholder="Your email" data-i18n-placeholder="form.emailph"></label><label><span data-i18n="form.phone">Phone</span><input name="phone" placeholder="Your phone number" data-i18n-placeholder="form.phoneph"></label><label><span data-i18n="form.interest">How would you like to participate?</span><select name="interest"><option data-i18n="form.opt1">Jain Yatra</option><option data-i18n="form.opt2">Events</option><option data-i18n="form.opt3">Seva</option><option data-i18n="form.opt4">Jain Education</option><option data-i18n="form.opt5">Bhakti</option><option data-i18n="form.opt6">Content / Photography</option><option data-i18n="form.opt7">Volunteering</option></select></label><button class="button primary" type="submit" data-i18n="form.submit">Connect With Us</button></form></div></section>
-</main>
-<footer class="footer"><div class="container footer-grid"><div><img src="assets/logo.png" alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal" class="footer-logo"><p>Jain Youth Karnal<br>Jin Shasan Prabhavna Sangh</p></div><div><p class="footer-title" data-i18n="footer.explore">Explore</p><a href="#trips" data-i18n="nav.trips">Monthly Trips</a><a href="#mandir-location" data-i18n="nav.mandirMap">Our Mandir</a><a href="#yatra-map" data-i18n="nav.map">Yatra Map</a><a href="#calendar" data-i18n="nav.calendar">Calendar</a><a href="#announcements" data-i18n="nav.announcements">Announcements</a><a href="#pathshala" data-i18n="nav.pathshala">Sunday Pathshala</a><a href="#events" data-i18n="nav.events">Events</a><a href="#knowledge" data-i18n="nav.knowledge">Knowledge</a><a href="#bhakti" data-i18n="nav.bhakti">Bhakti</a><a href="#darshan" data-i18n="nav.darshan">Darshan</a></div><div><p class="footer-title" data-i18n="footer.connect">Connect</p><div class="footer-socials"><a class="footer-social" href="https://www.instagram.com/jainyouth.karnal/" target="_blank" rel="noopener" aria-label="Instagram — @jainyouth.karnal" title="Instagram — @jainyouth.karnal"><img src="assets/social/instagram.png" alt="Instagram"></a><a class="footer-social" href="https://www.youtube.com/@jainyouth.karnal" target="_blank" rel="noopener" aria-label="YouTube — Jain Youth Karnal" title="YouTube — Jain Youth Karnal"><img src="assets/social/youtube.png" alt="YouTube"></a></div><a class="footer-email" href="mailto:jainyouthkarnal@gmail.com">jainyouthkarnal@gmail.com</a></div></div><div class="container copyright">© <span id="year"></span> Jain Youth Karnal. <span data-i18n="footer.rights">All rights reserved.</span></div></footer>
-<script src="data/yatra-data.json" type="application/json" id="yatra-data"></script>
-<script src="script.js"></script>
-</body></html>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><img src="assets/logo.png" alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal" class="footer-logo"><p>Jain Youth Karnal<br>Jin Shasan Prabhavna Sangh</p></div>
+      <div><p class="footer-title">Explore</p><a href="#yatra">Yatra</a><a href="#events">Events</a><a href="#knowledge">Knowledge</a><a href="#darshan">Darshan</a></div>
+      <div><p class="footer-title">Connect</p><a href="https://www.instagram.com/jainyouth.karnal/" target="_blank" rel="noopener">@jainyouth.karnal</a><a href="https://www.youtube.com/@jainyouth.karnal" target="_blank" rel="noopener">YouTube</a><a href="mailto:jainyouthkarnal@gmail.com">Email</a></div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> Jain Youth Karnal. All rights reserved.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
