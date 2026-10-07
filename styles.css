@@ -73,3 +73,26 @@
 .bhajan-empty{padding:24px;background:#fff;border:1px dashed var(--line);border-radius:16px;color:var(--muted);margin-bottom:18px}
 .bhajan-card[hidden]{display:none}
 @media(max-width:720px){.lyrics-columns{grid-template-columns:1fr}.lyrics-column{padding:17px}.bhajan-search{flex-basis:100%;max-width:none}}
+
+.trip-card .trip-mandir-label{font-weight:700;color:var(--green);margin-bottom:4px}.trip-mandirs{margin:0 0 14px;padding-left:20px;font-size:.88rem;color:var(--muted)}.trip-mandirs li{margin:2px 0;padding-left:2px}.trip-mandirs li::marker{color:var(--gold)}
+
+/* Interactive Yatra map (Leaflet) */
+.yatra-map-canvas{width:100%;height:600px;border-radius:16px;overflow:hidden;position:relative;z-index:0;isolation:isolate;background:#eef2ee}
+.yatra-map-canvas .map-error{margin:0;padding:40px 24px;color:var(--muted);text-align:center}
+.yp-wrap{background:none;border:0}
+.yp{width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--c);border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.28);display:grid;place-items:center}
+.yp b{transform:rotate(45deg);color:#fff;font:800 .75rem var(--sans)}
+.leaflet-container{font-family:var(--sans)}
+.leaflet-container .yp-pop{min-width:190px}
+.yp-pop small{display:block;color:var(--gold);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.66rem}
+.yp-pop h4{font-family:var(--serif);color:var(--green);font-size:1.1rem;margin:2px 0 6px}
+.yp-pop p{margin:0 0 8px}
+.yp-pop ul{margin:0 0 8px;padding-left:18px;color:var(--ink);font-size:.82rem}
+.leaflet-container .yp-pop a{color:var(--green);font-weight:700;text-decoration:none}
+.map-reset{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font:700 .75rem var(--sans);color:var(--green);cursor:pointer;box-shadow:0 4px 12px rgba(12,59,46,.15)}
+.map-reset:hover{background:var(--sage)}
+.map-list li{cursor:pointer}
+.map-list li:hover strong{color:var(--gold)}
+.map-list .map-temples{margin:2px 0 0;padding-left:16px;list-style:disc;color:var(--muted);font-size:.72rem}
+.map-list .map-temples li{display:list-item;padding:0;border:0;cursor:inherit}
+@media(max-width:900px){.yatra-map-canvas{height:460px}}

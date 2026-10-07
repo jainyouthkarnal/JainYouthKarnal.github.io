@@ -67,30 +67,88 @@ document.querySelectorAll('.audio-link[data-audio-url]').forEach(link=>{
 });
 
 
-// Monthly Yatra map data. Edit data/yatra-data.json for future trips/temple updates.
-(function renderYatraMap(){
-  const node=document.getElementById('yatra-data');
-  if(!node)return;
-  let data;
-  try{data=JSON.parse(node.textContent)}catch(e){return;}
-  const pins=document.getElementById('yatra-pins'),list=document.getElementById('yatra-list'),count=document.getElementById('yatra-count');
-  if(!pins||!list)return;
+// Monthly Yatra map: reads data/yatra-data.json (exact temple coordinates) and draws an interactive map.
+(async function renderYatraMap(){
+  const canvas=document.getElementById('yatra-map-canvas'),list=document.getElementById('yatra-list'),count=document.getElementById('yatra-count');
+  if(!canvas||!list)return;
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const mapsUrl=(lat,lon)=>`https://www.google.com/maps?q=${lat},${lon}`;
   const fmtDate=iso=>new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
-  if(count)count.textContent=`${data.trips.length} places visited`;
-  data.trips.forEach((trip,i)=>{
-    const pin=document.createElement('a');
-    pin.className='map-pin';
-    pin.href=mapsUrl(trip.coordinates[0],trip.coordinates[1]); pin.target='_blank'; pin.rel='noopener';
-    pin.style.left=`${trip.mapPosition.left}%`; pin.style.top=`${trip.mapPosition.top}%`;
-    pin.dataset.place=trip.place; pin.title=`${trip.temple} • ${trip.coordinates.join(', ')}`;
-    pin.innerHTML=`<b>${i+1}</b><em>${trip.place}</em>`;
-    pins.appendChild(pin);
+  const temples=t=>t.temple.split(';').map(x=>x.trim()).filter(Boolean);
+  const templeList=(t,cls)=>`<ul class="${cls}">${temples(t).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+  const colors=['#D71920','#d99a00','#148A45','#1746B8','#0c3b2e'];
 
+  let data;
+  try{
+    const res=await fetch('data/yatra-data.json',{cache:'no-cache'});
+    if(!res.ok)throw new Error(res.status);
+    data=await res.json();
+  }catch(e){
+    canvas.innerHTML='<p class="map-error">The map could not load its data. Please open the site through GitHub Pages or a local server instead of opening index.html directly.</p>';
+    return;
+  }
+  if(count)count.textContent=`${data.trips.length} places visited`;
+
+  const items=[];
+  data.trips.forEach((trip,i)=>{
     const li=document.createElement('li');
-    li.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span><div><strong>${trip.place}</strong><small>${fmtDate(trip.date)}</small><small>${trip.temple}</small><small>📍 ${trip.coordinates[0]}, ${trip.coordinates[1]}</small><a href="${mapsUrl(trip.coordinates[0],trip.coordinates[1])}" target="_blank" rel="noopener">Open in Google Maps →</a></div>`;
+    li.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span><div><strong>${esc(trip.place)}</strong><small>${fmtDate(trip.date)}</small>${templeList(trip,'map-temples')}<a href="${mapsUrl(trip.coordinates[0],trip.coordinates[1])}" target="_blank" rel="noopener">Open in Google Maps →</a></div>`;
     list.appendChild(li);
+    items.push(li);
   });
+
+  if(typeof L==='undefined'){
+    canvas.innerHTML='<p class="map-error">The map library could not be loaded. Please check your internet connection.</p>';
+    return;
+  }
+
+  const home=data.homeMandir&&data.homeMandir.coordinates;
+  const map=L.map(canvas,{scrollWheelZoom:false});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+    subdomains:'abcd',maxZoom:18,
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  }).addTo(map);
+  // Scroll-zoom only after the visitor clicks the map, so the page can still scroll normally.
+  map.on('click',()=>map.scrollWheelZoom.enable());
+  canvas.addEventListener('mouseleave',()=>map.scrollWheelZoom.disable());
+
+  const pin=(label,color)=>L.divIcon({className:'yp-wrap',html:`<span class="yp" style="--c:${color}"><b>${label}</b></span>`,iconSize:[34,34],iconAnchor:[17,41],popupAnchor:[0,-38],tooltipAnchor:[18,-22]});
+  const points=[];
+
+  if(home){
+    points.push(home);
+    L.marker(home,{icon:pin('★','#b58a35'),zIndexOffset:1000}).addTo(map)
+      .bindTooltip(`${esc(data.homeMandir.place)} (home)`)
+      .bindPopup(`<div class="yp-pop"><small>Home mandir</small><h4>${esc(data.homeMandir.name)}</h4><p>${esc(data.homeMandir.place)}</p><a href="${mapsUrl(home[0],home[1])}" target="_blank" rel="noopener">Open in Google Maps →</a></div>`);
+  }
+
+  const markers=data.trips.map((trip,i)=>{
+    const ll=trip.coordinates;
+    points.push(ll);
+    if(home)L.polyline([home,ll],{color:'#b58a35',weight:1.6,opacity:.65,dashArray:'4 7'}).addTo(map);
+    return L.marker(ll,{icon:pin(i+1,colors[i%colors.length])}).addTo(map)
+      .bindTooltip(esc(trip.place))
+      .bindPopup(`<div class="yp-pop"><small>${fmtDate(trip.date)}</small><h4>${esc(trip.place)}</h4>${templeList(trip,'yp-temples')}<a href="${mapsUrl(ll[0],ll[1])}" target="_blank" rel="noopener">Open in Google Maps →</a></div>`,{maxWidth:280});
+  });
+
+  const bounds=L.latLngBounds(points);
+  const fitAll=()=>map.fitBounds(bounds,{padding:[40,40]});
+  fitAll();
+  const Reset=L.Control.extend({onAdd(){
+    const b=L.DomUtil.create('button','map-reset');b.type='button';b.textContent='Show all';
+    L.DomEvent.disableClickPropagation(b);
+    b.addEventListener('click',()=>{map.closePopup();map.flyToBounds(bounds,{padding:[40,40]});});
+    return b;}});
+  new Reset({position:'topright'}).addTo(map);
+
+  // Clicking a place in the list focuses it on the map.
+  items.forEach((li,i)=>li.addEventListener('click',e=>{
+    if(e.target.closest('a'))return;
+    canvas.scrollIntoView({behavior:'smooth',block:'center'});
+    map.flyTo(markers[i].getLatLng(),Math.max(map.getZoom(),10),{duration:.8});
+    markers[i].openPopup();
+  }));
+  setTimeout(()=>{map.invalidateSize();fitAll();},300);
 })();
 
 // Community calendar: 2026 trip dates + recurring Sunday Pathshala.
