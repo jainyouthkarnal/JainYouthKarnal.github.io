@@ -188,3 +188,113 @@ if(nextCal)nextCal.addEventListener('click',()=>{calDate.setMonth(calDate.getMon
 renderCalendar();
 const oldSetLanguage=setLanguage;
 setLanguage=function(lang){oldSetLanguage(lang);renderCalendar();};
+
+// Bhajan lyrics: Hindi + Roman shown together, line by line (falls back to side-by-side if line counts differ).
+(function initLyricsViews(){
+  document.querySelectorAll('.bhajan-card').forEach(card=>{
+    const hi=card.querySelector('.lyrics-hi'),ro=card.querySelector('.lyrics-roman'),cols=card.querySelector('.lyrics-columns');
+    if(!hi||!ro||!cols)return;
+    const lines=p=>p.innerHTML.split(/<br\s*\/?>/i).map(x=>x.trim()).filter(Boolean);
+    const H=[...hi.querySelectorAll('p')].map(lines),R=[...ro.querySelectorAll('p')].map(lines);
+    const paired=H.length===R.length&&H.every((st,i)=>st.length===R[i].length);
+    const modes=[['columns','Side by side'],['hi','Hindi only'],['roman','Roman only']];
+    if(paired){
+      const box=document.createElement('div');box.className='lyrics-paired';
+      box.innerHTML=H.map((st,i)=>`<div class="stanza">${st.map((l,j)=>`<span class="hi">${l}</span><span class="ro">${R[i][j]}</span>`).join('')}</div>`).join('');
+      cols.before(box);modes.unshift(['paired','Hindi + Roman']);
+    }
+    const bar=document.createElement('div');bar.className='lyrics-view';bar.setAttribute('role','group');bar.setAttribute('aria-label','Lyrics view');
+    const set=m=>{card.dataset.view=m;bar.querySelectorAll('button').forEach(b=>{const on=b.dataset.view===m;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on);});};
+    modes.forEach(([m,label])=>{const b=document.createElement('button');b.type='button';b.dataset.view=m;b.textContent=label;b.addEventListener('click',()=>set(m));bar.appendChild(b);});
+    (paired?card.querySelector('.lyrics-paired'):cols).before(bar);
+    set(modes[0][0]);
+  });
+})();
+
+// Visual polish: header shadow on scroll + gentle reveal as sections enter view.
+(function initPolish(){
+  const header=document.querySelector('.site-header');
+  const onScroll=()=>header&&header.classList.toggle('scrolled',window.scrollY>8);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);setTimeout(()=>{e.target.style.transitionDelay='';},900);}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.documentElement.classList.add('reveal-on');
+  document.querySelectorAll('.section-heading,.trip-card,.card,.knowledge-item,.announcement-card,.pathshala-points>div,.schedule-box,.stat,.bhajan-card,.map-list,.mandir-map-card,.join-form,.gallery img').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=`${(i%4)*70}ms`;io.observe(el);});
+})();
+
+// ===== Creative layer =====
+const prefersReduced=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+// Stats-band labels in both languages (then re-apply the saved language).
+Object.assign(translations.en,{'stats.yatras':'Monthly Yatras','stats.mandirs':'Mandirs Visited','stats.bhajans':'Bhajans Shared','stats.sunday':'Sunday','stats.pathshala':'Pathshala • 8–9 AM'});
+Object.assign(translations.hi,{'stats.yatras':'मासिक यात्राएँ','stats.mandirs':'मंदिर दर्शन','stats.bhajans':'भजन','stats.sunday':'रविवार','stats.pathshala':'पाठशाला • सुबह 8–9 बजे'});
+setLanguage(localStorage.getItem('jyk-language')||'en');
+
+// Scroll progress, back-to-top button, nav scroll-spy.
+(function initScrollUX(){
+  const bar=document.querySelector('.scroll-progress');
+  const top=document.createElement('button');top.className='to-top';top.type='button';top.setAttribute('aria-label','Back to top');top.innerHTML='<span>↑</span>';
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:prefersReduced?'auto':'smooth'}));document.body.appendChild(top);
+  const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;const p=max>0?Math.min(1,scrollY/max):0;
+    if(bar)bar.style.setProperty('--p',p);top.style.setProperty('--p',p);top.classList.toggle('show',scrollY>600);};
+  update();addEventListener('scroll',update,{passive:true});addEventListener('resize',update);
+  if(!('IntersectionObserver' in window))return;
+  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
+  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;links.forEach(a=>a.classList.remove('active'));const a=map.get(e.target.id);if(a)a.classList.add('active');}),{rootMargin:'-45% 0px -50% 0px'});
+  map.forEach((a,id)=>{const sec=document.getElementById(id);if(sec)spy.observe(sec);});
+})();
+
+// Hero: drifting petals, gentle mouse parallax.
+(function initHeroMotion(){
+  const hero=document.querySelector('.hero');
+  if(!hero||prefersReduced)return;
+  const wrap=document.createElement('div');wrap.className='petals';wrap.setAttribute('aria-hidden','true');
+  const cols=['#D71920','#FFD500','#148A45','#1746B8','#b58a35'];
+  for(let i=0;i<16;i++){const p=document.createElement('i');p.className='petal';const sz=10+Math.random()*16;
+    p.style.cssText=`left:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:${cols[i%cols.length]};--sway:${(Math.random()*120-60).toFixed(0)}px;animation-duration:${(14+Math.random()*14).toFixed(1)}s;animation-delay:-${(Math.random()*20).toFixed(1)}s`;
+    wrap.appendChild(p);}
+  hero.prepend(wrap);
+  if(matchMedia('(pointer:fine)').matches){const frame=hero.querySelector('.image-frame');
+    hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      if(frame){frame.style.setProperty('--px',`${(x*-18).toFixed(1)}px`);frame.style.setProperty('--py',`${(y*-12).toFixed(1)}px`);}});}
+})();
+
+// Stats band: numbers come from yatra-data.json and count up when visible.
+(async function initStats(){
+  const els=[...document.querySelectorAll('.stat strong[data-count]')];
+  if(!els.length)return;
+  const set=(k,v)=>{const el=document.querySelector(`[data-count-key="${k}"]`);if(el)el.dataset.count=v;};
+  set('bhajans',document.querySelectorAll('.bhajan-card').length||2);
+  try{const r=await fetch('data/yatra-data.json');if(r.ok){const t=(await r.json()).trips||[];
+    set('yatras',t.length);set('mandirs',t.reduce((n,x)=>n+String(x.temple).split(';').filter(v=>v.trim()).length,0));}}catch(e){}
+  els.forEach(el=>{el.textContent=el.dataset.count;});
+  if(prefersReduced||!('IntersectionObserver' in window))return;
+  const run=el=>{const to=+el.dataset.count,t0=performance.now(),dur=1400;el.textContent='0';
+    const tick=now=>{const k=Math.min(1,(now-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);};
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run(e.target);io.unobserve(e.target);}}),{threshold:.6});
+  els.forEach(el=>io.observe(el));
+})();
+
+// Card spotlight follows the pointer; buttons get a ripple.
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.trip-card,.card,.knowledge-item,.announcement-card,.pathshala-points>div');
+  if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',`${e.clientX-r.left}px`);c.style.setProperty('--my',`${e.clientY-r.top}px`);}},{passive:true});
+document.addEventListener('pointerdown',e=>{const b=e.target.closest&&e.target.closest('.button');if(!b||prefersReduced)return;
+  const r=b.getBoundingClientRect(),d=document.createElement('span');d.className='ripple';d.style.left=`${e.clientX-r.left}px`;d.style.top=`${e.clientY-r.top}px`;
+  b.appendChild(d);setTimeout(()=>d.remove(),700);});
+
+// Darshan gallery lightbox (click, arrows, Esc).
+(function initLightbox(){
+  const imgs=[...document.querySelectorAll('.gallery img')];
+  if(!imgs.length)return;
+  const lb=document.createElement('div');lb.className='lightbox';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Image viewer');
+  lb.innerHTML='<button class="lb-close" type="button" aria-label="Close">×</button><button class="lb-prev" type="button" aria-label="Previous">‹</button><img alt=""><button class="lb-next" type="button" aria-label="Next">›</button>';
+  document.body.appendChild(lb);
+  const big=lb.querySelector('img');let i=0;
+  const show=n=>{i=(n+imgs.length)%imgs.length;big.src=imgs[i].src;big.alt=imgs[i].alt;big.style.animation='none';big.offsetWidth;big.style.animation='';};
+  const open=n=>{show(n);lb.classList.add('open');document.body.style.overflow='hidden';};
+  const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
+  imgs.forEach((im,n)=>im.addEventListener('click',()=>open(n)));
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.closest('.lb-close'))close();else if(e.target.closest('.lb-prev'))show(i-1);else if(e.target.closest('.lb-next'))show(i+1);});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+})();

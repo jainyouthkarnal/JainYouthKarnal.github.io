@@ -254,3 +254,9 @@ To add a new bhajan later:
 4. No English translation should be added to the bhajan card.
 
 The Bhakti section includes a search box that searches the title, tags and lyric text, plus clickable tag filters.
+
+### Bhajan display: Hindi + Roman together
+
+The website shows each bhajan as **Hindi + Roman line by line** by default, with buttons to switch to Side by side, Hindi only or Roman only.
+
+For the line-by-line view to work, the Hindi and Roman text of a bhajan must have the **same number of stanzas (`<p>`) and the same number of lines (`<br>`) in each stanza**. If they differ, the card automatically falls back to the side-by-side view.
