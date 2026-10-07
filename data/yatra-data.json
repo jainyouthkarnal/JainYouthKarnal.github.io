@@ -1,0 +1,124 @@
+{
+  "homeMandir": {
+    "name": "Shree Digamber Jain Mandir",
+    "place": "Karnal",
+    "coordinates": [
+      29.6824999,
+      76.7025384
+    ]
+  },
+  "trips": [
+    {
+      "id": "ranila-ji",
+      "place": "Ranila Ji",
+      "date": "2026-03-22",
+      "temple": "Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila",
+      "coordinates": [
+        28.7090507,
+        76.3325388
+      ],
+      "mapPosition": {
+        "left": 27.8,
+        "top": 29.5
+      }
+    },
+    {
+      "id": "jalabaad",
+      "place": "Jalabaad",
+      "date": "2026-04-05",
+      "temple": "Shri 1008 Parasnath Digamber Jain Mandir",
+      "coordinates": [
+        29.6158372,
+        77.4360981
+      ],
+      "mapPosition": {
+        "left": 31.3,
+        "top": 27.2
+      }
+    },
+    {
+      "id": "hastinapur",
+      "place": "Hastinapur",
+      "date": "2026-05-09",
+      "temple": "Digamber Jain Bada Mandir",
+      "coordinates": [
+        29.1613343,
+        78.0010909
+      ],
+      "mapPosition": {
+        "left": 33.7,
+        "top": 28.1
+      }
+    },
+    {
+      "id": "sonipat",
+      "place": "Sonipat",
+      "date": "2026-06-14",
+      "temple": "Shanti Nath Atishya Kshetra",
+      "coordinates": [
+        29.0004214,
+        77.0151195
+      ],
+      "mapPosition": {
+        "left": 30.2,
+        "top": 28.6
+      }
+    },
+    {
+      "id": "hansi",
+      "place": "Hansi",
+      "date": "2026-07-18",
+      "temple": "Shri Digamber Jain Panchayati Mandir",
+      "coordinates": [
+        29.1009391,
+        75.9636061
+      ],
+      "mapPosition": {
+        "left": 26.5,
+        "top": 28.3
+      }
+    },
+    {
+      "id": "vehlana-ji",
+      "place": "Vehlana Ji",
+      "date": "2026-08-16",
+      "temple": "Vehalna Digambar Jain Temple Atishaya Kshetra",
+      "coordinates": [
+        29.4285143,
+        77.6854437
+      ],
+      "mapPosition": {
+        "left": 32.1,
+        "top": 27.4
+      }
+    },
+    {
+      "id": "gannaur",
+      "place": "Gannaur",
+      "date": "2026-09-07",
+      "temple": "Gupti Dhaam Digamber Jain Mandir",
+      "coordinates": [
+        29.1412698,
+        77.0371692
+      ],
+      "mapPosition": {
+        "left": 30.0,
+        "top": 28.3
+      }
+    },
+    {
+      "id": "badegaon",
+      "place": "Badegaon",
+      "date": "2026-10-04",
+      "temple": "Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir",
+      "coordinates": [
+        28.8776725,
+        77.3152324
+      ],
+      "mapPosition": {
+        "left": 31.3,
+        "top": 29.0
+      }
+    }
+  ]
+}
