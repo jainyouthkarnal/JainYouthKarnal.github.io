@@ -1,4 +1,40 @@
 {
+  "_help": "List photo file names per trip folder. A trip card shows a Mandir / Group / Trip Memories button only when its list has at least one file. Put the files in assets/trips/<folder>/<mandir|group|memories>/.",
+  "01-Ranila-Ji": {
+    "mandir": [],
+    "group": [],
+    "memories": []
+  },
+  "02-Jalabaad": {
+    "mandir": [],
+    "group": [],
+    "memories": []
+  },
+  "03-Hastinapur": {
+    "mandir": [],
+    "group": [],
+    "memories": []
+  },
+  "04-Sonipat": {
+    "mandir": [],
+    "group": [],
+    "memories": []
+  },
+  "05-Hansi": {
+    "mandir": [],
+    "group": [],
+    "memories": []
+  },
+  "06-Vehlana-Ji": {
+    "mandir": [],
+    "group": [],
+    "memories": []
+  },
+  "07-Gannaur": {
+    "mandir": [],
+    "group": [],
+    "memories": []
+  },
   "08-Badegaon": {
     "mandir": [],
     "group": [

@@ -363,3 +363,10 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .lyrics-column .lyrics-hi,.lyrics-column .lyrics-hi p,.lyrics-paired .hi{font-family:'Noto Sans Devanagari',sans-serif;font-weight:500;}
 .lyrics-column .lyrics-hi p{font-size:1.08rem;line-height:2.05;}
 .audio-link{white-space:nowrap;}
+
+/* Mandir activity labels */
+.trip-mandirs li{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
+.mandir-activity{font-size:.72rem;letter-spacing:.04em;font-weight:800;color:var(--green2)}
+.mandir-activity.prakshal{color:#9b6b1f}
+.mandir-name{padding-left:1.65em;color:var(--ink)}
+.mandir-name em{font-size:.78rem;color:var(--muted);font-style:italic}

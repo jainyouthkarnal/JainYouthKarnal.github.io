@@ -18,7 +18,7 @@ en:{
 'trips.title':'A year of journeys, darshan & memories.',
 'trips.intro':"Jin Shasan Prabhavna Sangh's 2026 monthly trip journey across Jain destinations.",
 'trip.unspecified':'Mandir visited: Not specified',
-'trip.visited':'Mandir visited:',
+'trip.visited':'Mandir Darshan','trip.prakshal':'Prakshal performed','trip.darshanOnly':'Darshan','trip.namePending':'(exact name to be updated)',
 
 'path.eyebrow':'SUNDAY PATHSHALA',
 'path.title':'Learn, grow & stay connected with Jain values.',
@@ -152,7 +152,7 @@ hi:{
 'trips.title':'यात्राओं, जिन दर्शन और यादों से भरा एक वर्ष।',
 'trips.intro':'जिन शासन प्रभावना संघ की 2026 की मासिक यात्राओं का जैन तीर्थों और दर्शनीय स्थलों का सफर।',
 'trip.unspecified':'मंदिर दर्शन: उपलब्ध जानकारी नहीं',
-'trip.visited':'मंदिर दर्शन:',
+'trip.visited':'मंदिर दर्शन:', 'trip.prakshal':'प्रक्षाल किया गया', 'trip.darshanOnly':'दर्शन', 'trip.namePending':'(सटीक नाम बाद में जोड़ा जाएगा)',',
 
 'path.eyebrow':'रविवार पाठशाला',
 'path.title':'सीखें, बढ़ें और जैन मूल्यों से जुड़े रहें।',

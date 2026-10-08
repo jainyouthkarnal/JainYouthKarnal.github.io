@@ -314,3 +314,7 @@ The Yatra map reads `data/yatra-data.json`. If that file cannot be fetched (for 
 
 - **Instagram:** shows the public profile feed for `@jainyouth.karnal`. No setup needed.
 - **YouTube:** shows the channel's latest videos once the channel ID is added. In `index.html`, find `id="yt-embed"` and paste your channel ID (it starts with `UC`) into `data-channel-id=""`. You can find it in YouTube Studio > Settings > Channel > Advanced settings. Until then, a "Open YouTube channel" card is shown.
+
+
+## Mandir activity
+For each Yatra, temple entries may be labelled `Prakshal performed` or `Darshan`. These labels are independent per temple. Do not invent a temple name when it is not confirmed.

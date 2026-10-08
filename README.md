@@ -118,3 +118,8 @@ The website automatically builds the Yatra pins and visited list from this file.
 **Important:** `coordinates` are the actual temple coordinates. `mapPosition` controls only the visual placement of the pin on the political map image. When adding a new location, update both.
 
 The fixed home mandir is also stored at the top of `data/yatra-data.json` under `homeMandir`.
+
+
+## Mandir activity labels
+
+Each Yatra card can distinguish the temple where Prakshal was performed from temples visited for Darshan only. Do not infer a Prakshal location; record it only when confirmed. For Gannaur, the Prakshal temple is currently recorded as “Prachin Digamber Jain Mandir (exact name to be updated)” and Gupti Dhaam is recorded as Darshan only.
