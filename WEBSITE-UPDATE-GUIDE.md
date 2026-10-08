@@ -285,7 +285,7 @@ For major content, layout, styling, or interactive changes, update the appropria
 
 ## Bhajans: search, tags and lyrics
 
-Bhajans are kept in **Hindi + Roman** side-by-side. The website does **not** provide an English translation for bhajans.
+Bhajans are kept in **Hindi + Roman**. The website does **not** provide an English meaning/translation for bhajans. The Bhakti page has one global **Both / हिंदी / Roman** control that applies to every bhajan.
 
 Each bhajan card uses `data-tags` for filtering/search. Example:
 
@@ -293,18 +293,16 @@ Each bhajan card uses `data-tags` for filtering/search. Example:
 - नाम है तेरा तारण हारा — tags: `bhajan, god`
 
 To add a new bhajan later:
-1. Copy an existing `.bhajan-card` in `index.html`.
+1. Copy an existing `.bhajan-card` in `bhakti.html`.
 2. Update the title, Hindi lyrics, Roman lyrics and `data-tags`.
 3. Add any new tags to `data-tags`; the filter buttons are generated automatically.
 4. No English translation should be added to the bhajan card.
 
 The Bhakti section includes a search box that searches the title, tags and lyric text, plus clickable tag filters.
 
-### Bhajan display: Hindi + Roman together
+### Bhajan display: global lyrics control
 
-The website shows each bhajan as **Hindi + Roman line by line** by default, with buttons to switch to Side by side, Hindi only or Roman only.
-
-For the line-by-line view to work, the Hindi and Roman text of a bhajan must have the **same number of stanzas (`<p>`) and the same number of lines (`<br>`) in each stanza**. If they differ, the card automatically falls back to the side-by-side view.
+The Bhakti page shows all bhajans together with a single global control: **Both / हिंदी / Roman**. This avoids repeating controls on every card. Hindi and Roman remain separate lyric columns; there is no English translation.
 
 ### Maps
 

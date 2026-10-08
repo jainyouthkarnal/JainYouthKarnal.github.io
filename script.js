@@ -11,7 +11,7 @@ en:{
 'ann.eyebrow':'LATEST ANNOUNCEMENTS','ann.title':'What’s happening in our community.','ann.intro':'A dedicated space for new yatra announcements, Pathshala updates, events, seva notices and important community information.','ann.cta':'Share an Update','ann.tag1':'REGULAR','ann.a1t':'Sunday Pathshala','ann.a1p':'Every Sunday • 8:00 AM – 9:00 AM • Karnal','ann.tag2':'LATEST YATRA','ann.a2t':'Badegaon','ann.a2p':'4 October 2026 • Trilok Teerth Dham and other Jain temples in Badegaon.','ann.tag3':'COMING SOON','ann.a3t':'Next Monthly Yatra','ann.a3p':'The next destination can be announced here as soon as it is confirmed.','ann.more':'View details →',
 'events.eyebrow':'COMMUNITY CALENDAR','events.title':'Events & activities','events.c1t':'Religious Events','events.c1p':'Jain parvas, puja, bhakti and spiritual programmes.','events.c2t':'Youth Events','events.c2p':'Activities that bring Jain youth together through participation and connection.','events.c3t':'Cultural & Seva','events.c3p':'Community programmes, cultural activities and future seva initiatives.',
 'knowledge.eyebrow':'JAIN KNOWLEDGE','knowledge.title':'Learn Jain Dharma, one story at a time.','knowledge.label':'Knowledge Hub','knowledge.k1t':'Tirthankaras','knowledge.k1p':'Profiles, teachings and important milestones.','knowledge.k2t':'Kalyanaks','knowledge.k2p':'Explore the five Kalyanaks and their significance.','knowledge.k3t':'Jain Places','knowledge.k3p':'Atishay Kshetras, Siddha Kshetras, Jinalayas and pilgrimage destinations.','knowledge.k4t':'Practices & Parvas','knowledge.k4p':'Jaap, Bhaktamar, puja, parvas and other Jain practices.',
-'bhakti.eyebrow':'BHAKTI SANGEET','bhakti.title':'Bhajans to read, reflect on and sing.','bhakti.intro':'Bhajans are shown in original Hindi with a Roman-script version for easy singing. There is no English translation.','bhakti.searchPlaceholder':'Search bhajans...','bhakti.label':'Bhakti Sangeet','bhakti.note':'<strong>Bhakti Sangeet</strong><br>More Jain bhajans and devotional content can be added here over time.',
+'bhakti.eyebrow':'BHAKTI SANGEET','bhakti.title':'Bhajans to read, reflect on and sing.','bhakti.intro':'Read and sing along with our growing collection of Jain bhajans.' ,'bhakti.searchPlaceholder':'Search bhajans...','bhakti.label':'Bhakti Sangeet','bhakti.note':'<strong>Bhakti Sangeet</strong><br>More Jain bhajans and devotional content can be added here over time.',
 'darshan.eyebrow':'JIN DARSHAN DIARIES','darshan.title':'Places of faith, captured with care.','darshan.intro':'Karnal Mandir darshan will have its own dedicated gallery, including up to eight images of the deities.','darshan.label':'Darshan • Architecture • Memories','darshan.karnalTitle':'Karnal Mandir • Deity Gallery','darshan.karnalText':'Eight image slots are prepared in assets/karnal-mandir/god-images/. Add files as god-01 through god-08 when ready.',
 'join.eyebrow':'BECOME A PART','join.title':'Join Jain Youth Karnal.','join.text':"Whether you want to join a yatra, volunteer at an event, contribute content, participate in seva or simply stay connected — we'd love to hear from you.",'form.name':'Name','form.nameph':'Your name','form.email':'Email','form.emailph':'Your email','form.phone':'Phone','form.phoneph':'Your phone number','form.interest':'How would you like to participate?','form.opt1':'Jain Yatra','form.opt2':'Events','form.opt3':'Seva','form.opt4':'Jain Education','form.opt5':'Bhakti','form.opt6':'Content / Photography','form.opt7':'Volunteering','form.submit':'Connect With Us',
 'footer.explore':'Explore','footer.connect':'Connect','footer.rights':'All rights reserved.'},
@@ -27,7 +27,7 @@ hi:{
 'ann.eyebrow':'नवीनतम घोषणाएँ','ann.title':'हमारे समुदाय में क्या हो रहा है।','ann.intro':'नई यात्रा घोषणाओं, पाठशाला अपडेट, कार्यक्रमों, सेवा सूचनाओं और महत्वपूर्ण सामुदायिक जानकारी के लिए समर्पित स्थान।','ann.cta':'अपडेट साझा करें','ann.tag1':'नियमित','ann.a1t':'रविवार पाठशाला','ann.a1p':'हर रविवार • सुबह 8:00 – 9:00 • करनाल','ann.tag2':'नवीनतम यात्रा','ann.a2t':'बड़ागाँव','ann.a2p':'4 अक्टूबर 2026 • त्रिलोक तीर्थ धाम और बड़ागाँव के अन्य जैन मंदिर।','ann.tag3':'जल्द ही','ann.a3t':'अगली मासिक यात्रा','ann.a3p':'नई मंज़िल की पुष्टि होते ही उसकी घोषणा यहाँ की जा सकती है।','ann.more':'विवरण देखें →',
 'events.eyebrow':'सामुदायिक कैलेंडर','events.title':'कार्यक्रम और गतिविधियाँ','events.c1t':'धार्मिक कार्यक्रम','events.c1p':'जैन पर्व, पूजा, भक्ति और आध्यात्मिक कार्यक्रम।','events.c2t':'युवा कार्यक्रम','events.c2p':'ऐसी गतिविधियाँ जो सहभागिता और जुड़ाव के माध्यम से जैन युवाओं को साथ लाएँ।','events.c3t':'सांस्कृतिक एवं सेवा','events.c3p':'सामुदायिक कार्यक्रम, सांस्कृतिक गतिविधियाँ और भविष्य की सेवा पहल।',
 'knowledge.eyebrow':'जैन ज्ञान','knowledge.title':'एक-एक कथा के माध्यम से जैन धर्म को जानें।','knowledge.label':'ज्ञान केंद्र','knowledge.k1t':'तीर्थंकर','knowledge.k1p':'तीर्थंकरों का परिचय, शिक्षाएँ और महत्वपूर्ण पड़ाव।','knowledge.k2t':'कल्याणक','knowledge.k2p':'पाँच कल्याणकों और उनके महत्व को जानें।','knowledge.k3t':'जैन तीर्थ एवं स्थान','knowledge.k3p':'अतिशय क्षेत्र, सिद्ध क्षेत्र, जिनालय और तीर्थयात्रा के प्रमुख स्थान।','knowledge.k4t':'प्रथाएँ एवं पर्व','knowledge.k4p':'जाप, भक्तामर, पूजा, पर्व और अन्य जैन धार्मिक प्रथाएँ।',
-'bhakti.eyebrow':'भक्ति संगीत','bhakti.title':'भजनों को पढ़ें, मनन करें और गाएँ।','bhakti.intro':'भजन मूल हिंदी में और आसान गायन के लिए Roman script में दिखाए जाते हैं। इसका English translation नहीं है।','bhakti.searchPlaceholder':'भजन खोजें...','bhakti.label':'भक्ति संगीत','bhakti.note':'<strong>भक्ति संगीत</strong><br>समय के साथ यहाँ और जैन भजन एवं भक्तिमय सामग्री जोड़ी जा सकती है।',
+'bhakti.eyebrow':'भक्ति संगीत','bhakti.title':'भजनों को पढ़ें, मनन करें और गाएँ।','bhakti.intro':'जैन भजनों के हमारे बढ़ते संग्रह को पढ़ें, सुनें और साथ गाएँ।','bhakti.searchPlaceholder':'भजन खोजें...','bhakti.label':'भक्ति संगीत','bhakti.note':'<strong>भक्ति संगीत</strong><br>समय के साथ यहाँ और जैन भजन एवं भक्तिमय सामग्री जोड़ी जा सकती है।',
 'darshan.eyebrow':'जिन दर्शन डायरी','darshan.title':'आस्था के स्थान, श्रद्धा के साथ संजोए हुए।','darshan.intro':'करनाल मंदिर दर्शन के लिए अलग गैलरी तैयार है, जिसमें तीर्थंकर प्रतिमाओं की आठ तक तस्वीरें जोड़ी जा सकती हैं।','darshan.label':'दर्शन • स्थापत्य • यादें','darshan.karnalTitle':'करनाल मंदिर • जिन प्रतिमा गैलरी','darshan.karnalText':'आठ तस्वीरों के लिए assets/karnal-mandir/god-images/ में स्थान तैयार है। तस्वीरों के नाम god-01 से god-08 रखें।',
 'join.eyebrow':'हमसे जुड़ें','join.title':'जैन यूथ करनाल से जुड़ें।','join.text':'चाहे आप यात्रा से जुड़ना चाहते हों, किसी कार्यक्रम में स्वयंसेवा करना चाहते हों, सामग्री में योगदान देना चाहते हों, सेवा में सहभागी बनना चाहते हों या केवल जुड़े रहना चाहते हों — हम आपसे जुड़कर खुशी होगी।','form.name':'नाम','form.nameph':'अपना नाम','form.email':'ईमेल','form.emailph':'अपना ईमेल','form.phone':'मोबाइल नंबर','form.phoneph':'अपना मोबाइल नंबर','form.interest':'आप किस रूप में सहभागी बनना चाहेंगे?','form.opt1':'जैन यात्रा','form.opt2':'कार्यक्रम','form.opt3':'सेवा','form.opt4':'जैन शिक्षा','form.opt5':'भक्ति','form.opt6':'सामग्री / फोटोग्राफी','form.opt7':'स्वयंसेवा','form.submit':'हमसे जुड़ें',
 'footer.explore':'अन्वेषण करें','footer.connect':'संपर्क करें','footer.rights':'सर्वाधिकार सुरक्षित।'}
@@ -39,6 +39,16 @@ if(menuToggle&&nav){menuToggle.addEventListener('click',()=>{const open=nav.clas
 const siteLangs=document.querySelectorAll('.site-lang');
 function setLanguage(lang){const t=translations[lang]||translations.en;document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(t[key]!==undefined)el.innerHTML=t[key];});document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const key=el.dataset.i18nPlaceholder;if(t[key]!==undefined)el.placeholder=t[key];});siteLangs.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));document.documentElement.lang=lang;localStorage.setItem('jyk-language',lang);}
 siteLangs.forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.lang)));
+Object.assign(translations.en,{
+  'bhakti.both':'Both','bhakti.hindi':'हिंदी','bhakti.roman':'Roman','bhakti.audioUnavailable':'🎧 Listen / Audio',
+  'trip.mandir':'Mandir','trip.group':'Group','trip.memories':'Trip Memories','trip.folderNote':'Add photos to the three folders to build this trip archive.',
+  'calendar.kalyanakLegend':'Kalyanak'
+});
+Object.assign(translations.hi,{
+  'bhakti.both':'दोनों','bhakti.hindi':'हिंदी','bhakti.roman':'Roman','bhakti.audioUnavailable':'🎧 सुनें / ऑडियो',
+  'trip.mandir':'मंदिर','trip.group':'समूह','trip.memories':'यात्रा की यादें','trip.folderNote':'इस यात्रा का संग्रह बनाने के लिए तीनों फ़ोल्डरों में तस्वीरें जोड़ें।',
+  'calendar.kalyanakLegend':'कल्याणक'
+});
 setLanguage(localStorage.getItem('jyk-language')||'en');
 const year=document.querySelector('#year');if(year)year.textContent=new Date().getFullYear();
 
@@ -69,7 +79,7 @@ document.querySelectorAll('.audio-link[data-audio-url]').forEach(link=>{
 
 // Built-in copy of data/yatra-data.json, used ONLY if the file cannot be fetched (e.g. index.html opened by double-click).
 // The real source of truth is data/yatra-data.json: keep this copy in sync when you add a trip.
-const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":"Karnal","coordinates":[29.6824999,76.9909295]},"trips":[{"id":"ranila-ji","place":"Ranila Ji","date":"2026-03-22","temple":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","coordinates":[28.7090507,76.3325388],"mapPosition":{"left":27.8,"top":29.5}},{"id":"jalabaad","place":"Jalabaad","date":"2026-04-05","temple":"Shri 1008 Parasnath Digamber Jain Mandir","coordinates":[29.6158372,77.4360981],"mapPosition":{"left":31.3,"top":27.2}},{"id":"hastinapur","place":"Hastinapur","date":"2026-05-09","temple":"Digamber Jain Bada Mandir","coordinates":[29.1613343,78.0010909],"mapPosition":{"left":33.7,"top":28.1}},{"id":"sonipat","place":"Sonipat","date":"2026-06-14","temple":"Shanti Nath Atishya Kshetra","coordinates":[29.0004214,77.0151195],"mapPosition":{"left":30.2,"top":28.6}},{"id":"hansi","place":"Hansi","date":"2026-07-18","temple":"Shri Digamber Jain Panchayati Mandir","coordinates":[29.1009391,75.9636061],"mapPosition":{"left":26.5,"top":28.3}},{"id":"vehlana-ji","place":"Vehlana Ji","date":"2026-08-16","temple":"Vehalna Digambar Jain Temple Atishaya Kshetra","coordinates":[29.4285143,77.6854437],"mapPosition":{"left":32.1,"top":27.4}},{"id":"gannaur","place":"Gannaur","date":"2026-09-07","temple":"Gupti Dhaam Digamber Jain Mandir","coordinates":[29.1412698,77.0371692],"mapPosition":{"left":30.0,"top":28.3}},{"id":"badegaon","place":"Badegaon","date":"2026-10-04","temple":"Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir","prakshal":"Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple","coordinates":[28.8776725,77.3152324],"mapPosition":{"left":31.3,"top":29.0}}]};
+const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":"Karnal","coordinates":[29.6824999,76.9909295]},"trips":[{"id":"ranila-ji","place":"Ranila Ji","date":"2026-03-22","temple":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","coordinates":[28.7090507,76.3325388],"mapPosition":{"left":27.8,"top":29.5}},{"id":"jalabaad","place":"Jalabaad","date":"2026-04-05","temple":"Shri 1008 Parasnath Digamber Jain Mandir","coordinates":[29.6158372,77.4360981],"mapPosition":{"left":31.3,"top":27.2}},{"id":"hastinapur","place":"Hastinapur","date":"2026-05-09","temple":"Digamber Jain Bada Mandir","coordinates":[29.1613343,78.0010909],"mapPosition":{"left":33.7,"top":28.1}},{"id":"sonipat","place":"Sonipat","date":"2026-06-14","temple":"Shanti Nath Atishya Kshetra","coordinates":[29.0004214,77.0151195],"mapPosition":{"left":30.2,"top":28.6}},{"id":"hansi","place":"Hansi","date":"2026-07-18","temple":"Shri Digamber Jain Panchayati Mandir","coordinates":[29.1009391,75.9636061],"mapPosition":{"left":26.5,"top":28.3}},{"id":"vehlana-ji","place":"Vehlana Ji","date":"2026-08-16","temple":"Vehalna Digambar Jain Temple Atishaya Kshetra","coordinates":[29.4285143,77.6854437],"mapPosition":{"left":32.1,"top":27.4}},{"id":"gannaur","place":"Gannaur","date":"2026-09-07","temple":"Gupti Dhaam Digamber Jain Mandir","coordinates":[29.1412698,77.0371692],"mapPosition":{"left":30.0,"top":28.3}},{"id":"badegaon","place":"Badegaon","date":"2026-10-04","temple":"Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir","coordinates":[28.8776725,77.3152324],"mapPosition":{"left":31.3,"top":29.0}}]};
 
 // Monthly Yatra map: reads data/yatra-data.json (exact temple coordinates) and draws an interactive map.
 (async function renderYatraMap(){
@@ -154,16 +164,7 @@ const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":
 })();
 
 // Community calendar: 2026 trip dates + recurring Sunday Pathshala.
-const tripEvents={
-  '2026-03-22':{type:'trip',title:'Ranila Ji'},
-  '2026-04-05':{type:'trip',title:'Jalabaad'},
-  '2026-05-09':{type:'trip',title:'Hastinapur'},
-  '2026-06-14':{type:'trip',title:'Sonipat'},
-  '2026-07-18':{type:'trip',title:'Hansi'},
-  '2026-08-16':{type:'trip',title:'Vehlana Ji'},
-  '2026-09-07':{type:'trip',title:'Gannaur'},
-  '2026-10-04':{type:'trip',title:'Badegaon'}
-};
+let tripEvents=Object.fromEntries(YATRA_FALLBACK.trips.map(t=>[t.date,{type:'trip',title:t.place}]));
 // Tirthankar Kalyanak dates (add new ones here: 'YYYY-MM-DD': [K(...)]).
 const KAL={garbh:['Garbh','गर्भ'],janma:['Janma','जन्म'],tap:['Tap','तप'],gyan:['Gyan','ज्ञान'],moksha:['Moksha','मोक्ष']};
 const K=(en,hi,kals,note,star)=>{const k=kals.split('+');
@@ -215,29 +216,80 @@ function renderCalendar(){
 if(prevCal)prevCal.addEventListener('click',()=>{calDate.setMonth(calDate.getMonth()-1);renderCalendar()});
 if(nextCal)nextCal.addEventListener('click',()=>{calDate.setMonth(calDate.getMonth()+1);renderCalendar()});
 renderCalendar();
+(async function syncCalendarTrips(){
+  try{
+    const r=await fetch('data/yatra-data.json',{cache:'no-cache'});
+    if(!r.ok)return;
+    const trips=(await r.json()).trips||[];
+    tripEvents=Object.fromEntries(trips.map(t=>[t.date,{type:'trip',title:t.place}]));
+    renderCalendar();
+  }catch(e){}
+})();
 const oldSetLanguage=setLanguage;
 setLanguage=function(lang){oldSetLanguage(lang);renderCalendar();};
 
-// Bhajan lyrics: Hindi + Roman shown together, line by line (falls back to side-by-side if line counts differ).
+// Bhajan lyrics: one global Hindi / Roman / Both control for the whole Bhakti section.
 (function initLyricsViews(){
-  document.querySelectorAll('.bhajan-card').forEach(card=>{
-    const hi=card.querySelector('.lyrics-hi'),ro=card.querySelector('.lyrics-roman'),cols=card.querySelector('.lyrics-columns');
-    if(!hi||!ro||!cols)return;
-    const lines=p=>p.innerHTML.split(/<br\s*\/?>/i).map(x=>x.trim()).filter(Boolean);
-    const H=[...hi.querySelectorAll('p')].map(lines),R=[...ro.querySelectorAll('p')].map(lines);
-    const paired=H.length===R.length&&H.every((st,i)=>st.length===R[i].length);
-    const modes=[['columns','Side by side'],['hi','Hindi only'],['roman','Roman only']];
-    if(paired){
-      const box=document.createElement('div');box.className='lyrics-paired';
-      box.innerHTML=H.map((st,i)=>`<div class="stanza">${st.map((l,j)=>`<span class="hi">${l}</span><span class="ro">${R[i][j]}</span>`).join('')}</div>`).join('');
-      cols.before(box);modes.unshift(['paired','Hindi + Roman']);
-    }
-    const bar=document.createElement('div');bar.className='lyrics-view';bar.setAttribute('role','group');bar.setAttribute('aria-label','Lyrics view');
-    const set=m=>{card.dataset.view=m;bar.querySelectorAll('button').forEach(b=>{const on=b.dataset.view===m;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on);});};
-    modes.forEach(([m,label])=>{const b=document.createElement('button');b.type='button';b.dataset.view=m;b.textContent=label;b.addEventListener('click',()=>set(m));bar.appendChild(b);});
-    (paired?card.querySelector('.lyrics-paired'):cols).before(bar);
-    set(modes[0][0]);
+  const cards=[...document.querySelectorAll('.bhajan-card')];
+  if(!cards.length)return;
+
+  // Remove any old per-card controls if this script is used with an older HTML version.
+  document.querySelectorAll('.bhajan-card .lyrics-view').forEach(el=>el.remove());
+
+  // Use the global controls if they already exist in the HTML.
+  let bar=document.querySelector('.bhajan-global-view, .bhajan-view-controls');
+  if(!bar){
+    const firstCard=cards[0];
+    const tools=document.querySelector('.bhajan-tools');
+    if(!tools)return;
+    bar=document.createElement('div');
+    bar.className='bhajan-view-controls';
+    bar.setAttribute('role','group');
+    bar.setAttribute('aria-label','Lyrics view');
+    tools.prepend(bar);
+  }
+
+  bar.innerHTML='';
+  const modes=[
+    ['both','Both','bhakti.both'],
+    ['hindi','हिंदी','bhakti.hindi'],
+    ['roman','Roman','bhakti.roman']
+  ];
+
+  const set=m=>{
+    cards.forEach(card=>{
+      card.dataset.view=m;
+      const cols=card.querySelector('.lyrics-columns');
+      if(!cols)return;
+
+      const hiPanel=card.querySelector('.lyrics-hi');
+      const roPanel=card.querySelector('.lyrics-roman');
+      const hi=hiPanel?.closest('.lyrics-column');
+      const ro=roPanel?.closest('.lyrics-column');
+
+      if(hi)hi.hidden=m==='roman';
+      if(ro)ro.hidden=m==='hindi';
+      cols.dataset.view=m;
+    });
+
+    bar.querySelectorAll('button').forEach(b=>{
+      const active=b.dataset.view===m;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-pressed',String(active));
+    });
+  };
+
+  modes.forEach(([mode,label])=>{
+    const b=document.createElement('button');
+    b.type='button';
+    b.className='bhajan-view-btn';
+    b.dataset.view=mode;
+    b.textContent=label;
+    b.addEventListener('click',()=>set(mode));
+    bar.appendChild(b);
   });
+
+  set('both');
 })();
 
 // Visual polish: header shadow on scroll + gentle reveal as sections enter view.
@@ -257,6 +309,16 @@ const prefersReduced=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: 
 // Stats-band labels in both languages (then re-apply the saved language).
 Object.assign(translations.en,{'stats.yatras':'Monthly Yatras','stats.mandirs':'Mandirs Visited','stats.bhajans':'Bhajans Shared','stats.sunday':'Sunday','stats.pathshala':'Pathshala • 8–9 AM','calendar.kalyanakLegend':'Kalyanak','follow.eyebrow':'FOLLOW OUR JOURNEY','follow.title':'See us on Instagram & YouTube.','follow.intro':'Yatra moments, bhajans and community updates, straight from our channels.','follow.insta':'Follow →','follow.yt':'Subscribe →','follow.ytText':'Watch our yatra and bhajan videos on our YouTube channel.','follow.ytBtn':'Open YouTube channel →','nav.yatra':'Yatra','nav.learn':'Learn','nav.community':'Community','nav.follow':'Follow Us','crumb.home':'Home','page.yatra.eyebrow':'YATRA & DARSHAN','page.yatra.title':'Journeys of faith.','page.yatra.intro':'Monthly yatras, the places we have visited and darshan from across Jain tirthas.','page.learn.eyebrow':'LEARN','page.learn.title':'Learn Jain Dharma together.','page.learn.intro':'Sunday Pathshala and our growing Jain knowledge hub.','page.community.eyebrow':'COMMUNITY','page.community.title':'Stay connected with the sangh.','page.community.intro':'Calendar, events, our mandir and our channels, all in one place.','explore.eyebrow':'EXPLORE THE SITE','explore.title':'Everything in one place.','explore.yatra':'Monthly yatras, our travel map and darshan from Jain tirthas.','explore.learn':'Sunday Pathshala and the Jain knowledge hub.','explore.bhakti':'Bhajans in Hindi and Roman, to read and sing along.','explore.community':'Calendar, events, our mandir and our channels.','explore.go':'Explore →','cta.title':'Come along on our next yatra.','cta.text':'Join Jain Youth Karnal for yatras, pathshala, bhakti and seva.','trip.prakshal':'Prakshal'});
 Object.assign(translations.hi,{'stats.yatras':'मासिक यात्राएँ','stats.mandirs':'मंदिर दर्शन','stats.bhajans':'भजन','stats.sunday':'रविवार','stats.pathshala':'पाठशाला • सुबह 8–9 बजे','calendar.kalyanakLegend':'कल्याणक','follow.eyebrow':'हमारी यात्रा से जुड़ें','follow.title':'Instagram और YouTube पर हमसे जुड़ें।','follow.intro':'यात्राओं के पल, भजन और सामुदायिक अपडेट, सीधे हमारे चैनलों से।','follow.insta':'फ़ॉलो करें →','follow.yt':'सब्सक्राइब करें →','follow.ytText':'हमारी यात्राओं और भजनों के वीडियो हमारे YouTube चैनल पर देखें।','follow.ytBtn':'YouTube चैनल खोलें →','nav.yatra':'यात्रा','nav.learn':'सीखें','nav.community':'समुदाय','nav.follow':'हमसे जुड़ें','crumb.home':'होम','page.yatra.eyebrow':'यात्रा और दर्शन','page.yatra.title':'आस्था की यात्राएँ।','page.yatra.intro':'मासिक यात्राएँ, हमारे द्वारा देखे गए स्थान और जैन तीर्थों के दर्शन।','page.learn.eyebrow':'सीखें','page.learn.title':'साथ मिलकर जैन धर्म सीखें।','page.learn.intro':'रविवार पाठशाला और हमारा बढ़ता जैन ज्ञान केंद्र।','page.community.eyebrow':'समुदाय','page.community.title':'संघ से जुड़े रहें।','page.community.intro':'कैलेंडर, कार्यक्रम, हमारा मंदिर और हमारे चैनल, सब एक जगह।','explore.eyebrow':'साइट देखें','explore.title':'सब कुछ एक जगह।','explore.yatra':'मासिक यात्राएँ, हमारा यात्रा मानचित्र और जैन तीर्थों के दर्शन।','explore.learn':'रविवार पाठशाला और जैन ज्ञान केंद्र।','explore.bhakti':'हिंदी और रोमन में भजन, पढ़ने और साथ गाने के लिए।','explore.community':'कैलेंडर, कार्यक्रम, हमारा मंदिर और हमारे चैनल।','explore.go':'देखें →','cta.title':'हमारी अगली यात्रा में साथ चलिए।','cta.text':'यात्राओं, पाठशाला, भक्ति और सेवा के लिए जैन यूथ करनाल से जुड़ें।','trip.prakshal':'प्रक्षाल'});
+Object.assign(translations.en,{
+  'bhakti.both':'Both','bhakti.hindi':'हिंदी','bhakti.roman':'Roman','bhakti.audioUnavailable':'🎧 Listen / Audio',
+  'trip.mandir':'Mandir','trip.group':'Group','trip.memories':'Trip Memories','trip.folderNote':'Add photos to the three folders to build this trip archive.',
+  'calendar.kalyanakLegend':'Kalyanak'
+});
+Object.assign(translations.hi,{
+  'bhakti.both':'दोनों','bhakti.hindi':'हिंदी','bhakti.roman':'Roman','bhakti.audioUnavailable':'🎧 सुनें / ऑडियो',
+  'trip.mandir':'मंदिर','trip.group':'समूह','trip.memories':'यात्रा की यादें','trip.folderNote':'इस यात्रा का संग्रह बनाने के लिए तीनों फ़ोल्डरों में तस्वीरें जोड़ें।',
+  'calendar.kalyanakLegend':'कल्याणक'
+});
 setLanguage(localStorage.getItem('jyk-language')||'en');
 
 // Scroll progress, back-to-top button, nav scroll-spy.
@@ -297,9 +359,26 @@ setLanguage(localStorage.getItem('jyk-language')||'en');
   const els=[...document.querySelectorAll('.stat strong[data-count]')];
   if(!els.length)return;
   const set=(k,v)=>{const el=document.querySelector(`[data-count-key="${k}"]`);if(el)el.dataset.count=v;};
-  set('bhajans',document.querySelectorAll('.bhajan-card').length||2);
-  try{const r=await fetch('data/yatra-data.json');if(r.ok){const t=(await r.json()).trips||[];
-    set('yatras',t.length);set('mandirs',t.reduce((n,x)=>n+String(x.temple).split(';').filter(v=>v.trim()).length,0));}}catch(e){}
+  const localBhajans=document.querySelectorAll('.bhajan-card').length;
+  set('bhajans',localBhajans||4);
+  try{
+    const r=await fetch('data/yatra-data.json',{cache:'no-cache'});
+    if(r.ok){
+      const t=(await r.json()).trips||[];
+      set('yatras',t.length);
+      set('mandirs',t.reduce((n,x)=>n+String(x.temple).split(';').filter(v=>v.trim()).length,0));
+    }
+  }catch(e){}
+  if(!localBhajans){
+    try{
+      const r=await fetch('bhakti.html',{cache:'no-cache'});
+      if(r.ok){
+        const html=await r.text();
+        const count=(html.match(/class=[\"']bhajan-card[\"']/g)||[]).length;
+        if(count)set('bhajans',count);
+      }
+    }catch(e){}
+  }
   els.forEach(el=>{el.textContent=el.dataset.count;});
   if(prefersReduced||!('IntersectionObserver' in window))return;
   const run=el=>{const to=+el.dataset.count,t0=performance.now(),dur=1400;el.textContent='0';

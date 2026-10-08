@@ -47,7 +47,13 @@ assets/
     ├── 01-Jahan-Yaad-Karo-Mahavir-Wahin/
     │   ├── poster/
     │   └── audio/
-    └── 02-Naam-Hai-Tera-Taran-Hara/
+    ├── 02-Naam-Hai-Tera-Taran-Hara/
+    │   ├── poster/
+    │   └── audio/
+    ├── 03-Shri-Shantinath-Chalisa/
+    │   ├── poster/
+    │   └── audio/
+    └── 04-Baje-Kundalpur-Mein-Badhai/
         ├── poster/
         └── audio/
 ```
@@ -76,7 +82,7 @@ Pages source: `main` branch, root folder.
 
 ## Bhajan display
 
-Bhajans are intentionally NOT translated into English. The original Hindi lyrics remain unchanged. Each bhajan provides a separate **Sing Along • Roman** view for easy singing/reading in Roman Hindi (for example, “Jaha yaad kro Mahavir wahi”). The main site English/Hindi language toggle changes the surrounding website interface, not the bhajan meaning.
+Bhajans are intentionally NOT translated into English. The original Hindi lyrics remain unchanged. The Bhakti page provides one global **Both / हिंदी / Roman** control for all bhajans (for example, “Jaha yaad kro Mahavir wahi”). The main site English/Hindi language toggle changes the surrounding website interface, not the bhajan meaning.
 
 ## Yatra Map
 The site now includes an India states/UTs map with eight monthly-yatra pins (Ranila Ji, Jalabaad, Hastinapur, Sonipat, Hansi, Vehlana Ji, Gannaur and Badegaon), plus a visited-place list.
