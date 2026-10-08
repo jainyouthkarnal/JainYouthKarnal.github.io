@@ -59,13 +59,17 @@ assets/
 ```
 
 For each trip:
-- `mandir/` = temple, Jin Darshan, idols, architecture, Prakshal etc.
+- `mandir/` = temple, Jin Darshan, idols, architecture and Prakshal photos.
 - `group/` = Jain Youth Karnal / community group photographs.
 - `memories/` = journey, candid moments, activities and other trip memories.
 
 For the Karnal Mandir deity gallery, add the eight images using `god-01.jpg` through `god-08.jpg` inside `assets/karnal-mandir/god-images/`.
 
 For each bhajan, the poster folder is for the bhajan artwork and the audio folder is for an optional local audio file. External audio links can also be attached through the bhajan audio option in the HTML.
+
+## Trip mandir activities
+
+Each Monthly Yatra now records every mandir as an individual bullet with an activity category: `Darshan` or `Prakshal performed`. `data/yatra-data.json` is the source of truth. If the exact Prakshal temple name is not yet known, keep a clear pending note rather than guessing.
 
 ## 2026 Trips
 
@@ -81,6 +85,9 @@ Repository: `JainYouthKarnal.github.io`
 Pages source: `main` branch, root folder.
 
 ## Bhajan display
+
+Bhakti Library supports search + dynamic tag filters and a global Both / हिंदी / Roman view. Poster placeholders have been removed. An Audio option appears only when the referenced audio file is available.
+
 
 Bhajans are intentionally NOT translated into English. The original Hindi lyrics remain unchanged. The Bhakti page provides one global **Both / हिंदी / Roman** control for all bhajans (for example, “Jaha yaad kro Mahavir wahi”). The main site English/Hindi language toggle changes the surrounding website interface, not the bhajan meaning.
 
@@ -123,3 +130,11 @@ The fixed home mandir is also stored at the top of `data/yatra-data.json` under 
 ## Mandir activity labels
 
 Each Yatra card can distinguish the temple where Prakshal was performed from temples visited for Darshan only. Do not infer a Prakshal location; record it only when confirmed. For Gannaur, the Prakshal temple is currently recorded as “Prachin Digamber Jain Mandir (exact name to be updated)” and Gupti Dhaam is recorded as Darshan only.
+
+## Yatra map
+
+The Monthly Yatra map is a political map of India with one numbered pin for every visited destination. Pin placement uses each trip's `mapPosition` (`left` / `top`) from `data/yatra-data.json`, while the actual temple coordinates remain available for Google Maps links. The political-map artwork is loaded from Wikimedia Commons and the page includes attribution.
+
+## Prakshal icon
+
+`assets/prakshal-icon.png` is the supplied Prakshal illustration. It is used beside every mandir activity marked `prakshal`; Darshan entries use the Darshan icon.

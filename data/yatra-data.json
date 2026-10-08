@@ -20,7 +20,13 @@
       "mapPosition": {
         "left": 27.8,
         "top": 29.5
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila",
+          "activity": "darshan"
+        }
+      ]
     },
     {
       "id": "jalabaad",
@@ -34,7 +40,13 @@
       "mapPosition": {
         "left": 31.3,
         "top": 27.2
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Shri 1008 Parasnath Digamber Jain Mandir",
+          "activity": "darshan"
+        }
+      ]
     },
     {
       "id": "hastinapur",
@@ -48,7 +60,13 @@
       "mapPosition": {
         "left": 33.7,
         "top": 28.1
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Digamber Jain Bada Mandir",
+          "activity": "darshan"
+        }
+      ]
     },
     {
       "id": "sonipat",
@@ -62,7 +80,13 @@
       "mapPosition": {
         "left": 30.2,
         "top": 28.6
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Shanti Nath Atishya Kshetra",
+          "activity": "darshan"
+        }
+      ]
     },
     {
       "id": "hansi",
@@ -76,7 +100,13 @@
       "mapPosition": {
         "left": 26.5,
         "top": 28.3
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Shri Digamber Jain Panchayati Mandir",
+          "activity": "darshan"
+        }
+      ]
     },
     {
       "id": "vehlana-ji",
@@ -90,7 +120,13 @@
       "mapPosition": {
         "left": 32.1,
         "top": 27.4
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Vehalna Digambar Jain Temple Atishaya Kshetra",
+          "activity": "darshan"
+        }
+      ]
     },
     {
       "id": "gannaur",
@@ -104,7 +140,18 @@
       "mapPosition": {
         "left": 30.0,
         "top": 28.3
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Prachin Digamber Jain Mandir",
+          "activity": "prakshal",
+          "note": "exact name to be updated"
+        },
+        {
+          "name": "Gupti Dhaam Digamber Jain Mandir",
+          "activity": "darshan"
+        }
+      ]
     },
     {
       "id": "badegaon",
@@ -118,7 +165,21 @@
       "mapPosition": {
         "left": 31.3,
         "top": 29.0
-      }
+      },
+      "mandirs": [
+        {
+          "name": "Trilok Teerth Dham",
+          "activity": "darshan"
+        },
+        {
+          "name": "Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple",
+          "activity": "darshan"
+        },
+        {
+          "name": "Shri Digamber Jain Bahubali Jinbimb Mandir",
+          "activity": "darshan"
+        }
+      ]
     }
   ]
 }

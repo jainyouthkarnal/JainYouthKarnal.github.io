@@ -59,6 +59,11 @@ Use this for interactive features and data-driven behaviour such as:
 
 Avoid editing this file for a simple Yatra-location update if `data/yatra-data.json` is sufficient.
 
+### Bhakti Library
+**File:** `bhakti.html`
+
+The Bhakti Library has a dynamic tag filter, search, Both / हिंदी / Roman controls, no poster placeholders, and conditional Audio buttons that are shown only when audio is available.
+
 ### Website styling
 **File:** `styles.css`
 
@@ -318,3 +323,9 @@ The Yatra map reads `data/yatra-data.json`. If that file cannot be fetched (for 
 
 ## Mandir activity
 For each Yatra, temple entries may be labelled `Prakshal performed` or `Darshan`. These labels are independent per temple. Do not invent a temple name when it is not confirmed.
+
+## Yatra map pins & Prakshal icon
+
+The Yatra page uses a political India map with one numbered pin per monthly-yatra destination. Pin placement is controlled by `mapPosition.left` and `mapPosition.top` in `data/yatra-data.json`; do not change the real `coordinates` just to visually move a pin.
+
+The supplied `assets/prakshal-icon.png` is used for mandirs where `activity` is `prakshal`. Use `activity: "darshan"` for a mandir visited only for Darshan.

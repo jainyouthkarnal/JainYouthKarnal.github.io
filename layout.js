@@ -18,8 +18,8 @@
     ]},
 
     {k:'nav.bhakti',t:'Bhakti',page:'bhakti',sub:[
-      ['nav.bhajans','Bhajan Library','bhakti.html'],
-      ['nav.playlist','🎧 Bhakti Playlist','playlist.html']
+      ['nav.bhajans','📖 Bhajan Library','bhakti.html'],
+      ['nav.playlist','🎧 Playlist','playlist.html']
     ]},
 
     {k:'nav.community',t:'Community',page:'community',sub:[
