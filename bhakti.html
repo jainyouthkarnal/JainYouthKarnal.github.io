@@ -17,11 +17,331 @@
 <div id="site-header"></div>
 <script src="layout.js"></script>
 <main id="main">
-<section id="bhakti" class="section section-bhakti"><div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="bhakti.eyebrow">BHAKTI SANGEET</p><h2 data-i18n="bhakti.title">Bhajans to read, reflect on and sing.</h2><p class="section-intro" data-i18n="bhakti.intro">Bhajans are shown in original Hindi with a Roman-script version for easy singing. There is no English translation.</p></div></div>
-<div class="bhajan-tools" aria-label="Bhajan search and filters"><label class="bhajan-search"><span class="sr-only">Search bhajans</span><input id="bhajan-search" type="search" placeholder="Search bhajans..." autocomplete="off" data-i18n-placeholder="bhakti.searchPlaceholder"></label><div class="bhajan-tags" id="bhajan-tags" aria-label="Filter bhajans by tag"></div></div>
+<section id="bhakti" class="section section-bhakti"><div class="container">
+<div class="section-heading"><div>
+<p class="eyebrow" data-i18n="bhakti.eyebrow">BHAKTI SANGEET</p>
+<h2 data-i18n="bhakti.title">Bhajans to read, reflect on and sing.</h2>
+</div></div>
+
+<div class="bhajan-tools" aria-label="Bhajan search, view and filters">
+  <div class="bhajan-view-controls" role="group" aria-label="Lyrics view">
+    <button type="button" class="bhajan-view-btn active" data-view="both">Both</button>
+    <button type="button" class="bhajan-view-btn" data-view="hindi">हिंदी</button>
+    <button type="button" class="bhajan-view-btn" data-view="roman">Roman</button>
+  </div>
+
+  <div class="bhajan-tags" id="bhajan-tags" aria-label="Filter bhajans by tag"></div>
+
+  <label class="bhajan-search">
+    <span class="sr-only">Search bhajans</span>
+    <input id="bhajan-search" type="search" placeholder="Search bhajans..." autocomplete="off" data-i18n-placeholder="bhakti.searchPlaceholder">
+  </label>
+</div>
+
 <div id="bhajan-empty" class="bhajan-empty" hidden>No bhajans found. Try another search or tag.</div>
 <article class="bhajan-card" data-tags="mahavir,bhajan" data-title="जहाँ याद करो महावीर वहीं"><div class="bhajan-head"><div><span class="bhajan-number">01</span><h3>🪷 जहाँ याद करो महावीर वहीं 🪷</h3><div class="bhajan-tag-list"><button type="button" class="bhajan-tag" data-tag="mahavir">mahavir</button><button type="button" class="bhajan-tag" data-tag="bhajan">bhajan</button></div></div><span class="bhajan-label" data-i18n="bhakti.label">Bhajan</span></div><div class="bhajan-media"><div class="bhajan-poster-slot"><span>POSTER</span><small>Optional: add poster to<br>assets/bhajans/01-Jahan-Yaad-Karo-Mahavir-Wahin/poster/poster.jpg</small></div><a class="audio-link disabled" href="#" aria-disabled="true" data-audio-url="" data-i18n="bhakti.audioUnavailable">🎧 Listen / Audio</a></div><div class="lyrics-columns"><div class="lyrics-column"><h4>हिंदी</h4><div class="lyrics-panel lyrics-hi"><p>महलों में नहीं, कुटिया में नहीं,<br>जहाँ याद करो महावीर वहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>क्यों पाप कमाके धन जोड़ा,<br>क्यों अपनों से रिश्ता तोड़ा,<br>सोने में नहीं, चाँदी में नहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>क्यों छुप कर जोड़ रहा माया,<br>तुझे देख रहा ऊपर वाला,<br>कंकड़ में नहीं, पत्थर में नहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>पाताल गगन और जल थल में,<br>भक्तों को सुनते पल भर में,<br>गंगा में नहीं, यमुना में नहीं,<br>जहाँ याद करो महावीर वहीं।</p><p>यह सब प्रभु की माया है,<br>इसे कोई समझ नहीं पाया है,<br>कण-कण में वही, क्षण-क्षण में वही,<br>जहाँ याद करो महावीर वहीं। 🙏🪷</p><p>जहाँ याद करो महावीर वहीं…<br>जहाँ याद करो महावीर वहीं… 🙏🌸</p></div></div><div class="lyrics-column"><h4>Roman</h4><div class="lyrics-panel lyrics-roman"><p>Mahalon mein nahi, kutiya mein nahi,<br>Jaha yaad kro Mahavir wahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Kyu paap kamaake dhan joda,<br>Kyu apno se rishta toda,<br>Sone mein nahi, chaandi mein nahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Kyu chhup kar jod raha maya,<br>Tujhe dekh raha upar wala,<br>Kankar mein nahi, patthar mein nahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Pataal gagan aur jal thal mein,<br>Bhakton ko sunte pal bhar mein,<br>Ganga mein nahi, Yamuna mein nahi,<br>Jaha yaad kro Mahavir wahi.</p><p>Yeh sab Prabhu ki maya hai,<br>Ise koi samajh nahi paaya hai,<br>Kan-kan mein wahi, kshan-kshan mein wahi,<br>Jaha yaad kro Mahavir wahi. 🙏🪷</p><p>Jaha yaad kro Mahavir wahi…<br>Jaha yaad kro Mahavir wahi… 🙏🌸</p></div></div></div></article>
 <article class="bhajan-card" data-tags="bhajan,god" data-title="नाम है तेरा तारण हारा"><div class="bhajan-head"><div><span class="bhajan-number">02</span><h3>🪷 नाम है तेरा तारण हारा 🪷</h3><div class="bhajan-tag-list"><button type="button" class="bhajan-tag" data-tag="bhajan">bhajan</button><button type="button" class="bhajan-tag" data-tag="god">god</button></div></div><span class="bhajan-label" data-i18n="bhakti.label">Bhajan</span></div><div class="bhajan-media"><div class="bhajan-poster-slot"><span>POSTER</span><small>Optional: add poster to<br>assets/bhajans/02-Naam-Hai-Tera-Taran-Hara/poster/poster.jpg</small></div><a class="audio-link disabled" href="#" aria-disabled="true" data-audio-url="" data-i18n="bhakti.audioUnavailable">🎧 Listen / Audio</a></div><div class="lyrics-columns"><div class="lyrics-column"><h4>हिंदी</h4><div class="lyrics-panel lyrics-hi"><p>नाम है तेरा तारण हारा,<br>कब तेरा दर्शन होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा ।</p><p>तुमने तारे लाखों प्राणी,<br>ये संतो की वाणी है,<br>तेरी छवि पर वो मेरे भगवन,<br>ये दुनिया दीवानी है,<br>भाव से तेरी पूजा रचाऊं,<br>जीवन में मंगल होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>सुरवर मुनिवर जिनके चरणे,<br>निशदिन शीश झुकाते है,<br>जो गाते है प्रभु की महिमा,<br>वो सब कुछ पा जाते है,<br>अपने कष्ट मिटाने को तेरे,<br>चरणों का वंदन होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>मन की मुरादें लेकर स्वामी,<br>तेरे चरण में आए है,<br>हम है बालक तेरे चरण में,<br>तेरे ही गुण गाते है,<br>भव से पार उतरने को तेरे,<br>गीतो का संगम होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>ऐसी दया कर देना दाता,<br>निश्छल गुजरे ये जीवन,<br>रंग लगे नहीं कपट झूठ का,<br>हो पावन मेरा तन मन,<br>सेवा में तेरी ओ मेरे स्वामी,<br>भक्तिभाव अर्पण होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p><p>नाम है तेरा तारण हारा,<br>कब तेरा दर्शन होगा,<br>जिनकी प्रतिमा इतनी सुंदर,<br>वो कितना सुंदर होगा,<br>वो कितना सुंदर होगा ।</p></div></div><div class="lyrics-column"><h4>Roman</h4><div class="lyrics-panel lyrics-roman"><p>Naam hai tera taaran haara,<br>Kab tera darshan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga.</p><p>Tumne taare laakhon praani,<br>Ye santo ki vaani hai,<br>Teri chhavi par vo mere Bhagwan,<br>Ye duniya deewani hai,<br>Bhaav se teri pooja rachaaun,<br>Jeevan mein mangal hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Survar munivar jinke charane,<br>Nishdin sheesh jhukaate hai,<br>Jo gaate hai Prabhu ki mahima,<br>Vo sab kuch paa jaate hai,<br>Apne kasht mitaane ko tere,<br>Charanon ka vandan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Man ki muraadein lekar Swami,<br>Tere charan mein aaye hai,<br>Hum hai baalak tere charan mein,<br>Tere hi gun gaate hai,<br>Bhav se paar utarne ko tere,<br>Geeton ka sangam hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Aisi daya kar dena daata,<br>Nishchal guzre ye jeevan,<br>Rang lage nahi kapat jhooth ka,<br>Ho paavan mera tan man,<br>Seva mein teri O mere Swami,<br>Bhaktibhaav arpan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p><p>Naam hai tera taaran haara,<br>Kab tera darshan hoga,<br>Jinki pratima itni sundar,<br>Vo kitna sundar hoga,<br>Vo kitna sundar hoga.</p></div></div></div></article>
+
+<article class="bhajan-card" data-tags="chalisa,shantinath" data-title="श्री शांतिनाथ चालीसा">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">03</span>
+      <h3>🪷 श्री शांतिनाथ चालीसा 🪷</h3>
+      <div class="bhajan-tag-list">
+        <button type="button" class="bhajan-tag" data-tag="chalisa">chalisa</button>
+        <button type="button" class="bhajan-tag" data-tag="shantinath">shantinath</button>
+      </div>
+    </div>
+  </div>
+  <div class="bhajan-media">
+    <div class="bhajan-poster-slot">
+      <span>POSTER</span>
+      <small>Optional: add poster to<br>assets/bhajans/03-Shri-Shantinath-Chalisa/poster/poster.jpg</small>
+    </div>
+    <a class="audio-link disabled" href="#" aria-disabled="true" data-audio-url="" data-i18n="bhakti.audioUnavailable">🎧 Listen / Audio</a>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <h4>हिंदी</h4>
+      <div class="lyrics-panel lyrics-hi">
+        <p>शान्तिनाथ भगवान का, चालीसा सुखकार ।।<br>
+        मोक्ष प्राप्ति के लिय, कहूँ सुनो चितधार ।।<br>
+        चालीसा चालीस दिन तक, कह चालीस बार ।।<br>
+        बढ़े जगत सम्पन, सुमत अनुपम शुद्ध विचार ।।</p>
+
+        <p>शान्तिनाथ तुम शान्तिनायक, पण्चम चक्री जग सुखदायक ।।<br>
+        तुम ही सोलहवे हो तीर्थंकर, पूजें देव भूप सुर गणधर ।।<br>
+        पत्र्चाचार गुणोके धारी, कर्म रहित आठों गुणकारी ।।<br>
+        तुमने मोक्ष मार्ग दर्शाया, निज गुण ज्ञान भानु प्रकटाया ।।</p>
+
+        <p>स्याद्वाद विज्ञान उचारा, आप तिरे औरन को तारा ।।<br>
+        ऎसे जिन को नमस्कार कर, चढूँ सुमत शान्ति नौका पर ।।<br>
+        सूक्ष्म सी कुछ गाथा गाता, हस्तिनापुर जग विख्याता ।।<br>
+        विश्व सेन पितु, ऐरा माता, सुर तिहुं काल रत्न वर्षाता ।।</p>
+
+        <p>साढे दस करोड़ नित गिरते, ऐरा माँ के आंगन भरते ।।<br>
+        पन्द्रह माह तक हुई लुटाई, ले जा भर भर लोग लुगाई ।।<br>
+        भादों बदी सप्तमी गर्भाते, उतम सोलह स्वप्न आते ।।<br>
+        सुर चारों कायों के आये, नाटक गायन नृत्य दिखाये ।।</p>
+
+        <p>सेवा में जो रही देवियाँ, रखती खुश माँ को दिन रतियां ।।<br>
+        जन्म सेठ बदी चौदश के दिन, घन्टे अनहद बजे गगन घन ।।<br>
+        तीनों ज्ञान लोक सुखदाता, मंगल सकल हर्ष गुण लाता ।।<br>
+        इन्द्र देव सुर सेवा करते, विद्या कला ज्ञान गुण बढ़ते ।।</p>
+
+        <p>अंग-अंग सुन्दर मनमोहन, रत्न जड़ित तन वस्त्राभूषण ।।<br>
+        बल विक्रम यश वैभव काजा, जीते छहों खण्ड के राजा ।।<br>
+        न्यायवान दानी उपचारी, प्रजा हर्षित निर्भय सारी ।।<br>
+        दीन अनाथ दुखी नही कोई, होती उत्तम वस्तु वोई ।।</p>
+
+        <p>ऊँचे आप आठ सौ गज थे, वदन स्वर्ण अरू चिन्ह हिरण थे ।।<br>
+        शक्ति ऐसी थी जिस्मानी, वरी हजार छानवें रानी ।।<br>
+        लख चौरासी हाथी रथ थे, घोड़े करोङ अठारह शुभ थे ।।<br>
+        सहस पचास भूप के राजन, अरबो सेवा में सेवक जन ।।</p>
+
+        <p>तीन करोड़ थी सुंदर गईयां, इच्छा पूर्ण करें नौ निधियां ।।<br>
+        चौदह रतन व चक्र सुदर्शन, उतम भोग वस्तुएं अनगिन ।।<br>
+        थी अड़तालीस कोङ ध्वजायें, कुंडल चंद्र सूर्य सम छाये ।।<br>
+        अमृत गर्भ नाम का भोजन, लाजवाब ऊंचा सिंहासन ।।</p>
+
+        <p>लाखो मंदिर भवन सुसज्जित, नार सहित तुम जिसमें शोभित ।।<br>
+        जितना सुख था शांतिनाथ को, अनुभव होता ज्ञानवान को ।।<br>
+        चलें जिव जो त्याग धर्म पर, मिले ठाठ उनको ये सुखकर ।।<br>
+        पचीस सहस्त्रवर्ष सुख पाकर, उमङा त्याग हितंकर तुमपर ।।</p>
+
+        <p>वैभव सब सपने सम माना, जग तुमने क्षणभंगुर जाना ।।<br>
+        ज्ञानोदय जो हुआ तुम्हारा, पाये शिवपुर भी संसारा ।।<br>
+        कामी मनुज काम को त्यागें, पापी पाप कर्म से भागे ।।<br>
+        सुत नारायण तख्त बिठाया, तिलक चढ़ा अभिषेक कराया ।।</p>
+
+        <p>नाथ आपको बिठा पालकी, देव चले ले राह गगन की ।।<br>
+        इत उत इन्दर चँवर ढुरवें, मंगल गाते वन पहुँचावें ।।<br>
+        भेष दिगम्बर अपना कीना, केश लोच पन मुष्ठी कीना ।।<br>
+        पूर्ण हुआ उपवास छटा जब, शुद्धाहार चले लेने तब ।।</p>
+
+        <p>कर तीनों वैराग चिन्तवन, चारों ज्ञान किये सम्पादन ।।<br>
+        चार हाथ मग चलतें चलते, षट् कायिक की रक्षा करते ।।<br>
+        मनहर मीठे वचन उचरते, प्राणिमात्र का दुखड़ा हरते ।।<br>
+        नाशवान काया यह प्यारी, इससे ही यह रिश्तेदारी ।।</p>
+
+        <p>इससे मात पिता सुत नारी, इसके कारण फिरो दुखारी ।।<br>
+        गर यह तन प्यारा सगता, तरह तरह का रहेगा मिलता ।।<br>
+        तज नेहा काया माया का , हो भरतार मोक्ष दारा का ।।<br>
+        विषय भोग सब दुख का कारण, त्याग धर्म ही शिव के साधन ।।</p>
+
+        <p>निधि लक्ष्मी जो कोई त्यागे, उसके पीछे पीछे भागे ।।<br>
+        प्रेम रूप जो इसे बुलावे, उसके पास कभी नही आवे ।।<br>
+        करने को जग का निस्तारा, छहों खण्ड का राज विसारा ।।<br>
+        देवी देव सुरा सर आये, उत्तम तप कल्याण मनाये ।।</p>
+
+        <p>पूजन नृत्य करें नत मस्तक, गाई महिमा प्रेम पूर्वक ।।<br>
+        करते तुम आहार जहाँ पर, देव रतन वर्षाते उस घर ।।<br>
+        जिस घर दान पात्र को मिलता, घर वह नित्य फूलता-फलता ।।<br>
+        आठों गुण सिद्धों के ध्याकर, दशों धर्म चित काय तपाकर ।।</p>
+
+        <p>केवल ज्ञान आपने पाया, लाखों प्राणी पार लगाया ।।<br>
+        समवशरण में धंवनि खिराई, प्राणी मात्र समझ में आई ।।<br>
+        समवशरण प्रभु का जहाँ जाता, कोस चार सौ तक सुख पाता ।।<br>
+        फूल फलादिक मेवा आती, हरी भरी खेती लहराती ।।</p>
+
+        <p>सेवा में छत्तिस थे गणधार, महिमा मुझसे क्या हो वर्णन ।।<br>
+        नकुल सर्प मृग हरी से प्राणी, प्रेम सहित मिल पीते पानी ।।।<br>
+        आप चतुर्मुख विराजमान थे, मोक्ष मार्ग को दिव्यवान थे ।।<br>
+        करते आप विहार गगन में अन्तरिक्ष थे समवशरण में ।।</p>
+
+        <p>तीनो जगत आनन्दित किने, हित उपदेश हजारो दीने ।।<br>
+        पौने लाख वर्ष हित कीना, उम्र रही जब एक महीना ।।<br>
+        श्री सम्मेद शिखर पर आये, अजर अमर पद तुमनेे पाये ।।<br>
+        निष्पृह कर उद्धार जगत के, गये मोक्ष तुम लाख वर्ष के ।।</p>
+
+        <p>आंक सकें क्या छवी ज्ञान की, जोत सुर्य सम अटल आपकी ।।<br>
+        बहे सिन्धु सम गुण की धारा, रहे सुमत चित नाम तुम्हारा ।।</p>
+
+        <p>नित चालीस ही बार पाठ करें चालीस दिन ।।<br>
+        खेये सुगन्ध अपार, शांतिनाथ के सामने ।।<br>
+        होवे चित प्रसन्न, भय चिंता शंका मिटे ।।<br>
+        पाप होय सब हन्न, बल विद्या वैभव बढ़े ।।</p>
+      </div>
+    </div>
+
+    <div class="lyrics-column">
+      <h4>Roman</h4>
+      <div class="lyrics-panel lyrics-roman">
+        <p>Shaantinath Bhagwan ka, chaalisa sukhkaar.<br>
+Moksh praapti ke liy, kahoon suno chitdhar.<br>
+Chaalisa chaalees din tak, kah chaalees baar.<br>
+Badhe jagat sampan, sumat anupam shuddh vichaar.</p>
+
+<p>Shaantinath tum Shaantinayak, pancham chakri jag sukhdaayak.<br>
+Tum hi solahve ho Teerthankar, poojen dev bhoop sur Gandhar.<br>
+Panchachaar gunon ke dhaari, karm rahit aathon gunkaari.<br>
+Tumne moksh maarg darshaaya, nij gun gyaan bhaanu prakataya.</p>
+
+<p>Syaadvaad vigyaan uchara, aap tire auran ko taara.<br>
+Aise Jin ko namaskaar kar, chadhun sumat shaanti nauka par.<br>
+Sookshm si kuch gaatha gaata, Hastinaapur jag vikhyaata.<br>
+Vishwasen pitu, Aira maata, sur tihun kaal ratn varshaata.</p>
+
+<p>Saadhe das karod nit girte, Aira maa ke aangan bharte.<br>
+Pandrah maah tak hui lutaai, le ja bhar bhar log lugaai.<br>
+Bhaadon badi saptami garbhaate, uttam solah swapn aate.<br>
+Sur chaaron kaayon ke aaye, naatak gaayan nritya dikhaaye.</p>
+
+<p>Seva mein jo rahi deviyaan, rakhti khush maa ko din ratiyaan.<br>
+Janm seṭh badi chaudash ke din, ghante anahad baje gagan ghan.<br>
+Teeno gyaan lok sukhdaata, mangal sakal harsh gun laata.<br>
+Indra dev sur seva karte, vidya kala gyaan gun badhte.</p>
+
+<p>Ang-ang sundar manmohan, ratn jadit tan vastraabhooshan.<br>
+Bal vikram yash vaibhav kaaja, jeete chhahoon khand ke raaja.<br>
+Nyaayvaan daani upchaari, praja harshit nirbhay saari.<br>
+Deen anaath dukhi nahi koi, hoti uttam vastu voyi.</p>
+
+<p>Oonche aap aath sau gaj the, vadan swarn aru chinh hiran the.<br>
+Shakti aisi thi jismaani, varṇe hazaar chhiyanavein raani.<br>
+Lakh chauraasi haathi rath the, ghode karod athaarah shubh the.<br>
+Sahas pachaas bhoop ke raajan, arabon seva mein sevak jan.</p>
+
+<p>Teen karod thi sundar gaiyaan, ichchha poorn karen nau nidhiyaan.<br>
+Chaudah ratan va chakra sudarshan, uttam bhog vastuayen anagin.<br>
+Thi adtaalees karod dhvajaayen, kundal chandra surya sam chhaaye.<br>
+Amrit garbh naam ka bhojan, laajawaab ooncha sinhaasan.</p>
+
+<p>Laakhon mandir bhavan susajjit, naar sahit tum jismein shobhit.<br>
+Jitna sukh tha Shaantinath ko, anubhav hota gyaanvaan ko.<br>
+Chalen jeev jo tyaag dharm par, mile thaath unko ye sukhkar.<br>
+Pachchees sahastra varsh sukh paakar, umda tyaag hitankar tumpar.</p>
+
+<p>Vaibhav sab sapne sam maana, jag tumne kshanbhangur jaana.<br>
+Gyaanoday jo hua tumhaara, paaye Shivpur bhi sansaara.<br>
+Kaami manuj kaam ko tyaagen, paapi paap karm se bhaagen.<br>
+Sut Narayan takht bithaaya, tilak chadha abhishhek karaaya.</p>
+
+<p>Naath aapko bithaa paalaki, dev chale le raah gagan ki.<br>
+It ut Indra chamar dhuraven, mangal gaate van pahunchaven.<br>
+Bhesh Digambar apna keena, kesh loch pan mushti keena.<br>
+Poorn hua upvaas chhatha jab, shuddhaahaar chale lene tab.</p>
+
+<p>Kar teenon vairaag chintavan, chaaron gyaan kiye sampadan.<br>
+Chaar haath mag chalte chalte, shat kaayik ki raksha karte.<br>
+Manhar meethe vachan ucharte, praanimaatr ka dukhda harte.<br>
+Naashvaan kaaya yah pyaari, isse hi yah rishtedaari.</p>
+
+<p>Isse maat pita sut naari, iske kaaran phiro dukhaari.<br>
+Gar yah tan pyaara sagta, tarah tarah ka rahega milta.<br>
+Taj neha kaaya maaya ka, ho bhartaar moksh daara ka.<br>
+Vishay bhog sab dukh ka kaaran, tyaag dharm hi Shiv ke saadhan.</p>
+
+<p>Nidhi Lakshmi jo koi tyaage, uske peechhe peechhe bhaage.<br>
+Prem roop jo ise bulaave, uske paas kabhi nahi aave.<br>
+Karne ko jag ka nistaara, chhahoon khand ka raaj visaara.<br>
+Devi dev sura sar aaye, uttam tap kalyaan manaaye.</p>
+
+<p>Poojan nritya karen nat mastak, gaai mahima prem poorvak.<br>
+Karte tum aahaar jahaan par, dev ratan varshaate us ghar.<br>
+Jis ghar daan paatr ko milta, ghar vah nitya phoolta-phalata.<br>
+Aathon gun siddhon ke dhyaakar, dashon dharm chit kaay tapaakar.</p>
+
+<p>Keval gyaan aapne paaya, laakhon praani paar lagaaya.<br>
+Samavsharan mein dhvani khiraai, praani maatr samajh mein aai.<br>
+Samavsharan Prabhu ka jahaan jaata, kos chaar sau tak sukh paata.<br>
+Phool falaadik meva aati, hari bhari kheti lahraati.</p>
+
+<p>Seva mein chhattis the Gandhaar, mahima mujhse kya ho varnan.<br>
+Nakul sarp mrig hari se praani, prem sahit mil peete paani.<br>
+Aap chaturmukh viraajmaan the, moksh maarg ko divyavaan the.<br>
+Karte aap vihaar gagan mein, antariksh the samavsharan mein.</p>
+
+<p>Teeno jagat aanandit kine, hit updesh hazaaron deene.<br>
+Paune laakh varsh hit keena, umr rahi jab ek maheena.<br>
+Shri Sammed Shikhar par aaye, ajar amar pad tumne paaye.<br>
+Nishprih kar uddhaar jagat ke, gaye moksh tum laakh varsh ke.</p>
+
+<p>Aank saken kya chhavi gyaan ki, jot surya sam atal aapki.<br>
+Bahe sindhu sam gun ki dhaara, rahe sumat chit naam tumhaara.</p>
+
+<p>Nit chaalees hi baar paath karen chaalees din.<br>
+Kheye sugandh apaar, Shaantinath ke saamne.<br>
+Hove chit prasann, bhay chinta shanka mite.<br>
+Paap hoy sab hann, bal vidya vaibhav badhe.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="bhajan-card" data-tags="bhajan,mahavir" data-title="बाजे कुण्डलपुर में बधाई">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">04</span>
+      <h3>🪷 बाजे कुण्डलपुर में बधाई 🪷</h3>
+      <div class="bhajan-tag-list">
+        <button type="button" class="bhajan-tag" data-tag="bhajan">bhajan</button>
+        <button type="button" class="bhajan-tag" data-tag="mahavir">mahavir</button>
+      </div>
+    </div>
+  </div>
+  <div class="bhajan-media">
+    <div class="bhajan-poster-slot">
+      <span>POSTER</span>
+      <small>Optional: add poster to<br>assets/bhajans/04-Baje-Kundalpur-Mein-Badhai/poster/poster.jpg</small>
+    </div>
+    <a class="audio-link disabled" href="#" aria-disabled="true" data-audio-url="" data-i18n="bhakti.audioUnavailable">🎧 Listen / Audio</a>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <h4>हिंदी</h4>
+      <div class="lyrics-panel lyrics-hi">
+        <p>बाजे कुण्डलपुर में बधाई<br>
+        कि नगरी में वीर जन्मे, महावीर जी ॥टेक॥</p>
+
+        <p>जागे भाग हैं त्रिशला माँ के..<br>
+        त्रिभुवन के नाथ जन्मे, महावीर जी ।१।</p>
+
+        <p>शुभ घडी जनम की आई...<br>
+        कि स्वर्ग से देव आये, महावीर जी ।२।</p>
+
+        <p>तुझे देवियां झुलावे पलना..<br>
+        कि मन में मगन होके, महावीर जी ।३।</p>
+
+        <p>तेरे पलने में हीरे मोती..<br>
+        कि डोरियों में लाल लटके, महावीर जी ।४।</p>
+
+        <p>तेरे न्हवन करें मेरु पर..<br>
+        कि इंद्र जल भर लायें, महावीर जी ।५।</p>
+
+        <p>हम तेरे दरस को आये..<br>
+        कि पाप सब कट जाऐंगे, महावीर जी ।६।</p>
+      </div>
+    </div>
+
+    <div class="lyrics-column">
+      <h4>Roman</h4>
+      <div class="lyrics-panel lyrics-roman">
+        <p>Baaje Kundalpur mein badhaai,<br>
+Ki nagari mein Veer janme, Mahaveer ji.</p>
+
+<p>Jaage bhaag hain Trishla maa ke,<br>
+Tribhuvan ke naath janme, Mahaveer ji.</p>
+
+<p>Shubh ghadi janam ki aayi,<br>
+Ki swarg se dev aaye, Mahaveer ji.</p>
+
+<p>Tujhe deviyaan jhulaave palna,<br>
+Ki man mein magan hoke, Mahaveer ji.</p>
+
+<p>Tere palne mein heere moti,<br>
+Ki doriyon mein laal latke, Mahaveer ji.</p>
+
+<p>Tere nhavan karen Meru par,<br>
+Ki Indra jal bhar laaye, Mahaveer ji.</p>
+
+<p>Hum tere daras ko aaye,<br>
+Ki paap sab kat jaayenge, Mahaveer ji.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
 <div class="bhakti-note"><span>🪷</span><p data-i18n="bhakti.note"><strong>Bhakti Sangeet</strong><br>More Jain bhajans and devotional content can be added here over time.</p></div></div></section>
 </main>
 <div id="site-footer"></div>
