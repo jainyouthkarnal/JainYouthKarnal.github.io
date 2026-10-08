@@ -69,7 +69,7 @@ document.querySelectorAll('.audio-link[data-audio-url]').forEach(link=>{
 
 // Built-in copy of data/yatra-data.json, used ONLY if the file cannot be fetched (e.g. index.html opened by double-click).
 // The real source of truth is data/yatra-data.json: keep this copy in sync when you add a trip.
-const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":"Karnal","coordinates":[29.6824999,76.7025384]},"trips":[{"id":"ranila-ji","place":"Ranila Ji","date":"2026-03-22","temple":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","coordinates":[28.7090507,76.3325388],"mapPosition":{"left":27.8,"top":29.5}},{"id":"jalabaad","place":"Jalabaad","date":"2026-04-05","temple":"Shri 1008 Parasnath Digamber Jain Mandir","coordinates":[29.6158372,77.4360981],"mapPosition":{"left":31.3,"top":27.2}},{"id":"hastinapur","place":"Hastinapur","date":"2026-05-09","temple":"Digamber Jain Bada Mandir","coordinates":[29.1613343,78.0010909],"mapPosition":{"left":33.7,"top":28.1}},{"id":"sonipat","place":"Sonipat","date":"2026-06-14","temple":"Shanti Nath Atishya Kshetra","coordinates":[29.0004214,77.0151195],"mapPosition":{"left":30.2,"top":28.6}},{"id":"hansi","place":"Hansi","date":"2026-07-18","temple":"Shri Digamber Jain Panchayati Mandir","coordinates":[29.1009391,75.9636061],"mapPosition":{"left":26.5,"top":28.3}},{"id":"vehlana-ji","place":"Vehlana Ji","date":"2026-08-16","temple":"Vehalna Digambar Jain Temple Atishaya Kshetra","coordinates":[29.4285143,77.6854437],"mapPosition":{"left":32.1,"top":27.4}},{"id":"gannaur","place":"Gannaur","date":"2026-09-07","temple":"Gupti Dhaam Digamber Jain Mandir","coordinates":[29.1412698,77.0371692],"mapPosition":{"left":30.0,"top":28.3}},{"id":"badegaon","place":"Badegaon","date":"2026-10-04","temple":"Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir","coordinates":[28.8776725,77.3152324],"mapPosition":{"left":31.3,"top":29.0}}]};
+const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":"Karnal","coordinates":[29.6824999,76.9909295]},"trips":[{"id":"ranila-ji","place":"Ranila Ji","date":"2026-03-22","temple":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","coordinates":[28.7090507,76.3325388],"mapPosition":{"left":27.8,"top":29.5}},{"id":"jalabaad","place":"Jalabaad","date":"2026-04-05","temple":"Shri 1008 Parasnath Digamber Jain Mandir","coordinates":[29.6158372,77.4360981],"mapPosition":{"left":31.3,"top":27.2}},{"id":"hastinapur","place":"Hastinapur","date":"2026-05-09","temple":"Digamber Jain Bada Mandir","coordinates":[29.1613343,78.0010909],"mapPosition":{"left":33.7,"top":28.1}},{"id":"sonipat","place":"Sonipat","date":"2026-06-14","temple":"Shanti Nath Atishya Kshetra","coordinates":[29.0004214,77.0151195],"mapPosition":{"left":30.2,"top":28.6}},{"id":"hansi","place":"Hansi","date":"2026-07-18","temple":"Shri Digamber Jain Panchayati Mandir","coordinates":[29.1009391,75.9636061],"mapPosition":{"left":26.5,"top":28.3}},{"id":"vehlana-ji","place":"Vehlana Ji","date":"2026-08-16","temple":"Vehalna Digambar Jain Temple Atishaya Kshetra","coordinates":[29.4285143,77.6854437],"mapPosition":{"left":32.1,"top":27.4}},{"id":"gannaur","place":"Gannaur","date":"2026-09-07","temple":"Gupti Dhaam Digamber Jain Mandir","coordinates":[29.1412698,77.0371692],"mapPosition":{"left":30.0,"top":28.3}},{"id":"badegaon","place":"Badegaon","date":"2026-10-04","temple":"Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir","prakshal":"Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple","coordinates":[28.8776725,77.3152324],"mapPosition":{"left":31.3,"top":29.0}}]};
 
 // Monthly Yatra map: reads data/yatra-data.json (exact temple coordinates) and draws an interactive map.
 (async function renderYatraMap(){
@@ -79,7 +79,9 @@ const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":
   const mapsUrl=(lat,lon)=>`https://www.google.com/maps?q=${lat},${lon}`;
   const fmtDate=iso=>new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
   const temples=t=>t.temple.split(';').map(x=>x.trim()).filter(Boolean);
-  const templeList=(t,cls)=>`<ul class="${cls}">${temples(t).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+  const ptxt=()=>document.documentElement.lang==='hi'?'प्रक्षाल':'Prakshal';
+  const isP=(t,x)=>t.prakshal&&String(t.prakshal).trim().toLowerCase()===x.toLowerCase();
+  const templeList=(t,cls)=>`<ul class="${cls}">${temples(t).map(x=>isP(t,x)?`<li class="prakshal">${esc(x)}<span class="prakshal-tag" data-i18n="trip.prakshal">${ptxt()}</span></li>`:`<li>${esc(x)}</li>`).join('')}</ul>`;
   const colors=['#D71920','#d99a00','#148A45','#1746B8','#0c3b2e'];
 
   let data;
@@ -128,7 +130,7 @@ const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":
     if(home)L.polyline([home,ll],{color:'#b58a35',weight:1.6,opacity:.65,dashArray:'4 7'}).addTo(map);
     return L.marker(ll,{icon:pin(i+1,colors[i%colors.length])}).addTo(map)
       .bindTooltip(esc(trip.place))
-      .bindPopup(`<div class="yp-pop"><small>${fmtDate(trip.date)}</small><h4>${esc(trip.place)}</h4>${templeList(trip,'yp-temples')}<a href="${mapsUrl(ll[0],ll[1])}" target="_blank" rel="noopener">Open in Google Maps →</a></div>`,{maxWidth:280});
+      .bindPopup(()=>`<div class="yp-pop"><small>${fmtDate(trip.date)}</small><h4>${esc(trip.place)}</h4>${templeList(trip,'yp-temples')}<a href="${mapsUrl(ll[0],ll[1])}" target="_blank" rel="noopener">Open in Google Maps →</a></div>`,{maxWidth:280});
   });
 
   const bounds=L.latLngBounds(points);
@@ -206,7 +208,7 @@ function renderCalendar(){
     const kal=kalyanakEvents[dateKey];
     if(kal){e.classList.add('has-event','kalyanak-day');if(kal.some(k=>k.star))e.classList.add('mahavir-day');
       kal.forEach(k=>{const lab=document.createElement('span');lab.className='kal'+(k.star?' star':'');const txt=document.documentElement.lang==='hi'?k.hi:k.en;lab.textContent=txt;lab.title=`${k.en} | ${k.hi}`;e.appendChild(lab)})}
-    if(dow===0){e.classList.add('path-day');if(!trip&&!kal){const lab=document.createElement('span');lab.textContent=document.documentElement.lang==='hi'?'पाठशाला':'Pathshala';e.appendChild(lab)}}
+    if(dow===0&&!trip){e.classList.add('path-day');const lab=document.createElement('span');lab.textContent=document.documentElement.lang==='hi'?'पाठशाला':'Pathshala';e.appendChild(lab)}
     calGrid.appendChild(e);
   }
 }
@@ -246,15 +248,15 @@ setLanguage=function(lang){oldSetLanguage(lang);renderCalendar();};
   if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);setTimeout(()=>{e.target.style.transitionDelay='';},900);}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.documentElement.classList.add('reveal-on');
-  document.querySelectorAll('.section-heading,.trip-card,.card,.knowledge-item,.announcement-card,.pathshala-points>div,.schedule-box,.stat,.bhajan-card,.map-list,.mandir-map-card,.join-form,.embed-card,.gallery img').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=`${(i%4)*70}ms`;io.observe(el);});
+  document.querySelectorAll('.section-heading,.trip-card,.card,.knowledge-item,.announcement-card,.pathshala-points>div,.schedule-box,.stat,.bhajan-card,.map-list,.mandir-map-card,.join-form,.embed-card,.explore-card,.gallery img').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=`${(i%4)*70}ms`;io.observe(el);});
 })();
 
 // ===== Creative layer =====
 const prefersReduced=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 
 // Stats-band labels in both languages (then re-apply the saved language).
-Object.assign(translations.en,{'stats.yatras':'Monthly Yatras','stats.mandirs':'Mandirs Visited','stats.bhajans':'Bhajans Shared','stats.sunday':'Sunday','stats.pathshala':'Pathshala • 8–9 AM','calendar.kalyanakLegend':'Kalyanak','follow.eyebrow':'FOLLOW OUR JOURNEY','follow.title':'See us on Instagram & YouTube.','follow.intro':'Yatra moments, bhajans and community updates, straight from our channels.','follow.insta':'Follow →','follow.yt':'Subscribe →','follow.ytText':'Watch our yatra and bhajan videos on our YouTube channel.','follow.ytBtn':'Open YouTube channel →'});
-Object.assign(translations.hi,{'stats.yatras':'मासिक यात्राएँ','stats.mandirs':'मंदिर दर्शन','stats.bhajans':'भजन','stats.sunday':'रविवार','stats.pathshala':'पाठशाला • सुबह 8–9 बजे','calendar.kalyanakLegend':'कल्याणक','follow.eyebrow':'हमारी यात्रा से जुड़ें','follow.title':'Instagram और YouTube पर हमसे जुड़ें।','follow.intro':'यात्राओं के पल, भजन और सामुदायिक अपडेट, सीधे हमारे चैनलों से।','follow.insta':'फ़ॉलो करें →','follow.yt':'सब्सक्राइब करें →','follow.ytText':'हमारी यात्राओं और भजनों के वीडियो हमारे YouTube चैनल पर देखें।','follow.ytBtn':'YouTube चैनल खोलें →'});
+Object.assign(translations.en,{'stats.yatras':'Monthly Yatras','stats.mandirs':'Mandirs Visited','stats.bhajans':'Bhajans Shared','stats.sunday':'Sunday','stats.pathshala':'Pathshala • 8–9 AM','calendar.kalyanakLegend':'Kalyanak','follow.eyebrow':'FOLLOW OUR JOURNEY','follow.title':'See us on Instagram & YouTube.','follow.intro':'Yatra moments, bhajans and community updates, straight from our channels.','follow.insta':'Follow →','follow.yt':'Subscribe →','follow.ytText':'Watch our yatra and bhajan videos on our YouTube channel.','follow.ytBtn':'Open YouTube channel →','nav.yatra':'Yatra','nav.learn':'Learn','nav.community':'Community','nav.follow':'Follow Us','crumb.home':'Home','page.yatra.eyebrow':'YATRA & DARSHAN','page.yatra.title':'Journeys of faith.','page.yatra.intro':'Monthly yatras, the places we have visited and darshan from across Jain tirthas.','page.learn.eyebrow':'LEARN','page.learn.title':'Learn Jain Dharma together.','page.learn.intro':'Sunday Pathshala and our growing Jain knowledge hub.','page.community.eyebrow':'COMMUNITY','page.community.title':'Stay connected with the sangh.','page.community.intro':'Calendar, events, our mandir and our channels, all in one place.','explore.eyebrow':'EXPLORE THE SITE','explore.title':'Everything in one place.','explore.yatra':'Monthly yatras, our travel map and darshan from Jain tirthas.','explore.learn':'Sunday Pathshala and the Jain knowledge hub.','explore.bhakti':'Bhajans in Hindi and Roman, to read and sing along.','explore.community':'Calendar, events, our mandir and our channels.','explore.go':'Explore →','cta.title':'Come along on our next yatra.','cta.text':'Join Jain Youth Karnal for yatras, pathshala, bhakti and seva.','trip.prakshal':'Prakshal'});
+Object.assign(translations.hi,{'stats.yatras':'मासिक यात्राएँ','stats.mandirs':'मंदिर दर्शन','stats.bhajans':'भजन','stats.sunday':'रविवार','stats.pathshala':'पाठशाला • सुबह 8–9 बजे','calendar.kalyanakLegend':'कल्याणक','follow.eyebrow':'हमारी यात्रा से जुड़ें','follow.title':'Instagram और YouTube पर हमसे जुड़ें।','follow.intro':'यात्राओं के पल, भजन और सामुदायिक अपडेट, सीधे हमारे चैनलों से।','follow.insta':'फ़ॉलो करें →','follow.yt':'सब्सक्राइब करें →','follow.ytText':'हमारी यात्राओं और भजनों के वीडियो हमारे YouTube चैनल पर देखें।','follow.ytBtn':'YouTube चैनल खोलें →','nav.yatra':'यात्रा','nav.learn':'सीखें','nav.community':'समुदाय','nav.follow':'हमसे जुड़ें','crumb.home':'होम','page.yatra.eyebrow':'यात्रा और दर्शन','page.yatra.title':'आस्था की यात्राएँ।','page.yatra.intro':'मासिक यात्राएँ, हमारे द्वारा देखे गए स्थान और जैन तीर्थों के दर्शन।','page.learn.eyebrow':'सीखें','page.learn.title':'साथ मिलकर जैन धर्म सीखें।','page.learn.intro':'रविवार पाठशाला और हमारा बढ़ता जैन ज्ञान केंद्र।','page.community.eyebrow':'समुदाय','page.community.title':'संघ से जुड़े रहें।','page.community.intro':'कैलेंडर, कार्यक्रम, हमारा मंदिर और हमारे चैनल, सब एक जगह।','explore.eyebrow':'साइट देखें','explore.title':'सब कुछ एक जगह।','explore.yatra':'मासिक यात्राएँ, हमारा यात्रा मानचित्र और जैन तीर्थों के दर्शन।','explore.learn':'रविवार पाठशाला और जैन ज्ञान केंद्र।','explore.bhakti':'हिंदी और रोमन में भजन, पढ़ने और साथ गाने के लिए।','explore.community':'कैलेंडर, कार्यक्रम, हमारा मंदिर और हमारे चैनल।','explore.go':'देखें →','cta.title':'हमारी अगली यात्रा में साथ चलिए।','cta.text':'यात्राओं, पाठशाला, भक्ति और सेवा के लिए जैन यूथ करनाल से जुड़ें।','trip.prakshal':'प्रक्षाल'});
 setLanguage(localStorage.getItem('jyk-language')||'en');
 
 // Scroll progress, back-to-top button, nav scroll-spy.
@@ -266,9 +268,12 @@ setLanguage(localStorage.getItem('jyk-language')||'en');
     if(bar)bar.style.setProperty('--p',p);top.style.setProperty('--p',p);top.classList.toggle('show',scrollY>600);};
   update();addEventListener('scroll',update,{passive:true});addEventListener('resize',update);
   if(!('IntersectionObserver' in window))return;
-  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
-  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
-  const spy=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;links.forEach(a=>a.classList.remove('active'));const a=map.get(e.target.id);if(a)a.classList.add('active');}),{rootMargin:'-45% 0px -50% 0px'});
+  const pageOf=u=>(u.pathname.split('/').pop()||'index').replace(/\.html$/i,'').toLowerCase();
+  const here=pageOf(location);
+  const all=[...document.querySelectorAll('.nav a')];
+  const map=new Map();
+  all.forEach(a=>{const u=new URL(a.getAttribute('href'),location.href);if(pageOf(u)===here&&u.hash.length>1)map.set(u.hash.slice(1),a);});
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;all.forEach(x=>x.classList.remove('active'));const a=map.get(e.target.id);if(a)a.classList.add('active');}),{rootMargin:'-45% 0px -50% 0px'});
   map.forEach((a,id)=>{const sec=document.getElementById(id);if(sec)spy.observe(sec);});
 })();
 
@@ -310,20 +315,24 @@ document.addEventListener('pointerdown',e=>{const b=e.target.closest&&e.target.c
   const r=b.getBoundingClientRect(),d=document.createElement('span');d.className='ripple';d.style.left=`${e.clientX-r.left}px`;d.style.top=`${e.clientY-r.top}px`;
   b.appendChild(d);setTimeout(()=>d.remove(),700);});
 
-// Darshan gallery lightbox (click, arrows, Esc).
-(function initLightbox(){
+// Photo lightbox (click, arrows, Esc). Use JYKLB.open(srcList, startIndex, altList).
+const JYKLB=(function(){
+  let lb,big,list=[],alts=[],i=0;
+  function show(n){i=(n+list.length)%list.length;big.src=list[i];big.alt=alts[i]||'';big.style.animation='none';big.offsetWidth;big.style.animation='';lb.classList.toggle('single',list.length<2);}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  function build(){
+    if(lb)return;
+    lb=document.createElement('div');lb.className='lightbox';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Image viewer');
+    lb.innerHTML='<button class="lb-close" type="button" aria-label="Close">×</button><button class="lb-prev" type="button" aria-label="Previous">‹</button><img alt=""><button class="lb-next" type="button" aria-label="Next">›</button>';
+    document.body.appendChild(lb);big=lb.querySelector('img');
+    lb.addEventListener('click',e=>{if(e.target===lb||e.target.closest('.lb-close'))close();else if(e.target.closest('.lb-prev'))show(i-1);else if(e.target.closest('.lb-next'))show(i+1);});
+    addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+  }
+  return{open(srcs,n,al){build();list=srcs;alts=al||[];show(n||0);lb.classList.add('open');document.body.style.overflow='hidden';}};
+})();
+(function initGalleryLightbox(){
   const imgs=[...document.querySelectorAll('.gallery img')];
-  if(!imgs.length)return;
-  const lb=document.createElement('div');lb.className='lightbox';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Image viewer');
-  lb.innerHTML='<button class="lb-close" type="button" aria-label="Close">×</button><button class="lb-prev" type="button" aria-label="Previous">‹</button><img alt=""><button class="lb-next" type="button" aria-label="Next">›</button>';
-  document.body.appendChild(lb);
-  const big=lb.querySelector('img');let i=0;
-  const show=n=>{i=(n+imgs.length)%imgs.length;big.src=imgs[i].src;big.alt=imgs[i].alt;big.style.animation='none';big.offsetWidth;big.style.animation='';};
-  const open=n=>{show(n);lb.classList.add('open');document.body.style.overflow='hidden';};
-  const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
-  imgs.forEach((im,n)=>im.addEventListener('click',()=>open(n)));
-  lb.addEventListener('click',e=>{if(e.target===lb||e.target.closest('.lb-close'))close();else if(e.target.closest('.lb-prev'))show(i-1);else if(e.target.closest('.lb-next'))show(i+1);});
-  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+  imgs.forEach((im,n)=>im.addEventListener('click',()=>JYKLB.open(imgs.map(x=>x.src),n,imgs.map(x=>x.alt))));
 })();
 
 // ===== Maps helper, mandir map, YouTube embed =====
@@ -339,7 +348,7 @@ function jykTiles(map){
 (function initMandirMap(){
   const box=document.getElementById('mandir-map');
   if(!box||typeof L==='undefined')return;
-  const ll=[29.6824999,76.7025384];
+  const ll=[29.6824999,76.9909295];
   box.innerHTML='';
   const map=L.map(box,{scrollWheelZoom:false}).setView(ll,16);
   jykTiles(map);
@@ -362,4 +371,35 @@ function jykTiles(map){
   f.allow='accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share';
   f.referrerPolicy='strict-origin-when-cross-origin';
   box.innerHTML='';box.appendChild(f);
+})();
+
+// Header sub-menus: click/tap opens them (hover also works on desktop through CSS).
+(function initDropdowns(){
+  const items=[...document.querySelectorAll('.nav-item.has-sub')];
+  if(!items.length)return;
+  const closeAll=except=>items.forEach(i=>{if(i===except)return;i.classList.remove('open');const b=i.querySelector('.nav-trigger');if(b)b.setAttribute('aria-expanded','false');});
+  items.forEach(i=>{const b=i.querySelector('.nav-trigger');
+    b.addEventListener('click',e=>{e.stopPropagation();const o=!i.classList.contains('open');closeAll(i);i.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o));});});
+  document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))closeAll();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll();});
+})();
+
+// Trip cards: show Mandir / Group / Trip Memories buttons only for folders that actually have photos (data/trip-media.json).
+(async function initTripMedia(){
+  const boxes=[...document.querySelectorAll('.trip-media-links')];
+  if(!boxes.length)return;
+  let man={};
+  try{const r=await fetch('data/trip-media.json');if(r.ok)man=await r.json();}catch(e){}
+  boxes.forEach(box=>{
+    const folder=box.dataset.folder,info=man[folder]||{},place=(box.closest('.trip-card')?.querySelector('h3')||{}).textContent||'';
+    let any=false;
+    box.querySelectorAll('a').forEach(a=>{
+      const cat=(a.getAttribute('href').match(/\/([a-z]+)\/?$/)||[])[1];
+      const files=(info[cat]||[]).filter(Boolean);
+      if(!files.length){a.hidden=true;return;}
+      any=true;a.dataset.count=files.length;a.setAttribute('href','#');
+      a.addEventListener('click',e=>{e.preventDefault();JYKLB.open(files.map(f=>`assets/trips/${folder}/${cat}/${f}`),0,files.map(()=>`${place} — ${a.textContent}`));});
+    });
+    box.hidden=!any;
+  });
 })();

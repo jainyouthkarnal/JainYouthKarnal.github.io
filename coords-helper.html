@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Temple coordinates helper</title>
+<style>
+body{margin:0;font:16px/1.55 system-ui,sans-serif;background:#f6f1e7;color:#1f2a25}
+main{max-width:720px;margin:0 auto;padding:36px 20px}
+h1{margin:0 0 6px;color:#0c3b2e}p{color:#53615a}
+textarea{width:100%;height:110px;padding:12px;border:1px solid #d9cfb8;border-radius:12px;font:inherit;box-sizing:border-box}
+.out{margin-top:18px;padding:18px;background:#fff;border:1px solid #d9cfb8;border-radius:16px}
+code{display:block;margin:8px 0;padding:10px 12px;background:#f1ece0;border-radius:8px;word-break:break-all}
+.warn{color:#a3262f;font-weight:600}.ok{color:#148a45;font-weight:600}
+a{color:#0c3b2e;font-weight:700}
+</style></head><body><main>
+<h1>Temple coordinates helper</h1>
+<p>Open the temple in Google Maps, copy the <b>full link from the address bar</b> (not a short <i>maps.app.goo.gl</i> link) and paste it here. You can also paste coordinates copied by right-clicking the map.</p>
+<textarea id="in" placeholder="https://www.google.com/maps/place/..."></textarea>
+<div id="out"></div>
+<script>
+const num='(-?\\d+(?:\\.\\d+)?)';
+function parse(t){
+  t=t.trim();let m;
+  if(m=t.match(new RegExp('!3d'+num+'!4d'+num)))return{lat:+m[1],lon:+m[2],kind:'place'};
+  if(m=t.match(new RegExp('^'+num+'\\s*,\\s*'+num+'$')))return{lat:+m[1],lon:+m[2],kind:'pair'};
+  if(m=t.match(new RegExp('[?&](?:q|query|ll|destination)='+num+',\\s*'+num)))return{lat:+m[1],lon:+m[2],kind:'query'};
+  if(m=t.match(new RegExp('@'+num+','+num)))return{lat:+m[1],lon:+m[2],kind:'view'};
+  return null;
+}
+function show(){
+  const t=document.getElementById('in').value,o=document.getElementById('out');
+  if(!t.trim()){o.innerHTML='';return}
+  if(/maps\.app\.goo\.gl|goo\.gl\/maps/.test(t)){o.innerHTML='<div class="out warn">That is a short link. Open it in your browser first, then copy the long link from the address bar.</div>';return}
+  const r=parse(t);
+  if(!r){o.innerHTML='<div class="out warn">No coordinates found in that text.</div>';return}
+  const inIndia=r.lat>6&&r.lat<38&&r.lon>68&&r.lon<98;
+  const msg={place:'<span class="ok">Exact place coordinates found.</span>',pair:'<span class="ok">Coordinates read.</span>',query:'<span class="ok">Coordinates read from the link.</span>',view:'<span class="warn">Only the map view centre was found (the part after @). That is NOT the exact temple. Click the temple pin, then copy the link again.</span>'}[r.kind];
+  o.innerHTML=`<div class="out">${msg}${inIndia?'':'<p class="warn">These are outside India. Check the order (latitude first).</p>'}
+  <p>For <b>data/yatra-data.json</b>:</p><code>"coordinates": [${r.lat}, ${r.lon}]</code>
+  <p>Check it on the map: <a target="_blank" rel="noopener" href="https://www.google.com/maps?q=${r.lat},${r.lon}">open ${r.lat}, ${r.lon}</a></p></div>`;
+}
+document.getElementById('in').addEventListener('input',show);
+</script></main></body></html>

@@ -1,5 +1,24 @@
 # Jain Youth Karnal — Website Update Guide
 
+## 0. Page map (the site is now split into pages)
+
+Where to edit what:
+
+| I want to change... | Edit this file |
+|---|---|
+| Header menu, sub-menus, footer | `layout.js` (shared by all pages) |
+| About, Announcements, Home hero / stats | `index.html` |
+| Monthly Trip cards, Yatra Map section, Darshan gallery | `yatra.html` |
+| Sunday Pathshala, Knowledge hub | `learn.html` |
+| Bhajans (add / edit lyrics) | `bhakti.html` |
+| Events, Our Mandir, Follow (Instagram / YouTube), YouTube channel ID | `community.html` |
+| Calendar Kalyanak / yatra dates | `script.js` (`kalyanakEvents`, `tripEvents`) |
+| Join form | `join.html` |
+| Yatra map data | `data/yatra-data.json` (unchanged) |
+
+Everywhere below that says `index.html`, use the page from this table instead (for example bhajans are now in `bhakti.html`).
+
+
 This file is a quick reference for keeping the website easy to update in GitHub.
 
 ## 1. Most important files
@@ -52,7 +71,7 @@ Use this for visual/design changes only.
 **Shree Digamber Jain Mandir — Karnal**
 
 Coordinates:
-`29.6824999, 76.7025384`
+`29.6824999, 76.9909295`
 
 This is stored under `homeMandir` in `data/yatra-data.json`.
 
@@ -111,6 +130,16 @@ Example:
 
 Do not copy these example values as real data. Replace them with the actual information.
 
+**Optional: where Prakshal was done.** If the group did Prakshal at one of the mandirs, add one more line to the trip in `data/yatra-data.json`:
+
+`"prakshal": "Exact Temple Name",`
+
+The name must match one of the names in `temple`. A gold "Prakshal" tag then appears next to that mandir on the Yatra Map list and in the map popup. For the trip card in `yatra.html`, mark the same mandir like this:
+
+`<li class="prakshal">Exact Temple Name<span class="prakshal-tag" data-i18n="trip.prakshal">Prakshal</span></li>`
+
+Also keep the built-in copy (`YATRA_FALLBACK` in `script.js`) in sync if you want the tag to show when the JSON file cannot be loaded.
+
 ---
 
 ## 5. Getting exact coordinates
@@ -126,6 +155,10 @@ Example:
 `29.4285143, 77.6854437`
 
 Do not include Google Maps zoom/elevation text such as `656m` in the coordinate array.
+
+**Common mistake:** in a Google Maps link, the numbers after `@` are only the centre of the screen you were looking at, **not the temple**. The exact place is in the part that looks like `!3d29.6824999!4d76.9909295` (latitude first, then longitude).
+
+The easiest way to get this right: open `tools/coords-helper.html` in your browser, paste the full Google Maps link of the temple, and copy the `"coordinates": [...]` line it shows.
 
 ---
 
@@ -161,6 +194,18 @@ Each Monthly Yatra has three media folders:
 The same structure exists for all eight current trips.
 
 When adding a new trip, create the same three folders.
+
+**Showing the photos on the website:** the trip cards show no photo buttons until a folder actually has photos. After you add photos to a folder, list their file names in `data/trip-media.json`, for example:
+
+```text
+"08-Badegaon": {
+  "mandir": [],
+  "group": ["group-01.jpg"],
+  "memories": ["memory-01.jpg", "memory-02.jpg"]
+}
+```
+
+The card then shows a "Group (1)" and a "Trip Memories (2)" button that open the photos in a viewer. Categories with no photos stay hidden. For a new trip, copy one of the existing entries in that file and use the new trip's folder name.
 
 ---
 
