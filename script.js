@@ -18,7 +18,7 @@ en:{
 'trips.title':'A year of journeys, darshan & memories.',
 'trips.intro':"Jin Shasan Prabhavna Sangh's 2026 monthly trip journey across Jain destinations.",
 'trip.unspecified':'Mandir visited: Not specified',
-'trip.visited':'Mandir visited:',
+'trip.visited':'Mandir Darshan','trip.prakshal':'Prakshal performed','trip.darshanOnly':'Darshan','trip.namePending':'(exact name to be updated)',
 
 'path.eyebrow':'SUNDAY PATHSHALA',
 'path.title':'Learn, grow & stay connected with Jain values.',
@@ -152,7 +152,7 @@ hi:{
 'trips.title':'यात्राओं, जिन दर्शन और यादों से भरा एक वर्ष।',
 'trips.intro':'जिन शासन प्रभावना संघ की 2026 की मासिक यात्राओं का जैन तीर्थों और दर्शनीय स्थलों का सफर।',
 'trip.unspecified':'मंदिर दर्शन: उपलब्ध जानकारी नहीं',
-'trip.visited':'मंदिर दर्शन:',
+'trip.visited':'मंदिर दर्शन:', 'trip.prakshal':'प्रक्षाल किया गया', 'trip.darshanOnly':'दर्शन', 'trip.namePending':'(सटीक नाम बाद में जोड़ा जाएगा)',
 
 'path.eyebrow':'रविवार पाठशाला',
 'path.title':'सीखें, बढ़ें और जैन मूल्यों से जुड़े रहें।',
@@ -835,6 +835,7 @@ const YATRA_FALLBACK={
       place:'Gannaur',
       date:'2026-09-07',
       temple:'Gupti Dhaam Digamber Jain Mandir',
+      mandirs:[{name:'Prachin Digamber Jain Mandir',activity:'prakshal',note:'exact name to be updated'},{name:'Gupti Dhaam Digamber Jain Mandir',activity:'darshan'}],
       coordinates:[
         29.1412698,
         77.0371692
@@ -854,342 +855,112 @@ const YATRA_FALLBACK={
 };
 
 
-// ===== YATRA MAP =====
-(async function renderYatraMap(){
+// ===== MONTHLY TRIP CARDS (source: data/yatra-data.json) =====
+window.renderTripCards=async function renderTripCards(){
+  const grid=document.getElementById('trip-grid');
+  if(!grid) return;
+  const esc=s=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const mandirs=t=>Array.isArray(t.mandirs)&&t.mandirs.length?t.mandirs:String(t.temple||'').split(';').map(x=>x.trim()).filter(Boolean).map(name=>({name,activity:'darshan'}));
+  const labels=()=>document.documentElement.lang==='hi'
+    ?{visited:'मंदिर दर्शन:',prakshal:'प्रक्षाल किया गया',darshan:'दर्शन',pending:'(सटीक नाम बाद में जोड़ा जाएगा)',dateOpts:{day:'2-digit',month:'short',year:'numeric'}}
+    :{visited:'Mandir Darshan',prakshal:'Prakshal performed',darshan:'Darshan',pending:'(exact name to be updated)',dateOpts:{day:'2-digit',month:'short',year:'numeric'}};
+  let data;
+  try{const r=await fetch('data/yatra-data.json',{cache:'no-cache'}); if(!r.ok) throw 0; data=await r.json();}catch(e){data=YATRA_FALLBACK;}
+  const L=labels();
+  grid.innerHTML=data.trips.map((t,i)=>{
+    const ms=mandirs(t);
+    const featured=i===data.trips.length-1;
+    const folder=t.id==='ranila-ji'?'01-Ranila-Ji':t.id==='jalabaad'?'02-Jalabaad':t.id==='hastinapur'?'03-Hastinapur':t.id==='sonipat'?'04-Sonipat':t.id==='hansi'?'05-Hansi':t.id==='vehlana-ji'?'06-Vehlana-Ji':t.id==='gannaur'?'07-Gannaur':t.id==='badegaon'?'08-Badegaon':t.id;
+    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'💧':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
+  }).join('');
+  if(typeof window.initTripMedia==='function') window.initTripMedia();
+  if(typeof window.refreshSiteAnimations==='function') window.refreshSiteAnimations();
+};
 
-  const canvas=
-    document.getElementById(
-      'yatra-map-canvas'
-    );
-
-  const list=
-    document.getElementById(
-      'yatra-list'
-    );
-
-  const count=
-    document.getElementById(
-      'yatra-count'
-    );
-
+// ===== YATRA MAP — POLITICAL INDIA MAP + PINNED VISITS =====
+window.renderYatraMap=async function renderYatraMap(){
+  const canvas=document.getElementById('yatra-map-canvas');
+  const list=document.getElementById('yatra-list');
+  const count=document.getElementById('yatra-count');
   if(!canvas||!list)return;
 
-  const esc=s=>
-    String(s).replace(
-      /[&<>"]/g,
-      c=>({
-        '&':'&amp;',
-        '<':'&lt;',
-        '>':'&gt;',
-        '"':'&quot;'
-      }[c])
-    );
-
-  const mapsUrl=(lat,lon)=>
-    `https://www.google.com/maps?q=${lat},${lon}`;
-
-  const fmtDate=iso=>
-    new Date(`${iso}T00:00:00`)
-      .toLocaleDateString(
-        'en-IN',
-        {
-          day:'numeric',
-          month:'long',
-          year:'numeric'
-        }
-      );
-
-  const temples=t=>
-    t.temple
-      .split(';')
-      .map(x=>x.trim())
-      .filter(Boolean);
-
-  const ptxt=()=>
-    document.documentElement.lang==='hi'
-      ?'प्रक्षाल'
-      :'Prakshal';
-
-  const isP=(t,x)=>
-    t.prakshal&&
-    String(t.prakshal)
-      .trim()
-      .toLowerCase()===
-    x.toLowerCase();
-
-  const templeList=(t,cls)=>
-    `<ul class="${cls}">${
-      temples(t)
-        .map(x=>
-          isP(t,x)
-          ?`<li class="prakshal">${esc(x)}<span class="prakshal-tag" data-i18n="trip.prakshal">${ptxt()}</span></li>`
-          :`<li>${esc(x)}</li>`
-        )
-        .join('')
-    }</ul>`;
-
-  const colors=[
-    '#D71920',
-    '#d99a00',
-    '#148A45',
-    '#1746B8',
-    '#0c3b2e'
-  ];
+  const esc=s=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const mapsUrl=(lat,lon)=>`https://www.google.com/maps?q=${lat},${lon}`;
+  const fmtDate=iso=>new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  const mandirs=t=>Array.isArray(t.mandirs)&&t.mandirs.length?t.mandirs:String(t.temple||'').split(';').map(x=>x.trim()).filter(Boolean).map(name=>({name,activity:'darshan'}));
+  const activityLabel=a=>a==='prakshal'
+    ?(document.documentElement.lang==='hi'?'प्रक्षाल किया गया':'Prakshal performed')
+    :(document.documentElement.lang==='hi'?'दर्शन':'Darshan');
+  const activityIcon=a=>a==='prakshal'
+    ?`<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">`
+    :`<span class="darshan-icon" aria-hidden="true">🙏</span>`;
+  const templeList=(t,cls)=>`<ul class="${cls}">${mandirs(t).map(m=>{
+    const isP=m.activity==='prakshal';
+    const pending=m.note?` <em>${esc(m.note)}</em>`:'';
+    return `<li class="mandir-item ${isP?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${isP?'prakshal':'darshan'}">${activityIcon(m.activity)} ${activityLabel(m.activity)}</strong><span class="mandir-name">${esc(m.name)}${pending}</span></li>`;
+  }).join('')}</ul>`;
 
   let data;
-
   try{
-
-    const res=
-      await fetch(
-        'data/yatra-data.json',
-        {cache:'no-cache'}
-      );
-
-    if(!res.ok)
-      throw new Error(res.status);
-
+    const res=await fetch('data/yatra-data.json',{cache:'no-cache'});
+    if(!res.ok)throw new Error(res.status);
     data=await res.json();
+  }catch(e){data=YATRA_FALLBACK;}
 
-  }catch(e){
+  const trips=data.trips||[];
+  if(count)count.textContent=document.documentElement.lang==='hi'?`${trips.length} स्थानों का दर्शन`:`${trips.length} places visited`;
 
-    data=YATRA_FALLBACK;
+  // Political India map from Wikimedia Commons. Pins use mapPosition from yatra-data.json.
+  const mapSrc='https://upload.wikimedia.org/wikipedia/commons/6/69/India_states_and_union_territories_map.svg';
+  canvas.innerHTML=`<div class="india-political-map" role="img" aria-label="India political map with Jain Youth Karnal yatra locations">
+    <div class="india-map-figure">
+      <img class="india-political-map-image" src="${mapSrc}" alt="Political map of India with states and union territories">
+      <div class="map-pins" aria-label="Yatra pins"></div>
+    </div>
+  </div><p class="map-credit">Map: <a href="https://commons.wikimedia.org/wiki/File:India_states_and_union_territories_map.svg" target="_blank" rel="noopener">India states and union territories map</a>, Wikimedia Commons • CC BY-SA 3.0. Pins are illustrative visit markers using the supplied yatra coordinates/map positions.</p>`;
 
-  }
+  const pinLayer=canvas.querySelector('.map-pins');
+  list.innerHTML='';
 
-  if(count)
-    count.textContent=
-      `${data.trips.length} places visited`;
-
-  const items=[];
-
-  data.trips.forEach((trip,i)=>{
+  trips.forEach((trip,i)=>{
+    const pos=trip.mapPosition||{};
+    const left=Number.isFinite(Number(pos.left))?Number(pos.left):50;
+    const top=Number.isFinite(Number(pos.top))?Number(pos.top):50;
+    const pin=document.createElement('button');
+    pin.type='button';
+    pin.className='map-pin';
+    pin.dataset.index=i;
+    pin.style.left=`${left}%`;
+    pin.style.top=`${top}%`;
+    pin.setAttribute('aria-label',`${i+1}. ${trip.place}`);
+    pin.innerHTML=`<span class="map-pin-dot"><b>${i+1}</b></span><em>${esc(trip.place)}</em>`;
+    pinLayer.appendChild(pin);
 
     const li=document.createElement('li');
-
-    li.innerHTML=
-      `<span>${String(i+1).padStart(2,'0')}</span>`+
-      `<div>`+
-      `<strong>${esc(trip.place)}</strong>`+
-      `<small>${fmtDate(trip.date)}</small>`+
-      `${templeList(trip,'map-temples')}`+
-      `<a href="${mapsUrl(trip.coordinates[0],trip.coordinates[1])}" target="_blank" rel="noopener">Open in Google Maps →</a>`+
-      `</div>`;
-
+    li.dataset.index=i;
+    li.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span><div><strong>${esc(trip.place)}</strong><small>${fmtDate(trip.date)}</small>${templeList(trip,'map-temples')}<a href="${mapsUrl(trip.coordinates[0],trip.coordinates[1])}" target="_blank" rel="noopener">Open in Google Maps →</a></div>`;
     list.appendChild(li);
 
-    items.push(li);
-
+    const activate=()=>{
+      list.querySelectorAll('li').forEach(x=>x.classList.toggle('active',x===li));
+      pinLayer.querySelectorAll('.map-pin').forEach(x=>x.classList.toggle('active',x===pin));
+      pin.scrollIntoView({behavior:'smooth',block:'center',inline:'center'});
+    };
+    pin.addEventListener('click',activate);
+    li.addEventListener('click',e=>{
+      if(e.target.closest('a'))return;
+      activate();
+      canvas.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+    pin.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}
+    });
   });
 
-  if(typeof L==='undefined'){
+  if(typeof window.refreshSiteAnimations==='function')window.refreshSiteAnimations();
+};
 
-    canvas.innerHTML=
-      '<p class="map-error">The map library could not be loaded. Please check your internet connection.</p>';
-
-    return;
-  }
-
-  const home=
-    data.homeMandir&&
-    data.homeMandir.coordinates;
-
-  const map=
-    L.map(
-      canvas,
-      {scrollWheelZoom:false}
-    );
-
-  jykTiles(map);
-
-  map.on(
-    'click',
-    ()=>map.scrollWheelZoom.enable()
-  );
-
-  canvas.addEventListener(
-    'mouseleave',
-    ()=>map.scrollWheelZoom.disable()
-  );
-
-  const pin=(label,color)=>
-    L.divIcon({
-      className:'yp-wrap',
-      html:`<span class="yp" style="--c:${color}"><b>${label}</b></span>`,
-      iconSize:[34,34],
-      iconAnchor:[17,41],
-      popupAnchor:[0,-38],
-      tooltipAnchor:[18,-22]
-    });
-
-  const points=[];
-
-  if(home){
-
-    points.push(home);
-
-    L.marker(
-      home,
-      {
-        icon:pin(
-          '★',
-          '#b58a35'
-        ),
-        zIndexOffset:1000
-      }
-    )
-    .addTo(map)
-    .bindTooltip(
-      `${esc(data.homeMandir.place)} (home)`
-    )
-    .bindPopup(
-      `<div class="yp-pop">`+
-      `<small>Home mandir</small>`+
-      `<h4>${esc(data.homeMandir.name)}</h4>`+
-      `<p>${esc(data.homeMandir.place)}</p>`+
-      `<a href="${mapsUrl(home[0],home[1])}" target="_blank" rel="noopener">Open in Google Maps →</a>`+
-      `</div>`
-    );
-
-  }
-
-  const markers=
-    data.trips.map((trip,i)=>{
-
-      const ll=trip.coordinates;
-
-      points.push(ll);
-
-      if(home){
-
-        L.polyline(
-          [home,ll],
-          {
-            color:'#b58a35',
-            weight:1.6,
-            opacity:.65,
-            dashArray:'4 7'
-          }
-        ).addTo(map);
-
-      }
-
-      return L.marker(
-        ll,
-        {
-          icon:pin(
-            i+1,
-            colors[i%colors.length]
-          )
-        }
-      )
-      .addTo(map)
-      .bindTooltip(
-        esc(trip.place)
-      )
-      .bindPopup(
-        ()=>`
-          <div class="yp-pop">
-            <small>${fmtDate(trip.date)}</small>
-            <h4>${esc(trip.place)}</h4>
-            ${templeList(trip,'yp-temples')}
-            <a href="${mapsUrl(ll[0],ll[1])}" target="_blank" rel="noopener">
-              Open in Google Maps →
-            </a>
-          </div>
-        `,
-        {maxWidth:280}
-      );
-
-    });
-
-  const bounds=
-    L.latLngBounds(points);
-
-  const fitAll=()=>
-    map.fitBounds(
-      bounds,
-      {padding:[40,40]}
-    );
-
-  fitAll();
-
-  const Reset=
-    L.Control.extend({
-
-      onAdd(){
-
-        const b=
-          L.DomUtil.create(
-            'button',
-            'map-reset'
-          );
-
-        b.type='button';
-
-        b.textContent='Show all';
-
-        L.DomEvent.disableClickPropagation(b);
-
-        b.addEventListener(
-          'click',
-          ()=>{
-            map.closePopup();
-
-            map.flyToBounds(
-              bounds,
-              {padding:[40,40]}
-            );
-          }
-        );
-
-        return b;
-      }
-
-    });
-
-  new Reset({
-    position:'topright'
-  }).addTo(map);
-
-  items.forEach((li,i)=>
-    li.addEventListener(
-      'click',
-      e=>{
-
-        if(e.target.closest('a'))
-          return;
-
-        canvas.scrollIntoView({
-          behavior:'smooth',
-          block:'center'
-        });
-
-        map.flyTo(
-          markers[i].getLatLng(),
-          Math.max(
-            map.getZoom(),
-            10
-          ),
-          {duration:.8}
-        );
-
-        markers[i].openPopup();
-
-      }
-    )
-  );
-
-  setTimeout(
-    ()=>{
-      map.invalidateSize();
-      fitAll();
-    },
-    300
-  );
-
-})();
-
+window.renderYatraMap();
 
 // ===== COMMUNITY CALENDAR =====
 let tripEvents=
@@ -1598,6 +1369,12 @@ setLanguage=function(lang){
 
   oldSetLanguage(lang);
 
+  if(typeof window.renderTripCards==='function') window.renderTripCards();
+  if(typeof window.renderYatraMap==='function') window.renderYatraMap();
+
+  const allBhajanFilter=document.querySelector('.bhajan-filter[data-tag=\"all\"]');
+  if(allBhajanFilter) allBhajanFilter.textContent=lang==='hi'?'सभी':'All';
+
   if(typeof renderCalendar==='function'){
     renderCalendar();
   }
@@ -1757,79 +1534,82 @@ setLanguage=function(lang){
 })();
 
 
-// ===== BHAJAN SEARCH =====
-(function initBhajanSearch(){
+// ===== BHAJAN SEARCH + TAG FILTERS =====
+(function initBhajanFilters(){
+  const input=document.getElementById('bhajan-search');
+  const tagBox=document.getElementById('bhajan-tags');
+  const cards=[...document.querySelectorAll('.bhajan-card')];
+  const empty=document.getElementById('bhajan-empty');
+  if(!cards.length) return;
 
-  const input=
-    document.getElementById(
-      'bhajan-search'
-    );
+  const tags=[...new Set(cards.flatMap(card=>(card.dataset.tags||'').split(',').map(x=>x.trim().toLowerCase()).filter(Boolean)))].sort();
+  let active='all';
 
-  const cards=[
-    ...document.querySelectorAll(
-      '.bhajan-card'
-    )
-  ];
+  if(tagBox){
+    tagBox.innerHTML='';
+    const all=document.createElement('button');
+    all.type='button'; all.className='bhajan-filter active'; all.dataset.tag='all'; all.textContent='All';
+    tagBox.appendChild(all);
+    tags.forEach(tag=>{
+      const btn=document.createElement('button');
+      btn.type='button'; btn.className='bhajan-filter'; btn.dataset.tag=tag; btn.textContent=tag;
+      tagBox.appendChild(btn);
+    });
+  }
 
-  if(!input||!cards.length)
-    return;
+  const apply=()=>{
+    const q=(input?.value||'').trim().toLowerCase();
+    let visible=0;
+    cards.forEach(card=>{
+      const hay=(card.dataset.title+' '+card.textContent).toLowerCase();
+      const cardTags=(card.dataset.tags||'').toLowerCase().split(',').map(x=>x.trim());
+      const tagOK=active==='all'||cardTags.includes(active);
+      const searchOK=!q||hay.includes(q);
+      const show=tagOK&&searchOK;
+      card.hidden=!show;
+      if(show) visible++;
+    });
+    if(empty) empty.hidden=visible!==0;
+  };
 
-  input.addEventListener(
-    'input',
-    ()=>{
+  input?.addEventListener('input',apply);
+  tagBox?.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-tag]'); if(!btn) return;
+    active=btn.dataset.tag;
+    tagBox.querySelectorAll('[data-tag]').forEach(b=>b.classList.toggle('active',b===btn));
+    apply();
+  });
 
-      const q=
-        input.value
-          .trim()
-          .toLowerCase();
-
-      cards.forEach(card=>{
-
-        const text=
-          card.textContent
-            .toLowerCase();
-
-        card.hidden=
-          !!q&&!text.includes(q);
-
-      });
-
-    }
-  );
-
+  document.querySelectorAll('.bhajan-tag[data-tag]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      active=btn.dataset.tag;
+      tagBox?.querySelectorAll('[data-tag]').forEach(b=>b.classList.toggle('active',b.dataset.tag===active));
+      apply();
+      document.getElementById('bhakti')?.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+  apply();
 })();
 
-
 // ===== OPTIONAL AUDIO LINKS =====
-document
-  .querySelectorAll(
-    '.audio-link[data-audio-url]'
-  )
-  .forEach(link=>{
-
-    const url=
-      (link.dataset.audioUrl||'')
-        .trim();
-
-    if(url){
-
-      link.href=url;
-
-      link.target='_blank';
-
-      link.rel='noopener';
-
-      link.classList.remove(
-        'disabled'
-      );
-
-      link.removeAttribute(
-        'aria-disabled'
-      );
-
+(async function initBhaktiAudio(){
+  const links=[...document.querySelectorAll('.audio-link[data-audio-url]')];
+  await Promise.all(links.map(async link=>{
+    const url=(link.dataset.audioUrl||'').trim();
+    if(!url){link.hidden=true; return;}
+    try{
+      const r=await fetch(url,{method:'HEAD',cache:'no-store'});
+      if(!r.ok){link.hidden=true; return;}
+    }catch(e){
+      // If HEAD is blocked, keep the option visible for external/valid deployed assets.
     }
-
-  });
+    link.href=url;
+    link.target='_blank';
+    link.rel='noopener';
+    link.classList.remove('disabled');
+    link.removeAttribute('aria-disabled');
+  }));
+})();
 
 refreshBhaktiAudioLabels(
   localStorage.getItem(
@@ -2055,7 +1835,7 @@ refreshBhaktiAudioLabels(
 
 
 // ===== TRIP MEDIA =====
-(async function initTripMedia(){
+window.initTripMedia=async function initTripMedia(){
 
   const boxes=[
     ...document.querySelectorAll(
@@ -2159,4 +1939,22 @@ refreshBhaktiAudioLabels(
 
   });
 
-})();
+};
+
+// ===== SITE-WIDE REVEAL + STAGGER ANIMATIONS =====
+window.refreshSiteAnimations=function(){
+  const targets=[...document.querySelectorAll('.section-heading,.trip-card,.bhajan-card,.card,.knowledge-item,.announcement-card,.pathshala-points>div,.gallery img,.explore-card,.schedule-box,.mandir-map-card,.join-form')].filter(el=>!el.classList.contains('reveal-item'));
+  targets.forEach((el,i)=>{el.classList.add('reveal-item');el.style.setProperty('--reveal-delay',`${Math.min((i%6)*70,350)}ms`);});
+  if(!('IntersectionObserver' in window)){targets.forEach(el=>el.classList.add('is-visible'));return;}
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -30px'});
+  targets.forEach(el=>io.observe(el));
+};
+window.refreshSiteAnimations();
+
+document.addEventListener('pointermove',e=>{
+  const card=e.target.closest('.trip-card,.bhajan-card,.card,.knowledge-item,.announcement-card');
+  if(!card)return;
+  const r=card.getBoundingClientRect();
+  card.style.setProperty('--mx',`${e.clientX-r.left}px`);
+  card.style.setProperty('--my',`${e.clientY-r.top}px`);
+},{passive:true});
