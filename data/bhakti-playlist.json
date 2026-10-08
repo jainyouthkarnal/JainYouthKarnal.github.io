@@ -1,0 +1,74 @@
+[
+  {
+    "id": "navkar",
+    "title": "णमोकार मंत्र",
+    "roman": "NAVKAR MANTRA",
+    "kind": "Mantra",
+    "symbol": "ॐ",
+    "audio": "assets/bhakti/audio/navkar-mantra.mp3",
+    "lyrics": "ओम णमो अरिहंताणं,\\nओम णमो सिद्धाणं,\\nओम णमो आयरियाणं,\\nओम णमो उवज्झायाणं,\\nणमो लोए सव्व साहूणं,\\nएसोपंचणमोक्कारो, सव्वपावप्पणासणो,\\nमंगला णं च सव्वेसिं, पडमम हवई मंगलं ||"
+  },
+  {
+    "id": "riddhi",
+    "title": "रिद्धि मंत्र",
+    "roman": "RIDDHI MANTRA",
+    "kind": "Mantra",
+    "symbol": "✦",
+    "audio": "assets/bhakti/audio/riddhi-mantra.mp3",
+    "lyrics": ""
+  },
+  {
+    "id": "bhaktamar",
+    "title": "श्री भक्तामर स्तोत्र",
+    "roman": "BHAKTAMAR STOTRA",
+    "kind": "Stotra",
+    "symbol": "🪷",
+    "audio": "assets/bhakti/audio/bhaktamar-stotra.mp3",
+    "lyrics": "<div class=\"lyrics-placeholder\">Bhaktamar Stotra text is available in the Bhakti text library. Audio is kept separate from the written text so different recitation versions can be used safely.</div>"
+  },
+  {
+    "id": "naam",
+    "title": "नाम है तारण हारा",
+    "roman": "NAAM HAI TAARAN HAARA",
+    "kind": "Bhajan",
+    "symbol": "♫",
+    "audio": "assets/bhakti/audio/naam-hai-taaran-hara.mp3",
+    "lyrics": "<div class=\"lyrics-placeholder\">Lyrics are available separately in the Bhajan Library. The audio player does not assume an exact lyric match.</div>"
+  },
+  {
+    "id": "shantinath",
+    "title": "श्री शांतिनाथ चालीसा",
+    "roman": "SHRI SHANTINATH CHALISA",
+    "kind": "Chalisa",
+    "symbol": "◈",
+    "audio": "assets/bhakti/audio/shantinath-chalisa.mp3",
+    "lyrics": "<div class=\"lyrics-placeholder\">Lyrics can be added separately when the verified text is ready.</div>"
+  },
+  {
+    "id": "parshvanath-chalisa",
+    "title": "श्री पार्श्वनाथ चालीसा",
+    "roman": "SHRI PARSHVANATH CHALISA",
+    "kind": "Chalisa",
+    "symbol": "❖",
+    "audio": "assets/bhakti/audio/shri-parshvanath-chalisa.mp3",
+    "lyrics": "<div class=\"lyrics-placeholder\">Lyrics can be added separately when the verified text is ready.</div>"
+  },
+  {
+    "id": "parasnath-stotra",
+    "title": "श्री पारसनाथ स्तोत्र",
+    "roman": "SHRI PARASNATH STOTRA",
+    "kind": "Stotra",
+    "symbol": "◉",
+    "audio": "assets/bhakti/audio/shri-parasnath-stotra.mp3",
+    "lyrics": "<div class=\"lyrics-placeholder\">Lyrics can be added separately when the verified text is ready.</div>"
+  },
+  {
+    "id": "meri-bhavna",
+    "title": "मेरी भावना",
+    "roman": "MERI BHAVNA",
+    "kind": "Prarthana",
+    "symbol": "🙏",
+    "audio": "assets/bhakti/audio/meri-bhavna.mp3",
+    "lyrics": ""
+  }
+]

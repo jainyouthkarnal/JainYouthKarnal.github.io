@@ -53,9 +53,39 @@
 .playlist-panel,.lyrics-card{border:1px solid #e1e6e2;border-radius:24px;background:#fff;overflow:hidden}
 .panel-head{padding:20px 22px;border-bottom:1px solid #e8ece9}.panel-head h3{margin:0;color:#123f35}.panel-head p{margin:6px 0 0;color:#71817a;font-size:14px}
 .track-list{padding:8px}.track{width:100%;display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;text-align:left;border:0;background:transparent;padding:14px;border-radius:16px;cursor:pointer;color:#173d34}.track:hover{background:#f4f7f4}.track.active{background:#edf6f0}.track-no{font-size:12px;color:#8a9993;font-weight:700}.track-title{font-family:"Noto Serif Devanagari",serif;font-size:17px;line-height:1.4}.track-kind{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#819089}.track.active .track-no{color:#b07b22}.track.active .track-title{color:#8e263e}
-.lyrics-card{padding:28px 30px;min-height:420px}.lyrics-head{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:22px}.lyrics-head small{text-transform:uppercase;letter-spacing:.16em;color:#71817a;font-weight:700}.lyrics-head h2{margin:6px 0 0;font-family:"Noto Serif Devanagari",serif;color:#123f35}.lyrics-body{font-family:"Noto Serif Devanagari",serif;font-size:19px;line-height:2;color:#29473f}.lyrics-body p{margin:0 0 22px}.lyrics-placeholder{color:#87958f;font-family:DM Sans,sans-serif;font-size:15px;line-height:1.7;padding:28px 0}
+.lyrics-card{padding:28px 30px;min-height:420px}.lyrics-head{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:22px}.lyrics-head small{text-transform:uppercase;letter-spacing:.16em;color:#71817a;font-weight:700}.lyrics-head h2{margin:6px 0 0;font-family:"Noto Serif Devanagari",serif;color:#123f35}.lyrics-body{font-family:"Noto Serif Devanagari",serif;font-size:19px;line-height:2;color:#29473f;text-align:center}.lyrics-body p{margin:0 auto 22px;max-width:760px}.lyrics-body .lyrics-placeholder{text-align:center}.lyrics-placeholder{color:#87958f;font-family:DM Sans,sans-serif;font-size:15px;line-height:1.7;padding:28px 0}
 @keyframes equalize{from{height:6px}to{height:28px}}@keyframes softPulse{0%,100%{transform:scale(1.03)}50%{transform:scale(1.09)}}@keyframes haloBreath{0%,100%{transform:scale(.98);opacity:.75}50%{transform:scale(1.04);opacity:1}}
 @media(max-width:800px){.playlist-layout{grid-template-columns:1fr}.audio-box{position:sticky;top:6px}.audio-player-main{grid-template-columns:1fr;min-height:0}.audio-art{min-height:190px;border-right:0;border-bottom:1px solid rgba(183,150,91,.16)}.audio-art:before{width:135px;height:135px}.audio-art:after{width:105px;height:105px}.audio-symbol{width:72px;height:72px;font-size:34px}.audio-content{padding:25px 22px 23px}.audio-visualizer{top:205px;right:20px}.audio-status{margin-left:0}.audio-volume{display:none}.lyrics-card{padding:22px}.playlist-hero{padding-top:50px}}
+
+/* Playlist editor */
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.playlist-editor-btn{border:1px solid #d9e2dc;background:#fff;border-radius:999px;padding:9px 13px;color:#355048;font-weight:700;cursor:pointer;white-space:nowrap}
+.playlist-editor-btn:hover{background:#f2f7f3}
+.playlist-editor[hidden]{display:none}
+.playlist-editor{position:fixed;inset:0;z-index:1000;background:rgba(18,39,33,.45);backdrop-filter:blur(7px);padding:20px;display:grid;place-items:center}
+.playlist-editor-dialog{width:min(720px,100%);max-height:min(760px,92vh);display:flex;flex-direction:column;background:#fffdf9;border:1px solid #e3d9c9;border-radius:26px;box-shadow:0 24px 80px rgba(35,29,20,.25);overflow:hidden}
+.playlist-editor-head{display:flex;justify-content:space-between;gap:20px;padding:24px 26px 18px;border-bottom:1px solid #ece7df}
+.playlist-editor-head small{color:#a4772d;letter-spacing:.16em;font-size:10px;font-weight:800}
+.playlist-editor-head h2{margin:5px 0;color:#123f35}
+.playlist-editor-head p{margin:5px 0 0;color:#71817a;font-size:14px;line-height:1.5}
+.playlist-editor-close{border:0;background:#f2eee7;width:38px;height:38px;border-radius:50%;font-size:25px;cursor:pointer;color:#604d39;flex:0 0 auto}
+.playlist-editor-list{padding:12px 18px;overflow:auto}
+.playlist-editor-row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:10px;padding:11px 10px;margin:4px 0;border:1px solid #e8ebe8;border-radius:15px;background:#fff;transition:.15s ease}
+.playlist-editor-row.dragging{opacity:.45;border-style:dashed}
+.drag-handle{font-size:22px;color:#a98b5d;cursor:grab;text-align:center;user-select:none}
+.playlist-editor-check{display:flex;align-items:center;gap:11px;cursor:pointer;min-width:0}
+.playlist-editor-check input{width:18px;height:18px;accent-color:#148A45;flex:0 0 auto}
+.playlist-editor-check span{display:flex;flex-direction:column;min-width:0}
+.playlist-editor-check strong{font-family:"Noto Serif Devanagari",serif;color:#183f35;font-size:16px;line-height:1.4}
+.playlist-editor-check small{color:#84918b;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.editor-move-buttons{display:flex;gap:5px}
+.editor-move-buttons button{width:32px;height:32px;border:1px solid #dfe5e0;border-radius:9px;background:#f8faf8;color:#355048;cursor:pointer;font-weight:800}
+.editor-move-buttons button:hover{background:#edf6f0}
+.playlist-editor-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;border-top:1px solid #ece7df;background:#faf8f3}
+.playlist-editor-foot button{border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}
+.playlist-reset-btn,.playlist-cancel-btn{border:1px solid #dfe5e0;background:#fff;color:#50615a}
+.playlist-save-btn{border:1px solid #148A45;background:#148A45;color:#fff}
+@media(max-width:600px){.panel-head{align-items:flex-start}.playlist-editor-btn{font-size:12px;padding:8px 10px}.playlist-editor-dialog{max-height:95vh;border-radius:21px}.playlist-editor-head{padding:20px}.playlist-editor-foot{padding:13px 16px}.playlist-editor-row{grid-template-columns:24px 1fr auto}.editor-move-buttons button{width:30px;height:30px}}
 </style>
 </head>
 <body class="page-bhakti playlist-page">
@@ -105,8 +135,11 @@
     <div class="playlist-layout">
       <aside class="playlist-panel">
         <div class="panel-head">
-          <h3>Playlist</h3>
-          <p>Mantras, stotras &amp; devotional recitations</p>
+          <div>
+            <h3>Playlist</h3>
+            <p>Mantras, stotras &amp; devotional recitations</p>
+          </div>
+          <button class="playlist-editor-btn" id="playlist-editor-btn" type="button">⚙ Manage Playlist</button>
         </div>
         <div class="track-list" id="track-list"></div>
       </aside>
@@ -127,19 +160,42 @@
 </section>
 </main>
 
+<div class="playlist-editor" id="playlist-editor" hidden>
+  <div class="playlist-editor-dialog" role="dialog" aria-modal="true" aria-labelledby="playlist-editor-title">
+    <div class="playlist-editor-head">
+      <div>
+        <small>PERSONAL PLAYLIST</small>
+        <h2 id="playlist-editor-title">Manage Playlist</h2>
+        <p>Drag tracks to rearrange them. Untick a track to hide it from your playlist.</p>
+      </div>
+      <button class="playlist-editor-close" id="playlist-editor-close" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="playlist-editor-list" id="playlist-editor-list"></div>
+    <div class="playlist-editor-foot">
+      <button class="playlist-reset-btn" id="playlist-editor-reset" type="button">Reset</button>
+      <div>
+        <button class="playlist-cancel-btn" id="playlist-editor-cancel" type="button">Cancel</button>
+        <button class="playlist-save-btn" id="playlist-editor-save" type="button">Save Playlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="site-footer"></div>
 <script src="script.js"></script>
 <script>
-/* Animated Bhakti Playlist — one source of truth for track selection + audio player. */
-const BHAKTI_TRACKS = [
-  {id:'navkar', title:'णमोकार मंत्र', roman:'NAVKAR MANTRA', kind:'Mantra', symbol:'ॐ', audio:'assets/bhakti/audio/navkar-mantra.mp3', lyrics:`ओम णमो अरिहंताणं,\nओम णमो सिद्धाणं,\nओम णमो आयरियाणं,\nओम णमो उवज्झायाणं,\nणमो लोए सव्व साहूणं,\nएसोपंचणमोक्कारो, सव्वपावप्पणासणो,\nमंगला णं च सव्वेसिं, पडमम हवई मंगलं ||`},
-  {id:'riddhi', title:'रिद्धि मंत्र', roman:'RIDDHI MANTRA', kind:'Mantra', symbol:'✦', audio:'assets/bhakti/audio/riddhi-mantra.mp3', lyrics:''},
-  {id:'bhaktamar', title:'श्री भक्तामर स्तोत्र', roman:'BHAKTAMAR STOTRA', kind:'Stotra', symbol:'🪷', audio:'assets/bhakti/audio/bhaktamar-stotra.mp3', lyrics:`<div class="lyrics-placeholder">Bhaktamar Stotra text is available in the Bhakti text library. Audio is kept separate from the written text so different recitation versions can be used safely.</div>`},
-  {id:'naam', title:'नाम है तारण हारा', roman:'NAAM HAI TAARAN HAARA', kind:'Bhajan', symbol:'♫', audio:'assets/bhakti/audio/naam-hai-taaran-hara.mp3', lyrics:`<div class="lyrics-placeholder">Lyrics are available separately in the Bhajan Library. The audio player does not assume an exact lyric match.</div>`},
-  {id:'shantinath', title:'श्री शांतिनाथ चालीसा', roman:'SHRI SHANTINATH CHALISA', kind:'Chalisa', symbol:'◈', audio:'assets/bhakti/audio/shantinath-chalisa.mp3', lyrics:`<div class="lyrics-placeholder">Lyrics can be added separately when the verified text is ready.</div>`},
-  {id:'parshvanath-chalisa', title:'श्री पार्श्वनाथ चालीसा', roman:'SHRI PARSHVANATH CHALISA', kind:'Chalisa', symbol:'❖', audio:'assets/bhakti/audio/shri-parshvanath-chalisa.mp3', lyrics:`<div class="lyrics-placeholder">Lyrics can be added separately when the verified text is ready.</div>`},
-  {id:'parasnath-stotra', title:'श्री पारसनाथ स्तोत्र', roman:'SHRI PARASNATH STOTRA', kind:'Stotra', symbol:'◉', audio:'assets/bhakti/audio/shri-parasnath-stotra.mp3', lyrics:`<div class="lyrics-placeholder">Lyrics can be added separately when the verified text is ready.</div>`}
-];
+/* Bhakti Playlist
+   Track catalogue lives in data/bhakti-playlist.json.
+   Playlist order + enabled/hidden tracks are saved in this browser via localStorage.
+*/
+const PLAYLIST_DATA_URL='data/bhakti-playlist.json';
+const PLAYLIST_ORDER_KEY='jyk-playlist-order';
+const PLAYLIST_ENABLED_KEY='jyk-playlist-enabled';
+
+let BHAKTI_TRACKS=[];
+let playlistOrder=[];
+let enabledIds=[];
+let currentIndex=0;
 
 const audio=document.getElementById('playlist-audio');
 const box=document.getElementById('audio-box');
@@ -156,28 +212,216 @@ const progress=document.getElementById('audio-progress');
 const currentTime=document.getElementById('current-time');
 const duration=document.getElementById('duration');
 const volume=document.getElementById('volume-control');
-let currentIndex=0;
 
-const formatTime=(seconds)=>{if(!Number.isFinite(seconds))return '00:00';const m=Math.floor(seconds/60);const s=Math.floor(seconds%60);return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`};
+const editorButton=document.getElementById('playlist-editor-btn');
+const editor=document.getElementById('playlist-editor');
+const editorList=document.getElementById('playlist-editor-list');
+const closeEditor=document.getElementById('playlist-editor-close');
+const saveEditor=document.getElementById('playlist-editor-save');
+const resetEditor=document.getElementById('playlist-editor-reset');
+
+const formatTime=(seconds)=>{
+  if(!Number.isFinite(seconds))return '00:00';
+  const m=Math.floor(seconds/60);
+  const s=Math.floor(seconds%60);
+  return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+};
+
+function readSavedArray(key){
+  try{
+    const value=JSON.parse(localStorage.getItem(key)||'null');
+    return Array.isArray(value)?value:null;
+  }catch(e){return null;}
+}
+
+function savePlaylistPreferences(){
+  localStorage.setItem(PLAYLIST_ORDER_KEY,JSON.stringify(playlistOrder));
+  localStorage.setItem(PLAYLIST_ENABLED_KEY,JSON.stringify(enabledIds));
+}
+
+function normalisePreferences(){
+  const ids=BHAKTI_TRACKS.map(t=>t.id);
+  const savedOrder=readSavedArray(PLAYLIST_ORDER_KEY);
+  const savedEnabled=readSavedArray(PLAYLIST_ENABLED_KEY);
+
+  playlistOrder=[...(savedOrder||[])].filter(id=>ids.includes(id));
+  ids.forEach(id=>{
+    if(!playlistOrder.includes(id))playlistOrder.push(id);
+  });
+
+  enabledIds=savedEnabled
+    ? savedEnabled.filter(id=>ids.includes(id))
+    : [...ids];
+
+  if(!enabledIds.length)enabledIds=[...ids];
+}
+
+function visibleTracks(){
+  return playlistOrder
+    .map(id=>BHAKTI_TRACKS.find(t=>t.id===id))
+    .filter(Boolean)
+    .filter(t=>enabledIds.includes(t.id));
+}
 
 function renderTracks(){
-  list.innerHTML=BHAKTI_TRACKS.map((t,i)=>`<button class="track${i===currentIndex?' active':''}" type="button" data-index="${i}"><span class="track-no">${String(i+1).padStart(2,'0')}</span><span class="track-title">${t.title}</span><span class="track-kind">${t.kind}</span></button>`).join('');
-  list.querySelectorAll('.track').forEach(btn=>btn.addEventListener('click',()=>selectTrack(Number(btn.dataset.index),true)));
+  const tracks=visibleTracks();
+
+  if(!tracks.length){
+    list.innerHTML='<div class="lyrics-placeholder">No tracks selected. Open <strong>Manage Playlist</strong> to add a track.</div>';
+    return;
+  }
+
+  list.innerHTML=tracks.map((t,i)=>`<button class="track${i===currentIndex?' active':''}" type="button" data-id="${t.id}">
+    <span class="track-no">${String(i+1).padStart(2,'0')}</span>
+    <span class="track-title">${t.title}</span>
+    <span class="track-kind">${t.kind}</span>
+  </button>`).join('');
+
+  list.querySelectorAll('.track').forEach(btn=>btn.addEventListener('click',()=>{
+    const index=visibleTracks().findIndex(t=>t.id===btn.dataset.id);
+    selectTrack(index,true);
+  }));
 }
 
 function selectTrack(index,play=false){
-  currentIndex=(index+BHAKTI_TRACKS.length)%BHAKTI_TRACKS.length;
-  const t=BHAKTI_TRACKS[currentIndex];
-  title.textContent=t.title; roman.textContent=t.roman; kind.textContent=t.kind.toUpperCase(); symbol.textContent=t.symbol;
+  const tracks=visibleTracks();
+  if(!tracks.length)return;
+
+  currentIndex=(index+tracks.length)%tracks.length;
+  const t=tracks[currentIndex];
+
+  title.textContent=t.title;
+  roman.textContent=t.roman||'';
+  kind.textContent=(t.kind||'Bhakti Sangeet').toUpperCase();
+  symbol.textContent=t.symbol||'✦';
   lyricsTitle.textContent=t.title;
-  lyrics.innerHTML=t.lyrics?.includes('<div')?t.lyrics:(t.lyrics?t.lyrics.split(/\n\n+/).map(x=>`<p>${x.replace(/\n/g,'<br>')}</p>`).join(''):'<div class="lyrics-placeholder">Lyrics will appear here when the verified text is ready.</div>');
+
+  lyrics.innerHTML=t.lyrics?.includes('<div')
+    ?t.lyrics
+    :(t.lyrics
+      ?t.lyrics.split(/\n\n+/).map(x=>`<p>${x.replace(/\n/g,'<br>')}</p>`).join('')
+      :'<div class="lyrics-placeholder">Lyrics will appear here when the verified text is ready.</div>');
+
   list.querySelectorAll('.track').forEach((b,i)=>b.classList.toggle('active',i===currentIndex));
-  audio.pause(); audio.currentTime=0; progress.value=0; currentTime.textContent='00:00'; duration.textContent='00:00';
-  if(t.audio){audio.src=t.audio;audio.load();status.textContent='Ready to play';if(play)audio.play().catch(()=>{status.textContent='Press play to start'});}else{audio.removeAttribute('src');audio.load();status.textContent='Audio not connected yet';}
-  playBtn.textContent='▶'; playBtn.setAttribute('aria-label','Play'); box.classList.remove('is-playing');
+
+  audio.pause();
+  audio.currentTime=0;
+  progress.value=0;
+  currentTime.textContent='00:00';
+  duration.textContent='00:00';
+
+  if(t.audio){
+    audio.src=t.audio;
+    audio.load();
+    status.textContent='Ready to play';
+    if(play){
+      audio.play().catch(()=>{status.textContent='Press play to start';});
+    }
+  }else{
+    audio.removeAttribute('src');
+    audio.load();
+    status.textContent='Audio not connected yet';
+  }
+
+  playBtn.textContent='▶';
+  playBtn.setAttribute('aria-label','Play');
+  box.classList.remove('is-playing');
 }
 
-function togglePlay(){if(!audio.src){status.textContent='Audio not connected yet';return;} if(audio.paused)audio.play().catch(()=>{});else audio.pause();}
+function renderEditor(){
+  editorList.innerHTML=playlistOrder.map((id,index)=>{
+    const t=BHAKTI_TRACKS.find(x=>x.id===id);
+    if(!t)return '';
+    const checked=enabledIds.includes(id);
+    return `<div class="playlist-editor-row" draggable="true" data-id="${t.id}">
+      <span class="drag-handle" title="Drag to rearrange">⠿</span>
+      <label class="playlist-editor-check">
+        <input type="checkbox" data-enable-id="${t.id}" ${checked?'checked':''}>
+        <span><strong>${t.title}</strong><small>${t.roman||''} · ${t.kind}</small></span>
+      </label>
+      <div class="editor-move-buttons">
+        <button type="button" data-move="up" data-id="${t.id}" aria-label="Move up">↑</button>
+        <button type="button" data-move="down" data-id="${t.id}" aria-label="Move down">↓</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  editorList.querySelectorAll('[data-enable-id]').forEach(input=>input.addEventListener('change',()=>{
+    if(input.checked){
+      if(!enabledIds.includes(input.dataset.enableId))enabledIds.push(input.dataset.enableId);
+    }else{
+      enabledIds=enabledIds.filter(id=>id!==input.dataset.enableId);
+    }
+  }));
+
+  editorList.querySelectorAll('[data-move]').forEach(button=>button.addEventListener('click',()=>{
+    const id=button.dataset.id;
+    const from=playlistOrder.indexOf(id);
+    const to=button.dataset.move==='up'?from-1:from+1;
+    if(from<0||to<0||to>=playlistOrder.length)return;
+    [playlistOrder[from],playlistOrder[to]]=[playlistOrder[to],playlistOrder[from]];
+    renderEditor();
+  }));
+
+  editorList.querySelectorAll('.playlist-editor-row').forEach(row=>{
+    row.addEventListener('dragstart',e=>{
+      row.classList.add('dragging');
+      e.dataTransfer.setData('text/plain',row.dataset.id);
+    });
+    row.addEventListener('dragend',()=>row.classList.remove('dragging'));
+    row.addEventListener('dragover',e=>e.preventDefault());
+    row.addEventListener('drop',e=>{
+      e.preventDefault();
+      const dragged=e.dataTransfer.getData('text/plain');
+      const target=row.dataset.id;
+      if(!dragged||dragged===target)return;
+      const from=playlistOrder.indexOf(dragged);
+      const to=playlistOrder.indexOf(target);
+      if(from<0||to<0)return;
+      playlistOrder.splice(from,1);
+      playlistOrder.splice(to,0,dragged);
+      renderEditor();
+    });
+  });
+}
+
+function openEditor(){
+  renderEditor();
+  editor.hidden=false;
+  document.body.classList.add('playlist-editor-open');
+}
+
+function closeEditorPanel(){
+  editor.hidden=true;
+  document.body.classList.remove('playlist-editor-open');
+}
+
+function saveEditorChanges(){
+  if(!enabledIds.length){
+    enabledIds=[playlistOrder[0]];
+  }
+  savePlaylistPreferences();
+  const currentId=visibleTracks()[currentIndex]?.id;
+  renderTracks();
+  const newIndex=visibleTracks().findIndex(t=>t.id===currentId);
+  selectTrack(newIndex>=0?newIndex:0,false);
+  closeEditorPanel();
+}
+
+function resetPlaylist(){
+  playlistOrder=BHAKTI_TRACKS.map(t=>t.id);
+  enabledIds=[...playlistOrder];
+  localStorage.removeItem(PLAYLIST_ORDER_KEY);
+  localStorage.removeItem(PLAYLIST_ENABLED_KEY);
+  renderEditor();
+}
+
+function togglePlay(){
+  if(!audio.src){status.textContent='Audio not connected yet';return;}
+  if(audio.paused)audio.play().catch(()=>{});
+  else audio.pause();
+}
+
 playBtn.addEventListener('click',togglePlay);
 document.getElementById('prev-btn').addEventListener('click',()=>selectTrack(currentIndex-1,true));
 document.getElementById('next-btn').addEventListener('click',()=>selectTrack(currentIndex+1,true));
@@ -189,9 +433,30 @@ audio.addEventListener('play',()=>{status.textContent='Playing';playBtn.textCont
 audio.addEventListener('pause',()=>{if(!audio.ended)status.textContent='Paused';playBtn.textContent='▶';playBtn.setAttribute('aria-label','Play');box.classList.remove('is-playing')});
 audio.addEventListener('ended',()=>{status.textContent='Finished';box.classList.remove('is-playing');playBtn.textContent='▶';selectTrack(currentIndex+1,true)});
 
-renderTracks();
-selectTrack(0,false);
-</script>
+editorButton?.addEventListener('click',openEditor);
+closeEditor?.addEventListener('click',closeEditorPanel);
+saveEditor?.addEventListener('click',saveEditorChanges);
+resetEditor?.addEventListener('click',resetPlaylist);
+editor?.addEventListener('click',e=>{if(e.target===editor)closeEditorPanel()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!editor.hidden)closeEditorPanel()});
+
+async function initPlaylist(){
+  try{
+    const response=await fetch(PLAYLIST_DATA_URL,{cache:'no-cache'});
+    if(!response.ok)throw new Error(response.status);
+    BHAKTI_TRACKS=await response.json();
+  }catch(error){
+    console.error('Could not load bhakti playlist data:',error);
+    list.innerHTML='<div class="lyrics-placeholder">Bhakti playlist data could not be loaded.</div>';
+    return;
+  }
+
+  normalisePreferences();
+  renderTracks();
+  selectTrack(0,false);
+}
+
+initPlaylist();
 </script>
 </body>
 </html>
