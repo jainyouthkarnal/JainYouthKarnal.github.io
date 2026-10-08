@@ -17,7 +17,7 @@
       ['nav.knowledge','Knowledge','learn.html#knowledge']
     ]},
 
-    {k:'nav.bhakti',t:'Bhakti',page:'bhakti',sub:[
+    {k:'nav.bhakti',t:'Bhakti',pages:['bhakti','playlist'],sub:[
       ['nav.bhajans','📖 Bhajan Library','bhakti.html'],
       ['nav.playlist','🎧 Playlist','playlist.html']
     ]},
@@ -32,7 +32,7 @@
   ];
 
   const nav=MENU.map(m=>{
-    const here=m.page===cur?' current':'';
+    const here=(m.pages||[m.page]).includes(cur)?' current':'';
 
     if(m.sub){
       return `<div class="nav-item has-sub${here}">

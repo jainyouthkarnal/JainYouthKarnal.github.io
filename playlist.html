@@ -6,6 +6,8 @@
 <meta name="description" content="Jain devotional playlist with audio and lyrics — Jain Youth Karnal.">
 <meta name="theme-color" content="#148A45">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <title>Bhakti Playlist | Jain Youth Karnal</title>
 <style>
@@ -17,7 +19,7 @@
 .playlist-switch a{display:inline-flex;align-items:center;padding:10px 17px;border:1px solid #dfe5df;border-radius:999px;text-decoration:none;font-weight:600;color:#355048;background:#fff}
 .playlist-switch a.active{background:#148A45;color:#fff;border-color:#148A45}
 
-.audio-box{position:sticky;top:12px;z-index:20;margin:12px 0 34px;border:1px solid #e5ded1;border-radius:28px;overflow:hidden;background:linear-gradient(110deg,#f5ead8 0%,#fffdf8 38%,#fff 100%);box-shadow:0 18px 48px rgba(75,55,32,.14);backdrop-filter:blur(12px)}
+.audio-box{position:sticky;top:88px;z-index:20;margin:12px 0 34px;border:1px solid #e5ded1;border-radius:28px;overflow:hidden;background:linear-gradient(110deg,#f5ead8 0%,#fffdf8 38%,#fff 100%);box-shadow:0 18px 48px rgba(75,55,32,.14);backdrop-filter:blur(12px)}
 .audio-player-main{position:relative;min-height:330px;display:grid;grid-template-columns:280px 1fr;align-items:stretch;overflow:hidden}
 .audio-player-main:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 50%,rgba(191,142,50,.09),transparent 32%),radial-gradient(circle at 20% 35%,rgba(146,55,72,.06),transparent 28%);pointer-events:none}
 .audio-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:330px;background:linear-gradient(145deg,rgba(215,185,135,.42),rgba(255,250,240,.25));border-right:1px solid rgba(183,150,91,.16)}
@@ -249,8 +251,10 @@ function normalisePreferences(){
     if(!playlistOrder.includes(id))playlistOrder.push(id);
   });
 
+  // Tracks added to the JSON after someone saved their playlist are switched on automatically.
+  const newIds=savedOrder?ids.filter(id=>!savedOrder.includes(id)):[];
   enabledIds=savedEnabled
-    ? savedEnabled.filter(id=>ids.includes(id))
+    ? [...savedEnabled.filter(id=>ids.includes(id)),...newIds]
     : [...ids];
 
   if(!enabledIds.length)enabledIds=[...ids];
@@ -433,6 +437,7 @@ audio.addEventListener('play',()=>{status.textContent='Playing';playBtn.textCont
 audio.addEventListener('pause',()=>{if(!audio.ended)status.textContent='Paused';playBtn.textContent='▶';playBtn.setAttribute('aria-label','Play');box.classList.remove('is-playing')});
 audio.addEventListener('ended',()=>{status.textContent='Finished';box.classList.remove('is-playing');playBtn.textContent='▶';selectTrack(currentIndex+1,true)});
 
+audio.addEventListener('error',()=>{if(!audio.getAttribute('src'))return;status.textContent='Audio file not found yet';playBtn.textContent='▶';box.classList.remove('is-playing');});
 editorButton?.addEventListener('click',openEditor);
 closeEditor?.addEventListener('click',closeEditorPanel);
 saveEditor?.addEventListener('click',saveEditorChanges);

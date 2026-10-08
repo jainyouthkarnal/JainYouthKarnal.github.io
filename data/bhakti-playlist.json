@@ -6,7 +6,7 @@
     "kind": "Mantra",
     "symbol": "ॐ",
     "audio": "assets/bhakti/audio/navkar-mantra.mp3",
-    "lyrics": "ओम णमो अरिहंताणं,\\nओम णमो सिद्धाणं,\\nओम णमो आयरियाणं,\\nओम णमो उवज्झायाणं,\\nणमो लोए सव्व साहूणं,\\nएसोपंचणमोक्कारो, सव्वपावप्पणासणो,\\nमंगला णं च सव्वेसिं, पडमम हवई मंगलं ||"
+    "lyrics": "ओम णमो अरिहंताणं,\nओम णमो सिद्धाणं,\nओम णमो आयरियाणं,\nओम णमो उवज्झायाणं,\nणमो लोए सव्व साहूणं,\nएसोपंचणमोक्कारो, सव्वपावप्पणासणो,\nमंगला णं च सव्वेसिं, पडमम हवई मंगलं ||"
   },
   {
     "id": "riddhi",
@@ -69,6 +69,33 @@
     "kind": "Prarthana",
     "symbol": "🙏",
     "audio": "assets/bhakti/audio/meri-bhavna.mp3",
+    "lyrics": ""
+  },
+  {
+    "id": "har-saal-shikharji",
+    "title": "हर साल शिखरजी",
+    "roman": "HAR SAAL SHIKHARJI",
+    "kind": "Bhajan",
+    "symbol": "⛰️",
+    "audio": "assets/bhakti/audio/har-saal-shikharji.mp3",
+    "lyrics": ""
+  },
+  {
+    "id": "oh-guru-sa",
+    "title": "ओ गुरु सा",
+    "roman": "OH GURU SA",
+    "kind": "Bhajan",
+    "symbol": "❀",
+    "audio": "assets/bhakti/audio/oh-guru-sa.mp3",
+    "lyrics": ""
+  },
+  {
+    "id": "tumse-laagi-lagan",
+    "title": "तुमसे लागी लगन",
+    "roman": "TUMSE LAAGI LAGAN",
+    "kind": "Bhajan",
+    "symbol": "♪",
+    "audio": "assets/bhakti/audio/tumse-laagi-lagan.mp3",
     "lyrics": ""
   }
 ]

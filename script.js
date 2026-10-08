@@ -319,7 +319,7 @@ siteLangs.forEach(b=>{
   });
 });
 
-setLanguage(localStorage.getItem('jyk-language')||'en');
+// (initial language is applied at the very end of this file, once everything below is defined)
 
 
 // ===== BHAKTI AUDIO LANGUAGE LABELS =====
@@ -352,7 +352,7 @@ const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').match
 (function initMobileMenu(){
 
   const toggle=document.querySelector('.menu-toggle');
-  const nav=document.querySelector('.site-nav');
+  const nav=document.querySelector('#nav');
 
   if(!toggle||!nav)return;
 
@@ -382,7 +382,7 @@ const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').match
     location.pathname.split('/').pop()||
     'index.html';
 
-  document.querySelectorAll('.site-nav a').forEach(a=>{
+  document.querySelectorAll('.nav a').forEach(a=>{
 
     const href=
       a.getAttribute('href')||'';
@@ -759,100 +759,7 @@ function jykTiles(map){
 
 
 // ===== YATRA FALLBACK =====
-const YATRA_FALLBACK={
-  homeMandir:{
-    name:'Shree Digamber Jain Mandir',
-    place:'Karnal',
-    coordinates:[
-      29.6824999,
-      76.9909295
-    ]
-  },
-
-  trips:[
-    {
-      id:'ranila',
-      place:'Ranila Ji',
-      date:'2026-03-22',
-      temple:'Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila',
-      coordinates:[
-        28.7090507,
-        76.3325388
-      ]
-    },
-    {
-      id:'jalabaad',
-      place:'Jalabaad',
-      date:'2026-04-05',
-      temple:'Shri 1008 Parasnath Digamber Jain Mandir',
-      coordinates:[
-        29.6158372,
-        77.4360981
-      ]
-    },
-    {
-      id:'hastinapur',
-      place:'Hastinapur',
-      date:'2026-05-09',
-      temple:'Digamber Jain Bada Mandir',
-      coordinates:[
-        29.1613343,
-        78.0010909
-      ]
-    },
-    {
-      id:'sonipat',
-      place:'Sonipat',
-      date:'2026-06-14',
-      temple:'Shanti Nath Atishya Kshetra',
-      coordinates:[
-        29.0004214,
-        77.0151195
-      ]
-    },
-    {
-      id:'hansi',
-      place:'Hansi',
-      date:'2026-07-18',
-      temple:'Shri Digamber Jain Panchayati Mandir',
-      coordinates:[
-        29.1009391,
-        75.9636061
-      ]
-    },
-    {
-      id:'vehlana',
-      place:'Vehlana Ji',
-      date:'2026-08-16',
-      temple:'Vehalna Digambar Jain Temple Atishaya Kshetra',
-      coordinates:[
-        29.4285143,
-        77.6854437
-      ]
-    },
-    {
-      id:'gannaur',
-      place:'Gannaur',
-      date:'2026-09-07',
-      temple:'Gupti Dhaam Digamber Jain Mandir',
-      mandirs:[{name:'Prachin Digamber Jain Mandir',activity:'prakshal',note:'exact name to be updated'},{name:'Gupti Dhaam Digamber Jain Mandir',activity:'darshan'}],
-      coordinates:[
-        29.1412698,
-        77.0371692
-      ]
-    },
-    {
-      id:'badegaon',
-      place:'Badegaon',
-      date:'2026-10-04',
-      temple:'Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir',
-      coordinates:[
-        28.8776725,
-        77.3152324
-      ]
-    }
-  ]
-};
+const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":"Karnal","coordinates":[29.6824999,76.9909295]},"trips":[{"id":"ranila-ji","place":"Ranila Ji","date":"2026-03-22","temple":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","coordinates":[28.7090507,76.3325388],"mapPosition":{"left":27.8,"top":29.5},"mandirs":[{"name":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","activity":"darshan"}]},{"id":"jalabaad","place":"Jalabaad","date":"2026-04-05","temple":"Shri 1008 Parasnath Digamber Jain Mandir","coordinates":[29.6158372,77.4360981],"mapPosition":{"left":31.3,"top":27.2},"mandirs":[{"name":"Shri 1008 Parasnath Digamber Jain Mandir","activity":"darshan"}]},{"id":"hastinapur","place":"Hastinapur","date":"2026-05-09","temple":"Digamber Jain Bada Mandir","coordinates":[29.1613343,78.0010909],"mapPosition":{"left":33.7,"top":28.1},"mandirs":[{"name":"Digamber Jain Bada Mandir","activity":"darshan"}]},{"id":"sonipat","place":"Sonipat","date":"2026-06-14","temple":"Shanti Nath Atishya Kshetra","coordinates":[29.0004214,77.0151195],"mapPosition":{"left":30.2,"top":28.6},"mandirs":[{"name":"Shanti Nath Atishya Kshetra","activity":"darshan"}]},{"id":"hansi","place":"Hansi","date":"2026-07-18","temple":"Shri Digamber Jain Panchayati Mandir","coordinates":[29.1009391,75.9636061],"mapPosition":{"left":26.5,"top":28.3},"mandirs":[{"name":"Shri Digamber Jain Panchayati Mandir","activity":"darshan"}]},{"id":"vehlana-ji","place":"Vehlana Ji","date":"2026-08-16","temple":"Vehalna Digambar Jain Temple Atishaya Kshetra","coordinates":[29.4285143,77.6854437],"mapPosition":{"left":32.1,"top":27.4},"mandirs":[{"name":"Vehalna Digambar Jain Temple Atishaya Kshetra","activity":"darshan"}]},{"id":"gannaur","place":"Gannaur","date":"2026-09-07","temple":"Gupti Dhaam Digamber Jain Mandir","coordinates":[29.1412698,77.0371692],"mapPosition":{"left":30.0,"top":28.3},"mandirs":[{"name":"Prachin Digamber Jain Mandir","activity":"prakshal","note":"exact name to be updated"},{"name":"Gupti Dhaam Digamber Jain Mandir","activity":"darshan"}]},{"id":"badegaon","place":"Badegaon","date":"2026-10-04","temple":"Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir","coordinates":[28.8776725,77.3152324],"mapPosition":{"left":31.3,"top":29.0},"mandirs":[{"name":"Trilok Teerth Dham","activity":"darshan"},{"name":"Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple","activity":"prakshal"},{"name":"Shri Digamber Jain Bahubali Jinbimb Mandir","activity":"darshan"}]}]};
 
 
 // ===== MONTHLY TRIP CARDS (source: data/yatra-data.json) =====
@@ -959,8 +866,6 @@ window.renderYatraMap=async function renderYatraMap(){
 
   if(typeof window.refreshSiteAnimations==='function')window.refreshSiteAnimations();
 };
-
-window.renderYatraMap();
 
 // ===== COMMUNITY CALENDAR =====
 let tripEvents=
@@ -1958,3 +1863,10 @@ document.addEventListener('pointermove',e=>{
   card.style.setProperty('--mx',`${e.clientX-r.left}px`);
   card.style.setProperty('--my',`${e.clientY-r.top}px`);
 },{passive:true});
+
+// ===== TRANSLATIONS ADDED AFTER THE REWRITE (stats, page banners, follow section, menu group names) =====
+Object.assign(translations.en,{"stats.yatras": "Monthly Yatras", "stats.mandirs": "Mandirs Visited", "stats.bhajans": "Bhajans Shared", "stats.sunday": "Sunday", "stats.pathshala": "Pathshala • 8–9 AM", "calendar.kalyanakLegend": "Kalyanak", "follow.eyebrow": "FOLLOW OUR JOURNEY", "follow.title": "See us on Instagram & YouTube.", "follow.intro": "Yatra moments, bhajans and community updates, straight from our channels.", "follow.insta": "Follow →", "follow.yt": "Subscribe →", "follow.ytText": "Watch our yatra and bhajan videos on our YouTube channel.", "follow.ytBtn": "Open YouTube channel →", "nav.yatra": "Yatra", "nav.learn": "Learn", "nav.community": "Community", "nav.follow": "Follow Us", "crumb.home": "Home", "page.yatra.eyebrow": "YATRA & DARSHAN", "page.yatra.title": "Journeys of faith.", "page.yatra.intro": "Monthly yatras, the places we have visited and darshan from across Jain tirthas.", "page.learn.eyebrow": "LEARN", "page.learn.title": "Learn Jain Dharma together.", "page.learn.intro": "Sunday Pathshala and our growing Jain knowledge hub.", "page.community.eyebrow": "COMMUNITY", "page.community.title": "Stay connected with the sangh.", "page.community.intro": "Calendar, events, our mandir and our channels, all in one place."});
+Object.assign(translations.hi,{"stats.yatras": "मासिक यात्राएँ", "stats.mandirs": "मंदिर दर्शन", "stats.bhajans": "भजन", "stats.sunday": "रविवार", "stats.pathshala": "पाठशाला • सुबह 8–9 बजे", "calendar.kalyanakLegend": "कल्याणक", "follow.eyebrow": "हमारी यात्रा से जुड़ें", "follow.title": "Instagram और YouTube पर हमसे जुड़ें।", "follow.intro": "यात्राओं के पल, भजन और सामुदायिक अपडेट, सीधे हमारे चैनलों से।", "follow.insta": "फ़ॉलो करें →", "follow.yt": "सब्सक्राइब करें →", "follow.ytText": "हमारी यात्राओं और भजनों के वीडियो हमारे YouTube चैनल पर देखें।", "follow.ytBtn": "YouTube चैनल खोलें →", "nav.yatra": "यात्रा", "nav.learn": "सीखें", "nav.community": "समुदाय", "nav.follow": "हमसे जुड़ें", "crumb.home": "होम", "page.yatra.eyebrow": "यात्रा और दर्शन", "page.yatra.title": "आस्था की यात्राएँ।", "page.yatra.intro": "मासिक यात्राएँ, हमारे द्वारा देखे गए स्थान और जैन तीर्थों के दर्शन।", "page.learn.eyebrow": "सीखें", "page.learn.title": "साथ मिलकर जैन धर्म सीखें।", "page.learn.intro": "रविवार पाठशाला और हमारा बढ़ता जैन ज्ञान केंद्र।", "page.community.eyebrow": "समुदाय", "page.community.title": "संघ से जुड़े रहें।", "page.community.intro": "कैलेंडर, कार्यक्रम, हमारा मंदिर और हमारे चैनल, सब एक जगह।"});
+
+// ===== APPLY SAVED LANGUAGE (must stay last: everything above is initialised) =====
+setLanguage(localStorage.getItem('jyk-language')||'en');
