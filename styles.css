@@ -357,3 +357,9 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .trip-media-links a::after{content:' (' attr(data-count) ')';font-weight:600;opacity:.7}
 .trip-media-links a:hover{background:var(--green);color:#fff}
 .lightbox.single .lb-prev,.lightbox.single .lb-next{display:none}
+
+
+/* Bhakti typography revision */
+.lyrics-column .lyrics-hi,.lyrics-column .lyrics-hi p,.lyrics-paired .hi{font-family:'Noto Sans Devanagari',sans-serif;font-weight:500;}
+.lyrics-column .lyrics-hi p{font-size:1.08rem;line-height:2.05;}
+.audio-link{white-space:nowrap;}
