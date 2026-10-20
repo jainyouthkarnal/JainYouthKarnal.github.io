@@ -479,10 +479,10 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 }
 @media(prefers-reduced-motion:reduce){.petal-layer,.petal-layer *{animation:none!important;display:none!important}}
 
-/* Header brand is text-only: remove the boxed logo tile entirely. */
-.brand img{display:none!important}
-.brand{font-size:.78rem;letter-spacing:.08em}
-@media(max-width:560px){.brand span{display:inline;max-width:none;font-size:.66rem;white-space:nowrap}.brand{max-width:calc(100% - 120px)}}
+/* Keep the supplied Jain Youth Karnal logo visible in the shared header. */
+.brand{font-size:.78rem;letter-spacing:.08em;gap:10px}
+.brand img{display:block!important;width:48px;height:48px;object-fit:contain;flex:0 0 auto}
+@media(max-width:560px){.brand span{display:inline;max-width:none;font-size:.66rem;white-space:nowrap}.brand{max-width:calc(100% - 120px)}.brand img{width:40px;height:40px}}
 
 /* Announcement cards: size to their own content instead of stretching to match the longest card. */
 #announcements .announcement-grid{
@@ -516,17 +516,33 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 }
 
 
-/* Bhakti library: compact mini-cards, expandable lyrics and category grouping */
-.bhajan-category-heading{margin:34px 0 8px;padding:0 0 8px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.55rem;color:var(--green)}
-.bhajan-category-heading[hidden]{display:none}
-.bhajan-card{position:relative;transition:box-shadow .2s ease,border-color .2s ease}
-.bhajan-card.is-collapsed{padding:20px 22px;margin-top:12px}
-.bhajan-card.is-collapsed .bhajan-head{align-items:center;border-bottom:0;padding-bottom:0}
-.bhajan-card.is-collapsed .bhajan-media,.bhajan-card.is-collapsed .lyrics-columns{display:none}
-.bhajan-expand{flex:none;border:1px solid #cbd8cf;border-radius:999px;background:#f6f8f3;color:var(--green);padding:9px 14px;font:700 .78rem var(--sans);cursor:pointer;white-space:nowrap}
-.bhajan-expand:hover,.bhajan-expand:focus-visible{background:var(--green);color:#fff}
-.bhajan-card.is-expanded .bhajan-expand{margin-left:auto}
-.bhajan-card.is-expanded .bhajan-head{flex-wrap:wrap}
-.bhajan-card.is-expanded .lyrics-columns{display:grid}
-.bhajan-card .bhajan-head>div{min-width:0}
-@media(max-width:650px){.bhajan-card.is-collapsed{padding:17px}.bhajan-card.is-collapsed .bhajan-head{align-items:flex-start;flex-wrap:wrap}.bhajan-expand{padding:8px 11px}.bhajan-head h3{font-size:1.25rem}.bhajan-card.is-collapsed .bhajan-label{display:none}}
+/* Bhakti Library: devotional preview cards inspired by the supplied Aarti reference. */
+.page-bhakti .section-bhakti{background:#f8f4ee}
+.page-bhakti .section-bhakti .section-heading{justify-content:center;text-align:center;margin-bottom:24px}
+.page-bhakti .section-bhakti .section-heading h2{color:#211f1d;font-family:'Noto Sans Devanagari','DM Sans',sans-serif;font-weight:700}
+.page-bhakti .bhajan-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.page-bhakti .bhajan-view-controls{order:3;margin-left:auto;justify-content:flex-end;background:#e9f0e9;border-color:#d7e0d7}
+.page-bhakti .bhajan-view-btn{font-family:'DM Sans','Noto Sans Devanagari',sans-serif;font-size:.95rem;font-weight:500;padding:8px 14px;color:#191919;border:1px solid #9c9c9c;border-radius:4px;background:#f8f8f8}
+.page-bhakti .bhajan-view-btn.active{background:#fff;color:#191919;box-shadow:none;border-color:#777}
+.page-bhakti .bhajan-search{order:1;flex:1 1 260px;max-width:420px}
+.page-bhakti .bhajan-tags{order:2;flex:1 1 100%;}
+.page-bhakti .bhajan-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 30px;align-items:start}
+.page-bhakti .bhajan-card{padding:0;margin:0;overflow:hidden;border:0;border-radius:28px;background:#fffdfb;box-shadow:0 8px 15px rgba(30,25,18,.10);}
+.page-bhakti .bhajan-head{min-height:112px;padding:26px 30px;align-items:center;background:#fbf5ec;border-bottom:1px solid #f1e8dc}
+.page-bhakti .bhajan-head>div:first-child{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.page-bhakti .bhajan-number{display:none}
+.page-bhakti .bhajan-head h3{font-family:'Noto Sans Devanagari','DM Sans',sans-serif;font-size:1.45rem;line-height:1.5;color:#1f1d1b;margin:0;font-weight:700}
+.page-bhakti .bhajan-tag-list{display:none}
+.page-bhakti .bhajan-label{display:none}
+.page-bhakti .bhajan-card .lyrics-columns{display:none;margin:0;padding:24px 30px 28px;border-top:1px solid #f1e8dc}
+.page-bhakti .bhajan-card.is-expanded .lyrics-columns{display:grid}
+.page-bhakti .bhajan-card .lyrics-column{padding:0;border:0;background:transparent}
+.page-bhakti .bhajan-card .lyrics-panel{padding:0}
+.page-bhakti .bhajan-card .lyrics-panel p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.02rem;line-height:1.8;color:#898783;font-style:italic;margin:0 0 14px}
+.page-bhakti .bhajan-card .lyrics-roman p{font-family:'DM Sans',sans-serif}
+.page-bhakti .bhajan-preview{padding:24px 30px 10px;min-height:92px;color:#92908c;font-family:'Noto Sans Devanagari',sans-serif;font-size:1.02rem;line-height:1.65;font-style:italic}
+.page-bhakti .bhajan-preview .preview-hi[hidden],.page-bhakti .bhajan-preview .preview-roman[hidden]{display:none}
+.page-bhakti .bhajan-expand{display:inline-flex;align-items:center;gap:8px;margin:0 30px 26px;padding:0;border:0;background:transparent;color:#c86a00;font:600 .88rem 'Noto Sans Devanagari','DM Sans',sans-serif;cursor:pointer}
+.page-bhakti .bhajan-expand:hover{text-decoration:underline}
+.page-bhakti .bhakti-note{margin-top:28px}
+@media(max-width:720px){.page-bhakti .bhajan-card-grid{grid-template-columns:1fr;gap:18px}.page-bhakti .bhajan-view-controls{order:3;width:auto;flex:0 0 auto;margin-left:auto}.page-bhakti .bhajan-view-btn{flex:0 0 auto}.page-bhakti .bhajan-head{min-height:90px;padding:20px}.page-bhakti .bhajan-preview{padding:20px 20px 8px}.page-bhakti .bhajan-expand{margin:0 20px 22px}.page-bhakti .bhajan-card .lyrics-columns{padding:20px}.page-bhakti .bhajan-head h3{font-size:1.2rem}}

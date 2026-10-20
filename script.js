@@ -11,8 +11,9 @@ en:{
 
 'about.eyebrow':'WHO WE ARE',
 'about.title':'Building a connected Jain youth community.',
-'about.p1':'Jain Youth Karnal is the public-facing youth identity of <strong>Jin Shasan Prabhavna Sangh Karnal</strong>. The initiative brings together young Jains through spirituality, Jain knowledge, temple visits, yatras, bhakti, community events and seva.',
-'about.p2':'The website is designed to become a living archive and a community gateway — not simply an information page.',
+'about.p1':'Jain Youth Karnal is a collective of young Jains united by faith, guided by Jain values, and connected by a shared commitment to <strong>Jin Shasan Prabhavna Sangh Karnal</strong>.',
+'about.p2':'From spiritual reflections and Jain knowledge to temple visits, yatras, bhakti, community celebrations, and seva, we strive to keep our traditions alive, strengthen our bonds, and carry the essence of Jainism forward to the next generation.',
+'about.p3':'<strong>A space where faith finds expression, traditions live on, and memories become part of our shared journey.</strong> Jain Youth Karnal brings together our stories, experiences, and initiatives — preserving our journey while inspiring more young Jains to connect with their roots and contribute to the community.',
 
 'trips.eyebrow':'MONTHLY JAIN TRIPS',
 'trips.title':'A year of journeys, darshan & memories.',
@@ -145,8 +146,9 @@ hi:{
 
 'about.eyebrow':'हम कौन हैं',
 'about.title':'एक जुड़े हुए जैन युवा समुदाय का निर्माण।',
-'about.p1':'जैन यूथ करनाल, <strong>जिन शासन प्रभावना संघ करनाल</strong> की युवा पहचान है। यह पहल आध्यात्मिकता, जैन ज्ञान, मंदिर दर्शन, यात्राओं, भक्ति, सामुदायिक कार्यक्रमों और सेवा के माध्यम से जैन युवाओं को जोड़ती है।',
-'about.p2':'यह वेबसाइट केवल जानकारी का पृष्ठ नहीं, बल्कि एक जीवंत डिजिटल संग्रह और समुदाय से जुड़ने का माध्यम बनने के लिए तैयार की गई है।',
+'about.p1':'जैन यूथ करनाल युवा जैनों का एक ऐसा समूह है, जो आस्था से एकजुट, जैन मूल्यों से प्रेरित और <strong>जिन शासन प्रभावना संघ करनाल</strong> के प्रति साझा समर्पण से जुड़ा है।',
+'about.p2':'आध्यात्मिक विचारों और जैन ज्ञान से लेकर मंदिर दर्शन, यात्राओं, भक्ति, सामुदायिक उत्सवों और सेवा तक, हमारा प्रयास है कि हम अपनी परंपराओं को जीवंत रखें, आपसी संबंधों को मजबूत करें और जैन धर्म के सार को अगली पीढ़ी तक पहुँचाएँ।',
+'about.p3':'<strong>एक ऐसा स्थान जहाँ आस्था अभिव्यक्ति पाती है, परंपराएँ जीवंत रहती हैं और यादें हमारी साझा यात्रा का हिस्सा बनती हैं।</strong> जैन यूथ करनाल हमारी कहानियों, अनुभवों और पहलों को एक साथ लाता है — हमारी यात्रा को सहेजते हुए और अधिक युवा जैनों को अपनी जड़ों से जुड़ने तथा समुदाय में योगदान देने के लिए प्रेरित करता है।',
 
 'trips.eyebrow':'मासिक जैन यात्राएँ',
 'trips.title':'यात्राओं, जिन दर्शन और यादों से भरा एक वर्ष।',
@@ -778,7 +780,7 @@ window.renderTripCards=async function renderTripCards(){
     const ms=mandirs(t);
     const featured=i===data.trips.length-1;
     const folder=t.id==='ranila-ji'?'01-Ranila-Ji':t.id==='jalabaad'?'02-Jalabaad':t.id==='hastinapur'?'03-Hastinapur':t.id==='sonipat'?'04-Sonipat':t.id==='hansi'?'05-Hansi':t.id==='vehlana-ji'?'06-Vehlana-Ji':t.id==='gannaur'?'07-Gannaur':t.id==='badegaon'?'08-Badegaon':t.id;
-    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
+    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'💧':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
   }).join('');
   if(typeof window.initTripMedia==='function') window.initTripMedia();
   if(typeof window.refreshSiteAnimations==='function') window.refreshSiteAnimations();
@@ -1443,38 +1445,7 @@ setLanguage=function(lang){
 (function initBhajanFilters(){
   const input=document.getElementById('bhajan-search');
   const tagBox=document.getElementById('bhajan-tags');
-  const originalCards=[...document.querySelectorAll('.bhajan-card')];
-  if(!originalCards.length) return;
-  const categoryFor=card=>{
-    const tags=(card.dataset.tags||'').toLowerCase().split(',').map(x=>x.trim());
-    for(const category of ['aarti','stavan','chalisa','mantra','bhajan']) if(tags.includes(category)) return category;
-    return 'other';
-  };
-  const categoryLabels={aarti:'Aartis',stavan:'Stavans',chalisa:'Chalisas',mantra:'Mantras',bhajan:'Bhajans',other:'Other devotional compositions'};
-  const order={aarti:0,stavan:1,chalisa:2,mantra:3,bhajan:4,other:5};
-  const parent=originalCards[0].parentElement;
-  originalCards.forEach(card=>{card.dataset.category=categoryFor(card);});
-  originalCards.sort((a,b)=>order[a.dataset.category]-order[b.dataset.category] || (parseInt(a.querySelector('.bhajan-number')?.textContent||'999',10)-parseInt(b.querySelector('.bhajan-number')?.textContent||'999',10)));
-  let lastCategory='';
-  originalCards.forEach(card=>{
-    const category=card.dataset.category;
-    if(category!==lastCategory){
-      const heading=document.createElement('h3'); heading.className='bhajan-category-heading'; heading.dataset.categoryHeading=category; heading.textContent=categoryLabels[category];
-      parent.insertBefore(heading,card); lastCategory=category;
-    }
-    const lyrics=card.querySelector('.lyrics-columns');
-    if(lyrics){
-      card.classList.add('is-collapsed');
-      const toggle=document.createElement('button'); toggle.type='button'; toggle.className='bhajan-expand'; toggle.setAttribute('aria-expanded','false'); toggle.textContent='Read lyrics ＋';
-      const head=card.querySelector('.bhajan-head'); if(head) head.appendChild(toggle);
-      toggle.addEventListener('click',()=>{
-        const expanded=card.classList.toggle('is-expanded');
-        card.classList.toggle('is-collapsed',!expanded);
-        toggle.setAttribute('aria-expanded',String(expanded)); toggle.textContent=expanded?'Hide lyrics −':'Read lyrics ＋';
-      });
-    }
-  });
-  const cards=originalCards;
+  const cards=[...document.querySelectorAll('.bhajan-card')];
   const empty=document.getElementById('bhajan-empty');
   if(!cards.length) return;
 
@@ -1506,10 +1477,6 @@ setLanguage=function(lang){
       if(show) visible++;
     });
     if(empty) empty.hidden=visible!==0;
-    document.querySelectorAll('.bhajan-category-heading').forEach(heading=>{
-      const category=heading.dataset.categoryHeading;
-      heading.hidden=!cards.some(card=>card.dataset.category===category&&!card.hidden);
-    });
   };
 
   input?.addEventListener('input',apply);
@@ -1774,67 +1741,112 @@ refreshBhaktiAudioLabels(
 })();
 
 
-// ===== TRIP MEDIA: show photographs directly inside each Yatra card =====
+// ===== TRIP MEDIA =====
 window.initTripMedia=async function initTripMedia(){
-  const boxes=[...document.querySelectorAll('.trip-media-links')];
-  if(!boxes.length)return;
-  let manifest={};
-  try{const r=await fetch('data/trip-media.json',{cache:'no-cache'});if(r.ok)manifest=await r.json();}catch(e){}
-  boxes.forEach(box=>{
-    const folder=box.dataset.folder;
-    const info=manifest[folder]||{};
-    const card=box.closest('.trip-card');
-    if(!card)return;
-    const place=card.querySelector('h3')?.textContent||'';
-    const files=[];
-    ['mandir','group','memories'].forEach(category=>{
-      (info[category]||[]).filter(Boolean).forEach(file=>files.push({category,file}));
-    });
-    box.hidden=true;
-    if(!files.length)return;
-    const gallery=document.createElement('div');
-    gallery.className='trip-photo-gallery';
-    gallery.setAttribute('aria-label',`${place} trip photographs`);
-    files.forEach((item,index)=>{
-      const img=document.createElement('img');
-      img.className='trip-photo';
-      img.src=`assets/trips/${folder}/${item.category}/${item.file}`;
-      img.alt=`${place} — ${item.category==='mandir'?'Mandir':item.category==='group'?'Group photo':'Trip memory'}`;
-      img.loading='lazy';
-      img.decoding='async';
-      img.addEventListener('error',()=>{img.remove();if(!gallery.children.length)gallery.remove();});
-      img.addEventListener('click',()=>{
-        const imgs=[...gallery.querySelectorAll('img')];
-        const paths=imgs.map(el=>el.src);
-        const captions=imgs.map(()=>`${place} — trip photo`);
-        if(window.JYKLB&&typeof window.JYKLB.open==='function')window.JYKLB.open(paths,Math.max(0,imgs.indexOf(img)),captions);
-        else window.open(img.src,'_blank','noopener');
-      });
-      gallery.appendChild(img);
-    });
-    const heading=card.querySelector('.trip-mandirs');
-    if(heading)heading.insertAdjacentElement('afterend',gallery);else card.appendChild(gallery);
-  });
-};
 
-// Gentle floating petal animation on the hero/banner; disabled for reduced-motion users.
-window.initPetalAnimations=function(){
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  document.querySelectorAll('.hero,.page-banner').forEach(section=>{
-    if(section.querySelector('.petal-layer'))return;
-    const layer=document.createElement('div');layer.className='petal-layer';layer.setAttribute('aria-hidden','true');
-    for(let i=0;i<12;i++){
-      const petal=document.createElement('span');petal.className='petal';
-      petal.style.setProperty('--left',`${(i*37+7)%100}%`);
-      petal.style.setProperty('--duration',`${12+(i%6)*2}s`);
-      petal.style.setProperty('--delay',`${-(i%8)*1.7}s`);
-      petal.style.setProperty('--sway',`${(i%2?1:-1)*(18+(i%5)*12)}px`);
-      layer.appendChild(petal);
-    }
-    section.prepend(layer);
+  const boxes=[
+    ...document.querySelectorAll(
+      '.trip-media-links'
+    )
+  ];
+
+  if(!boxes.length)return;
+
+  let man={};
+
+  try{
+
+    const r=
+      await fetch(
+        'data/trip-media.json'
+      );
+
+    if(r.ok)
+      man=await r.json();
+
+  }catch(e){}
+
+  boxes.forEach(box=>{
+
+    const folder=
+      box.dataset.folder;
+
+    const info=
+      man[folder]||{};
+
+    const place=
+      (
+        box
+          .closest('.trip-card')
+          ?.querySelector('h3')||
+        {}
+      ).textContent||'';
+
+    let any=false;
+
+    box
+      .querySelectorAll('a')
+      .forEach(a=>{
+
+        const href=
+          a.getAttribute('href')||'';
+
+        const cat=
+          (
+            href.match(
+              /\/([a-z]+)\/?$/
+            )||[]
+          )[1];
+
+        const files=
+          (info[cat]||[])
+            .filter(Boolean);
+
+        if(!files.length){
+
+          a.hidden=true;
+
+          return;
+
+        }
+
+        any=true;
+
+        a.dataset.count=
+          files.length;
+
+        a.setAttribute(
+          'href',
+          '#'
+        );
+
+        a.addEventListener(
+          'click',
+          e=>{
+
+            e.preventDefault();
+
+            JYKLB.open(
+              files.map(
+                f=>
+                  `assets/trips/${folder}/${cat}/${f}`
+              ),
+              0,
+              files.map(
+                ()=>`${place} — ${a.textContent}`
+              )
+            );
+
+          }
+        );
+
+      });
+
+    box.hidden=!any;
+
   });
+
 };
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',window.initPetalAnimations,{once:true});else window.initPetalAnimations();
 
 // ===== SITE-WIDE REVEAL + STAGGER ANIMATIONS =====
 window.refreshSiteAnimations=function(){
@@ -1860,3 +1872,44 @@ Object.assign(translations.hi,{"stats.yatras": "मासिक यात्र�
 
 // ===== APPLY SAVED LANGUAGE (must stay last: everything above is initialised) =====
 setLanguage(localStorage.getItem('jyk-language')||'en');
+
+
+// Bhakti Library preview cards: keep lyrics available on demand and sync previews to the selected view.
+(function initBhajanPreviewCards(){
+  const cards=[...document.querySelectorAll('.bhajan-card')];
+  if(!cards.length)return;
+  const makePreview=(card,cls)=>{
+    const source=card.querySelector(cls==='preview-hi'?'.lyrics-hi':'.lyrics-roman');
+    if(!source)return '';
+    const p=source.querySelector('p');
+    return p ? p.innerHTML : '';
+  };
+  cards.forEach(card=>{
+    if(card.querySelector('.bhajan-preview'))return;
+    const preview=document.createElement('div');
+    preview.className='bhajan-preview';
+    preview.innerHTML='<div class="preview-hi"></div><div class="preview-roman"></div>' ;
+    preview.querySelector('.preview-hi').innerHTML=makePreview(card,'preview-hi');
+    preview.querySelector('.preview-roman').innerHTML=makePreview(card,'preview-roman');
+    const lyrics=card.querySelector('.lyrics-columns');
+    if(lyrics) lyrics.hidden=false;
+    const button=document.createElement('button');
+    button.type='button'; button.className='bhajan-expand'; button.setAttribute('aria-expanded','false');
+    button.innerHTML='<span data-expand-label>Read Full Lyrics</span><span aria-hidden="true">›</span>' ;
+    button.addEventListener('click',()=>{
+      const expanded=card.classList.toggle('is-expanded');
+      button.setAttribute('aria-expanded',String(expanded));
+      button.querySelector('[data-expand-label]').textContent=expanded?(document.documentElement.lang==='hi'?'बंद करें':'Show Less'):(document.documentElement.lang==='hi'?'पूरे बोल पढ़ें':'Read Full Lyrics');
+      button.lastElementChild.textContent=expanded?'⌃':'›';
+    });
+    card.append(preview,button);
+  });
+  const updatePreviewView=mode=>{
+    document.querySelectorAll('.bhajan-preview').forEach(preview=>{
+      const hi=preview.querySelector('.preview-hi'), roman=preview.querySelector('.preview-roman');
+      if(hi)hi.hidden=mode==='roman'; if(roman)roman.hidden=mode==='hindi';
+    });
+  };
+  document.querySelectorAll('.bhajan-view-controls button[data-view]').forEach(btn=>btn.addEventListener('click',()=>updatePreviewView(btn.dataset.view)));
+  updatePreviewView(localStorage.getItem('jyk-bhakti-view')||'both');
+})();

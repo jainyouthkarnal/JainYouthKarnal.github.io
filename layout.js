@@ -56,6 +56,7 @@
     <div class="container nav-wrap">
 
       <a class="brand" href="index.html" aria-label="Jain Youth Karnal home">
+        <img src="apple-icon.png" alt="" width="48" height="48">
         <span>JAIN YOUTH KARNAL</span>
       </a>
 
