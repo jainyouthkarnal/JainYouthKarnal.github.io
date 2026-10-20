@@ -1,15 +1,13 @@
-# Jain Youth Karnal website update
+# Jain Youth Karnal — UI update notes
 
-## Files to replace/add in the existing GitHub Pages repository
-- Replace `bhakti.html` with the included version to add bhajan #07, **मेरे सर पर रख दो दादा**, with Hindi and Roman lyrics and `bhajan` / `guru` tags.
-- Replace `learn.html` with the included version to add a searchable 24-Tirthankara knowledge section.
-- Add `tirthankaras.js` at the repository root. It renders English details when English is selected and Hindi details when हिंदी is selected. English Tirthankara names end in “Swami”; Hindi names use a space before “जी”.
+- Added `apple-icon.png` (180×180) generated from the supplied `favicon.svg` and linked it on all HTML pages with `<link rel="apple-touch-icon" href="apple-icon.png">`.
+- Removed the decorative box/shadow around the header logo.
+- Improved responsive navigation, tap targets, cards, map/calendar layout, and small-screen typography.
+- Enabled gentle floating petal animations on hero/banner sections; animations respect `prefers-reduced-motion`.
+- Changed Yatra trip media from button links to inline photo thumbnails in each trip card. Thumbnails open in the site's lightbox when available.
 
-## Audio file still needed
-Place the actual audio recording at:
-`assets/bhakti/audio/mere-sar-par-rakh-do-dada.mp3`
+## Add trip photographs
+Place files under `assets/trips/<folder>/<mandir|group|memories>/` and list exact filenames in `data/trip-media.json`. Existing manifest references `assets/trips/08-Badegaon/group/group-01.jpg`, but the actual photo was not included in the uploaded files; the missing image is safely hidden until you add it.
 
-The HTML points to this location, but an MP3 was not included with the supplied files. The bhajan lyrics can be displayed without it; the audio control will only work once the recording is added.
-
-## Data note
-The supplied English and Hindi lists disagree on a few entries (for example, the symbol for Sheetalnath and Anantnath). The page preserves each language's supplied values rather than silently reconciling those differences. Please verify those details against the Jain reference tradition you want the site to follow before publishing.
+## Deploy
+Upload the contents of this folder to the repository root, preserving the `assets/` and `data/` folders. The website has been prepared locally; it has not been deployed to GitHub Pages.

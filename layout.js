@@ -55,9 +55,7 @@
   const header=`<header class="site-header">
     <div class="container nav-wrap">
 
-      <a class="brand" href="index.html">
-        <img src="assets/circular-logo.png"
-             alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal">
+      <a class="brand" href="index.html" aria-label="Jain Youth Karnal home">
         <span>JAIN YOUTH KARNAL</span>
       </a>
 

@@ -1739,112 +1739,67 @@ refreshBhaktiAudioLabels(
 })();
 
 
-// ===== TRIP MEDIA =====
+// ===== TRIP MEDIA: show photographs directly inside each Yatra card =====
 window.initTripMedia=async function initTripMedia(){
-
-  const boxes=[
-    ...document.querySelectorAll(
-      '.trip-media-links'
-    )
-  ];
-
+  const boxes=[...document.querySelectorAll('.trip-media-links')];
   if(!boxes.length)return;
-
-  let man={};
-
-  try{
-
-    const r=
-      await fetch(
-        'data/trip-media.json'
-      );
-
-    if(r.ok)
-      man=await r.json();
-
-  }catch(e){}
-
+  let manifest={};
+  try{const r=await fetch('data/trip-media.json',{cache:'no-cache'});if(r.ok)manifest=await r.json();}catch(e){}
   boxes.forEach(box=>{
-
-    const folder=
-      box.dataset.folder;
-
-    const info=
-      man[folder]||{};
-
-    const place=
-      (
-        box
-          .closest('.trip-card')
-          ?.querySelector('h3')||
-        {}
-      ).textContent||'';
-
-    let any=false;
-
-    box
-      .querySelectorAll('a')
-      .forEach(a=>{
-
-        const href=
-          a.getAttribute('href')||'';
-
-        const cat=
-          (
-            href.match(
-              /\/([a-z]+)\/?$/
-            )||[]
-          )[1];
-
-        const files=
-          (info[cat]||[])
-            .filter(Boolean);
-
-        if(!files.length){
-
-          a.hidden=true;
-
-          return;
-
-        }
-
-        any=true;
-
-        a.dataset.count=
-          files.length;
-
-        a.setAttribute(
-          'href',
-          '#'
-        );
-
-        a.addEventListener(
-          'click',
-          e=>{
-
-            e.preventDefault();
-
-            JYKLB.open(
-              files.map(
-                f=>
-                  `assets/trips/${folder}/${cat}/${f}`
-              ),
-              0,
-              files.map(
-                ()=>`${place} — ${a.textContent}`
-              )
-            );
-
-          }
-        );
-
+    const folder=box.dataset.folder;
+    const info=manifest[folder]||{};
+    const card=box.closest('.trip-card');
+    if(!card)return;
+    const place=card.querySelector('h3')?.textContent||'';
+    const files=[];
+    ['mandir','group','memories'].forEach(category=>{
+      (info[category]||[]).filter(Boolean).forEach(file=>files.push({category,file}));
+    });
+    box.hidden=true;
+    if(!files.length)return;
+    const gallery=document.createElement('div');
+    gallery.className='trip-photo-gallery';
+    gallery.setAttribute('aria-label',`${place} trip photographs`);
+    files.forEach((item,index)=>{
+      const img=document.createElement('img');
+      img.className='trip-photo';
+      img.src=`assets/trips/${folder}/${item.category}/${item.file}`;
+      img.alt=`${place} — ${item.category==='mandir'?'Mandir':item.category==='group'?'Group photo':'Trip memory'}`;
+      img.loading='lazy';
+      img.decoding='async';
+      img.addEventListener('error',()=>{img.remove();if(!gallery.children.length)gallery.remove();});
+      img.addEventListener('click',()=>{
+        const imgs=[...gallery.querySelectorAll('img')];
+        const paths=imgs.map(el=>el.src);
+        const captions=imgs.map(()=>`${place} — trip photo`);
+        if(window.JYKLB&&typeof window.JYKLB.open==='function')window.JYKLB.open(paths,Math.max(0,imgs.indexOf(img)),captions);
+        else window.open(img.src,'_blank','noopener');
       });
-
-    box.hidden=!any;
-
+      gallery.appendChild(img);
+    });
+    const heading=card.querySelector('.trip-mandirs');
+    if(heading)heading.insertAdjacentElement('afterend',gallery);else card.appendChild(gallery);
   });
-
 };
+
+// Gentle floating petal animation on the hero/banner; disabled for reduced-motion users.
+window.initPetalAnimations=function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.querySelectorAll('.hero,.page-banner').forEach(section=>{
+    if(section.querySelector('.petal-layer'))return;
+    const layer=document.createElement('div');layer.className='petal-layer';layer.setAttribute('aria-hidden','true');
+    for(let i=0;i<12;i++){
+      const petal=document.createElement('span');petal.className='petal';
+      petal.style.setProperty('--left',`${(i*37+7)%100}%`);
+      petal.style.setProperty('--duration',`${12+(i%6)*2}s`);
+      petal.style.setProperty('--delay',`${-(i%8)*1.7}s`);
+      petal.style.setProperty('--sway',`${(i%2?1:-1)*(18+(i%5)*12)}px`);
+      layer.appendChild(petal);
+    }
+    section.prepend(layer);
+  });
+};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',window.initPetalAnimations,{once:true});else window.initPetalAnimations();
 
 // ===== SITE-WIDE REVEAL + STAGGER ANIMATIONS =====
 window.refreshSiteAnimations=function(){
