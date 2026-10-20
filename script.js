@@ -764,27 +764,151 @@ function jykTiles(map){
 const YATRA_FALLBACK={"homeMandir":{"name":"Shree Digamber Jain Mandir","place":"Karnal","coordinates":[29.6824999,76.9909295]},"trips":[{"id":"ranila-ji","place":"Ranila Ji","date":"2026-03-22","temple":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","coordinates":[28.7090507,76.3325388],"mapPosition":{"left":27.8,"top":29.5},"mandirs":[{"name":"Shri 1008 Bhagwan Adinath Digambar Jain Atishay Kshetra, Ranila","activity":"darshan"}]},{"id":"jalabaad","place":"Jalabaad","date":"2026-04-05","temple":"Shri 1008 Parasnath Digamber Jain Mandir","coordinates":[29.6158372,77.4360981],"mapPosition":{"left":31.3,"top":27.2},"mandirs":[{"name":"Shri 1008 Parasnath Digamber Jain Mandir","activity":"darshan"}]},{"id":"hastinapur","place":"Hastinapur","date":"2026-05-09","temple":"Digamber Jain Bada Mandir","coordinates":[29.1613343,78.0010909],"mapPosition":{"left":33.7,"top":28.1},"mandirs":[{"name":"Digamber Jain Bada Mandir","activity":"darshan"}]},{"id":"sonipat","place":"Sonipat","date":"2026-06-14","temple":"Shanti Nath Atishya Kshetra","coordinates":[29.0004214,77.0151195],"mapPosition":{"left":30.2,"top":28.6},"mandirs":[{"name":"Shanti Nath Atishya Kshetra","activity":"darshan"}]},{"id":"hansi","place":"Hansi","date":"2026-07-18","temple":"Shri Digamber Jain Panchayati Mandir","coordinates":[29.1009391,75.9636061],"mapPosition":{"left":26.5,"top":28.3},"mandirs":[{"name":"Shri Digamber Jain Panchayati Mandir","activity":"darshan"}]},{"id":"vehlana-ji","place":"Vehlana Ji","date":"2026-08-16","temple":"Vehalna Digambar Jain Temple Atishaya Kshetra","coordinates":[29.4285143,77.6854437],"mapPosition":{"left":32.1,"top":27.4},"mandirs":[{"name":"Vehalna Digambar Jain Temple Atishaya Kshetra","activity":"darshan"}]},{"id":"gannaur","place":"Gannaur","date":"2026-09-07","temple":"Gupti Dhaam Digamber Jain Mandir","coordinates":[29.1412698,77.0371692],"mapPosition":{"left":30.0,"top":28.3},"mandirs":[{"name":"Prachin Digamber Jain Mandir","activity":"prakshal","note":"exact name to be updated"},{"name":"Gupti Dhaam Digamber Jain Mandir","activity":"darshan"}]},{"id":"badegaon","place":"Badegaon","date":"2026-10-04","temple":"Trilok Teerth Dham; Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple; Shri Digamber Jain Bahubali Jinbimb Mandir","coordinates":[28.8776725,77.3152324],"mapPosition":{"left":31.3,"top":29.0},"mandirs":[{"name":"Trilok Teerth Dham","activity":"darshan"},{"name":"Shri 1008 Bhagwan Parshwanath Atishay Shetra Prachin Digamber Jain Temple","activity":"prakshal"},{"name":"Shri Digamber Jain Bahubali Jinbimb Mandir","activity":"darshan"}]}]};
 
 
-// ===== MONTHLY TRIP CARDS (source: data/yatra-data.json) =====
-window.renderTripCards=async function renderTripCards(){
-  const grid=document.getElementById('trip-grid');
-  if(!grid) return;
-  const esc=s=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const mandirs=t=>Array.isArray(t.mandirs)&&t.mandirs.length?t.mandirs:String(t.temple||'').split(';').map(x=>x.trim()).filter(Boolean).map(name=>({name,activity:'darshan'}));
-  const labels=()=>document.documentElement.lang==='hi'
-    ?{visited:'मंदिर दर्शन:',prakshal:'प्रक्षाल किया गया',darshan:'दर्शन',pending:'(सटीक नाम बाद में जोड़ा जाएगा)',dateOpts:{day:'2-digit',month:'short',year:'numeric'}}
-    :{visited:'Mandir Darshan',prakshal:'Prakshal performed',darshan:'Darshan',pending:'(exact name to be updated)',dateOpts:{day:'2-digit',month:'short',year:'numeric'}};
+
+/* ===== MONTHLY TRIP CARDS (source: data/yatra-data.json) ===== */
+window.renderTripCards = async function renderTripCards() {
+  const grid = document.getElementById('trip-grid');
+  if (!grid) return;
+
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[c]));
+
+  const mandirs = t =>
+    Array.isArray(t.mandirs) && t.mandirs.length
+      ? t.mandirs
+      : String(t.temple || '')
+          .split(';')
+          .map(x => x.trim())
+          .filter(Boolean)
+          .map(name => ({ name, activity: 'darshan' }));
+
+  const labels = () =>
+    document.documentElement.lang === 'hi'
+      ? {
+          visited: 'मंदिर दर्शन:',
+          prakshal: 'प्रक्षाल किया गया',
+          darshan: 'दर्शन',
+          pending: '(सटीक नाम बाद में जोड़ा जाएगा)',
+          dateOpts: {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+          }
+        }
+      : {
+          visited: 'Mandir Darshan',
+          prakshal: 'Prakshal',
+          darshan: 'Darshan',
+          pending: '(exact name to be updated)',
+          dateOpts: {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+          }
+        };
+
   let data;
-  try{const r=await fetch('data/yatra-data.json',{cache:'no-cache'}); if(!r.ok) throw 0; data=await r.json();}catch(e){data=YATRA_FALLBACK;}
-  const L=labels();
-  grid.innerHTML=data.trips.map((t,i)=>{
-    const ms=mandirs(t);
-    const featured=i===data.trips.length-1;
-    const folder=t.id==='ranila-ji'?'01-Ranila-Ji':t.id==='jalabaad'?'02-Jalabaad':t.id==='hastinapur'?'03-Hastinapur':t.id==='sonipat'?'04-Sonipat':t.id==='hansi'?'05-Hansi':t.id==='vehlana-ji'?'06-Vehlana-Ji':t.id==='gannaur'?'07-Gannaur':t.id==='badegaon'?'08-Badegaon':t.id;
-    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
+
+  try {
+    const r = await fetch('data/yatra-data.json', {
+      cache: 'no-cache'
+    });
+
+    if (!r.ok) throw new Error('Could not load trip data');
+    data = await r.json();
+  } catch (e) {
+    data = YATRA_FALLBACK;
+  }
+
+  const L = labels();
+
+  grid.innerHTML = data.trips.map((t, i) => {
+    const ms = mandirs(t);
+    const featured = i === data.trips.length - 1;
+
+    const folder =
+      t.id === 'ranila-ji' ? '01-Ranila-Ji' :
+      t.id === 'jalabaad' ? '02-Jalabaad' :
+      t.id === 'hastinapur' ? '03-Hastinapur' :
+      t.id === 'sonipat' ? '04-Sonipat' :
+      t.id === 'hansi' ? '05-Hansi' :
+      t.id === 'vehlana-ji' ? '06-Vehlana-Ji' :
+      t.id === 'gannaur' ? '07-Gannaur' :
+      t.id === 'badegaon' ? '08-Badegaon' :
+      t.id;
+
+    const tripDate = new Date(t.date + 'T00:00:00')
+      .toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      })
+      .toUpperCase();
+
+    return `
+      <article class="trip-card ${featured ? 'featured' : ''}"
+               data-trip-id="${esc(t.id)}">
+
+        <span>${tripDate}</span>
+
+        <h3>${esc(t.place)}</h3>
+
+        <p class="trip-mandir-label">${L.visited}</p>
+
+        <ul class="trip-mandirs">
+          ${ms.map(m => {
+            const p = m.activity === 'prakshal';
+
+            return `
+              <li class="mandir-item ${p ? 'is-prakshal' : 'is-darshan'}">
+
+                <strong class="mandir-activity ${p ? 'prakshal' : 'darshan'}">
+                  ${
+                    p
+                      ? '<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">'
+                      : '🙏'
+                  }
+                  ${p ? L.prakshal : L.darshan}
+                </strong>
+
+                <span class="mandir-name">
+                  ${esc(m.name)}${m.note ? ` <em>${esc(m.note)}</em>` : ''}
+                </span>
+
+              </li>
+            `;
+          }).join('')}
+        </ul>
+
+        <div class="trip-media-links" data-folder="${esc(folder)}" hidden>
+          <a data-i18n="trip.mandir"
+             href="assets/trips/${esc(folder)}/mandir/">Mandir</a>
+
+          <a data-i18n="trip.group"
+             href="assets/trips/${esc(folder)}/group/">Group</a>
+
+          <a data-i18n="trip.memories"
+             href="assets/trips/${esc(folder)}/memories/">Trip Memories</a>
+        </div>
+
+      </article>
+    `;
   }).join('');
-  if(typeof window.initTripMedia==='function') window.initTripMedia();
-  if(typeof window.refreshSiteAnimations==='function') window.refreshSiteAnimations();
+
+  if (typeof window.initTripMedia === 'function') {
+    window.initTripMedia();
+  }
+
+  if (typeof window.refreshSiteAnimations === 'function') {
+    window.refreshSiteAnimations();
+  }
 };
+
 
 // ===== YATRA MAP — POLITICAL INDIA MAP + PINNED VISITS =====
 window.renderYatraMap=async function renderYatraMap(){
