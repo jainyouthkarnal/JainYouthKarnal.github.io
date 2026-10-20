@@ -14,12 +14,12 @@
 
     {k:'nav.learn',t:'Learn',page:'learn',sub:[
       ['nav.pathshala','Sunday Pathshala','learn.html#pathshala'],
-      ['nav.knowledge','Knowledge Hub','learn.html#knowledge-library'],
-      ['nav.arghya','Choubis Tirthankara Arghya','arghya.html']
+      ['nav.knowledge','Knowledge','learn.html#knowledge']
     ]},
 
-    {k:'nav.bhakti',t:'Bhakti',page:'bhakti',sub:[
-      ['nav.bhajans','📖 Bhajan Library','bhakti.html']
+    {k:'nav.bhakti',t:'Bhakti',pages:['bhakti','playlist'],sub:[
+      ['nav.bhajans','📖 Bhajan Library','bhakti.html'],
+      ['nav.playlist','🎧 Playlist','playlist.html']
     ]},
 
     {k:'nav.community',t:'Community',page:'community',sub:[
@@ -91,9 +91,21 @@
              alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal"
              class="footer-logo">
 
-        <p>
-          Jain Youth Karnal<br>
-          Jin Shasan Prabhavna Sangh
+        <p class="footer-organization">
+          <strong>Jin Shasan Prabhavna Sangh</strong><br>
+          Jain Youth Karnal
+        </p>
+
+        <p class="footer-mandir">
+          <strong>Shree Digamber Jain Mandir</strong><br>
+          <strong>Address:</strong> Mitthan Mohalla, Kunjpura Road,<br>
+          Karnal, Haryana 132001<br>
+          <a href="https://share.google/tR5QPo4lzuzhaojf9"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View Shree Digamber Jain Mandir on Google Maps">
+            View on Google Maps ↗
+          </a>
         </p>
       </div>
 
@@ -108,40 +120,20 @@
           Our Mandir
         </a>
 
-        <a href="yatra.html#yatra-map" data-i18n="nav.map">
-          Yatra Map
-        </a>
-
-        <a href="community.html#calendar" data-i18n="nav.calendar">
-          Calendar
-        </a>
-
-        <a href="index.html#announcements" data-i18n="nav.announcements">
-          Announcements
+        <a href="community.html#calendar">
+          Calendar &amp; Events
         </a>
 
         <a href="learn.html#pathshala" data-i18n="nav.pathshala">
           Sunday Pathshala
         </a>
 
-        <a href="community.html#events" data-i18n="nav.events">
-          Events
-        </a>
-
-        <a href="learn.html#knowledge-library" data-i18n="nav.knowledge">
+        <a href="learn.html#knowledge">
           Knowledge Hub
-        </a>
-        <a href="arghya.html" data-i18n="nav.arghya">
-          Choubis Tirthankara Arghya
         </a>
 
         <a href="bhakti.html" data-i18n="nav.bhajans">
           Bhajan Library
-        </a>
-
-
-        <a href="yatra.html#darshan" data-i18n="nav.darshan">
-          Darshan
         </a>
       </div>
 
