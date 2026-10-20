@@ -557,3 +557,39 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .footer-social .social-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
 .footer-social .social-text small{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#9fb5a9}
 .footer-social .social-text b{font-size:.84rem;font-weight:700;color:#fff;letter-spacing:0;overflow-wrap:anywhere}
+
+
+/* Event archive playlist embed */
+.panchkalyanak-event-card{display:grid!important;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:26px;align-items:start;padding:clamp(20px,3vw,34px);margin-top:24px}
+.panchkalyanak-event-copy h3{font-size:clamp(1.4rem,2.4vw,2rem);margin:.35rem 0 .7rem}
+.panchkalyanak-dates{padding-left:1.2rem;line-height:1.8;margin:16px 0 22px}
+.panchkalyanak-playlist{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:18px;background:#171717}
+.panchkalyanak-playlist iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media(max-width:760px){.panchkalyanak-event-card{grid-template-columns:1fr}.panchkalyanak-playlist{order:-1}}
+/* Full lyrics page: stanza-by-stanza alignment, paired on desktop and sequential on mobile */
+.lyrics-page-section{background:#f8f4ee;min-height:70vh}
+.lyrics-back{display:inline-flex;margin-bottom:22px;color:#a65c0a;font-weight:700;text-decoration:none}
+.lyrics-page-heading{text-align:center;max-width:850px;margin:0 auto 24px}
+.lyrics-page-heading h1{font-family:'Noto Sans Devanagari','DM Sans',sans-serif;line-height:1.45;font-size:clamp(1.7rem,3vw,2.5rem);color:#211f1d}
+.lyrics-page-heading p:last-child{color:#77736d}
+.lyrics-page-controls{display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;margin:0 0 20px;background:#e9f0e9;border:1px solid #d7e0d7;border-radius:999px;padding:5px;width:max-content;max-width:100%;margin-left:auto}
+.lyrics-paired-list{display:grid;gap:14px}
+.lyrics-paired-verse{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid #eee4d8;border-radius:18px;background:#fffdfb;overflow:hidden;align-items:stretch}
+.paired-language{padding:22px 25px;line-height:1.95;overflow-wrap:anywhere}
+.paired-hindi{font-family:'Noto Sans Devanagari',sans-serif;color:#28513f;border-right:1px solid #eee4d8}
+.paired-english{font-family:'DM Sans',sans-serif;color:#6f5420}
+.paired-language p{margin:0;white-space:normal}
+.paired-language p+p{margin-top:0}
+.lyrics-paired-list[data-view="hindi"] .paired-english,.lyrics-paired-list[data-view="roman"] .paired-hindi{display:none}
+.lyrics-paired-list[data-view="hindi"] .lyrics-paired-verse,.lyrics-paired-list[data-view="roman"] .lyrics-paired-verse{grid-template-columns:1fr}
+.translation-missing{font-size:.88rem;color:#8a837a;font-style:italic}
+.page-bhakti .bhajan-card{cursor:pointer}
+.page-bhakti .bhajan-card:focus-visible{outline:3px solid #c86a00;outline-offset:4px}
+.page-bhakti .bhajan-preview{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.page-bhakti .bhajan-preview .preview-hi,.page-bhakti .bhajan-preview .preview-roman{display:block;overflow:hidden;max-height:6.7em}
+.page-bhakti .bhajan-preview .preview-hi[hidden],.page-bhakti .bhajan-preview .preview-roman[hidden]{display:none}
+.page-bhakti .bhajan-preview .preview-hi,.page-bhakti .bhajan-preview .preview-roman{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4}
+.page-bhakti .bhajan-preview .preview-hi[hidden],.page-bhakti .bhajan-preview .preview-roman[hidden]{display:none}
+.page-bhakti .bhajan-expand{display:none!important}
+@media(max-width:720px){.page-bhakti .bhajan-preview{grid-template-columns:1fr;gap:8px}.lyrics-paired-verse{grid-template-columns:1fr}.paired-language{padding:17px 19px}.paired-hindi{border-right:0;border-bottom:1px solid #eee4d8}.lyrics-page-controls{margin-right:auto;margin-left:auto}.page-bhakti .bhajan-preview .preview-hi,.page-bhakti .bhajan-preview .preview-roman{-webkit-line-clamp:4;line-clamp:4}}
+@media(max-width:520px){.lyrics-page-controls .bhajan-view-btn{padding:7px 10px;font-size:.88rem}.paired-language{font-size:.98rem}}

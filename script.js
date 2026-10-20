@@ -1349,9 +1349,9 @@ setLanguage=function(lang){
   bar.innerHTML='';
 
   const modes=[
-    ['both','Both','bhakti.both'],
+    ['both','दोनों / Both','bhakti.both'],
     ['hindi','हिंदी','bhakti.hindi'],
-    ['roman','Roman','bhakti.roman']
+    ['roman','English','bhakti.roman']
   ];
 
   const set=m=>{

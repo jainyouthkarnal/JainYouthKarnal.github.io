@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Read Jain bhajan and aarti lyrics in Hindi and English transliteration, aligned verse by verse.">
+<meta name="theme-color" content="#148A45"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-icon.png">
+<title>Bhajan Lyrics | Jain Youth Karnal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-bhakti page-lyrics"><div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div id="site-header"></div><script src="layout.js"></script>
+<main id="main"><section class="section section-bhakti lyrics-page-section"><div class="container">
+<a class="lyrics-back" href="bhakti.html">← Back to Bhakti Sangeet</a>
+<div class="lyrics-page-heading"><p class="eyebrow">BHAKTI SANGEET</p><h1 id="lyrics-title">Loading lyrics…</h1><p id="lyrics-subtitle">Hindi and English transliteration, aligned verse by verse.</p></div>
+<div class="bhajan-view-controls lyrics-page-controls" role="group" aria-label="Lyrics language view"><button class="bhajan-view-btn active" data-view="both" type="button">दोनों / Both</button><button class="bhajan-view-btn" data-view="hindi" type="button">हिंदी</button><button class="bhajan-view-btn" data-view="roman" type="button">English</button></div>
+<div id="lyrics-content" class="lyrics-paired-list" aria-live="polite"><p>Loading the full lyrics…</p></div>
+</div></section></main><div id="site-footer"></div><script src="script.js"></script>
+<script>
+(async function(){
+ const params=new URLSearchParams(location.search); const id=Number(params.get('id'));
+ const title=document.getElementById('lyrics-title'), content=document.getElementById('lyrics-content');
+ try{
+  if(!Number.isInteger(id)||id<1) throw new Error('Missing bhajan selection');
+  const res=await fetch('bhakti.html'); if(!res.ok) throw new Error('Could not load the bhajan library');
+  const html=await res.text(); const doc=new DOMParser().parseFromString(html,'text/html');
+  const cards=[...doc.querySelectorAll('.bhajan-card')]; const card=cards[id-1]; if(!card) throw new Error('This bhajan could not be found');
+  const heading=card.querySelector('.bhajan-head h3'); title.textContent=heading?heading.textContent.trim():'Bhajan Lyrics'; document.title=title.textContent+' | Jain Youth Karnal';
+  const hi=[...(card.querySelector('.lyrics-hi')?.querySelectorAll('p')||[])]; const en=[...(card.querySelector('.lyrics-roman')?.querySelectorAll('p')||[])];
+  if(!hi.length&&!en.length) throw new Error('Lyrics are not available for this selection yet');
+  const count=Math.max(hi.length,en.length); content.innerHTML='';
+  for(let i=0;i<count;i++){
+   const row=document.createElement('section'); row.className='lyrics-paired-verse'; row.setAttribute('aria-label','Verse '+(i+1));
+   const h=document.createElement('div');h.className='paired-language paired-hindi';h.lang='hi';
+   const e=document.createElement('div');e.className='paired-language paired-english';e.lang='en';
+   if(hi[i])h.innerHTML=hi[i].innerHTML; else h.innerHTML='<span class="translation-missing">Hindi text not provided for this verse.</span>';
+   if(en[i])e.innerHTML=en[i].innerHTML; else e.innerHTML='<span class="translation-missing">English transliteration not provided for this verse.</span>';
+   row.append(h,e); content.append(row);
+  }
+  const controls=[...document.querySelectorAll('.lyrics-page-controls [data-view]')];
+  function setView(mode){content.dataset.view=mode;controls.forEach(b=>{b.classList.toggle('active',b.dataset.view===mode);b.setAttribute('aria-pressed',String(b.dataset.view===mode));});}
+  controls.forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));setView(localStorage.getItem('jyk-bhakti-view')||'both');
+ }catch(err){title.textContent='Lyrics unavailable';content.textContent='We could not load these lyrics. Please return to the Bhakti Sangeet library and try again.';}
+})();
+</script></body></html>
