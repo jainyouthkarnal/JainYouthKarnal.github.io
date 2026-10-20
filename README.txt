@@ -1,15 +1,18 @@
-Jain Youth Karnal — Tirthankara birthplace update
+Jain Youth Karnal — Tirthankara detail order update
 
 Contents:
-- tirthankaras.js: Updated bilingual Tirthankara reference script.
+- tirthankaras.js
 
-Changes:
-- Added traditional birthplace to all 24 English and Hindi records.
-- Displays the field as "Birth Place:" in English and "जन्म स्थान:" in Hindi.
-- Birthplace is searchable using the existing search, which indexes all record fields.
+Change:
+The detail rows now appear in this order:
+1. Symbol
+2. Renunciation tree
+3. Birth nakshatra
+4. Mother
+5. Father
+6. Birth Place:
+
+The Tirthankara number and name remain in the card header. English and Hindi labels are preserved. Birthplace remains searchable.
 
 Installation:
-Replace the existing tirthankaras.js with this file. Keep other website files unchanged.
-
-Review note:
-The traditional place names follow the list discussed in the conversation. Some locations have variant traditional names or disputed modern identifications, so verify preferred spellings and tradition before publishing.
+Replace the existing tirthankaras.js with this file. No other files need to be changed for this ordering update.

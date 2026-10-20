@@ -19,7 +19,7 @@ en:{
 'trips.title':'A year of journeys, darshan & memories.',
 'trips.intro':"Jin Shasan Prabhavna Sangh's 2026 monthly trip journey across Jain destinations.",
 'trip.unspecified':'Mandir visited: Not specified',
-'trip.visited':'Mandir Darshan','trip.prakshal':'Prakshal performed','trip.darshanOnly':'Darshan','trip.namePending':'(exact name to be updated)',
+'trip.visited':'Mandir Darshan','trip.prakshal':'Prakshal','trip.darshanOnly':'Darshan','trip.namePending':'(exact name to be updated)',
 
 'path.eyebrow':'SUNDAY PATHSHALA',
 'path.title':'Learn, grow & stay connected with Jain values.',
@@ -154,7 +154,7 @@ hi:{
 'trips.title':'यात्राओं, जिन दर्शन और यादों से भरा एक वर्ष।',
 'trips.intro':'जिन शासन प्रभावना संघ की 2026 की मासिक यात्राओं का जैन तीर्थों और दर्शनीय स्थलों का सफर।',
 'trip.unspecified':'मंदिर दर्शन: उपलब्ध जानकारी नहीं',
-'trip.visited':'मंदिर दर्शन:', 'trip.prakshal':'प्रक्षाल किया गया', 'trip.darshanOnly':'दर्शन', 'trip.namePending':'(सटीक नाम बाद में जोड़ा जाएगा)',
+'trip.visited':'मंदिर दर्शन:', 'trip.prakshal':'प्रक्षाल', 'trip.darshanOnly':'दर्शन', 'trip.namePending':'(सटीक नाम बाद में जोड़ा जाएगा)',
 
 'path.eyebrow':'रविवार पाठशाला',
 'path.title':'सीखें, बढ़ें और जैन मूल्यों से जुड़े रहें।',
@@ -780,7 +780,7 @@ window.renderTripCards=async function renderTripCards(){
     const ms=mandirs(t);
     const featured=i===data.trips.length-1;
     const folder=t.id==='ranila-ji'?'01-Ranila-Ji':t.id==='jalabaad'?'02-Jalabaad':t.id==='hastinapur'?'03-Hastinapur':t.id==='sonipat'?'04-Sonipat':t.id==='hansi'?'05-Hansi':t.id==='vehlana-ji'?'06-Vehlana-Ji':t.id==='gannaur'?'07-Gannaur':t.id==='badegaon'?'08-Badegaon':t.id;
-    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'💧':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
+    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
   }).join('');
   if(typeof window.initTripMedia==='function') window.initTripMedia();
   if(typeof window.refreshSiteAnimations==='function') window.refreshSiteAnimations();
@@ -798,7 +798,7 @@ window.renderYatraMap=async function renderYatraMap(){
   const fmtDate=iso=>new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
   const mandirs=t=>Array.isArray(t.mandirs)&&t.mandirs.length?t.mandirs:String(t.temple||'').split(';').map(x=>x.trim()).filter(Boolean).map(name=>({name,activity:'darshan'}));
   const activityLabel=a=>a==='prakshal'
-    ?(document.documentElement.lang==='hi'?'प्रक्षाल किया गया':'Prakshal performed')
+    ?(document.documentElement.lang==='hi'?'प्रक्षाल':'Prakshal')
     :(document.documentElement.lang==='hi'?'दर्शन':'Darshan');
   const activityIcon=a=>a==='prakshal'
     ?`<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">`
@@ -1128,7 +1128,7 @@ function renderCalendar(){
 
       lab.textContent=
         trip.title;
-
+      if(trip.note) lab.title=trip.note;
       e.appendChild(lab);
 
     }
@@ -1251,7 +1251,7 @@ renderCalendar();
       const events=await r.json();
       for(const event of events){
         if(event && event.date){
-          nextEvents[event.date]={type:event.type||'event',title:event.title||'Community event',note:event.note||''};
+          nextEvents[event.date]={...(nextEvents[event.date]||{}),type:event.type||nextEvents[event.date]?.type||'event',title:(document.documentElement.lang==='hi'&&event.titleHi)?event.titleHi:(event.title||nextEvents[event.date]?.title||'Community event'),note:event.note||nextEvents[event.date]?.note||''};
         }
       }
     }else{
@@ -1891,11 +1891,19 @@ setLanguage(localStorage.getItem('jyk-language')||'en');
     const button=document.createElement('button');
     button.type='button'; button.className='bhajan-expand'; button.setAttribute('aria-expanded','false');
     button.innerHTML='<span data-expand-label>Read Full Lyrics</span><span aria-hidden="true">›</span>' ;
-    button.addEventListener('click',()=>{
-      const expanded=card.classList.toggle('is-expanded');
-      button.setAttribute('aria-expanded',String(expanded));
-      button.querySelector('[data-expand-label]').textContent=expanded?(document.documentElement.lang==='hi'?'बंद करें':'Show Less'):(document.documentElement.lang==='hi'?'पूरे बोल पढ़ें':'Read Full Lyrics');
-      button.lastElementChild.textContent=expanded?'⌃':'›';
+    const cardIndex=cards.indexOf(card)+1;
+    const openLyrics=()=>{ location.href=`lyrics.html?id=${cardIndex}`; };
+    button.innerHTML='<span data-expand-label>Read Full Lyrics</span><span aria-hidden="true">›</span>';
+    button.addEventListener('click',openLyrics);
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','link');
+    card.setAttribute('aria-label',`Open full lyrics: ${card.querySelector('.bhajan-head h3')?.textContent?.trim()||'Bhajan'}`);
+    card.addEventListener('click',event=>{
+      if(event.target.closest('button,a,input,select,textarea')) return;
+      openLyrics();
+    });
+    card.addEventListener('keydown',event=>{
+      if(event.target===card&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openLyrics();}
     });
     card.append(preview,button);
   });
@@ -1908,3 +1916,6 @@ setLanguage(localStorage.getItem('jyk-language')||'en');
   document.querySelectorAll('.bhajan-view-controls button[data-view]').forEach(btn=>btn.addEventListener('click',()=>updatePreviewView(btn.dataset.view)));
   updatePreviewView(localStorage.getItem('jyk-bhakti-view')||'both');
 })();
+
+// Keep the homepage Bhajans Shared statistic synchronized with the library.
+document.addEventListener('DOMContentLoaded',()=>{const count=document.querySelector('[data-count-key="bhajans"]');if(count){fetch('bhakti.html').then(r=>r.text()).then(html=>{const doc=new DOMParser().parseFromString(html,'text/html');const n=doc.querySelectorAll('.bhajan-card').length;count.textContent=n;count.dataset.count=String(n);}).catch(()=>{});}});
