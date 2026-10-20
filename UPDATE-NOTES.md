@@ -32,3 +32,14 @@
 ### Lyrics language selector update
 - The full lyrics page now offers three language modes: Hindi, English, and Both.
 - Both is the default view and displays the two language cards together; the selected preference is saved locally.
+
+
+### Lyrics card heading cleanup
+- Removed the redundant Hindi and English headings from inside the lyric cards; the language is already identified by the selector at the top.
+- Kept the three selector options (हिंदी, English, Both), the two-card layout, and existing line-height styling.
+
+
+## 20 October 2026 — Bhakti language toggle
+- Updated the Bhakti Sangeet language selector to match the dedicated lyrics page styling.
+- Toggle order is now Hindi, English, Both; Both remains the default.
+- Added matching pill-shaped active state, hover/focus styling, responsive sizing, and aria-pressed state updates.

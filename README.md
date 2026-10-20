@@ -147,3 +147,11 @@ The Monthly Yatra map is a political map of India with one numbered pin for ever
 - `data/calendar-events.json` — calendar-only events, including Kundalpur Yatra on 29 November 2026
 
 Keep your existing `assets/` directory from the GitHub repository when copying these synchronized source files; image/audio assets are not duplicated in this source bundle.
+
+
+### Connect With Us form
+The Join page embeds the Google Form and includes a fallback link to open it directly: https://forms.gle/t2QjVZ3bt2XhPxVV7. Test the embed after deployment.
+
+
+## Knowledge Hub
+See `KNOWLEDGE-HUB-SETUP.md` for the `knowledge/` folder structure, automatic catalogue workflow, Arghya page placement, and animation preservation notes.

@@ -1,0 +1,10 @@
+/* Jain Youth Karnal — durable ambient motion layer. Keep separate from styles.css. */
+@keyframes jykPetalRise{0%{transform:translate3d(0,0,0) rotate(0deg);opacity:0}12%{opacity:.48}88%{opacity:.35}100%{transform:translate3d(var(--jyk-sway,32px),-108vh,0) rotate(460deg);opacity:0}}
+@keyframes jykMandalaTurn{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes jykHaloBreath{0%,100%{opacity:.25;transform:scale(.96)}50%{opacity:.58;transform:scale(1.04)}}
+.jyk-petal-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;contain:layout paint}
+.jyk-petal-layer .jyk-floating-petal{position:absolute;display:block;bottom:-28px;left:var(--jyk-left);width:12px;height:17px;border-radius:0 100% 0 100%;background:linear-gradient(135deg,#ffe6a4,#d7a1b6 65%,#b96b8a);box-shadow:0 2px 8px #8b536622;opacity:0;animation:jykPetalRise var(--jyk-duration) linear var(--jyk-delay) infinite;}
+.hero{position:relative;isolation:isolate}.hero>.container{position:relative;z-index:2}.hero .jyk-petal-layer{z-index:1}
+.hero-art .image-frame{position:relative}.hero-art .image-frame:after{content:"";position:absolute;inset:8%;border:1px solid rgba(207,166,76,.42);border-radius:inherit;pointer-events:none;animation:jykHaloBreath 5.5s ease-in-out infinite}
+.hero-art .image-frame:before{content:"";position:absolute;z-index:1;left:50%;top:50%;width:min(72%,280px);aspect-ratio:1;border:1px dashed rgba(207,166,76,.28);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;animation:jykMandalaTurn 90s linear infinite}
+@media(prefers-reduced-motion:reduce){.jyk-petal-layer,.hero-art .image-frame:after,.hero-art .image-frame:before{display:none!important;animation:none!important}}

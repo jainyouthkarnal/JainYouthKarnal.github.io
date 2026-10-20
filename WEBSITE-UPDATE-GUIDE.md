@@ -335,3 +335,7 @@ For each Yatra, temple entries may be labelled `Prakshal performed` or `Darshan`
 The Yatra page uses a political India map with one numbered pin per monthly-yatra destination. Pin placement is controlled by `mapPosition.left` and `mapPosition.top` in `data/yatra-data.json`; do not change the real `coordinates` just to visually move a pin.
 
 The supplied `assets/prakshal-icon.png` is used for mandirs where `activity` is `prakshal`. Use `activity: "darshan"` for a mandir visited only for Darshan.
+
+
+## Knowledge Hub
+See `KNOWLEDGE-HUB-SETUP.md` for the `knowledge/` folder structure, automatic catalogue workflow, Arghya page placement, and animation preservation notes.

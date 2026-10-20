@@ -12,6 +12,7 @@
 <style>
 .arghya-intro{max-width:850px}.arghya-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 24px}.arghya-count{color:var(--muted);font-size:.9rem}.arghya-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.arghya-card{background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(12,59,46,.04);min-width:0}.arghya-card h2{font-family:var(--serif);font-size:1.25rem;line-height:1.5;color:var(--green);margin:0 0 4px}.arghya-meta{font-size:.88rem;color:var(--muted);margin:0 0 16px}.arghya-verse{font-family:"Noto Serif Devanagari",serif;font-size:1.03rem;line-height:2.05;white-space:pre-line;color:var(--ink);overflow-wrap:anywhere}.arghya-mantra{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;font-family:"Noto Serif Devanagari",serif;font-size:.97rem;line-height:1.9;overflow-wrap:anywhere}.arghya-card .roman{font-family:"DM Sans",sans-serif;line-height:1.9;font-size:.98rem;white-space:pre-line}.arghya-note{background:var(--cream,#f8f4e9);border:1px solid var(--line);border-radius:16px;padding:20px;margin:20px 0 0}.arghya-note h3{margin:0 0 10px;color:var(--green)}.arghya-note p,.arghya-note li{line-height:1.75}.source-link{overflow-wrap:anywhere}.source-warning{font-size:.86rem;color:var(--muted);margin-top:12px}.lang-content[hidden]{display:none!important}.lang-content{margin-top:8px}.arghya-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.arghya-nav a{border:1px solid var(--line);border-radius:999px;padding:8px 13px;text-decoration:none;color:var(--green);font-size:.9rem}.arghya-nav a:hover{background:#e8f1e8}@media(max-width:760px){.arghya-grid{grid-template-columns:1fr}arghya-card{padding:18px}}
 </style>
+<link rel="stylesheet" href="animations.css">
 </head>
 <body class="page-learn">
 <div class="scroll-progress" aria-hidden="true"></div><div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div id="site-header"></div>
@@ -366,4 +367,5 @@ document.querySelectorAll('.site-lang[data-lang]').forEach(btn=>btn.addEventList
 // Keep page-specific language panels synchronized if the shared site language is changed elsewhere.
 window.addEventListener('storage',e=>{if(e.key==='jyk-language'&&e.newValue)syncArghyaLanguage(e.newValue)});
 </script>
+<script src="animations.js"></script>
 </body></html>

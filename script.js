@@ -1,6 +1,6 @@
 const translations={
 en:{
-'nav.about':'About','nav.trips':'Monthly Trips','nav.mandirMap':'Our Mandir','nav.map':'Yatra Map','nav.calendar':'Calendar','nav.announcements':'Announcements','nav.pathshala':'Sunday Pathshala','nav.events':'Events','nav.knowledge':'Knowledge','nav.bhakti':'Bhakti','nav.bhajans':'📖 Bhajan Library','nav.playlist':'🎧 Playlist','nav.darshan':'Darshan','nav.join':'Join Us',
+'nav.about':'About','nav.trips':'Monthly Trips','nav.mandirMap':'Our Mandir','nav.map':'Yatra Map','nav.calendar':'Calendar','nav.announcements':'Announcements','nav.pathshala':'Sunday Pathshala','nav.events':'Events','nav.knowledge':'Knowledge', 'nav.arghya':'Choubis Tirthankara Arghya','nav.bhakti':'Bhakti','nav.bhajans':'📖 Bhajan Library','nav.darshan':'Darshan','nav.join':'Join Us',
 
 'hero.eyebrow':'JIN SHASAN PRABHAVNA SANGH • KARNAL',
 'hero.title':'A digital home for <em>Jain youth</em> in Karnal.',
@@ -131,7 +131,7 @@ hi:{
 'nav.knowledge':'जैन ज्ञान',
 'nav.bhakti':'भक्ति',
 'nav.bhajans':'📖 भजन संग्रह',
-'nav.playlist':'🎧 प्लेलिस्ट',
+
 'nav.darshan':'जिन दर्शन',
 'nav.join':'जुड़ें',
 
@@ -1341,9 +1341,9 @@ setLanguage=function(lang){
   bar.innerHTML='';
 
   const modes=[
-    ['both','दोनों / Both','bhakti.both'],
     ['hindi','हिंदी','bhakti.hindi'],
-    ['roman','English','bhakti.roman']
+    ['roman','English','bhakti.roman'],
+    ['both','Both','bhakti.both']
   ];
 
   const set=m=>{
@@ -1377,6 +1377,7 @@ setLanguage=function(lang){
           'active',
           b.dataset.view===m
         );
+        b.setAttribute('aria-pressed',String(b.dataset.view===m));
       });
 
   };
@@ -1390,6 +1391,7 @@ setLanguage=function(lang){
         );
 
       b.type='button';
+      b.setAttribute('aria-pressed','false');
 
       b.dataset.view=mode;
 

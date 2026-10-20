@@ -655,3 +655,13 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 @media(max-width:720px){.lyrics-language-cards[data-view="both"]{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:720px){.lyrics-language-cards{grid-template-columns:minmax(0,1fr);gap:14px}.lyrics-language-card-body{padding:18px 20px 22px}.lyrics-page-controls{margin-bottom:22px}}
 @media(prefers-reduced-motion:reduce){.lyrics-page-controls .bhajan-view-btn{transition:none}}
+
+
+/* Bhakti page language toggle matches the dedicated lyrics page. */
+.page-bhakti .lyrics-page-controls{order:3;display:flex;align-items:center;gap:4px;flex:0 0 auto;margin-left:auto;padding:4px;background:#e9f0e9;border:1px solid #d7e0d7;border-radius:999px;justify-content:center}
+.page-bhakti .lyrics-page-controls .bhajan-view-btn{min-width:112px;padding:10px 22px;border:0;border-radius:999px;background:transparent;color:#385749;font:700 .92rem var(--sans);letter-spacing:.01em;transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease}
+.page-bhakti .lyrics-page-controls .bhajan-view-btn:hover{background:rgba(255,255,255,.75);transform:translateY(-1px)}
+.page-bhakti .lyrics-page-controls .bhajan-view-btn.active{background:#174d38;color:#fff;box-shadow:0 4px 12px rgba(12,59,46,.2)}
+.page-bhakti .lyrics-page-controls .bhajan-view-btn:focus-visible{outline:3px solid #bd913e;outline-offset:3px}
+@media(max-width:720px){.page-bhakti .lyrics-page-controls{order:3;width:100%;margin-left:0}.page-bhakti .lyrics-page-controls .bhajan-view-btn{min-width:0;flex:1;padding:9px 10px;font-size:.88rem}}
+@media(prefers-reduced-motion:reduce){.page-bhakti .lyrics-page-controls .bhajan-view-btn{transition:none}}

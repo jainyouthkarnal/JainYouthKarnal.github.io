@@ -14,12 +14,12 @@
 
     {k:'nav.learn',t:'Learn',page:'learn',sub:[
       ['nav.pathshala','Sunday Pathshala','learn.html#pathshala'],
-      ['nav.knowledge','Knowledge','learn.html#knowledge']
+      ['nav.knowledge','Knowledge Hub','learn.html#knowledge-library'],
+      ['nav.arghya','Choubis Tirthankara Arghya','arghya.html']
     ]},
 
-    {k:'nav.bhakti',t:'Bhakti',pages:['bhakti','playlist'],sub:[
-      ['nav.bhajans','📖 Bhajan Library','bhakti.html'],
-      ['nav.playlist','🎧 Playlist','playlist.html']
+    {k:'nav.bhakti',t:'Bhakti',page:'bhakti',sub:[
+      ['nav.bhajans','📖 Bhajan Library','bhakti.html']
     ]},
 
     {k:'nav.community',t:'Community',page:'community',sub:[
@@ -128,17 +128,17 @@
           Events
         </a>
 
-        <a href="learn.html#knowledge" data-i18n="nav.knowledge">
-          Knowledge
+        <a href="learn.html#knowledge-library" data-i18n="nav.knowledge">
+          Knowledge Hub
+        </a>
+        <a href="arghya.html" data-i18n="nav.arghya">
+          Choubis Tirthankara Arghya
         </a>
 
         <a href="bhakti.html" data-i18n="nav.bhajans">
           Bhajan Library
         </a>
 
-        <a href="playlist.html" data-i18n="nav.playlist">
-          🎧 Bhakti Playlist
-        </a>
 
         <a href="yatra.html#darshan" data-i18n="nav.darshan">
           Darshan

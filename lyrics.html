@@ -7,6 +7,7 @@
 <title>Bhajan Lyrics | Jain Youth Karnal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="animations.css">
 </head>
 <body class="page-bhakti page-lyrics"><div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div id="site-header"></div><script src="layout.js"></script>
 <main id="main"><section class="section section-bhakti lyrics-page-section"><div class="container">
@@ -47,4 +48,5 @@
   let saved='both'; try{saved=localStorage.getItem('jyk-bhakti-view')||'both';}catch(e){} setView(saved);
  }catch(err){title.textContent='Lyrics unavailable';content.textContent='We could not load these lyrics. Please return to the Bhakti Sangeet library and try again.';}
 })();
-</script></body></html>
+</script><script src="animations.js"></script>
+</body></html>

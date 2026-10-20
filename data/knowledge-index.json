@@ -1,0 +1,13 @@
+{
+  "generatedBy": "scripts/build_knowledge_index.py",
+  "items": [
+    {
+      "title": "Choubis Tirthankara Arghya",
+      "description": "Traditional arghya verses for the 24 Tirthankaras and additional Jain prayers, with Devanagari and Roman transliteration.",
+      "category": "Prayers & Stotras",
+      "type": "Article",
+      "url": "arghya.html",
+      "action": "Read Arghya"
+    }
+  ]
+}
