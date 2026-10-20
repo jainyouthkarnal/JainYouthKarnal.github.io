@@ -483,3 +483,34 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .brand img{display:none!important}
 .brand{font-size:.78rem;letter-spacing:.08em}
 @media(max-width:560px){.brand span{display:inline;max-width:none;font-size:.66rem;white-space:nowrap}.brand{max-width:calc(100% - 120px)}}
+
+/* Announcement cards: size to their own content instead of stretching to match the longest card. */
+#announcements .announcement-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:start;
+  grid-auto-rows:min-content;
+  gap:20px;
+}
+#announcements .announcement-card{
+  align-self:start;
+  height:fit-content;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  padding:24px 24px 22px;
+}
+#announcements .announcement-card h3{line-height:1.35;overflow-wrap:anywhere}
+#announcements .announcement-card p{line-height:1.65}
+#announcements .announcement-card>a{align-self:flex-start;margin-top:4px}
+#announcements .announcement-card:not(.announcement-kundalpur) p{margin-bottom:14px}
+#announcements .announcement-kundalpur .announcement-detail p{margin-bottom:14px}
+@media(max-width:900px){
+  #announcements .announcement-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  #announcements .announcement-kundalpur{grid-column:1 / -1;}
+}
+@media(max-width:600px){
+  #announcements .announcement-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  #announcements .announcement-kundalpur{grid-column:auto}
+  #announcements .announcement-card{padding:21px 19px}
+}
