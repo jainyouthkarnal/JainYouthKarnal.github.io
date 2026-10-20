@@ -28,16 +28,15 @@
   const hi=[...(card.querySelector('.lyrics-hi')?.querySelectorAll('p')||[])]; const en=[...(card.querySelector('.lyrics-roman')?.querySelectorAll('p')||[])];
   if(!hi.length&&!en.length) throw new Error('Lyrics are not available for this selection yet');
   content.innerHTML='';
-  const makeLanguageCard=(language,label,items)=>{
+  const makeLanguageCard=(language,items)=>{
    const card=document.createElement('section'); card.className='lyrics-language-card '+(language==='hindi'?'language-card-hindi':'language-card-english');
    card.dataset.language=language;
-   const heading=document.createElement('h2'); heading.className='lyrics-language-card-title'; heading.textContent=label; card.append(heading);
    const body=document.createElement('div'); body.className='lyrics-language-card-body'; body.lang=language==='hindi'?'hi':'en';
    if(items.length){items.forEach((item,index)=>{const stanza=document.createElement('div');stanza.className='lyrics-language-stanza';stanza.setAttribute('aria-label','Verse '+(index+1));stanza.innerHTML=item.innerHTML;body.append(stanza);});}
    else body.innerHTML='<p class="translation-missing">Lyrics are not available in this language yet.</p>';
    card.append(body); return card;
   };
-  content.append(makeLanguageCard('hindi','हिंदी',hi),makeLanguageCard('roman','English',en));
+  content.append(makeLanguageCard('hindi',hi),makeLanguageCard('roman',en));
   const controls=[...document.querySelectorAll('.lyrics-page-controls [data-view]')];
   function setView(mode){
    const safeMode=['hindi','roman','both'].includes(mode)?mode:'both'; content.dataset.view=safeMode;
