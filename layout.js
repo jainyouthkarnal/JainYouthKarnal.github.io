@@ -17,10 +17,7 @@
       ['nav.knowledge','Knowledge','learn.html#knowledge']
     ]},
 
-    {k:'nav.bhakti',t:'Bhakti',pages:['bhakti','playlist'],sub:[
-      ['nav.bhajans','📖 Bhajan Library','bhakti.html'],
-      ['nav.playlist','🎧 Playlist','playlist.html']
-    ]},
+    {k:'nav.bhakti',t:'Bhakti',page:'bhakti',href:'bhakti.html'},
 
     {k:'nav.community',t:'Community',page:'community',sub:[
       ['nav.calendar','Calendar','community.html#calendar'],
@@ -91,21 +88,9 @@
              alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal"
              class="footer-logo">
 
-        <p class="footer-organization">
-          <strong>Jin Shasan Prabhavna Sangh</strong><br>
-          Jain Youth Karnal
-        </p>
-
-        <p class="footer-mandir">
-          <strong>Shree Digamber Jain Mandir</strong><br>
-          <strong>Address:</strong> Mitthan Mohalla, Kunjpura Road,<br>
-          Karnal, Haryana 132001<br>
-          <a href="https://share.google/tR5QPo4lzuzhaojf9"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="View Shree Digamber Jain Mandir on Google Maps">
-            View on Google Maps ↗
-          </a>
+        <p>
+          Jain Youth Karnal<br>
+          Jin Shasan Prabhavna Sangh
         </p>
       </div>
 

@@ -521,10 +521,9 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .page-bhakti .section-bhakti .section-heading{justify-content:center;text-align:center;margin-bottom:24px}
 .page-bhakti .section-bhakti .section-heading h2{color:#211f1d;font-family:'Noto Sans Devanagari','DM Sans',sans-serif;font-weight:700}
 .page-bhakti .bhajan-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.page-bhakti .bhajan-view-controls{order:3;margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap;padding:5px;background:#e9f0e9;border:1px solid #d7e0d7;border-radius:999px;width:max-content;max-width:100%}
-.page-bhakti .bhajan-view-btn{font-family:'DM Sans','Noto Sans Devanagari',sans-serif;font-size:.95rem;font-weight:700;padding:8px 15px;color:var(--green);border:0;border-radius:999px;background:transparent;box-shadow:none;transition:background .2s,color .2s,box-shadow .2s}
-.page-bhakti .bhajan-view-btn:hover{background:rgba(12,59,46,.08)}
-.page-bhakti .bhajan-view-btn.active{background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(12,59,46,.18)}
+.page-bhakti .bhajan-view-controls{order:3;margin-left:auto;justify-content:flex-end;background:#e9f0e9;border-color:#d7e0d7}
+.page-bhakti .bhajan-view-btn{font-family:'DM Sans','Noto Sans Devanagari',sans-serif;font-size:.95rem;font-weight:500;padding:8px 14px;color:#191919;border:1px solid #9c9c9c;border-radius:4px;background:#f8f8f8}
+.page-bhakti .bhajan-view-btn.active{background:#fff;color:#191919;box-shadow:none;border-color:#777}
 .page-bhakti .bhajan-search{order:1;flex:1 1 260px;max-width:420px}
 .page-bhakti .bhajan-tags{order:2;flex:1 1 100%;}
 .page-bhakti .bhajan-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 30px;align-items:start}
@@ -595,11 +594,79 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 @media(max-width:720px){.page-bhakti .bhajan-preview{grid-template-columns:1fr;gap:8px}.lyrics-paired-verse{grid-template-columns:1fr}.paired-language{padding:17px 19px}.paired-hindi{border-right:0;border-bottom:1px solid #eee4d8}.lyrics-page-controls{margin-right:auto;margin-left:auto}.page-bhakti .bhajan-preview .preview-hi,.page-bhakti .bhajan-preview .preview-roman{-webkit-line-clamp:4;line-clamp:4}}
 @media(max-width:520px){.lyrics-page-controls .bhajan-view-btn{padding:7px 10px;font-size:.88rem}.paired-language{font-size:.98rem}}
 
-/* Bhakti page language toggle matches the dedicated lyrics page. */
-.page-bhakti .lyrics-page-controls{order:3;display:flex;align-items:center;gap:4px;flex:0 0 auto;margin-left:auto;padding:4px;background:#e9f0e9;border:1px solid #d7e0d7;border-radius:999px;justify-content:center}
-.page-bhakti .lyrics-page-controls .bhajan-view-btn{min-width:112px;padding:10px 22px;border:0;border-radius:999px;background:transparent;color:#385749;font:700 .92rem var(--sans);letter-spacing:.01em;transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease}
-.page-bhakti .lyrics-page-controls .bhajan-view-btn:hover{background:rgba(255,255,255,.75);transform:translateY(-1px)}
-.page-bhakti .lyrics-page-controls .bhajan-view-btn.active{background:#174d38;color:#fff;box-shadow:0 4px 12px rgba(12,59,46,.2)}
-.page-bhakti .lyrics-page-controls .bhajan-view-btn:focus-visible{outline:3px solid #bd913e;outline-offset:3px}
-@media(max-width:720px){.page-bhakti .lyrics-page-controls{order:3;width:100%;margin-left:0}.page-bhakti .lyrics-page-controls .bhajan-view-btn{min-width:0;flex:1;padding:9px 10px;font-size:.88rem}}
-@media(prefers-reduced-motion:reduce){.page-bhakti .lyrics-page-controls .bhajan-view-btn{transition:none}}
+
+/* Calendar: centered month controls and a complete month grid in one view. */
+.calendar-section-heading{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:24px}
+.calendar-section-heading>div:first-child{width:100%}
+.calendar-section-heading .calendar-controls{align-self:center;margin:0}
+.calendar-shell{width:100%;overflow:hidden}
+.calendar-week,.calendar-grid{width:100%;min-width:0;grid-template-columns:repeat(7,minmax(0,1fr))}
+.calendar-week span{padding:11px 2px}
+.cal-day{min-width:0;min-height:82px;padding:8px;overflow-wrap:anywhere}
+.cal-day span{overflow-wrap:anywhere}
+@media(max-width:600px){
+ .calendar-shell{overflow:hidden}
+ .calendar-week,.calendar-grid{min-width:0;width:100%}
+ .calendar-week span{font-size:.62rem;padding:9px 0}
+ .cal-day{min-height:clamp(48px,12vw,68px);padding:4px 3px}
+ .cal-day strong{font-size:.7rem}
+ .cal-day span{font-size:clamp(.43rem,1.8vw,.58rem);line-height:1.12;margin-top:5px}
+ .calendar-controls{margin-top:0}
+ .calendar-controls strong{min-width:125px}
+}
+
+
+/* Bhakti controls: keep the same rounded green pill treatment as the Lyrics page. */
+body.page-bhakti:not(.page-lyrics) .bhajan-view-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 5px;
+  background: #e9f0e9;
+  border: 1px solid #d7e0d7;
+  border-radius: 999px;
+  width: max-content;
+  max-width: 100%;
+}
+body.page-bhakti:not(.page-lyrics) .bhajan-view-btn {
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  padding: 8px 15px;
+  border-radius: 999px;
+  font: 700 .74rem var(--sans);
+  cursor: pointer;
+  transition: background .2s, color .2s, box-shadow .2s;
+}
+body.page-bhakti:not(.page-lyrics) .bhajan-view-btn:hover {
+  background: rgba(12, 59, 46, .08);
+}
+body.page-bhakti:not(.page-lyrics) .bhajan-view-btn.active {
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(12, 59, 46, .18);
+  border-color: transparent;
+}
+@media (max-width: 720px) {
+  body.page-bhakti:not(.page-lyrics) .bhajan-view-controls {
+    width: max-content;
+    max-width: 100%;
+    margin-left: auto;
+  }
+  body.page-bhakti:not(.page-lyrics) .bhajan-view-btn {
+    flex: 0 0 auto;
+  }
+}
+@media (max-width: 520px) {
+  body.page-bhakti:not(.page-lyrics) .bhajan-view-btn {
+    padding: 7px 10px;
+    font-size: .88rem;
+  }
+}
+
+/* The Bhakti note belongs only to the Bhakti page, never to the shared footer. */
+body:not(.page-bhakti) .bhakti-note {
+  display: none !important;
+}
