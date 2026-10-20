@@ -1,157 +1,52 @@
-# Jain Youth Karnal — Bilingual Website
+# Jain Youth Karnal — Website
 
-GitHub Pages-ready static website for Jain Youth Karnal / Jin Shasan Prabhavna Sangh Karnal.
+GitHub Pages website for **Jain Youth Karnal / Jin Shasan Prabhavna Sangh Karnal**.
 
-## Language
+## Project contents
 
-The entire website has an English / हिंदी toggle. The selected language is remembered in the browser.
+- Website pages: home, Knowledge Hub, Bhakti Sangeet, lyrics, Yatra, community and Join.
+- `layout.js`: shared navigation and footer.
+- `script.js`: shared interactions.
+- `styles.css`: main styling; `animations.css` and `animations.js`: motion effects.
+- `data/`: structured website data.
+- `knowledge/`: articles, PDFs, images and other learning resources.
+- `.github/workflows/`: automation for the Knowledge catalogue.
 
-## Branding
-
-- `assets/circular-logo.png` — supplied circular logo; preserve unchanged.
-- `assets/logo.png` — supplied logo; preserve unchanged.
-- `favicon.svg` — separate Jain Youth favicon using restrained Jain flag-inspired colours. It is intentionally different from the main logo.
-
-## Media structure
+## Project structure
 
 ```text
-assets/
-├── karnal-mandir/
-│   └── god-images/
-│       ├── god-01.jpg
-│       ├── god-02.jpg
-│       ├── god-03.jpg
-│       ├── god-04.jpg
-│       ├── god-05.jpg
-│       ├── god-06.jpg
-│       ├── god-07.jpg
-│       └── god-08.jpg
-│
-├── trips/
-│   ├── 01-Ranila-Ji/
-│   │   ├── mandir/
-│   │   ├── group/
-│   │   └── memories/
-│   ├── 02-Jalabaad/
-│   ├── 03-Hastinapur/
-│   ├── 04-Sonipat/
-│   ├── 05-Hansi/
-│   ├── 06-Vehlana-Ji/
-│   ├── 07-Gannaur/
-│   └── 08-Badegaon/
-│       ├── mandir/
-│       ├── group/
-│       └── memories/
-│
-└── bhajans/
-    ├── 01-Jahan-Yaad-Karo-Mahavir-Wahin/
-    │   ├── poster/
-    │   └── audio/
-    ├── 02-Naam-Hai-Tera-Taran-Hara/
-    │   ├── poster/
-    │   └── audio/
-    ├── 03-Shri-Shantinath-Chalisa/
-    │   ├── poster/
-    │   └── audio/
-    └── 04-Baje-Kundalpur-Mein-Badhai/
-        ├── poster/
-        └── audio/
+/
+├── index.html, learn.html, arghya.html
+├── bhakti.html, lyrics.html, yatra.html
+├── community.html, join.html, playlist.html
+├── layout.js, script.js, styles.css
+├── animations.css, animations.js, tirthankaras.js
+├── data/
+│   ├── calendar-events.json
+│   ├── trip-media.json
+│   ├── yatra-data.json
+│   ├── bhakti-playlist.json
+│   └── knowledge-index.json  # generated; do not edit manually
+├── knowledge/{articles,pdfs,images,resources}/
+├── scripts/build_knowledge_index.py
+├── .github/workflows/knowledge-catalogue.yml
+└── assets/                   # preserve existing media and logos
 ```
 
-For each trip:
-- `mandir/` = temple, Jin Darshan, idols, architecture and Prakshal photos.
-- `group/` = Jain Youth Karnal / community group photographs.
-- `memories/` = journey, candid moments, activities and other trip memories.
+Root-level HTML pages intentionally remain at the repository root to preserve URLs and relative paths.
 
-For the Karnal Mandir deity gallery, add the eight images using `god-01.jpg` through `god-08.jpg` inside `assets/karnal-mandir/god-images/`.
+## Documentation
 
-For each bhajan, the poster folder is for the bhajan artwork and the audio folder is for an optional local audio file. External audio links can also be attached through the bhajan audio option in the HTML.
+- `WEBSITE-UPDATE-GUIDE.md`: routine site edits.
+- `KNOWLEDGE-HUB-SETUP.md`: Knowledge resources and automation.
+- `CHANGELOG.md`: notable update summary.
 
-## Trip mandir activities
+## Maintenance rules
 
-Each Monthly Yatra now records every mandir as an individual bullet with an activity category: `Darshan` or `Prakshal performed`. `data/yatra-data.json` is the source of truth. If the exact Prakshal temple name is not yet known, keep a clear pending note rather than guessing.
-
-## 2026 Trips
-
-Badegaon — 4 October 2026:
-- Trilok Teerth Dham
-- Shri 1008 Parshvanath Digambar Jain Atishay Kshetra
-- Shri Digamber Jain Bahubali Jinbimb Mandir
-
-## GitHub Pages
-
-Repository: `JainYouthKarnal.github.io`
-
-Pages source: `main` branch, root folder.
-
-## Bhajan display
-
-Bhakti Library supports search + dynamic tag filters and a global Both / हिंदी / Roman view. Poster placeholders have been removed. An Audio option appears only when the referenced audio file is available.
-
-
-Bhajans are intentionally NOT translated into English. The original Hindi lyrics remain unchanged. The Bhakti page provides one global **Both / हिंदी / Roman** control for all bhajans (for example, “Jaha yaad kro Mahavir wahi”). The main site English/Hindi language toggle changes the surrounding website interface, not the bhajan meaning.
-
-## Yatra Map
-The site now includes an India states/UTs map with eight monthly-yatra pins (Ranila Ji, Jalabaad, Hastinapur, Sonipat, Hansi, Vehlana Ji, Gannaur and Badegaon), plus a visited-place list.
-
-Map source: Wikimedia Commons, “India states and union territories map.svg” by Planemad and subsequent contributors, CC BY-SA 3.0. The map is loaded from Wikimedia Commons and should retain attribution. The pins are illustrative location markers for the Jain Youth Karnal yatra archive.
-Source: https://commons.wikimedia.org/wiki/File:India_states_and_union_territories_map.svg
-
-## Calendar
-The Community Calendar is interactive and currently includes the 2026 monthly yatra dates and recurring Sunday Pathshala markers. Add future community events to the `tripEvents` data in `script.js` when confirmed.
-
-## Announcements
-The Announcements section contains editable cards for regular Pathshala information, the latest completed yatra, and the next-yatra placeholder. Update the announcement text in `index.html` / `script.js` as new information is confirmed.
-
-## Easy Website Updates
-
-See **`WEBSITE-UPDATE-GUIDE.md`** for a simple, maintainable guide covering Yatra data, temple coordinates, media folders, Bhakti content, and the main files to edit in future.
-
-## Easy Yatra Map Updates
-
-All Monthly Yatra map data is stored in:
-
-`data/yatra-data.json`
-
-To add or update a trip in the future, edit only this file. Each trip contains:
-- `place` — destination name
-- `date` — trip date in `YYYY-MM-DD`
-- `temple` — exact temple/temples visited
-- `coordinates` — `[latitude, longitude]` for the temple location shown on the map
-- `mapPosition` — visual position on the India political map (`left` and `top` percentages)
-
-The website automatically builds the Yatra pins and visited list from this file. Each pin/list entry links to the exact coordinates in Google Maps.
-
-**Important:** `coordinates` are the actual temple coordinates. `mapPosition` controls only the visual placement of the pin on the political map image. When adding a new location, update both.
-
-The fixed home mandir is also stored at the top of `data/yatra-data.json` under `homeMandir`.
-
-
-## Mandir activity labels
-
-Each Yatra card can distinguish the temple where Prakshal was performed from temples visited for Darshan only. Do not infer a Prakshal location; record it only when confirmed. For Gannaur, the Prakshal temple is currently recorded as “Prachin Digamber Jain Mandir (exact name to be updated)” and Gupti Dhaam is recorded as Darshan only.
-
-## Yatra map
-
-The Monthly Yatra map is a political map of India with one numbered pin for every visited destination. Pin placement uses each trip's `mapPosition` (`left` / `top`) from `data/yatra-data.json`, while the actual temple coordinates remain available for Google Maps links. The political-map artwork is loaded from Wikimedia Commons and the page includes attribution.
-
-## Prakshal icon
-
-`assets/prakshal-icon.png` is the supplied Prakshal illustration. It is used beside every mandir activity marked `prakshal`; Darshan entries use the Darshan icon.
-
-
-## Data files
-- `data/yatra-data.json` — monthly yatra history and map pins
-- `data/trip-media.json` — trip photo manifest
-- `data/bhakti-playlist.json` — playlist catalogue
-- `data/calendar-events.json` — calendar-only events, including Kundalpur Yatra on 29 November 2026
-
-Keep your existing `assets/` directory from the GitHub repository when copying these synchronized source files; image/audio assets are not duplicated in this source bundle.
-
-
-### Connect With Us form
-The Join page embeds the Google Form and includes a fallback link to open it directly: https://forms.gle/t2QjVZ3bt2XhPxVV7. Test the embed after deployment.
-
-
-## Knowledge Hub
-See `KNOWLEDGE-HUB-SETUP.md` for the `knowledge/` folder structure, automatic catalogue workflow, Arghya page placement, and animation preservation notes.
+- Preserve the existing Jain Youth Karnal logo and `assets/` directory.
+- Keep `animations.css`, `animations.js` and their page references when updating other files.
+- Use confirmed dates, temple names and coordinates; do not guess.
+- `data/yatra-data.json` is the source for Yatra destinations and map coordinates.
+- English mode on the lyrics page means Roman transliteration, not English translation.
+- `data/knowledge-index.json` is generated by the catalogue workflow.
+- Check GitHub Pages settings to confirm the actual publishing branch/folder. If deployment is Actions-based, include the generated catalogue in the deployed artifact.
