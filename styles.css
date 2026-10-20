@@ -514,3 +514,19 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
   #announcements .announcement-kundalpur{grid-column:auto}
   #announcements .announcement-card{padding:21px 19px}
 }
+
+
+/* Bhakti library: compact mini-cards, expandable lyrics and category grouping */
+.bhajan-category-heading{margin:34px 0 8px;padding:0 0 8px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.55rem;color:var(--green)}
+.bhajan-category-heading[hidden]{display:none}
+.bhajan-card{position:relative;transition:box-shadow .2s ease,border-color .2s ease}
+.bhajan-card.is-collapsed{padding:20px 22px;margin-top:12px}
+.bhajan-card.is-collapsed .bhajan-head{align-items:center;border-bottom:0;padding-bottom:0}
+.bhajan-card.is-collapsed .bhajan-media,.bhajan-card.is-collapsed .lyrics-columns{display:none}
+.bhajan-expand{flex:none;border:1px solid #cbd8cf;border-radius:999px;background:#f6f8f3;color:var(--green);padding:9px 14px;font:700 .78rem var(--sans);cursor:pointer;white-space:nowrap}
+.bhajan-expand:hover,.bhajan-expand:focus-visible{background:var(--green);color:#fff}
+.bhajan-card.is-expanded .bhajan-expand{margin-left:auto}
+.bhajan-card.is-expanded .bhajan-head{flex-wrap:wrap}
+.bhajan-card.is-expanded .lyrics-columns{display:grid}
+.bhajan-card .bhajan-head>div{min-width:0}
+@media(max-width:650px){.bhajan-card.is-collapsed{padding:17px}.bhajan-card.is-collapsed .bhajan-head{align-items:flex-start;flex-wrap:wrap}.bhajan-expand{padding:8px 11px}.bhajan-head h3{font-size:1.25rem}.bhajan-card.is-collapsed .bhajan-label{display:none}}

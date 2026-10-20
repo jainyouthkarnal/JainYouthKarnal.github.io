@@ -11,3 +11,10 @@ Place files under `assets/trips/<folder>/<mandir|group|memories>/` and list exac
 
 ## Deploy
 Upload the contents of this folder to the repository root, preserving the `assets/` and `data/` folders. The website has been prepared locally; it has not been deployed to GitHub Pages.
+
+
+## Bhakti Library update
+- Added the requested “मेरे सर पर रख दो दादा” bhajan (number 07) with Hindi and Roman lyrics and the specified audio path.
+- Bhajan entries now appear as compact mini-cards; select “Read lyrics” to expand the full lyrics.
+- Entries are automatically grouped by content type when tags include aarti, stavan, chalisa, mantra, or bhajan; search and tag filters remain available.
+- The audio file itself must be placed at `assets/bhakti/audio/mere-sar-par-rakh-do-dada.mp3` for playback.

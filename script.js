@@ -778,7 +778,7 @@ window.renderTripCards=async function renderTripCards(){
     const ms=mandirs(t);
     const featured=i===data.trips.length-1;
     const folder=t.id==='ranila-ji'?'01-Ranila-Ji':t.id==='jalabaad'?'02-Jalabaad':t.id==='hastinapur'?'03-Hastinapur':t.id==='sonipat'?'04-Sonipat':t.id==='hansi'?'05-Hansi':t.id==='vehlana-ji'?'06-Vehlana-Ji':t.id==='gannaur'?'07-Gannaur':t.id==='badegaon'?'08-Badegaon':t.id;
-    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'💧':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
+    return `<article class="trip-card ${featured?'featured':''}" data-trip-id="${esc(t.id)}"><span>${new Date(t.date+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}</span><h3>${esc(t.place)}</h3><p class="trip-mandir-label">${L.visited}</p><ul class="trip-mandirs">${ms.map(m=>{const p=m.activity==='prakshal'; return `<li class="mandir-item ${p?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${p?'prakshal':'darshan'}">${p?'<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">':'🙏'} ${p?L.prakshal:L.darshan}</strong><span class="mandir-name">${esc(m.name)}${m.note?` <em>${esc(m.note)}</em>`:''}</span></li>`;}).join('')}</ul><div class="trip-media-links" data-folder="${folder}" hidden><a data-i18n="trip.mandir" href="assets/trips/${folder}/mandir/">Mandir</a><a data-i18n="trip.group" href="assets/trips/${folder}/group/">Group</a><a data-i18n="trip.memories" href="assets/trips/${folder}/memories/">Trip Memories</a></div></article>`;
   }).join('');
   if(typeof window.initTripMedia==='function') window.initTripMedia();
   if(typeof window.refreshSiteAnimations==='function') window.refreshSiteAnimations();
@@ -1443,7 +1443,38 @@ setLanguage=function(lang){
 (function initBhajanFilters(){
   const input=document.getElementById('bhajan-search');
   const tagBox=document.getElementById('bhajan-tags');
-  const cards=[...document.querySelectorAll('.bhajan-card')];
+  const originalCards=[...document.querySelectorAll('.bhajan-card')];
+  if(!originalCards.length) return;
+  const categoryFor=card=>{
+    const tags=(card.dataset.tags||'').toLowerCase().split(',').map(x=>x.trim());
+    for(const category of ['aarti','stavan','chalisa','mantra','bhajan']) if(tags.includes(category)) return category;
+    return 'other';
+  };
+  const categoryLabels={aarti:'Aartis',stavan:'Stavans',chalisa:'Chalisas',mantra:'Mantras',bhajan:'Bhajans',other:'Other devotional compositions'};
+  const order={aarti:0,stavan:1,chalisa:2,mantra:3,bhajan:4,other:5};
+  const parent=originalCards[0].parentElement;
+  originalCards.forEach(card=>{card.dataset.category=categoryFor(card);});
+  originalCards.sort((a,b)=>order[a.dataset.category]-order[b.dataset.category] || (parseInt(a.querySelector('.bhajan-number')?.textContent||'999',10)-parseInt(b.querySelector('.bhajan-number')?.textContent||'999',10)));
+  let lastCategory='';
+  originalCards.forEach(card=>{
+    const category=card.dataset.category;
+    if(category!==lastCategory){
+      const heading=document.createElement('h3'); heading.className='bhajan-category-heading'; heading.dataset.categoryHeading=category; heading.textContent=categoryLabels[category];
+      parent.insertBefore(heading,card); lastCategory=category;
+    }
+    const lyrics=card.querySelector('.lyrics-columns');
+    if(lyrics){
+      card.classList.add('is-collapsed');
+      const toggle=document.createElement('button'); toggle.type='button'; toggle.className='bhajan-expand'; toggle.setAttribute('aria-expanded','false'); toggle.textContent='Read lyrics ＋';
+      const head=card.querySelector('.bhajan-head'); if(head) head.appendChild(toggle);
+      toggle.addEventListener('click',()=>{
+        const expanded=card.classList.toggle('is-expanded');
+        card.classList.toggle('is-collapsed',!expanded);
+        toggle.setAttribute('aria-expanded',String(expanded)); toggle.textContent=expanded?'Hide lyrics −':'Read lyrics ＋';
+      });
+    }
+  });
+  const cards=originalCards;
   const empty=document.getElementById('bhajan-empty');
   if(!cards.length) return;
 
@@ -1475,6 +1506,10 @@ setLanguage=function(lang){
       if(show) visible++;
     });
     if(empty) empty.hidden=visible!==0;
+    document.querySelectorAll('.bhajan-category-heading').forEach(heading=>{
+      const category=heading.dataset.categoryHeading;
+      heading.hidden=!cards.some(card=>card.dataset.category===category&&!card.hidden);
+    });
   };
 
   input?.addEventListener('input',apply);
