@@ -883,6 +883,9 @@ let tripEvents=
     )
   );
 
+// Community yatra scheduled for Sunday, 29 November 2026.
+tripEvents['2026-11-29']={type:'trip',title:'Kundalpur Yatra / कुण्डलपुर यात्रा',note:'Bade Baba Darshan, Abhishek & Prakshal'};
+
 const KAL={
   garbh:['Garbh','गर्भ'],
   janma:['Janma','जन्म'],

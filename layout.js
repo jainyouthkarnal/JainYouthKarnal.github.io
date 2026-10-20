@@ -186,12 +186,18 @@
 
           </a>
 
-        </div>
+          <a class="footer-social footer-social-email"
+             href="mailto:jainyouthkarnal@gmail.com"
+             aria-label="Email Jain Youth Karnal"
+             title="Email Jain Youth Karnal">
+            <span class="footer-mail-icon" aria-hidden="true">✉</span>
+            <span class="social-text">
+              <small>Email</small>
+              <b>jainyouthkarnal@gmail.com</b>
+            </span>
+          </a>
 
-        <a class="footer-email"
-           href="mailto:jainyouthkarnal@gmail.com">
-          jainyouthkarnal@gmail.com
-        </a>
+        </div>
       </div>
 
     </div>
