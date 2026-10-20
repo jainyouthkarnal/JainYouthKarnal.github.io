@@ -28,6 +28,7 @@
     .tirth-card dt{color:var(--muted)}
     .tirth-card dd{margin:0;font-weight:600;overflow-wrap:anywhere}
     .tirth-empty{padding:28px;text-align:center;color:var(--muted);grid-column:1/-1}
+    .tirth-action-banner{margin-top:32px;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
     .page-footer-nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0 10px}
     .back-to-learn{display:inline-flex;align-items:center;color:var(--green);font-weight:700;text-decoration:none}
     @media(max-width:900px){.tirthankara-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -46,7 +47,7 @@
         <nav class="crumbs" aria-label="Breadcrumb">
           <a href="index.html" data-i18n="crumb.home">Home</a>
           <span>/</span>
-          <a href="learn.html" data-i18n="nav.learn">Learn</a>
+          <a href="knowledge.html">Knowledge Hub</a>
           <span>/</span>
           <span>24 Tirthankaras</span>
         </nav>
@@ -73,9 +74,18 @@
 
         <div id="tirthankara-grid" class="tirthankara-grid" aria-live="polite"></div>
 
+        <!-- Bridge Banner to Arghya -->
+        <div class="tirth-action-banner">
+          <div>
+            <h3 style="margin:0;color:var(--green)">Devotional Arghya Verses</h3>
+            <p style="margin:4px 0 0;color:var(--muted)">Looking for the traditional puja stutis, verses, and mantras for the 24 Tirthankaras?</p>
+          </div>
+          <a class="button primary" href="arghya.html">Read 24 Tirthankara Arghyas &rarr;</a>
+        </div>
+
         <div class="page-footer-nav">
-          <a class="back-to-learn" href="learn.html">&larr; Back to Learn Gateway</a>
-          <a class="back-to-learn" href="arghya.html">24 Tirthankara Arghyas &rarr;</a>
+          <a class="back-to-learn" href="knowledge.html">&larr; Back to Knowledge Hub</a>
+          <a class="back-to-learn" href="arghya.html">Go to Arghya Stotras &rarr;</a>
         </div>
       </div>
     </section>

@@ -12,12 +12,14 @@
       ['nav.darshan','Darshan','yatra.html#darshan']
     ]},
 
-    {k:'nav.learn',t:'Learn',page:'learn',sub:[
-      ['nav.pathshala','Sunday Pathshala','learn.html#pathshala'],
+    {k:'nav.knowledge',t:'Knowledge',page:'knowledge',pages:['knowledge','learn'],sub:[
+      ['nav.pathshala','Sunday Pathshala','knowledge.html#pathshala'],
+      ['nav.kalyanak','Panch Kalyanak','knowledge.html#panch-kalyanak'],
+      ['nav.balayati','Panch Balayati','knowledge.html#panch-balayati'],
+      ['nav.daslakshan','Das Lakshan Parva','knowledge.html#das-lakshan'],
       ['nav.tirthankaras','24 Tirthankaras','tirthankaras.html'],
-      ['nav.knowledge','Panch Kalyanak & Parvas','jain-knowledge.html'],
       ['nav.arghya','24 Tirthankara Arghya','arghya.html'],
-      ['nav.library','Knowledge Library','learn.html#knowledge-library']
+      ['nav.library','Resource Library','knowledge.html#knowledge-library']
     ]},
 
     {k:'nav.bhakti',t:'Bhakti',page:'bhakti',href:'bhakti.html'},
@@ -90,7 +92,6 @@
 
   put('site-header',header);
 
-  // Use the shared footer fragment so every page has the same footer markup.
   const loadSharedFooter=async()=>{
     const target=document.getElementById('site-footer');
     if(!target)return;
