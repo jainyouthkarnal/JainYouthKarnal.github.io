@@ -14,7 +14,10 @@
 
     {k:'nav.learn',t:'Learn',page:'learn',sub:[
       ['nav.pathshala','Sunday Pathshala','learn.html#pathshala'],
-      ['nav.knowledge','Knowledge','jain-knowledge.html']
+      ['nav.tirthankaras','24 Tirthankaras','tirthankaras.html'],
+      ['nav.knowledge','Panch Kalyanak & Parvas','jain-knowledge.html'],
+      ['nav.arghya','24 Tirthankara Arghya','arghya.html'],
+      ['nav.library','Knowledge Library','learn.html#knowledge-library']
     ]},
 
     {k:'nav.bhakti',t:'Bhakti',page:'bhakti',href:'bhakti.html'},
@@ -106,5 +109,4 @@
   }else{
     loadSharedFooter();
   }
-
 })();

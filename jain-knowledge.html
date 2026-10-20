@@ -1,44 +1,238 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Explore Jain knowledge with Jain Youth Karnal: Panch Kalyanak, Panch Balayati Tirthankaras, and Das Lakshan Parva.">
-<meta name="theme-color" content="#148A45">
-<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-icon.png"><link rel="alternate icon" href="favicon.svg">
-<title>Jain Knowledge: Panch Kalyanak & Jain Parvas | Jain Youth Karnal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<style>
-.kalyanak-page .section-intro{max-width:850px}.learning-subnav{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}.learning-subnav a{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:9px 15px;color:var(--green);background:#fffdf8;text-decoration:none;font-weight:700}.learning-subnav a:hover,.learning-subnav a:focus-visible{background:var(--sage)}.learning-panel{background:#fffdf8;border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,34px);margin-top:22px;box-shadow:0 8px 24px rgba(12,59,46,.04)}.learning-panel h3{color:var(--green);font-family:var(--serif);margin:0 0 8px}.learning-panel h4{margin:22px 0 8px;color:var(--green)}.learning-panel p,.learning-panel li{line-height:1.75}.learning-panel li+li{margin-top:7px}.balayati-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0}.balayati-list li{margin:0!important;padding:14px 16px;border-radius:14px;background:#f5f1e6}.traditional-verse{border-left:3px solid #b38b42;padding:14px 18px;background:#f8f4e9;border-radius:0 12px 12px 0;font-family:'Noto Serif Devanagari',serif;font-size:1.08rem;line-height:2}.traditional-verse p{margin:0}.virtue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.virtue-card{border:1px solid var(--line);border-radius:16px;padding:17px;background:#fff}.virtue-card .day{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.06em;color:#8c6727;text-transform:uppercase;margin-bottom:7px}.virtue-card h3{font-size:1.1rem;margin-bottom:7px}.reflection{padding-top:9px;border-top:1px solid var(--line);font-style:italic;color:var(--muted)}.back-to-learn{display:inline-flex;margin-top:24px;color:var(--green);font-weight:700;text-decoration:none}.section-anchor{scroll-margin-top:100px}@media(max-width:650px){.balayati-list,.virtue-grid{grid-template-columns:1fr}.learning-panel{padding:19px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore Jain knowledge with Jain Youth Karnal: Panch Kalyanak, Panch Balayati Tirthankaras, and Das Lakshan Parva.">
+  <meta name="theme-color" content="#148A45">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-icon.png">
+  <link rel="alternate icon" href="favicon.svg">
+  <title>Jain Knowledge: Panch Kalyanak &amp; Jain Parvas | Jain Youth Karnal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <style>
+    .kalyanak-page .section-intro{max-width:850px}
+    .learning-subnav{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+    .learning-subnav a{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:9px 15px;color:var(--green);background:#fffdf8;text-decoration:none;font-weight:700;transition:all .2s ease}
+    .learning-subnav a:hover,.learning-subnav a:focus-visible{background:var(--sage);transform:translateY(-2px)}
+    .learning-panel{background:#fffdf8;border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,34px);margin-top:22px;box-shadow:0 8px 24px rgba(12,59,46,.04)}
+    .learning-panel h3{color:var(--green);font-family:var(--serif);margin:0 0 8px}
+    .balayati-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:16px 0 24px}
+    .balayati-list li{margin:0!important;padding:14px 16px;border-radius:14px;background:#f5f1e6}
+    .traditional-verse{border-left:3px solid #b38b42;padding:14px 18px;background:#f8f4e9;border-radius:0 12px 12px 0;font-family:'Noto Serif Devanagari',serif;font-size:1.08rem;line-height:2;margin:12px 0}
+    .virtue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .virtue-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff;display:flex;flex-direction:column;gap:8px}
+    .virtue-card .day{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.06em;color:#8c6727;text-transform:uppercase}
+    .virtue-card h3{font-size:1.15rem;margin:0;color:var(--green);font-family:var(--serif)}
+    .virtue-card p{margin:0;line-height:1.65}
+    .reflection{padding-top:10px;border-top:1px solid var(--line);font-style:italic;color:var(--muted);font-size:.92rem}
+    .section-anchor{scroll-margin-top:90px}
+    .page-footer-nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:28px 0 10px}
+    .back-to-learn{display:inline-flex;align-items:center;color:var(--green);font-weight:700;text-decoration:none;gap:6px}
+    @media(max-width:650px){.balayati-list,.virtue-grid{grid-template-columns:1fr}.learning-panel{padding:19px}}
+  </style>
 </head>
 <body class="page-learn kalyanak-page">
-<div class="scroll-progress" aria-hidden="true"></div><div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-<div id="site-header"></div><script src="layout.js"></script>
-<main id="main">
-<section class="page-banner"><div class="container"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Jain Knowledge</span><span>/</span><span>Panch Kalyanak &amp; Jain Parvas</span></nav><p class="eyebrow">JAIN KNOWLEDGE</p><h1>Panch Kalyanak & Jain Parvas</h1><p class="intro">Explore the five auspicious milestones in a Tirthankara’s life, the Panch Balayati Tirthankaras, and the ten virtues contemplated during Das Lakshan Parva.</p><nav class="learning-subnav" aria-label="On this page"><a href="#panch-kalyanak">Panch Kalyanak</a><a href="#panch-balayati">Panch Balayati</a><a href="#das-lakshan">Das Lakshan Parva</a></nav></div></section>
-<section id="panch-kalyanak" class="section section-cream section-anchor"><div class="container"><p class="eyebrow">FIVE AUSPICIOUS MILESTONES</p><h2>The Five Kalyanakas (पंच कल्याणक)</h2><p class="section-intro">In Jain tradition, the life of each Tirthankara is associated with five auspicious events known as <em>Panch Kalyanaka</em>. These events mark important spiritual milestones and are commemorated through worship, reflection, and religious ceremonies. Dates, places, and details vary by Tirthankara and traditional account.</p>
-<div class="virtue-grid">
-<article class="virtue-card"><span class="day">01 · Conception</span><h3>Garbh Kalyanaka (गर्भ कल्याणक)</h3><p><strong>What it commemorates:</strong> The auspicious conception of the future Tirthankara, when the soul takes birth in the mother’s womb for its final human life before liberation.</p><p><strong>Spiritual significance:</strong> It reminds devotees that a Tirthankara’s final birth is connected with an extraordinary spiritual journey toward the welfare and guidance of all living beings.</p><p><strong>Traditional observances:</strong> Worship, devotional readings, and ceremonies recalling the auspicious dreams traditionally associated with the mother.</p><p class="reflection"><strong>Reflection:</strong> How can I make my own life more purposeful and oriented toward spiritual growth?</p></article>
-<article class="virtue-card"><span class="day">02 · Birth</span><h3>Janma Kalyanaka (जन्म कल्याणक)</h3><p><strong>What it commemorates:</strong> The birth of the Tirthankara.</p><p><strong>Spiritual significance:</strong> It celebrates the appearance in the world of a soul that will eventually attain omniscience and show the path to liberation.</p><p><strong>Traditional observances:</strong> Celebrations may include <em>Janmabhishek</em> (ceremonial bathing of the Tirthankara’s image), processions, worship, and recitation of devotional texts. Practices differ among communities.</p><p class="reflection"><strong>Reflection:</strong> How can I use my life to practise non-violence, self-restraint, and compassion?</p></article>
-<article class="virtue-card"><span class="day">03 · Renunciation</span><h3>Tapa or Diksha Kalyanaka (तप / दीक्षा कल्याणक)</h3><p><strong>What it commemorates:</strong> The Tirthankara’s renunciation of worldly life and initiation into the ascetic path.</p><p><strong>Spiritual significance:</strong> It represents turning away from attachment to possessions, status, and sensory pleasures in pursuit of self-discipline and liberation.</p><p><strong>Traditional observances:</strong> Worship, scriptural study, and reflection on restraint, simplicity, and non-attachment.</p><p class="reflection"><strong>Reflection:</strong> Which attachment or habit can I reduce to live with greater awareness and self-control?</p></article>
-<article class="virtue-card"><span class="day">04 · Omniscience</span><h3>Kevalgyan Kalyanaka (केवलज्ञान कल्याणक)</h3><p><strong>What it commemorates:</strong> The attainment of <em>Keval Jnana</em>, perfect and unobstructed knowledge.</p><p><strong>Spiritual significance:</strong> In Jain philosophy, Keval Jnana is complete knowledge attained when the soul’s knowledge-obscuring karmas have been destroyed. It marks the Tirthankara’s omniscience and teaching of the path to liberation.</p><p><strong>Traditional observances:</strong> Worship, scriptural recitation, and teachings about right faith, right knowledge, and right conduct.</p><p class="reflection"><strong>Reflection:</strong> How can I strengthen right understanding and make my conduct consistent with what I know to be right?</p></article>
-<article class="virtue-card"><span class="day">05 · Liberation</span><h3>Moksha or Nirvana Kalyanaka (मोक्ष / निर्वाण कल्याणक)</h3><p><strong>What it commemorates:</strong> The Tirthankara’s liberation from the cycle of birth and death.</p><p><strong>Spiritual significance:</strong> In Jain belief, the liberated soul is free from all karmic bondage and does not take another birth. This is the culmination of the spiritual path.</p><p><strong>Traditional observances:</strong> Remembering sacred <em>Nirvana Kshetras</em>, offering worship, studying accounts of liberation, and reflecting on the goal of moksha.</p><p class="reflection"><strong>Reflection:</strong> What can I do today to lessen anger, pride, deceit, greed, and attachment?</p></article>
-<article class="virtue-card"><span class="day">Why they matter</span><h3>A framework for spiritual reflection</h3><ul><li><strong>Garbh:</strong> Recognise the potential for spiritual progress.</li><li><strong>Janma:</strong> Celebrate the opportunity to practise dharma.</li><li><strong>Diksha:</strong> Learn from renunciation and self-restraint.</li><li><strong>Kevalgyan:</strong> Aspire to right faith, right knowledge, and right conduct.</li><li><strong>Moksha:</strong> Keep liberation as the ultimate spiritual goal.</li></ul></article>
-</div><p class="copy" style="margin-top:20px">Ceremonies, narratives, and the exact chronology associated with each Kalyanaka can vary across Jain traditions and individual Tirthankara accounts.</p></div></section>
-<section id="panch-balayati" class="section section-anchor"><div class="container"><p class="eyebrow">DEVOTIONAL LEARNING</p><h2>Panch Balayati Tirthankaras (पंच बालयति)</h2><p class="section-intro">The five Balayati Tirthankaras are traditionally named as follows:</p><div class="learning-panel"><ol class="balayati-list"><li><strong>Shri Vasupujya Swami</strong><br><span lang="hi">श्री वासुपूज्यनाथ भगवान</span></li><li><strong>Shri Mallinath Swami</strong><br><span lang="hi">श्री मल्लिनाथ भगवान</span></li><li><strong>Shri Neminath Swami</strong><br><span lang="hi">श्री नेमिनाथ भगवान</span></li><li><strong>Shri Parshvanath Swami</strong><br><span lang="hi">श्री पार्श्वनाथ भगवान</span></li><li><strong>Shri Mahavir Swami</strong><br><span lang="hi">श्री महावीर स्वामी भगवान</span></li></ol><h3>Traditional Panch Balayati verse</h3><blockquote class="traditional-verse" lang="hi"><p>श्री वासुपूज्य मल्लि नेमि, पारस वीर अती।</p><p>नमूँ मन-वच-तन धरि प्रेम, पाँचों बालयती॥</p></blockquote><h3 style="margin-top:24px">Associated mantra</h3><blockquote class="traditional-verse" lang="hi"><p>ॐ ह्रीं श्री वासुपूज्य-मल्लिनाथ-नेमिनाथ-पार्श्वनाथ-महावीरस्वामी पंचबालयति-तीर्थंकरेभ्यो अनर्घ्यपद-प्राप्तये अर्घ्यं निर्वपामीति स्वाहा।</p></blockquote></div></div></section>
-<section id="das-lakshan" class="section section-cream section-anchor"><div class="container"><p class="eyebrow">TEN SUPREME VIRTUES</p><h2>Das Lakshan Parva (दशलक्षण पर्व)</h2><p class="section-intro">Das Lakshan Parva is a ten-day sacred festival observed by Digambara Jains to focus on soul purification, spiritual growth, and the practice of ten supreme virtues (Uttam Dharmas). It is observed from Bhadrapada Shukla Panchami to Bhadrapada Shukla Chaturdashi, with one virtue contemplated each day through worship, scriptural study, and austerity.</p><h3 style="margin-top:28px">The 10 Days and Virtues</h3><div class="virtue-grid">
-<article class="virtue-card"><span class="day">Day 1</span><h3>Uttam Kshama (उत्तम क्षमा)</h3><p>Supreme Forgiveness — practising tolerance and completely letting go of anger (<em>krodh</em>).</p></article>
-<article class="virtue-card"><span class="day">Day 2</span><h3>Uttam Mardava (उत्तम मार्दव)</h3><p>Supreme Modesty / Humility — overcoming pride, vanity, and ego (<em>man</em>).</p></article>
-<article class="virtue-card"><span class="day">Day 3</span><h3>Uttam Aarjava (उत्तम आर्जव)</h3><p>Supreme Straightforwardness / Honesty — living with deceit-free, upright conduct (<em>maya</em>).</p></article>
-<article class="virtue-card"><span class="day">Day 4</span><h3>Uttam Shauch (उत्तम शौच)</h3><p>Supreme Contentment / Purity — keeping the mind, body, and speech pure by discarding greed (<em>lobh</em>).</p></article>
-<article class="virtue-card"><span class="day">Day 5</span><h3>Uttam Satya (उत्तम सत्य)</h3><p>Supreme Truthfulness — speaking kind, true, and beneficial words that cause no harm to any living being.</p></article>
-<article class="virtue-card"><span class="day">Day 6</span><h3>Uttam Sanyam (उत्तम संयम)</h3><p>Supreme Self-Restraint — protecting all life forms and exercising restraint over the five senses and the mind.</p></article>
-<article class="virtue-card"><span class="day">Day 7</span><h3>Uttam Tap (उत्तम तप)</h3><p>Supreme Austerity / Penance — practising self-discipline, fasting, and checking worldly desires.</p></article>
-<article class="virtue-card"><span class="day">Day 8</span><h3>Uttam Tyag (उत्तम त्याग)</h3><p>Supreme Renunciation — giving fourfold charity (food, fearlessness, medicine, and scriptural knowledge) and supporting religious causes.</p></article>
-<article class="virtue-card"><span class="day">Day 9</span><h3>Uttam Akinchanya (उत्तम आकिंचन्य)</h3><p>Supreme Non-Attachment — cultivating detachment from material wealth and internal passions.</p></article>
-<article class="virtue-card"><span class="day">Day 10</span><h3>Uttam Brahmacharya (उत्तम ब्रह्मचर्य)</h3><p>Supreme Celibacy / Chastity — devoting oneself to the purity of the inner soul and discarding carnal and worldly desires.</p></article>
-</div><div class="learning-panel"><h3>Key Practices</h3><p>Jains may engage in temple worship, scriptural study, meditation, and fasting, ranging from partial diets to complete fasts.</p><h3>Anant Chaturdashi</h3><p>The tenth day coincides with Anant Chaturdashi, which marks the Nirvana of Lord Vasupujya.</p><h3>Kshamavani</h3><p>Observed a day after the festival concludes, Kshamavani is a time to ask for and grant forgiveness (<em>Michchhami Dukkadam</em>) to family, friends, and all living beings for any hurt caused over the past year.</p></div><a class="back-to-learn" href="index.html">← Back to Jain Youth Karnal Home</a></div></section>
-</main><div id="site-footer"></div><script src="script.js"></script>
-</body></html>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <div id="site-header"></div>
+  <script src="layout.js"></script>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="learn.html">Learn</a>
+          <span>/</span>
+          <span>Panch Kalyanak &amp; Jain Parvas</span>
+        </nav>
+        <p class="eyebrow">JAIN KNOWLEDGE</p>
+        <h1>Panch Kalyanak &amp; Jain Parvas</h1>
+        <p class="intro">Explore the five auspicious milestones in a Tirthankara’s life, the Panch Balayati Tirthankaras, and the ten supreme virtues of Das Lakshan Parva.</p>
+        <nav class="learning-subnav" aria-label="Page sections">
+          <a href="#panch-kalyanak">Panch Kalyanak</a>
+          <a href="#panch-balayati">Panch Balayati</a>
+          <a href="#das-lakshan">Das Lakshan Parva</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Section 1: Panch Kalyanak -->
+    <section id="panch-kalyanak" class="section section-cream section-anchor">
+      <div class="container">
+        <p class="eyebrow">FIVE AUSPICIOUS MILESTONES</p>
+        <h2>The Five Kalyanaks (पंच कल्याणक)</h2>
+        <p class="section-intro">In Jain philosophy, the life of each Tirthankara is marked by five auspicious events known as <em>Panch Kalyanaka</em>. These events signify profound stages of soul purification and are commemorated through worship, celebration, and inner contemplation.</p>
+
+        <div class="virtue-grid">
+          <article class="virtue-card">
+            <span class="day">01 • Conception</span>
+            <h3>Garbh Kalyanaka (गर्भ कल्याणक)</h3>
+            <p><strong>What it commemorates:</strong> The auspicious conception when the pure soul of a future Tirthankara descends into the mother's womb for its final human incarnation before liberation.</p>
+            <p><strong>Spiritual significance:</strong> Reminds devotees that the spiritual path begins with cultivating noble intention, pure thoughts, and auspicious virtue.</p>
+            <p class="reflection"><strong>Reflection:</strong> How can I orient my thoughts and actions toward purposeful spiritual growth?</p>
+          </article>
+
+          <article class="virtue-card">
+            <span class="day">02 • Birth</span>
+            <h3>Janma Kalyanaka (जन्म कल्याणक)</h3>
+            <p><strong>What it commemorates:</strong> The birth of the Tirthankara. Celebrated by celestial beings on Mount Meru with ceremonial Janmabhishek.</p>
+            <p><strong>Spiritual significance:</strong> Celebrates the arrival of a divine beacon who will guide all living beings toward freedom from suffering.</p>
+            <p class="reflection"><strong>Reflection:</strong> How can I dedicate my human birth to practising non-violence (Ahimsa) and compassion?</p>
+          </article>
+
+          <article class="virtue-card">
+            <span class="day">03 • Renunciation</span>
+            <h3>Tapa / Diksha Kalyanaka (तप / दीक्षा कल्याणक)</h3>
+            <p><strong>What it commemorates:</strong> The renunciation of worldly comforts, wealth, and status to adopt the monastic path of pure asceticism.</p>
+            <p><strong>Spiritual significance:</strong> Highlights that supreme peace is achieved through detachment (Vairagya), self-discipline, and inner contemplation.</p>
+            <p class="reflection"><strong>Reflection:</strong> Which material attachment or habit can I renounce today to cultivate mindful living?</p>
+          </article>
+
+          <article class="virtue-card">
+            <span class="day">04 • Omniscience</span>
+            <h3>Kevalgyan Kalyanaka (केवलज्ञान कल्याणक)</h3>
+            <p><strong>What it commemorates:</strong> The destruction of all four destructive (Ghatiya) karmas and the attainment of infinite, unobstructed knowledge.</p>
+            <p><strong>Spiritual significance:</strong> Marks the delivery of the divine sermon (Divya Dhwani) in the Samavasharana, expounding the eternal path of liberation.</p>
+            <p class="reflection"><strong>Reflection:</strong> Am I actively studying right knowledge (Samyak Jnana) and acting in alignment with truth?</p>
+          </article>
+
+          <article class="virtue-card">
+            <span class="day">05 • Liberation</span>
+            <h3>Moksha / Nirvana Kalyanaka (मोक्ष / निर्वाण कल्याणक)</h3>
+            <p><strong>What it commemorates:</strong> The shedding of all remaining karmic bonds and attainment of eternal liberation in the realm of Siddhas.</p>
+            <p><strong>Spiritual significance:</strong> The ultimate goal of Jain Dharma: eternal bliss, pure consciousness, and complete cessation of the cycle of rebirth.</p>
+            <p class="reflection"><strong>Reflection:</strong> What steps am I taking daily to reduce anger, ego, deceit, and greed?</p>
+          </article>
+
+          <article class="virtue-card">
+            <span class="day">Core Takeaway</span>
+            <h3>Path of Spiritual Ascension</h3>
+            <p>The Kalyanaks provide a practical roadmap for every spiritual aspirant:</p>
+            <p>• <strong>Garbh:</strong> Pure aspiration.<br>• <strong>Janma:</strong> Compassionate living.<br>• <strong>Tapa:</strong> Voluntary restraint.<br>• <strong>Kevalgyan:</strong> Enlightened understanding.<br>• <strong>Moksha:</strong> Complete liberation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Panch Balayati -->
+    <section id="panch-balayati" class="section section-anchor">
+      <div class="container">
+        <p class="eyebrow">CELIBACY &amp; PURITY</p>
+        <h2>Panch Balayati Tirthankaras (पंच बालयति तीर्थंकर)</h2>
+        <p class="section-intro">In Digambara tradition, five Tirthankaras observed lifelong celibacy from childhood, renounced worldly reign, and attained supreme asceticism without entering family life:</p>
+
+        <div class="learning-panel">
+          <ul class="balayati-list">
+            <li><strong>12. Shri Vasupujya Swami</strong> (श्री वासुपूज्य स्वामी)</li>
+            <li><strong>19. Shri Mallinath Swami</strong> (श्री मल्लिनाथ स्वामी)</li>
+            <li><strong>22. Shri Neminath Swami</strong> (श्री नेमिनाथ स्वामी)</li>
+            <li><strong>23. Shri Parshvanath Swami</strong> (श्री पार्श्वनाथ स्वामी)</li>
+            <li><strong>24. Shri Mahavir Swami</strong> (श्री महावीर स्वामी)</li>
+          </ul>
+
+          <h3>Traditional Panch Balayati Verse</h3>
+          <blockquote class="traditional-verse" lang="hi">
+            <p>सजि वसु-विधि द्रव्य मनोज्ञ, अरघ बनावत हैं।<br>
+            वसु-कर्म अनादि-संयोग, ताहि नशावत हैं॥<br>
+            श्री वासुपूज्य, मल्लि, नेमि, पारस, वीर अती।<br>
+            मन-वच-तन धरि प्रेम, पूजों पंच बालयती॥</p>
+          </blockquote>
+
+          <h3 style="margin-top:24px">Dedication Mantra</h3>
+          <blockquote class="traditional-verse" lang="hi">
+            <p>ॐ ह्रीं श्री वासुपूज्य-मल्लिनाथ-नेमिनाथ-पार्श्वनाथ-महावीरस्वामी पंच-बालयति-तीर्थंकरेभ्यो अनर्घ्यपदप्राप्तये अर्घ्यं निर्वपामीति स्वाहा।</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Das Lakshan Parva -->
+    <section id="das-lakshan" class="section section-cream section-anchor">
+      <div class="container">
+        <p class="eyebrow">TEN SUPREME VIRTUES</p>
+        <h2>Das Lakshan Parva (दशलक्षण पर्व)</h2>
+        <p class="section-intro">Observed annually during the month of Bhadrapada (Shukla Panchami to Chaturdashi), this ten-day festival is dedicated to spiritual purification through the contemplation and practice of ten supreme virtues (Uttam Dharmas):</p>
+
+        <div class="virtue-grid">
+          <article class="virtue-card">
+            <span class="day">Day 01</span>
+            <h3>Uttam Kshama (उत्तम क्षमा)</h3>
+            <p><strong>Supreme Forgiveness:</strong> Overcoming anger (krodh) and showing unconditional forgiveness to all living beings.</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 02</span>
+            <h3>Uttam Mardava (उत्तम मार्दव)</h3>
+            <p><strong>Supreme Modesty &amp; Humility:</strong> Completely relinquishing arrogance, ego, and pride of caste, power, knowledge, or wealth (maan).</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 03</span>
+            <h3>Uttam Aarjava (उत्तम आर्जव)</h3>
+            <p><strong>Supreme Straightforwardness:</strong> Living with upright honesty and total transparency without deceit or trickery (maya).</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 04</span>
+            <h3>Uttam Shauch (उत्तम शौच)</h3>
+            <p><strong>Supreme Contentment &amp; Purity:</strong> Cleansing internal desires by renouncing greed (lobh) and cultivating contentment.</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 05</span>
+            <h3>Uttam Satya (उत्तम सत्य)</h3>
+            <p><strong>Supreme Truthfulness:</strong> Speaking beneficial, measured, and harmless truth that upholds universal compassion.</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 06</span>
+            <h3>Uttam Sanyam (उत्तम संयम)</h3>
+            <p><strong>Supreme Self-Restraint:</strong> Protecting all life forms (Prani-Sanyam) and exercising discipline over the senses (Indriya-Sanyam).</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 07</span>
+            <h3>Uttam Tapa (उत्तम तप)</h3>
+            <p><strong>Supreme Austerity:</strong> Practising internal and external penances to burn away past accumulated karmas.</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 08</span>
+            <h3>Uttam Tyaga (उत्तम त्याग)</h3>
+            <p><strong>Supreme Renunciation:</strong> Practising fourfold charity (food, medicine, knowledge, protection) with a selfless heart.</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 09</span>
+            <h3>Uttam Akinchanya (उत्तम आकिंचन्य)</h3>
+            <p><strong>Supreme Non-Attachment:</strong> Cultivating internal detachment from possessions and recognising that the soul owns nothing material.</p>
+          </article>
+          <article class="virtue-card">
+            <span class="day">Day 10</span>
+            <h3>Uttam Brahmacharya (उत्तम ब्रह्मचर्य)</h3>
+            <p><strong>Supreme Celibacy &amp; Soul Realization:</strong> Attuning the consciousness exclusively to the divine nature of the inner soul.</p>
+          </article>
+        </div>
+
+        <div class="learning-panel" style="margin-top:24px">
+          <h3>Kshamavani Parva (क्षमावाणी)</h3>
+          <p>Observed immediately following Das Lakshan Parva, Kshamavani is the universal day of forgiveness where every Jain seeks and grants heartfelt pardon:</p>
+          <blockquote class="traditional-verse" lang="hi">
+            <p>खम्मामि सव्वजीवेसु, सव्वे जीवा खमंतु मे।<br>
+            मित्ती मे सव्वभूएस्, वेरं मज्झं न केणइ॥</p>
+          </blockquote>
+          <p style="margin-top:10px;font-weight:600;color:var(--green)">"I forgive all living beings; may all souls forgive me. I have friendship with all; malice toward none." — Michchhami Dukkadam.</p>
+        </div>
+
+        <div class="page-footer-nav">
+          <a class="back-to-learn" href="learn.html">&larr; Back to Learn Gateway</a>
+          <a class="back-to-learn" href="tirthankaras.html">Explore 24 Tirthankaras &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
