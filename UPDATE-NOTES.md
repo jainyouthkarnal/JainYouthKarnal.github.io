@@ -15,3 +15,20 @@
 - Ensure `assets/prakshal-icon.png` and `assets/logo.png` exist in the repository.
 - To connect Google Forms, provide the published form URL and decide whether the site should embed it or redirect users to it. The URL was not supplied, so no fake endpoint has been configured.
 - Test the November calendar, clicking any bhajan card, mobile map layout, and the footer on each public page after deployment.
+
+
+## Google Form integration
+- Connected the Join / Connect With Us section to the supplied responder link: https://forms.gle/t2QjVZ3bt2XhPxVV7
+- Added an embedded form area plus an “Open Form in a New Tab” fallback link. Verify the embed in the deployed site; if Google redirects the short URL in a way that prevents embedding, replace the iframe URL with the official Google Forms embed URL generated from Send > Embed HTML.
+
+
+## Lyrics page refinement
+- Updated `lyrics.html` to show two distinct language cards: Hindi and English transliteration.
+- Replaced the three-option view selector with a clearer two-option Hindi / English toggle centered above the cards.
+- Matched the English text line-height to the Hindi card for a more consistent reading rhythm.
+- On desktop, both language cards appear side by side; selecting Hindi or English shows only that language. On mobile, cards stack vertically when both are visible.
+
+
+### Lyrics language selector update
+- The full lyrics page now offers three language modes: Hindi, English, and Both.
+- Both is the default view and displays the two language cards together; the selected preference is saved locally.
