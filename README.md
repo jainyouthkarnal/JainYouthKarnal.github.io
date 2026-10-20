@@ -138,3 +138,12 @@ The Monthly Yatra map is a political map of India with one numbered pin for ever
 ## Prakshal icon
 
 `assets/prakshal-icon.png` is the supplied Prakshal illustration. It is used beside every mandir activity marked `prakshal`; Darshan entries use the Darshan icon.
+
+
+## Data files
+- `data/yatra-data.json` — monthly yatra history and map pins
+- `data/trip-media.json` — trip photo manifest
+- `data/bhakti-playlist.json` — playlist catalogue
+- `data/calendar-events.json` — calendar-only events, including Kundalpur Yatra on 29 November 2026
+
+Keep your existing `assets/` directory from the GitHub repository when copying these synchronized source files; image/audio assets are not duplicated in this source bundle.

@@ -18,3 +18,10 @@ Upload the contents of this folder to the repository root, preserving the `asset
 - Bhajan entries now appear as compact mini-cards; select “Read lyrics” to expand the full lyrics.
 - Entries are automatically grouped by content type when tags include aarti, stavan, chalisa, mantra, or bhajan; search and tag filters remain available.
 - The audio file itself must be placed at `assets/bhakti/audio/mere-sar-par-rakh-do-dada.mp3` for playback.
+
+
+## Calendar data synchronization
+- Added `data/calendar-events.json` as the canonical source for community calendar events.
+- Added Kundalpur Yatra for Sunday, 29 November 2026. The calendar loader now merges calendar events with the yatra history instead of overwriting the community event after JSON loads.
+- Updated the homepage Kundalpur announcement date references to 28–30 November and aligned the static About copy with the current English translations.
+- Standardized JSON filenames under `data/`: `yatra-data.json`, `trip-media.json`, and `bhakti-playlist.json`.

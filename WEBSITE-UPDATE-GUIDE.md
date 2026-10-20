@@ -12,7 +12,8 @@ Where to edit what:
 | Sunday Pathshala, Knowledge hub | `learn.html` |
 | Bhajans (add / edit lyrics) | `bhakti.html` |
 | Events, Our Mandir, Follow (Instagram / YouTube), YouTube channel ID | `community.html` |
-| Calendar Kalyanak / yatra dates | `script.js` (`kalyanakEvents`, `tripEvents`) |
+| Calendar Kalyanak dates | `script.js` (`kalyanakEvents`) |
+| Community calendar events such as Kundalpur Yatra | `data/calendar-events.json` |
 | Join form | `join.html` |
 | Yatra map data | `data/yatra-data.json` (unchanged) |
 
@@ -47,6 +48,11 @@ Use this for major page content such as:
 - Sunday Pathshala
 - Static section text
 - Navigation labels
+
+### Community calendar events
+**File:** `data/calendar-events.json`
+
+Add one object per event with `date` (`YYYY-MM-DD`), `type`, `title`, and optional `note`. The Kundalpur Yatra is listed for Sunday, 29 November 2026. This keeps calendar-only events separate from completed trips in the Yatra Map and trip archive.
 
 ### Website behaviour
 **File:** `script.js`

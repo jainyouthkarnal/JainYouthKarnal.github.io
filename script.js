@@ -883,7 +883,7 @@ let tripEvents=
     )
   );
 
-// Community yatra scheduled for Sunday, 29 November 2026.
+// Fallback calendar event; canonical event details live in data/calendar-events.json.
 tripEvents['2026-11-29']={type:'trip',title:'Kundalpur Yatra / कुण्डलपुर यात्रा',note:'Bade Baba Darshan, Abhishek & Prakshal'};
 
 const KAL={
@@ -1236,41 +1236,33 @@ if(nextCal){
 renderCalendar();
 
 
-// Sync calendar with source JSON.
+// Sync calendar with the canonical trip and community-event JSON sources.
 (async function syncCalendarTrips(){
-
+  let trips=YATRA_FALLBACK.trips||[];
   try{
-
-    const r=
-      await fetch(
-        'data/yatra-data.json',
-        {cache:'no-cache'}
-      );
-
-    if(!r.ok)return;
-
-    const trips=
-      (await r.json()).trips||[];
-
-    tripEvents=
-      Object.fromEntries(
-        trips.map(
-          t=>[
-            t.date,
-            {
-              type:'trip',
-              title:t.place
-            }
-          ]
-        )
-      );
-
-    renderCalendar();
-
+    const r=await fetch('data/yatra-data.json',{cache:'no-cache'});
+    if(r.ok) trips=(await r.json()).trips||trips;
   }catch(e){}
 
+  const nextEvents=Object.fromEntries(trips.map(t=>[t.date,{type:'trip',title:t.place}]));
+  try{
+    const r=await fetch('data/calendar-events.json',{cache:'no-cache'});
+    if(r.ok){
+      const events=await r.json();
+      for(const event of events){
+        if(event && event.date){
+          nextEvents[event.date]={type:event.type||'event',title:event.title||'Community event',note:event.note||''};
+        }
+      }
+    }else{
+      nextEvents['2026-11-29']={type:'trip',title:'Kundalpur Yatra / कुण्डलपुर यात्रा',note:'Bade Baba Darshan, Abhishek & Prakshal'};
+    }
+  }catch(e){
+    nextEvents['2026-11-29']={type:'trip',title:'Kundalpur Yatra / कुण्डलपुर यात्रा',note:'Bade Baba Darshan, Abhishek & Prakshal'};
+  }
+  tripEvents=nextEvents;
+  renderCalendar();
 })();
-
 
 // ===== GLOBAL LANGUAGE HOOK =====
 const oldSetLanguage=setLanguage;
