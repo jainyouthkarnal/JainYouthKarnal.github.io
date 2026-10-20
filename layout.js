@@ -14,7 +14,7 @@
 
     {k:'nav.learn',t:'Learn',page:'learn',sub:[
       ['nav.pathshala','Sunday Pathshala','learn.html#pathshala'],
-      ['nav.knowledge','Knowledge','learn.html#knowledge']
+      ['nav.knowledge','Knowledge','jain-knowledge.html']
     ]},
 
     {k:'nav.bhakti',t:'Bhakti',page:'bhakti',href:'bhakti.html'},
@@ -80,120 +80,31 @@
     </div>
   </header>`;
 
-  const footer=`<footer class="footer">
-    <div class="container footer-grid">
-
-      <div>
-        <img src="assets/logo.png"
-             alt="Jin Shasan Prabhavna Sangh — Jain Youth Karnal"
-             class="footer-logo">
-
-        <p>
-          Jain Youth Karnal<br>
-          Jin Shasan Prabhavna Sangh
-        </p>
-      </div>
-
-      <div>
-        <p class="footer-title" data-i18n="footer.explore">Explore</p>
-
-        <a href="yatra.html#trips" data-i18n="nav.trips">
-          Monthly Trips
-        </a>
-
-        <a href="community.html#mandir-location" data-i18n="nav.mandirMap">
-          Our Mandir
-        </a>
-
-        <a href="community.html#calendar">
-          Calendar &amp; Events
-        </a>
-
-        <a href="learn.html#pathshala" data-i18n="nav.pathshala">
-          Sunday Pathshala
-        </a>
-
-        <a href="learn.html#knowledge">
-          Knowledge Hub
-        </a>
-
-        <a href="bhakti.html" data-i18n="nav.bhajans">
-          Bhajan Library
-        </a>
-      </div>
-
-      <div>
-        <p class="footer-title" data-i18n="footer.connect">
-          Connect
-        </p>
-
-        <div class="footer-socials">
-
-          <a class="footer-social"
-             href="https://www.instagram.com/jainyouth.karnal/"
-             target="_blank"
-             rel="noopener"
-             aria-label="Instagram — @jainyouth.karnal"
-             title="Instagram — @jainyouth.karnal">
-
-            <img src="assets/social/instagram.png"
-                 alt="Instagram">
-
-            <span class="social-text">
-              <small>Instagram</small>
-              <b>@jainyouth.karnal</b>
-            </span>
-
-          </a>
-
-          <a class="footer-social"
-             href="https://www.youtube.com/@jainyouth.karnal"
-             target="_blank"
-             rel="noopener"
-             aria-label="YouTube — @jainyouth.karnal"
-             title="YouTube — @jainyouth.karnal">
-
-            <img src="assets/social/youtube.png"
-                 alt="YouTube">
-
-            <span class="social-text">
-              <small>YouTube</small>
-              <b>@jainyouth.karnal</b>
-            </span>
-
-          </a>
-
-          <a class="footer-social footer-social-email"
-             href="mailto:jainyouthkarnal@gmail.com"
-             aria-label="Email Jain Youth Karnal"
-             title="Email Jain Youth Karnal">
-            <span class="footer-mail-icon" aria-hidden="true">✉</span>
-            <span class="social-text">
-              <small>Email</small>
-              <b>jainyouthkarnal@gmail.com</b>
-            </span>
-          </a>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="container copyright">
-      © <span id="year"></span> Jain Youth Karnal.
-      <span data-i18n="footer.rights">
-        All rights reserved.
-      </span>
-    </div>
-
-  </footer>`;
-
   const put=(id,html)=>{
     const el=document.getElementById(id);
     if(el)el.outerHTML=html;
   };
 
   put('site-header',header);
-  put('site-footer',footer);
+
+  // Use the shared footer fragment so every page has the same footer markup.
+  const loadSharedFooter=async()=>{
+    const target=document.getElementById('site-footer');
+    if(!target)return;
+    try{
+      const response=await fetch('footer.html');
+      if(!response.ok)throw new Error(`Could not load footer.html (${response.status})`);
+      target.innerHTML=await response.text();
+    }catch(error){
+      console.error('Unable to load shared footer:',error);
+      target.innerHTML='<p class="container">The footer could not be loaded. Please open this site through a web server.</p>';
+    }
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',loadSharedFooter,{once:true});
+  }else{
+    loadSharedFooter();
+  }
 
 })();

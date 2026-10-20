@@ -1909,13 +1909,21 @@ setLanguage(localStorage.getItem('jyk-language')||'en');
     });
     card.append(preview,button);
   });
+  const viewButtons=[...document.querySelectorAll('.bhajan-view-controls button[data-view]')];
   const updatePreviewView=mode=>{
     document.querySelectorAll('.bhajan-preview').forEach(preview=>{
       const hi=preview.querySelector('.preview-hi'), roman=preview.querySelector('.preview-roman');
-      if(hi)hi.hidden=mode==='roman'; if(roman)roman.hidden=mode==='hindi';
+      if(hi)hi.hidden=mode==='roman';
+      if(roman)roman.hidden=mode==='hindi';
     });
+    viewButtons.forEach(btn=>{
+      const active=btn.dataset.view===mode;
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-pressed',String(active));
+    });
+    localStorage.setItem('jyk-bhakti-view',mode);
   };
-  document.querySelectorAll('.bhajan-view-controls button[data-view]').forEach(btn=>btn.addEventListener('click',()=>updatePreviewView(btn.dataset.view)));
+  viewButtons.forEach(btn=>btn.addEventListener('click',()=>updatePreviewView(btn.dataset.view)));
   updatePreviewView(localStorage.getItem('jyk-bhakti-view')||'both');
 })();
 

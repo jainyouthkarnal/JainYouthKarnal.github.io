@@ -670,3 +670,52 @@ body.page-bhakti:not(.page-lyrics) .bhajan-view-btn.active {
 body:not(.page-bhakti) .bhakti-note {
   display: none !important;
 }
+
+
+/* Match the Bhakti language selector to the rounded green controls on the Lyrics page. */
+body.page-bhakti .bhajan-view-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 5px;
+  background: #e9f0e9;
+  border: 1px solid #d7e0d7;
+  border-radius: 999px;
+  width: max-content;
+  max-width: 100%;
+}
+body.page-bhakti .bhajan-view-btn {
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  padding: 8px 15px;
+  border-radius: 999px;
+  font: 700 .74rem var(--sans);
+  cursor: pointer;
+  transition: background .2s, color .2s, box-shadow .2s;
+}
+body.page-bhakti .bhajan-view-btn:hover {
+  background: rgba(12, 59, 46, .08);
+}
+body.page-bhakti .bhajan-view-btn.active {
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(12, 59, 46, .18);
+  border-color: transparent;
+}
+@media (max-width: 720px) {
+  body.page-bhakti .bhajan-view-controls {
+    width: max-content;
+    max-width: 100%;
+    margin-left: auto;
+  }
+  body.page-bhakti .bhajan-view-btn { flex: 0 0 auto; }
+}
+@media (max-width: 520px) {
+  body.page-bhakti .bhajan-view-btn {
+    padding: 7px 10px;
+    font-size: .88rem;
+  }
+}
