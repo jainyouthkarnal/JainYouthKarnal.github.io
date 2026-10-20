@@ -521,9 +521,10 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .page-bhakti .section-bhakti .section-heading{justify-content:center;text-align:center;margin-bottom:24px}
 .page-bhakti .section-bhakti .section-heading h2{color:#211f1d;font-family:'Noto Sans Devanagari','DM Sans',sans-serif;font-weight:700}
 .page-bhakti .bhajan-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.page-bhakti .bhajan-view-controls{order:3;margin-left:auto;justify-content:flex-end;background:#e9f0e9;border-color:#d7e0d7}
-.page-bhakti .bhajan-view-btn{font-family:'DM Sans','Noto Sans Devanagari',sans-serif;font-size:.95rem;font-weight:500;padding:8px 14px;color:#191919;border:1px solid #9c9c9c;border-radius:4px;background:#f8f8f8}
-.page-bhakti .bhajan-view-btn.active{background:#fff;color:#191919;box-shadow:none;border-color:#777}
+.page-bhakti .bhajan-view-controls{order:3;margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap;padding:5px;background:#e9f0e9;border:1px solid #d7e0d7;border-radius:999px;width:max-content;max-width:100%}
+.page-bhakti .bhajan-view-btn{font-family:'DM Sans','Noto Sans Devanagari',sans-serif;font-size:.95rem;font-weight:700;padding:8px 15px;color:var(--green);border:0;border-radius:999px;background:transparent;box-shadow:none;transition:background .2s,color .2s,box-shadow .2s}
+.page-bhakti .bhajan-view-btn:hover{background:rgba(12,59,46,.08)}
+.page-bhakti .bhajan-view-btn.active{background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(12,59,46,.18)}
 .page-bhakti .bhajan-search{order:1;flex:1 1 260px;max-width:420px}
 .page-bhakti .bhajan-tags{order:2;flex:1 1 100%;}
 .page-bhakti .bhajan-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 30px;align-items:start}
@@ -593,69 +594,6 @@ h1 em{background:linear-gradient(100deg,var(--gold) 25%,#f0cf78 45%,var(--gold) 
 .page-bhakti .bhajan-expand{display:none!important}
 @media(max-width:720px){.page-bhakti .bhajan-preview{grid-template-columns:1fr;gap:8px}.lyrics-paired-verse{grid-template-columns:1fr}.paired-language{padding:17px 19px}.paired-hindi{border-right:0;border-bottom:1px solid #eee4d8}.lyrics-page-controls{margin-right:auto;margin-left:auto}.page-bhakti .bhajan-preview .preview-hi,.page-bhakti .bhajan-preview .preview-roman{-webkit-line-clamp:4;line-clamp:4}}
 @media(max-width:520px){.lyrics-page-controls .bhajan-view-btn{padding:7px 10px;font-size:.88rem}.paired-language{font-size:.98rem}}
-
-/* Refinements: clearer Yatra timeline, calendar event visibility, and full-card bhajan navigation */
-.map-layout{grid-template-columns:minmax(0,1.35fr) minmax(320px,.85fr);gap:22px;align-items:stretch}
-.india-map-card{padding:18px;display:flex;flex-direction:column;min-width:0}
-.yatra-map-canvas{min-height:560px;background:linear-gradient(145deg,#f5f0e4,#e8f0e9)}
-.india-political-map{padding:18px;min-height:560px}
-.india-map-figure{max-width:100%;border-radius:16px;background:#fffdf8;padding:12px;box-shadow:inset 0 0 0 1px rgba(12,59,46,.07)}
-.map-list{padding:26px;max-height:720px;overflow:auto}
-.map-list h3{margin-bottom:20px}
-.map-list ol{gap:10px}
-.map-list li{align-items:flex-start;gap:14px;padding:14px 12px;border:1px solid #edf0ec;border-radius:16px;background:#fff;cursor:pointer}
-.map-list li>span{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:#e8efe8;color:var(--green);font-size:.72rem}
-.map-list li strong{font-size:.98rem;line-height:1.35}
-.map-list li small{margin:4px 0 8px;font-size:.75rem}
-.map-list .map-temples{padding-left:0;list-style:none;display:grid;gap:8px;margin-top:10px}
-.map-list .map-temples li{display:block;padding:8px 10px;background:#f8faf7;border:0;border-radius:10px;font-size:.76rem;line-height:1.45}
-.map-list .map-temples .mandir-activity{display:flex;align-items:center;gap:6px;margin-bottom:3px;font-size:.72rem}
-.map-list .map-temples .prakshal-icon{width:22px;height:22px}
-.map-list li.active{background:#fff8e9;border-color:#d9c28b;transform:none;box-shadow:0 8px 24px rgba(12,59,46,.08)}
-.map-list li a{font-size:.78rem;margin-top:10px}
-.bhajan-card[role=link]{cursor:pointer}
-.bhajan-card[role=link]:focus-visible{outline:3px solid #b58a35;outline-offset:4px}
-.cal-day.trip-day span{overflow-wrap:anywhere}
-.cal-day.trip-day[title]{cursor:help}
-.form-note{margin:0;color:var(--muted);font-size:.78rem;line-height:1.5}
-@media(max-width:900px){.map-layout{grid-template-columns:1fr}.map-list{max-height:none}.yatra-map-canvas,.india-political-map{min-height:460px}}
-@media(max-width:600px){.map-list{padding:16px}.map-list li{padding:12px 10px}.yatra-map-canvas,.india-political-map{min-height:400px}.india-map-figure{padding:6px}}
-
-
-/* Google Forms integration — Join / Connect With Us */
-.join-google-form{display:block;overflow:hidden;padding:clamp(1rem,2.5vw,2rem);}
-.join-google-form .google-form-intro{margin-bottom:1rem;}
-.join-google-form .google-form-intro h3{margin:0 0 .45rem;color:var(--green-dark,#0b4938);}
-.join-google-form .google-form-intro p{margin:0 0 1rem;color:var(--muted,#68756f);}
-.join-google-form .google-form-frame-wrap{width:100%;overflow:hidden;border:1px solid var(--line,#e6e9e4);border-radius:14px;background:#fff;}
-.join-google-form iframe{display:block;width:100%;height:1050px;border:0;background:#fff;}
-.join-google-form .form-note{margin:1rem 0 0;color:var(--muted,#68756f);font-size:.9rem;}
-@media(max-width:640px){.join-google-form{padding:1rem}.join-google-form iframe{height:1200px}}
-
-
-/* Full lyrics page: two clear language cards with a simple Hindi / English switch */
-.lyrics-page-controls{justify-content:center;margin:0 auto 26px;padding:5px;gap:5px;background:#e7eee7;border:1px solid #d3dfd4;border-radius:999px;box-shadow:0 6px 18px rgba(12,59,46,.07)}
-.lyrics-page-controls .bhajan-view-btn{min-width:112px;padding:10px 22px;border:0;border-radius:999px;background:transparent;color:#385749;font:700 .92rem var(--sans);letter-spacing:.01em;transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease}
-.lyrics-page-controls .bhajan-view-btn:hover{background:rgba(255,255,255,.75);transform:translateY(-1px)}
-.lyrics-page-controls .bhajan-view-btn.active{background:#174d38;color:#fff;box-shadow:0 4px 12px rgba(12,59,46,.2)}
-.lyrics-page-controls .bhajan-view-btn:focus-visible{outline:3px solid #bd913e;outline-offset:3px}
-.lyrics-language-cards{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
-.lyrics-language-card{min-width:0;overflow:hidden;border:1px solid #e9e0d4;border-radius:20px;background:#fffdfb;box-shadow:0 10px 28px rgba(53,43,29,.045)}
-.lyrics-language-card-title{margin:0;padding:17px 24px;border-bottom:1px solid #eee5d9;background:linear-gradient(135deg,#f4f7f1,#fffaf1);font-size:.9rem;font-weight:700;letter-spacing:.05em;color:#315641}
-.language-card-english .lyrics-language-card-title{color:#7b5a20;background:linear-gradient(135deg,#fbf5e8,#fffdf8)}
-.lyrics-language-card-body{padding:20px 25px 24px;overflow-wrap:anywhere}
-.lyrics-language-stanza{margin:0;padding:0 0 18px;margin-bottom:18px;border-bottom:1px dashed #e8dfd2}
-.lyrics-language-stanza:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
-.lyrics-language-stanza p{margin:0;white-space:normal}
-.language-card-hindi .lyrics-language-card-body{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.08rem;line-height:2.05;color:#28513f;font-weight:500}
-.language-card-english .lyrics-language-card-body{font-family:'DM Sans',sans-serif;font-size:1.02rem;line-height:2.05;color:#6f5420;font-weight:500}
-.lyrics-language-cards[data-view="hindi"] .language-card-english,.lyrics-language-cards[data-view="roman"] .language-card-hindi{display:none}
-.lyrics-language-cards[data-view="hindi"],.lyrics-language-cards[data-view="roman"]{grid-template-columns:minmax(0,1fr)}
-.lyrics-language-cards[data-view="both"]{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-@media(max-width:720px){.lyrics-language-cards[data-view="both"]{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:720px){.lyrics-language-cards{grid-template-columns:minmax(0,1fr);gap:14px}.lyrics-language-card-body{padding:18px 20px 22px}.lyrics-page-controls{margin-bottom:22px}}
-@media(prefers-reduced-motion:reduce){.lyrics-page-controls .bhajan-view-btn{transition:none}}
-
 
 /* Bhakti page language toggle matches the dedicated lyrics page. */
 .page-bhakti .lyrics-page-controls{order:3;display:flex;align-items:center;gap:4px;flex:0 0 auto;margin-left:auto;padding:4px;background:#e9f0e9;border:1px solid #d7e0d7;border-radius:999px;justify-content:center}
