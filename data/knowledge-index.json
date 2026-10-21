@@ -2,6 +2,22 @@
   "generatedBy": "scripts/build_knowledge_index.py",
   "items": [
     {
+      "title": "Panch Kalyanak & Jain Parvas",
+      "description": "The Five Auspicious Milestones of a Tirthankara, the 5 Balayatis, and the 10 Supreme Virtues of Das Lakshan Parva.",
+      "category": "Philosophy & Parvas",
+      "type": "Article",
+      "url": "knowledge.html#panch-kalyanak",
+      "action": "Explore Knowledge"
+    },
+    {
+      "title": "24 Tirthankaras Directory",
+      "description": "Searchable directory of all 24 Tirthankaras with symbols (lanchhans), birthplaces, parents, renunciation trees, and birth nakshatras.",
+      "category": "Directories",
+      "type": "Article",
+      "url": "tirthankaras.html",
+      "action": "View Directory"
+    },
+    {
       "title": "Choubis Tirthankara Arghya",
       "description": "Traditional arghya verses for the 24 Tirthankaras and additional Jain prayers, with Devanagari and Roman transliteration.",
       "category": "Prayers & Stotras",
