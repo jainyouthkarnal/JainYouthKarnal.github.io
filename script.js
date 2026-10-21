@@ -1,6 +1,6 @@
 const translations={
 en:{
-'nav.about':'About','nav.trips':'Monthly Trips','nav.mandirMap':'Our Mandir','nav.map':'Yatra Map','nav.calendar':'Calendar','nav.announcements':'Announcements','nav.pathshala':'Sunday Pathshala','nav.events':'Events','nav.knowledge':'Knowledge', 'nav.arghya':'Choubis Tirthankara Arghya','nav.bhakti':'Bhakti','nav.bhajans':'📖 Bhajan Library','nav.darshan':'Darshan','nav.join':'Join Us',
+'nav.about':'About','nav.trips':'Monthly Trips','nav.mandirMap':'Our Mandir','nav.map':'Yatra Map','nav.calendar':'Calendar','nav.announcements':'Announcements','nav.pathshala':'Sunday Pathshala','nav.events':'Events','nav.knowledge':'Knowledge', 'nav.arghya':'24 Tirthankara Arghya','nav.bhakti':'Bhakti','nav.bhajans':'📖 Bhajan Library','nav.darshan':'Darshan','nav.join':'Join Us',
 
 'hero.eyebrow':'JIN SHASAN PRABHAVNA SANGH • KARNAL',
 'hero.title':'A digital home for <em>Jain youth</em> in Karnal.',

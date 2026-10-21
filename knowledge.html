@@ -42,31 +42,6 @@
       background: var(--sage);
       transform: translateY(-2px);
     }
-    .page-lang-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fffdf8;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 4px 10px;
-      margin-top: 18px;
-    }
-    .page-lang-btn {
-      border: none;
-      background: transparent;
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      color: var(--muted);
-      transition: all .2s ease;
-    }
-    .page-lang-btn.active {
-      background: var(--green);
-      color: #fff;
-    }
     .learning-panel {
       background: #fffdf8;
       border: 1px solid var(--line);
@@ -324,13 +299,6 @@
             <span class="lang-content lang-hi" hidden>साहित्य एवं ग्रंथ</span>
           </a>
         </nav>
-
-        <!-- In-page Language Toggle -->
-        <div class="page-lang-toggle" role="group" aria-label="Language selection">
-          <button class="page-lang-btn active" data-lang="en" type="button">English</button>
-          <span>/</span>
-          <button class="page-lang-btn" data-lang="hi" type="button">हिंदी</button>
-        </div>
       </div>
     </section>
 
@@ -680,7 +648,7 @@
       </div>
     </section>
 
-    <!-- 6. Sacred Texts & Directory Quick-Links -->
+    <!-- 6. Sacred Directories & Quick-Links -->
     <section id="directories" class="section section-cream section-anchor">
       <div class="container">
         <p class="eyebrow">
@@ -719,7 +687,7 @@
           <article class="card">
             <span class="card-number">02</span>
             <h3>
-              <span class="lang-content lang-en">24 Tirthankara Arghyas</span>
+              <span class="lang-content lang-en">24 Tirthankara Arghya</span>
               <span class="lang-content lang-hi" hidden>२४ तीर्थंकर अर्घ्य संग्रह</span>
             </h3>
             <p>
@@ -774,10 +742,8 @@
 
   <script>
     (function(){
-      function applyLanguage(lang) {
-        const isHi = lang === 'hi';
-        document.documentElement.lang = isHi ? 'hi' : 'en';
-
+      function syncKnowledgeLanguage(lang) {
+        document.documentElement.lang = lang;
         document.querySelectorAll('.lang-content').forEach(function(el){
           if (el.classList.contains('lang-' + lang)) {
             el.removeAttribute('hidden');
@@ -785,40 +751,22 @@
             el.setAttribute('hidden', '');
           }
         });
-
-        document.querySelectorAll('.page-lang-btn').forEach(function(btn){
-          btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-
-        document.querySelectorAll('.site-lang[data-lang]').forEach(function(btn){
-          btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-
-        try {
-          localStorage.setItem('jyk-language', lang);
-        } catch(e) {}
       }
 
-      document.querySelectorAll('.page-lang-btn').forEach(function(btn){
-        btn.addEventListener('click', function(){
-          applyLanguage(btn.dataset.lang);
-        });
-      });
-
-      document.querySelectorAll('.site-lang[data-lang]').forEach(function(btn){
-        btn.addEventListener('click', function(){
-          applyLanguage(btn.dataset.lang);
-        });
-      });
+      // Synchronize with the global header language switcher from script.js
+      const prevSetLanguage = window.setLanguage;
+      window.setLanguage = function(lang) {
+        if (typeof prevSetLanguage === 'function') prevSetLanguage(lang);
+        syncKnowledgeLanguage(lang);
+      };
 
       window.addEventListener('storage', function(e){
         if (e.key === 'jyk-language' && e.newValue) {
-          applyLanguage(e.newValue);
+          syncKnowledgeLanguage(e.newValue);
         }
       });
 
-      const initial = localStorage.getItem('jyk-language') || 'en';
-      applyLanguage(initial);
+      syncKnowledgeLanguage(localStorage.getItem('jyk-language') || 'en');
 
       (async function(){
         const grid = document.getElementById('knowledge-library-grid');

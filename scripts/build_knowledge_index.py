@@ -92,7 +92,7 @@ core_pages = [
         'action': 'View Directory'
     },
     {
-        'title': 'Choubis Tirthankara Arghya',
+        'title': '24 Tirthankara Arghya',
         'description': 'Traditional arghya verses for the 24 Tirthankaras and additional Jain prayers, with Devanagari and Roman transliterations.',
         'category': 'Prayers & Stotras',
         'type': 'Article',
