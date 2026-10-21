@@ -7,7 +7,7 @@
 | Shared header, menu and footer | `layout.js` |
 | Home page and hero | `index.html` |
 | Knowledge Library | `learn.html` |
-| Choubis Tirthankara Arghya | `arghya.html` |
+| 24 Tirthankara Arghya | `arghya.html` |
 | Bhajan cards and categories | `bhakti.html` |
 | Full lyrics and language selector | `lyrics.html` |
 | Yatra cards and map | `yatra.html` |
