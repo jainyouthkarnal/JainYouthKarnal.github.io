@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Play Jain-themed educational games with Jain Youth Karnal: find Tirthankars, guess from clues, unscramble words, match symbols and take a Jain knowledge quiz.">
+<meta name="theme-color" content="#148A45">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<title>Jain Games | Jain Youth Karnal</title>
+
+<body>
+<div aria-hidden="true" class="scroll-progress"></div>
+<div aria-hidden="true" class="jain-flag-bar"><span></span><span></span><span></span><span></span><span></span></div>
+<div id="site-header"></div>
+<script src="layout.js"></script>
+<main class="games-page">
+  <section class="games-hero">
+    <div class="games-hero-inner">
+      <p class="eyebrow">LEARN • PLAY • DISCOVER</p>
+      <h1>Jain <em>Games</em></h1>
+      <p>Explore Jain wisdom through little challenges for curious minds of every age.</p>
+      <div class="games-hero-badges"><span>🪷 Rooted in Jain knowledge</span><span>📱 Made for mobile</span><span>✨ Play at your own pace</span></div>
+    </div>
+  </section>
+  <section class="games-shell">
+    <div class="game-tabs" role="tablist" aria-label="Choose a game">
+      <button class="game-tab active" role="tab" aria-selected="true" data-game="wordsearch">🔎 Find Tirthankars</button>
+      <button class="game-tab" role="tab" aria-selected="false" data-game="guess">🧩 Guess the Tirthankar</button>
+      <button class="game-tab" role="tab" aria-selected="false" data-game="unscramble">🔤 Word Challenge</button>
+      <button class="game-tab" role="tab" aria-selected="false" data-game="match">🪷 Match the Symbol</button>
+      <button class="game-tab" role="tab" aria-selected="false" data-game="quiz">🧠 Jain Quiz</button>
+    </div>
+    <div class="game-panel" id="gamePanel" aria-live="polite"></div>
+    <p class="games-note">These games are for learning and enjoyment. Some Jain traditions may use different names or details; please share corrections with the Jain Youth Karnal team.</p>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="app.js"></script>
+</body>
+</html>

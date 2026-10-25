@@ -11,9 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="animations.css">
-  <style>
+    <link rel="stylesheet" href="styles.css">
+<style>
     .arghya-intro{max-width:850px}
     .arghya-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 24px}
     .arghya-count{color:var(--muted);font-size:.9rem}
@@ -31,7 +30,7 @@
     .back-to-learn{display:inline-flex;align-items:center;color:var(--green);font-weight:700;text-decoration:none}
     @media(max-width:760px){.arghya-grid{grid-template-columns:1fr}.arghya-card{padding:18px}}
   </style>
-</head>
+
 <body class="page-learn">
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
@@ -117,7 +116,6 @@ Main sharan tumhari sharan tihari, rakhahu laaj dayal khari.</div>
   </main>
 
   <div id="site-footer"></div>
-  <script src="script.js"></script>
   <script>
     const arghyaData = [
       {n:1,hiName:'श्री ऋषभनाथ भगवान्',name:'Shri Rishabhnath Bhagwan',hi:`शुचि निरमल नीरं गंध सुअक्षत, पुष्प चरु ले मन हरषाय।
@@ -416,6 +414,6 @@ Om hrīṁ Shrī Bāhubali Jinendrāya anarghya-pad-prāptaye arghyaṁ nirvapā
       if (e.key === 'jyk-language' && e.newValue) syncArghyaLanguage(e.newValue);
     });
   </script>
-  <script src="animations.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,30 @@
+/* Colouring Studio styles are scoped so they do not alter shared site components. */
+.colouring-page { color:#46382b; }
+.colouring-page .colouring-hero { text-align:center; padding:2.8rem 1rem 2rem; background:linear-gradient(120deg,#fff7df,#fffdf7); }
+.colouring-page .colouring-hero p { letter-spacing:.18em; color:#8c6a25; font-size:.75rem; font-weight:700; }
+.colouring-page .colouring-hero h1 { font:700 clamp(2.3rem,6vw,4rem) Georgia,serif; margin:.4rem; }
+.colouring-page .colouring-hero h1 em { color:#148a45; }
+.colouring-page .colouring-hero div { color:#72614c; line-height:1.6; }
+.colouring-page .colouring-layout { max-width:1350px; margin:1.2rem auto 3rem; padding:0 1rem; display:grid; grid-template-columns:260px minmax(0,1fr); gap:1rem; align-items:start; }
+.colouring-page .colouring-choices,.colouring-page .studio { min-width:0; background:#fff; border:1px solid #eadfc8; border-radius:16px; padding:1rem; box-shadow:0 10px 28px #5a421008; }
+.colouring-page .colouring-choices h2 { font-size:1.15rem; }
+.colouring-page .picture { width:100%; display:flex; align-items:center; gap:.7rem; text-align:left; padding:.8rem; margin:.5rem 0; background:#fffdf8; border:1px solid #eee4d1; border-radius:10px; cursor:pointer; font-size:1.5rem; color:#46382b; }
+.colouring-page .picture span { font-size:.95rem; }
+.colouring-page .picture small { display:block; color:#87765f; font-size:.75rem; margin-top:.25rem; }
+.colouring-page .picture.selected { border:2px solid #148a45; background:#f3fbf4; }
+.colouring-page .note { font-size:.8rem; color:#7d6e5a; line-height:1.5; background:#fbf5e6; padding:.8rem; border-radius:10px; }
+.colouring-page .toolbar,.colouring-page .actions,.colouring-page .palette { display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; }
+.colouring-page .toolbar label { display:flex; align-items:center; gap:.35rem; font-size:.85rem; }
+.colouring-page .tool,.colouring-page .actions button { border:1px solid #e3d7c0; border-radius:9px; padding:.65rem .8rem; background:#fff; color:#46382b; cursor:pointer; }
+.colouring-page .tool.active,.colouring-page .primary { background:#148a45!important; color:#fff!important; border-color:#148a45!important; }
+.colouring-page .toolbar input[type=color] { width:38px; height:32px; border:0; background:none; padding:0; }
+.colouring-page .toolbar input[type=range] { width:95px; }
+.colouring-page .palette { padding:.8rem 0; }
+.colouring-page .palette button { width:28px; height:28px; padding:0; border-radius:50%; background:var(--c); border:2px solid #fff; box-shadow:0 0 0 1px #d9d0c0; cursor:pointer; }
+.colouring-page .canvas-wrap { max-width:850px; margin:auto; border:1px solid #eee5d7; border-radius:10px; overflow:hidden; touch-action:none; }
+.colouring-page .canvas-wrap canvas { display:block; width:100%; height:auto; touch-action:none; }
+.colouring-page #hint,.colouring-page #status { text-align:center; color:#7d6e5a; font-size:.82rem; line-height:1.5; }
+.colouring-page .actions { justify-content:center; margin:.65rem 0; }
+.colouring-page .actions button { font-size:.85rem; }
+@media(max-width:780px) { .colouring-page .colouring-layout { grid-template-columns:1fr; } .colouring-page .note { display:none; } .colouring-page .toolbar { gap:.4rem; } .colouring-page .actions button { flex:1 1 42%; } }
+@media print { #site-header,.scroll-progress,.jain-flag-bar,#site-footer,.colouring-page .colouring-hero,.colouring-page .colouring-choices,.colouring-page .toolbar,.colouring-page .palette,.colouring-page #hint,.colouring-page #status,.colouring-page .actions { display:none!important; } .colouring-page .colouring-layout { display:block; margin:0; padding:0; } .colouring-page .studio { border:0; box-shadow:none; padding:0; } .colouring-page .canvas-wrap { border:0; max-width:none; } .colouring-page canvas { width:100%!important; max-height:95vh; object-fit:contain; } @page { size:A4 portrait; margin:10mm; } }

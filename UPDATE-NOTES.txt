@@ -1,2 +1,0 @@
-Replace learn.html and tirthankaras.js in the repository root, and add tirthankaras.html to the repository root.
-Optional symbols should be saved as assets/tirthankar/symbols/NN-slug.png using the slugs in tirthankaras.js. Missing symbol files are hidden automatically. Birthplace is displayed last on each card.

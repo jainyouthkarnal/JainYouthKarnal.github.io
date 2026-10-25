@@ -19,7 +19,9 @@
       ['nav.daslakshan','Das Lakshan Parva','knowledge.html#das-lakshan'],
       ['nav.tirthankaras','24 Tirthankaras','tirthankaras.html'],
       ['nav.arghya','24 Tirthankara Arghya','arghya.html'],
-      ['nav.library','Resource Library','knowledge.html#knowledge-library']
+      ['nav.library','Resource Library','knowledge.html#knowledge-library'],
+      ['nav.games','Jain Games','games.html'],
+      ['nav.colouring','Colouring Studio','colouring.html']
     ]},
 
     {k:'nav.bhakti',t:'Bhakti',page:'bhakti',href:'bhakti.html'},

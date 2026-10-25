@@ -1,29 +1,8 @@
-# Panch Balayati and Das Lakshan Parva
-
-## Panch Balayati Tirthankaras
-
-The five Balayati Tirthankaras are traditionally named as:
-
-1. **Shri Vasupujya Swami** — श्री वासुपूज्यनाथ भगवान
-2. **Shri Mallinath Swami** — श्री मल्लिनाथ भगवान
-3. **Shri Neminath Swami** — श्री नेमिनाथ भगवान
-4. **Shri Parshvanath Swami** — श्री पार्श्वनाथ भगवान
-5. **Shri Mahavir Swami** — श्री महावीर स्वामी भगवान
-
-Traditional Panch Balayati verse:
-
-> श्री वासुपूज्य मल्लि नेमि, पारस वीर अती।  
-> नमूँ मन-वच-तन धरि प्रेम, पाँचों बालयती॥
-
-Associated mantra:
-
-> ॐ ह्रीं श्री वासुपूज्य-मल्लिनाथ-नेमिनाथ-पार्श्वनाथ-महावीरस्वामी पंचबालयति-तीर्थंकरेभ्यो अनर्घ्यपद-प्राप्तये अर्घ्यं निर्वपामीति स्वाहा।
+# Das Lakshan Parva (दशलक्षण पर्व)
 
 ## Das Lakshan Parva
 
 Das Lakshan Parva is the ten-day Digambar Jain festival of the ten supreme virtues of the soul, observed from Bhadrapada Shukla Panchami to Bhadrapada Shukla Chaturdashi, when one dharma such as forgiveness, humility or truth is contemplated each day through worship, scriptural study and austerity.
-
-Das Lakshan Parva is a 10-day sacred festival celebrated by Digambara Jains to focus on soul purification, spiritual growth, and the practice of ten supreme virtues (Uttam Dharmas).
 
 ## The 10 Days and Virtues
 

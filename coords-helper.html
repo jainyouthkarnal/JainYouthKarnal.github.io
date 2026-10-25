@@ -11,8 +11,7 @@ textarea{width:100%;height:110px;padding:12px;border:1px solid #d9cfb8;border-ra
 code{display:block;margin:8px 0;padding:10px 12px;background:#f1ece0;border-radius:8px;word-break:break-all}
 .warn{color:#a3262f;font-weight:600}.ok{color:#148a45;font-weight:600}
 a{color:#0c3b2e;font-weight:700}
-</style><link rel="stylesheet" href="animations.css">
-</head><body><main>
+</style></head><body><main>
 <h1>Temple coordinates helper</h1>
 <p>Open the temple in Google Maps, copy the <b>full link from the address bar</b> (not a short <i>maps.app.goo.gl</i> link) and paste it here. You can also paste coordinates copied by right-clicking the map.</p>
 <textarea id="in" placeholder="https://www.google.com/maps/place/..."></textarea>
@@ -40,5 +39,4 @@ function show(){
   <p>Check it on the map: <a target="_blank" rel="noopener" href="https://www.google.com/maps?q=${r.lat},${r.lon}">open ${r.lat}, ${r.lon}</a></p></div>`;
 }
 document.getElementById('in').addEventListener('input',show);
-</script></main><script src="animations.js"></script>
-</body></html>
+</script></main></body></html>

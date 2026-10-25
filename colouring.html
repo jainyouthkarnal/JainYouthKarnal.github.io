@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Colour Jain-inspired illustrations online, then print or download your artwork with Jain Youth Karnal's Colouring Studio.">
+  <meta name="theme-color" content="#148A45">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="colouring.css">
+  <title>Jain Colouring Studio | Jain Youth Karnal</title>
+</head>
+<body>
+  <div aria-hidden="true" class="scroll-progress"></div>
+  <div aria-hidden="true" class="jain-flag-bar"><span></span><span></span><span></span><span></span><span></span></div>
+  <div id="site-header"></div>
+  <main class="colouring-page">
+    <section class="colouring-hero">
+      <p>CREATE • COLOUR • SHARE</p>
+      <h1>Jain <em>Colouring Studio</em></h1>
+      <div>Choose an illustration, colour it online, then print or download your artwork.</div>
+    </section>
+    <div class="colouring-layout">
+      <aside class="colouring-choices">
+        <h2>Choose a picture</h2>
+        <button data-picture="lotus" class="picture selected" type="button">🪷 <span><b>Lotus &amp; leaves</b><small>Nature and calm</small></span></button>
+        <button data-picture="temple" class="picture" type="button">🛕 <span><b>Temple outline</b><small>Architecture inspired</small></span></button>
+        <button data-picture="ahimsa" class="picture" type="button">☮ <span><b>Ahimsa &amp; peace</b><small>Kindness and non-violence</small></span></button>
+        <p class="note">These starter drawings are decorative prototypes, not verified traditional Jain iconography. Community-reviewed line art can be added later.</p>
+      </aside>
+      <section class="studio" aria-label="Colouring workspace">
+        <div class="toolbar">
+          <button class="tool active" data-tool="fill" type="button">🪣 Fill</button>
+          <button class="tool" data-tool="brush" type="button">🖌 Brush</button>
+          <button class="tool" data-tool="eraser" type="button">⌫ Eraser</button>
+          <label>Colour <input id="colour" type="color" value="#e8a52a" aria-label="Choose colour"></label>
+          <label>Brush <input id="size" type="range" min="2" max="32" value="10" aria-label="Brush size"></label>
+        </div>
+        <div class="palette" aria-label="Quick colours">
+          <button type="button" data-colour="#e85d4a" style="--c:#e85d4a" aria-label="Red"></button>
+          <button type="button" data-colour="#f3b52d" style="--c:#f3b52d" aria-label="Yellow"></button>
+          <button type="button" data-colour="#2e9b65" style="--c:#2e9b65" aria-label="Green"></button>
+          <button type="button" data-colour="#3786cf" style="--c:#3786cf" aria-label="Blue"></button>
+          <button type="button" data-colour="#8c66c7" style="--c:#8c66c7" aria-label="Purple"></button>
+          <button type="button" data-colour="#ef86b4" style="--c:#ef86b4" aria-label="Pink"></button>
+          <button type="button" data-colour="#f0d7a2" style="--c:#f0d7a2" aria-label="Beige"></button>
+          <button type="button" data-colour="#493a2c" style="--c:#493a2c" aria-label="Brown"></button>
+          <button type="button" data-colour="#ffffff" style="--c:#ffffff" aria-label="White"></button>
+        </div>
+        <div class="canvas-wrap"><canvas id="canvas" width="900" height="900" aria-label="Colouring canvas"></canvas></div>
+        <p id="hint">Fill: tap an enclosed area. Brush: draw with your finger or mouse.</p>
+        <div class="actions">
+          <button class="primary" id="download" type="button">⬇ Download coloured PNG</button>
+          <button id="blank" type="button">▧ Download blank outline</button>
+          <button id="print" type="button">🖨 Print</button>
+        </div>
+        <div class="actions">
+          <button id="undo" type="button">↶ Undo</button>
+          <button id="redo" type="button">↷ Redo</button>
+          <button id="save" type="button">💾 Save on this device</button>
+          <button id="reset" type="button">↻ Start again</button>
+        </div>
+        <p id="status" role="status" aria-live="polite">Your artwork stays on this device unless you download it.</p>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="layout.js"></script>
+  <script src="app.js"></script>
+  <script src="colouring.js"></script>
+</body>
+</html>
