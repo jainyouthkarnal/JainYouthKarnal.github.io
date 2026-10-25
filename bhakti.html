@@ -11,6 +11,58 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
+<style>
+/* Match the language selector appearance used on the individual lyrics page. */
+.page-bhakti:not(.page-lyrics) .bhajan-tools > .bhajan-view-controls.lyrics-page-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: max-content;
+  max-width: 100%;
+  padding: 7px;
+  margin-left: auto;
+  border: 1px solid #cfd9d0;
+  border-radius: 999px;
+  background: #e9f0e9;
+  box-sizing: border-box;
+}
+.page-bhakti:not(.page-lyrics) .bhajan-tools > .bhajan-view-controls.lyrics-page-controls .bhajan-view-btn {
+  appearance: auto;
+  -webkit-appearance: button;
+  display: inline-block;
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 3px 12px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #f5f5f5;
+  box-shadow: none;
+  color: #111;
+  font: 400 1.35rem Arial, sans-serif;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.page-bhakti:not(.page-lyrics) .bhajan-tools > .bhajan-view-controls.lyrics-page-controls .bhajan-view-btn:hover {
+  background: #eee;
+}
+.page-bhakti:not(.page-lyrics) .bhajan-tools > .bhajan-view-controls.lyrics-page-controls .bhajan-view-btn.active {
+  background: #f5f5f5 !important;
+  color: #111 !important;
+  border-color: #888;
+  box-shadow: none;
+}
+@media (max-width: 480px) {
+  .page-bhakti:not(.page-lyrics) .bhajan-tools > .bhajan-view-controls.lyrics-page-controls {
+    gap: 6px;
+    padding: 6px;
+  }
+  .page-bhakti:not(.page-lyrics) .bhajan-tools > .bhajan-view-controls.lyrics-page-controls .bhajan-view-btn {
+    padding: 3px 9px;
+    font-size: 1.15rem;
+  }
+}
+</style>
 <link rel="stylesheet" href="animations.css">
 </head>
 <body class="page-bhakti">
@@ -27,7 +79,7 @@
 <div aria-label="Bhajan search, view and filters" class="bhajan-tools">
 <div aria-label="Choose lyrics language" class="bhajan-view-controls lyrics-page-controls" role="group">
 <button class="bhajan-view-btn" data-view="hindi" type="button" aria-pressed="false">हिंदी</button>
-<button class="bhajan-view-btn" data-view="roman" type="button" aria-pressed="false">English</button>
+<button class="bhajan-view-btn" data-view="roman" type="button" aria-pressed="false">Roman</button>
 <button class="bhajan-view-btn active" data-view="both" type="button" aria-pressed="true">Both</button>
 </div>
 <div aria-label="Filter bhajans by tag" class="bhajan-tags" id="bhajan-tags"></div>
@@ -36,7 +88,7 @@
 <input autocomplete="off" data-i18n-placeholder="bhakti.searchPlaceholder" id="bhajan-search" placeholder="Search bhajans..." type="search"/>
 </label>
 </div>
-<div class="bhajan-empty" hidden="" id="bhajan-empty">No bhajans found. Try another search or tag.</div>
+<div class="bhajan-empty" hidden="" id="bhajan-empty">No devotional items found. Try another search or tag.</div>
 <div class="bhajan-card-grid" id="bhajan-card-grid">
 
 <!-- 01 -->
@@ -680,6 +732,549 @@
   </div>
 </article>
 
+
+<!-- 10 | Chalisa -->
+<article class="bhajan-card" data-tags="chalisa,mahavir" data-title="श्री महावीर जिन चालीसा Śrī Mahāvīra Jina Cālīsā">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">10</span>
+      <div>
+        <h3>🪷 श्री महावीर जिन चालीसा 🪷</h3>
+        <span class="bhajan-subhead">Śrī Mahāvīra Jina Cālīsā</span>
+      </div>
+      <div class="bhajan-tag-list">
+        <button class="bhajan-tag" data-tag="chalisa" type="button">chalisa</button>
+        <button class="bhajan-tag" data-tag="mahavir" type="button">mahavir</button>
+      </div>
+    </div>
+    <span class="bhajan-label">Chalisa</span>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-hi" lang="hi">
+        <p>शीश नवा अरिहन्त को, सिद्धन करूँ प्रणाम ।<br/>उपाध्याय आचार्य का, ले सुखकारी नाम ।।१।।</p>
+        <p>सर्व साधु और सरस्वती, जिन मंदिर सुखकार ।<br/>महावीर भगवान को, मन मंदिर में धार ।।२।।</p>
+        <p>जय महावीर दयालु स्वामी, वीर प्रभु तुम जग में नामी ।।३।।<br/>वर्धमान है नाम तुम्हारा, लगे हृदय को प्यारा प्यारा ।।४।।</p>
+        <p>शांत-छवि और मोहनी मूरत, शांत हँसीली सोहनी सूरत ।।५।।<br/>तुमने वेष दिगम्बर धारा, कर्म शत्रु भी तुम से हारा ।।६।।</p>
+        <p>क्रोध मान और लोभ भगाया, माया-मोह तुमसे डर खाया ।।७।।<br/>तू सर्वज्ञ सर्व का ज्ञाता, तुझको दुनिया से क्या नाता ।।८।।</p>
+        <p>तुझमें नहीं राग और द्वेषा, वीतराग तू हितोपदेशा ।।९।।<br/>तेरा नाम जगत में सच्चा, जिसको जाने बच्चा-बच्चा ।।१०।।</p>
+        <p>भूत प्रेत तुम से भय खावें, व्यंतर-राक्षस सब भग जावें ।।११।।<br/>महा व्याध मारी न सतावे, महा विकराल काल डर खावें ।।१२।।</p>
+        <p>काला नाग होय फन धारी, या हो शेर भयंकर भारी ।।१३।।<br/>न हो कोई बचाने वाला, स्वामी तुम्हीं करो प्रतिपाला ।।१४।।</p>
+        <p>अगनि दवानल सुलग रही हो, तेज हवा से भड़क रही हो ।।१५।।<br/>नाम तुम्हारा सब दुख खोवे, आग एकदम ठण्डी होवे ।।१६।।</p>
+        <p>हिंसामय था जग विस्तारा, तब तुमने कीना निस्तारा ।।१७।।<br/>जन्म लिया कुंडलपुर नगरी, हुई सुखी तब प्रजा सगरी ।।१८।।</p>
+        <p>सिद्धारथ जी पिता तुम्हारे, त्रिशला के आँखों के तारे ।।१९।।<br/>छोड़ सभी झंझट संसारी, स्वामी हुए बाल ब्रह्मचारी ।।२०।।</p>
+        <p>पंचम काल महा दुखदाई, चाँदनपुर महिमा दिखलाई ।।२१।।<br/>टीले में अतिशय दिखलाया, एक गाय का दूध गिराया ।।२२।।</p>
+        <p>सोच हुआ मन में ग्वाले के, पहुँचा एक फावड़ा लेके ।।२३।।<br/>सारा टीला खोद गिराया, तब तुमने दर्शन दिखलाया ।।२४।।</p>
+        <p>जोधराज को दुख ने घेरा, उसने नाम जपा तब तेरा ।।२५।।<br/>ठण्डा हुआ तोप का गोला, तब सबने जयकारा बोला ।।२६।।</p>
+        <p>मंत्री ने मंदिर बनवाया, राजा ने भी दरब लगाया ।।२७।।<br/>बड़ी धर्मशाला बनवाई, तुमको लाने को ठहराई ।।२८।।</p>
+        <p>तुमने तोड़ी बीसों गाड़ी, पहिया खिसका नहीं अगाड़ी ।।२९।।<br/>ग्वाले ने जो हाथ लगाया, फिर तो रथ चलता ही पाया ।।३०।।</p>
+        <p>पहिले दिन बैशाख बदी के, रथ जाता है तीर नदी के ।।३१।।<br/>मीना गूजर सब ही आते, नाच-कूद सब चित्त उमगाते ।।३२।।</p>
+        <p>स्वामी तुमने प्रेम निभाया, ग्वाले का तुम मान बढ़ाया ।।३३।।<br/>हाथ लगे ग्वाले का जब ही, स्वामी रथ चलता है तब ही ।।३४।।</p>
+        <p>मेरी है टूटी सी नैया, तुम बिन कोई नहीं खिवैया ।।३५।।<br/>मुझ पर स्वामी जरा कृपा कर, मैं हूँ प्रभू तुम्हारा चाकर ।।३६।।</p>
+        <p>तुमसे मैं अरु कछु नहीं चाहूँ, जन्म-जन्म तेरे दर्शन पाऊं ।।३७।।<br/>चालीसे को ‘चन्द्र’ बनावे, वीर प्रभू को शीश नवावे ।।३८।।</p>
+        <p>नित चालीसहिं बार, पाठ करे चालीस दिन ।<br/>खेय सुगंध अपार, वर्धमान के सामने ।।३९।।</p>
+        <p>होय कुबेर समान, जन्म दरिद्री होय जो ।<br/>जिसके नहिं संतान, नाम वंश जग में चले ।।४०।।</p>
+      </div>
+    </div>
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-roman" lang="en">
+        <p>Śīśa navā arihanta kō, sid ’dhana karūm̐ praṇāma.<br/>Upādhyāya ācārya kā, lē sukhakārī nāma..1..</p>
+        <p>Sarva sādhu aura sarasvatī, jina mandira sukhakāra.<br/>Mahāvīra bhagavāna kō, mana mandira mēṁ dhāra..2..</p>
+        <p>Jaya mahāvīra dayālu svāmī, vīra prabhu tuma jaga mēṁ nāmī..3..<br/>Vardhamāna hai nāma tumhārā, lagē hr̥daya kō pyārā pyārā..4..</p>
+        <p>Śānta-chavi aura mōhanī mūrata, śānta ham̐sīlī sōhanī sūrata..5..<br/>Tumanē vēṣa digambara dhārā, karma śatru bhī tuma sē hārā..6..</p>
+        <p>Krōdha māna aura lōbha bhagāyā, māyā-mōha tumasē ḍara khāyā..7..<br/>Tū sarvajña sarva kā jñātā, tujhakō duniyā sē kyā nātā..8..</p>
+        <p>Tujhamēṁ nahīṁ rāga aura dvēṣā, vītarāga tū hitōpadēśā..9..<br/>Tērā nāma jagata mēṁ saccā, jisakō jānē baccā-baccā..10..</p>
+        <p>Bhūta prēta tuma sē bhaya khāvēṁ, vyantara-rākṣasa saba bhaga jāvēṁ..11..<br/>Mahā vyādha mārī na satāvē, mahā vikarāla kāla ḍara khāvēṁ..12..</p>
+        <p>Kālā nāga hōya phana dhārī, yā hō śēra bhayaṅkara bhārī..13..<br/>Na hō kōi bacānē vālā, svāmī tumhīṁ karō pratipālā..14..</p>
+        <p>Agani davānala sulaga rahī hō, tēja havā sē bhaṛaka rahī hō..15..<br/>Nāma tumhārā saba dukha khōvē, āga ēkadama ṭhaṇḍī hōvē..16..</p>
+        <p>Hinsāmaya thā jaga vistārā, taba tumanē kīnā nistārā..17..<br/>Janma liyā kuṇḍalapura nagarī, hui sukhī taba prajā sagarī..18..</p>
+        <p>Sid ’dhāratha jī pitā tumhārē, triśalā kē ām̐khōṁ kē tārē..19..<br/>Chōṛa sabhī jhan̄jhaṭa sansārī, svāmī hu ’ē bāla brahmacārī..20..</p>
+        <p>Pan̄cama kāla mahā dukhadāi, cām̐danapura mahimā dikhalāi..21..<br/>Ṭīlē mēṁ atiśaya dikhalāyā, ēka gāya kā dūdha girāyā..22..</p>
+        <p>Sōca hu ’ā mana mēṁ gvālē kē, pahum̐cā ēka phāvaṛā lēkē..23..<br/>Sārā ṭīlā khōda girāyā, taba tumanē darśana dikhalāyā..24..</p>
+        <p>Jōdharāja kō dukha nē ghērā, usanē nāma japā taba tērā..25..<br/>Ṭhaṇḍā hu ’ā tōpa kā gōlā, taba sabanē jayakārā bōlā..26..</p>
+        <p>Mantrī nē mandira banavāyā, rājā nē bhī daraba lagāyā..27..<br/>Baṛī dharmaśālā banavāi, tumakō lānē kō ṭhaharāi..28..</p>
+        <p>Tumanē tōṛī bīsōṁ gāṛī, pahiyā khisakā nahīṁ agāṛī..29..<br/>Gvālē nē jō hātha lagāyā, phira tō ratha calatā hī pāyā..30..</p>
+        <p>Pahilē dina baiśākha badī kē, ratha jātā hai tīra nadī kē..31..<br/>Mīnā gūjara saba hī ātē, nāca-kūda saba citta umagātē..32..</p>
+        <p>Svāmī tumanē prēma nibhāyā, gvālē kā tuma māna baṛhāyā..33..<br/>Hātha lagē gvālē kā jaba hī, svāmī ratha calatā hai taba hī..34..</p>
+        <p>Mērī hai ṭūṭī sī naiyā, tuma bina kōi nahīṁ khivaiyā..35..<br/>Mujha para svāmī jarā kr̥pā kara, maiṁ hūm̐ prabhū tumhārā cākara..36..</p>
+        <p>Tumasē maiṁ aru kachu nahīṁ cāhūm̐, janma-janma tērē darśana pā ’ūṁ..37..<br/>Cālīsē kō ‘candra’ banāvē, vīra prabhū kō śīśa navāvē..38..</p>
+        <p>Nita cālīsahiṁ bāra, pāṭha karē cālīsa dina.<br/>Khēya sugandha apāra, vardhamāna kē sāmanē..39..</p>
+        <p>Hōya kubēra samāna, janma daridrī hōya jō.<br/>Jisakē nahiṁ santāna, nāma vaśa jaga mēṁ calē..40..</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 11 | Chalisa -->
+<article class="bhajan-card" data-tags="chalisa,parshwanath" data-title="श्री पार्श्वनाथ जिन चालीसा (अहिच्छत्र) Śrī Pārśvanātha Jina Cālīsā (Ahicchatra)">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">11</span>
+      <div>
+        <h3>🪷 श्री पार्श्वनाथ जिन चालीसा (अहिच्छत्र) 🪷</h3>
+        <span class="bhajan-subhead">Śrī Pārśvanātha Jina Cālīsā (Ahicchatra)</span>
+      </div>
+      <div class="bhajan-tag-list">
+        <button class="bhajan-tag" data-tag="chalisa" type="button">chalisa</button>
+        <button class="bhajan-tag" data-tag="parshwanath" type="button">parshwanath</button>
+      </div>
+    </div>
+    <span class="bhajan-label">Chalisa</span>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-hi" lang="hi">
+        <p>कविश्री चंद्र<br/>शीश नवा अरिहंत को, सिद्धन करूँ प्रणाम ।</p>
+        <p>उपाध्याय आचार्य का ले सुखकारी नाम ।।<br/>सर्व साधु और सरस्वती, जिन-मंदिर सुखकार ।</p>
+        <p>अहिच्छत्र और पार्श्व को, मन-मंदिर में धार ।।<br/>पार्श्वनाथ जगत्-हितकारी, हो स्वामी तुम व्रत के धारी ।</p>
+        <p>सुर-नर-असुर करें तुम सेवा, तुम ही सब देवन के देवा ।।१।।<br/>तुमसे करम-शत्रु भी हारा, तुम कीना जग का निस्तारा ।</p>
+        <p>अश्वसेन के राजदुलारे, वामा की आँखों के तारे ।।२।।<br/>काशी जी के स्वामी कहाये, सारी परजा मौज उड़ाये ।</p>
+        <p>इक दिन सब मित्रों को लेके, सैर करन को वन में पहुँचे ।।३।।<br/>हाथी पर कसकर अम्बारी, इक जगंल में गर्इ सवारी ।</p>
+        <p>एक तपस्वी देख वहाँ पर, उससे बोले वचन सुनाकर ।।४।।<br/>तपसी! तुम क्यों पाप कमाते, इस लक्कड़ में जीव जलाते ।</p>
+        <p>तपसी तभी कुदाल उठाया, उस लक्कड़ को चीर गिराया ।।५।।<br/>निकले नाग-नागनी कारे, मरने के थे निकट बिचारे ।</p>
+        <p>रहम प्रभु के दिल में आया, तभी मंत्र-नवकार सुनाया ।।६।।<br/>मरकर वो पाताल सिधाये, पद्मावति-धरणेन्द्र कहाये ।</p>
+        <p>तपसी मरकर देव कहाया, नाम ‘कमठ’ ग्रन्थों में गाया ।।७।।<br/>एक समय श्री पारस स्वामी, राज छोड़कर वन की ठानी ।</p>
+        <p>तप करते थे ध्यान लगाये, इक-दिन ‘कमठ’ वहाँ पर आये ।।८।।<br/>फौरन ही प्रभु को पहिचाना, बदला लेना दिल में ठाना ।</p>
+        <p>बहुत अधिक बारिश बरसार्इ, बादल गरजे बिजली गिरार्इ ।।९।।<br/>बहुत अधिक पत्थर बरसाये, स्वामी तन को नहीं हिलाये ।</p>
+        <p>पद्मावती-धरणेन्द्र भी आए, प्रभु की सेवा में चित लाए ।।१०।।<br/>धरणेन्द्र ने फन फैलाया, प्रभु के सिर पर छत्र बनाया ।</p>
+        <p>पद्मावति ने फन फैलाया, उस पर स्वामी को बैठाया ।।११।।<br/>कर्मनाश प्रभु ज्ञान उपाया, समोसरण देवेन्द्र रचाया ।</p>
+        <p>यही जगह ‘अहिच्छत्र‘ कहाये, पात्रकेशरी जहाँ पर आये ।।१२।।<br/>शिष्य पाँच सौ संग विद्वाना, जिनको जाने सकल जहाना ।</p>
+        <p>पार्श्वनाथ का दर्शन पाया, सबने जैन-धरम अपनाया ।।१३।।<br/>‘अहिच्छत्र‘ श्री सुन्दर नगरी, जहाँ सुखी थी परजा सगरी ।</p>
+        <p>राजा श्री वसुपाल कहाये, वो इक जिन-मंदिर बनवाये ।।१४।।<br/>प्रतिमा पर पालिश करवाया, फौरन इक मिस्त्री बुलवाया ।</p>
+        <p>वह मिस्तरी माँस था खाता, इससे पालिश था गिर जाता ।।१५।।<br/>मुनि ने उसे उपाय बताया, पारस-दर्शन-व्रत दिलवाया ।</p>
+        <p>मिस्त्री ने व्रत-पालन कीना, फौरन ही रंग चढ़ा नवीना ।।१६।।<br/>गदर सतावन का किस्सा है, इक माली का यों लिक्खा है ।</p>
+        <p>वह माली प्रतिमा को लेकर, झट छुप गया कुएँ के अंदर ।।१७।।<br/>उस पानी का अतिशय-भारी, दूर होय सारी बीमारी ।</p>
+        <p>जो अहिच्छत्र हृदय से ध्यावे, सो नर उत्तम-पदवी पावे ।।१८।।<br/>पुत्र-संपदा की बढ़ती हो, पापों की इकदम घटती हो ।</p>
+        <p>है तहसील आँवला भारी, स्टेशन पर मिले सवारी ।।१९।।<br/>रामनगर इक ग्राम बराबर, जिसको जाने सब नारी-नर ।</p>
+        <p>चालीसे को ‘चंद्र’ बनाये, हाथ जोड़कर शीश नवाये ।।२०।।<br/>नित चालीसहिं बार, पाठ करे चालीस दिन ।</p>
+        <p>खेय सुगंध अपार, अहिच्छत्र में आय के ।।<br/>होय कुबेर-समान, जन्म-दरिद्री होय जो ।</p>
+        <p>जिसके नहिं संतान, नाम-वंश जग में चले ।।</p>
+      </div>
+    </div>
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-roman" lang="en">
+        <p>Śīśa navā arihanta kō, sid ’dhana karūm̐ praṇāma.<br/>Upādhyāya ācārya kā lē sukhakārī nāma..</p>
+        <p>Sarva sādhu aura sarasvatī, jina-mandira sukhakāra.<br/>Ahicchatra aura pārśva kō, mana-mandira mēṁ dhāra..</p>
+        <p>Pārśvanātha jagat-hitakārī, hō svāmī tuma vrata kē dhārī.<br/>Sura-nara-asura karēṁ tuma sēvā, tuma hī saba dēvana kē dēvā..1..</p>
+        <p>Tumasē karama-śatru bhī hārā, tuma kīnā jaga kā nistārā.<br/>Aśvasēna kē rājadulārē, vāmā kī ām̐khōṁ kē tārē..2..</p>
+        <p>Kāśī jī kē svāmī kahāyē, sārī parajā mauja uṛāyē.<br/>Ika dina saba mitrōṁ kō lēkē, saira karana kō vana mēṁ pahum̐cē..3..</p>
+        <p>Hāthī para kasakara ambārī, ika jaganla mēṁ gai savārī.<br/>Ēka tapasvī dēkha vahām̐ para, usasē bōlē vacana sunākara..4..</p>
+        <p>Tapasī! Tuma kyōṁ pāpa kamātē, isa lakkaṛa mēṁ jīva jalātē.<br/>Tapasī tabhī kudāla uṭhāyā, usa lakkaṛa kō cīra girāyā..5..</p>
+        <p>Nikalē nāga-nāganī kārē, maranē kē thē nikaṭa bicārē.<br/>Rahama prabhu kē dila mēṁ āyā, tabhī mantra-navakāra sunāyā..6..</p>
+        <p>Marakara vō pātāla sidhāyē, padmāvati-dharaṇēndra kahāyē.<br/>Tapasī marakara dēva kahāyā, nāma ‘kamaṭha’ granthōṁ mēṁ gāyā..7..</p>
+        <p>Ēka samaya śrī pārasa svāmī, rāja chōṛakara vana kī ṭhānī.<br/>Tapa karatē thē dhyāna lagāyē, ika-dina ‘kamaṭha’ vahām̐ para āyē..8..</p>
+        <p>Phaurana hī prabhu kō pahicānā, badalā lēnā dila mēṁ ṭhānā.<br/>Bahuta adhika bāriśa barasāi, bādala garajē bijalī girāi..9..</p>
+        <p>Bahuta adhika pat ’thara barasāyē, svāmī tana kō nahīṁ hilāyē.<br/>Padmāvatī-dharaṇēndra bhī ā ’ē, prabhu kī sēvā mēṁ cita lā ’ē..10..</p>
+        <p>Dharaṇēndra nē phana phailāyā, prabhu kē sira para chatra banāyā.<br/>Padmāvati nē phana phailāyā, usa para svāmī kō baiṭhāyā..11..</p>
+        <p>Karmanāśa prabhu jñāna upāyā, samōsaraṇa dēvēndra racāyā.<br/>Yahī jagaha ‘ahicchatra‘kahāyē, pātrakēśarī jahām̐ para āyē..12..</p>
+        <p>Śiṣya pām̐ca sau saṅga vidvānā, jinakō jānē sakala jahānā.<br/>Pārśvanātha kā darśana pāyā, sabanē jaina-dharama apanāyā..13..</p>
+        <p>‘Ahicchatra‘śrī sundara nagarī, jahām̐ sukhī thī parajā sagarī.<br/>Rājā śrī vasupāla kahāyē, vō ika jina-mandira banavāyē..14..</p>
+        <p>Pratimā para pāliśa karavāyā, phaurana ika mistrī bulavāyā.<br/>Vaha mistarī mām̐sa thā khātā, isasē pāliśa thā gira jātā..15..</p>
+        <p>Muni nē usē upāya batāyā, pārasa-darśana-vrata dilavāyā.<br/>Mistrī nē vrata-pālana kīnā, phaurana hī raṅga caṛhā navīnā..16..</p>
+        <p>Gadara satāvana kā kis ’sā hai, ika mālī kā yōṁ likkhā hai.<br/>Vaha mālī pratimā kō lēkara, jhaṭa chupa gayā ku ’ēm̐ kē andara..17..</p>
+        <p>Usa pānī kā atiśaya-bhārī, dūra hōya sārī bīmārī.<br/>Jō ahicchatra hr̥daya sē dhyāvē, sō nara uttama-padavī pāvē..18..</p>
+        <p>Putra-sampadā kī baṛhatī hō, pāpōṁ kī ikadama ghaṭatī hō.<br/>Hai tahasīla ām̐valā bhārī, sṭēśana para milē savārī..19..</p>
+        <p>Rāmanagara ika grāma barābara, jisakō jānē saba nārī-nara.<br/>Cālīsē kō ‘candra’ banāyē, hātha jōṛakara śīśa navāyē..20..</p>
+        <p>Nita cālīsahiṁ bāra, pāṭha karē cālīsa dina.<br/>Khēya sugandha apāra, ahicchatra mēṁ āya kē..</p>
+        <p>Hōya kubēra-samāna, janma-daridrī hōya jō.<br/>Jisakē nahiṁ santāna, nāma-vanśa jaga mēṁ calē..</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 12 | Chalisa -->
+<article class="bhajan-card" data-tags="chalisa,parshwanath" data-title="बड़ागाँव पार्श्वनाथ जिन चालीसा Baṛāgām̐va Pārśvanātha Jina Cālīsā">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">12</span>
+      <div>
+        <h3>🪷 बड़ागाँव पार्श्वनाथ जिन चालीसा 🪷</h3>
+        <span class="bhajan-subhead">Baṛāgām̐va Pārśvanātha Jina Cālīsā</span>
+      </div>
+      <div class="bhajan-tag-list">
+        <button class="bhajan-tag" data-tag="chalisa" type="button">chalisa</button>
+        <button class="bhajan-tag" data-tag="parshwanath" type="button">parshwanath</button>
+      </div>
+    </div>
+    <span class="bhajan-label">Chalisa</span>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-hi" lang="hi">
+        <p>बड़ागाँव अतिशय बड़ा, बनते बिगड़े काज ।<br/>तीन लोक तीरथ नमहुँ, पार्श्व प्रभु महाराज ।।१।।</p>
+        <p>आदि-चन्द्र-विमलेश-नमि, पारस-वीरा ध्याय ।<br/>स्याद्वाद जिन-धर्म नमि, सुमति गुरु शिरनाय ।।२।।</p>
+        <p>भारत वसुधा पर वसु गुण सह, गुणिजन शाश्वत राज रहे ।<br/>सबकल्याणक तीर्थ-मूर्ति सह, पंचपरम पद साज रहे ।।१।।</p>
+        <p>खाण्डव वन की उत्तर भूमी, हस्तिनापुर लग भाती है ।<br/>धरा-धन्य रत्नों से भूषित, देहली पास सुहाती है ।।२।।</p>
+        <p>अर्धचक्रि रावण पंडित ने, आकर ध्यान लगाया था ।<br/>अगणित विद्याओं का स्वामी, विद्याधर कहलाया था ।।३।।</p>
+        <p>आदि तीर्थंकर ऋषभदेव का, समवशरण मन भाया था ।<br/>अगणित तीर्थंकर उपदेशी, भव्यों बोध कराया था ।।४।।</p>
+        <p>चन्द्रप्रभु अरु विमलनाथ का, यश-गौरव भी छाया था ।<br/>पारसनाथ वीर प्रभुजी का, समोशरण लहराया था ।।५।।</p>
+        <p>बड़ागाँव की पावन-भूमी, यह इतिहास पुराना है ।<br/>भव्यजनों ने करी साधना, मुक्ती का पैमाना है ।।६।।</p>
+        <p>काल परिणमन के चक्कर में, परिवर्तन बहुबार हुए ।<br/>राजा नेक शूर-कवि-पण्डित, साधक भी क्रम वार हुए ।।७।।</p>
+        <p>जैन धर्म की ध्वजा धरा पर, आदिकाल से फहरायी ।<br/>स्याद्वाद की सप्त-तरंगें, जन-मानस में लहरायी ।।८।।</p>
+        <p>बड़ागाँव जैनों का गढ़ था, देवों गढ़ा कहाता था ।<br/>पाँचों पाण्डव का भी गहरा, इस भूमी से नाता था ।।९।।</p>
+        <p>पारस-टीला एक यहाँ पर, जन-आदर्श कहाता था ।<br/>भक्त मुरादें पूरी होतीं, देवों सम यश पाता था ।।१०।।</p>
+        <p>टीले की ख्याती वायु सम, दिग्-दिगन्त में लहरार्इ ।<br/>अगणित चमत्कार अतिशय-युत, सुरगण ने महिमा गार्इ ।।११।।</p>
+        <p>शीशराम की सुन्दर धेनु, नित टीले पर आती थी ।<br/>मौका पाकर दूध झराकर, भक्ति-भाव प्रगटाती थी ।।१२।।</p>
+        <p>ऐलक जी जब लखा नजारा, कैसी अद्भुत माया है ।<br/>बिना निकाले दूध झर रहा, क्या देवों की छाया है ।।१३।।</p>
+        <p>टीले पर जब ध्यान लगाया, देवों ने आ बतलाया ।<br/>पारस-प्रभु की अतिशय प्रतिमा, चमत्कार सुर दिखलाया ।।१४।।</p>
+        <p>भक्तगणों की भीड़ भावना, धैर्य बाँध भी फूट पड़ा ।<br/>लगे खोदने टीले को सब, नागों का दल टूट पड़ा ।।१५।।</p>
+        <p>भयाकुलित लख भक्त-गणों को, नभ से मधुर-ध्वनी आयी ।<br/>घबराओ मत पारस प्रतिमा, शनै: शनै: खोदो भार्इ ।।१६।।</p>
+        <p>ऐलक जी ने मंत्र शक्ति से, सारे विषधर विदा किये ।<br/>णमोकार का जाप करा कर, पार्श्व-प्रभू के दर्श लिये ।।१७।।</p>
+        <p>अतिशय दिव्य सुशोभित प्रतिमा, लखते खुशियाँ लहरार्इ ।<br/>नाच उठे नर-नारि खुशी से, जय-जय ध्वनि भू नभ छार्इ ।।१८।।</p>
+        <p>मेला सा लग गया धरा, पारस प्रभु जय-जयकारे ।<br/>मानव पशुगण की क्या गणना, भक्ती में सुरपति हारे ।।१९।।</p>
+        <p>जब-जब संकट में भक्तों ने, पारस प्रभु पुकारे हैं ।<br/>जग-जीवन में साथ न कोर्इ, प्रभुवर बने सहारे हैं ।।२०।।</p>
+        <p>बंजारों के बाजारों में, बड़ेगाँव की कीरत थी ।<br/>लक्ष्मण सेठ बड़े व्यापारी, सेठ रत्न की सीरत थी ।।२१।।</p>
+        <p>अंग्रेजों ने अपराधी कह, झूठा दाग लगाया था ।<br/>तोपों से उड़वाने का फिर, निर्दय हुकुम सुनाया था ।।२२।।</p>
+        <p>दुखी हृदय लक्ष्मण ने आकर, पारस-प्रभु से अर्ज करी ।<br/>अगर सत्य हूँ हे निर्णायक, करवा दो प्रभु मुझे बरी ।।२३।।</p>
+        <p>कैसा अतिशय हुआ वहाँ पर, शीतल हुआ तोप गोला ।<br/>गद-गद्-हृदय हुआ भक्तों का, उतर गया मिथ्या-चोला ।।२४।।</p>
+        <p>भक्त-देव आकर के प्रतिदिन, नूतन नृत्य दिखाते हैं ।<br/>आपत्ति लख भक्तगणों पर, उनको धैर्य बंधाते हैं ।।२५।।</p>
+        <p>भूत-प्रेत जिन्दों की बाधा, जप करते कट जाती है ।<br/>कैसी भी हो कठिन समस्या, अर्चे हल हो जाती है ।।२६।।</p>
+        <p>नेत्रहीन कतिपय भक्तों ने, नेत्र-भक्ति कर पाये हैं ।<br/>कुष्ठ-रोग से मुक्त अनेकों, कंचन-काया भाये हैं ।।२७।।</p>
+        <p>दुख-दारिद्र ध्यान से मिटता, शत्रु मित्र बन जाते हैं ।<br/>मिथ्या तिमिर भक्ति दीपक लख, स्वाभाविक छंट जाते हैं ।।२८।।</p>
+        <p>पारस कुइया का निर्मल जल, मन की तपन मिटाता है ।<br/>चर्मरोग की उत्तम औषधि रोगी पी सुख पाता है ।।२९।।</p>
+        <p>तीन शतक पहले से महिमा, अधुना बनी यथावत् है ।<br/>श्रद्धा-भक्ती भक्त शक्ति से, फल नित वरे तथावत् है ।।३०।।</p>
+        <p>स्वप्न सलोना दे श्रावक को, आदीश्वर प्रतिमा पायी ।<br/>वसुधा-गर्भ मिले चन्दाप्रभु, विमल सन्मती गहरायी ।।३१।।</p>
+        <p>आदिनाथ का सुमिरन करके, आधि-व्याधि मिट जाती है ।<br/>चन्दाप्रभु अर्चे छवि निर्मल, चन्दा सम मन भाती है ।।३२।।</p>
+        <p>विमलनाथ पूजन से विमला, स्वाभाविक मिल जाती है ।<br/>पारस प्रभु पारस सम महिमा, वर्द्धमान सुख थाती है ।।३३।।</p>
+        <p>दिव्य मनोहर उच्च जिनालय समवशरण सह शोभित हैं ।<br/>पंच जिनालय परमेश्वर के, भव्यों के मन मोहित हैं ।।३४।।</p>
+        <p>बनी धर्मशाला अति सुन्दर, मानस्तम्भ सुहाता है ।<br/>आश्रम गुरुकुल विद्यालय यश, गौरव क्षेत्र बढ़ाता है ।।३५।।</p>
+        <p>यह स्याद्वाद का मुख्यालय, यह धर्म-ध्वजा फहराता है ।<br/>सम्यग्दर्शन-ज्ञान-चरण सह, मुक्ती-पथ दरशाता है ।।३६।।</p>
+        <p>तीन लोक तीरथ की रचना, ज्ञान ध्यान अनुभूति करो ।<br/>गुरुकुल साँवलिया बाबाजी, जो माँगो दें अर्ज करो ।।३७।।</p>
+        <p>अगहन शुक्ला पंचमि गुरुदिन, विद्याभूषण शरण लही ।<br/>स्याद्वाद गुरुकुल स्थापन, पच्चीसों चौबीस भर्इ ।।३८।।</p>
+        <p>शिक्षा मंदिर औषधि शाला, बने साधना केन्द्र यहीं ।<br/>दुख दारिद्र मिटे भक्तों का, अनशरणों की शरण सही ।।३९।।</p>
+        <p>स्वारथ जग नित-प्रति धोखे खा, सन्मति शरणा आये हैं ।<br/>चूक माफ मनवांछित फल दो, स्याद्वाद गुण गाये हैं ।।४०।।</p>
+        <p>हे पारस जग जीव हों, सुख सम्पति भरपूर ।<br/>साम्यभाव ‘सन्मति’ रहे, भव दुख हो चकचूर ।।</p>
+      </div>
+    </div>
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-roman" lang="en">
+        <p>Baṛāgām̐va atiśaya baṛā, banatē bigaṛē kāja.<br/>Tīna lōka tīratha namahum̐, pārśva prabhu mahārāja..1..</p>
+        <p>Ādi-candra-vimalēśa-nami, pārasa-vīrā dhyāya.<br/>Syādvāda jina-dharma nami, sumati guru śiranāya..2..</p>
+        <p>Bhārata vasudhā para vasu guṇa saha, guṇijana śāśvata rāja rahē.<br/>Sabakalyāṇaka tīrtha-mūrti saha, pan̄caparama pada sāja rahē..1..</p>
+        <p>Khāṇḍava vana kī uttara bhūmī, hastināpura laga bhātī hai.<br/>Dharā-dhan ’ya ratnōṁ sē bhūṣita, dēhalī pāsa suhātī hai..2..</p>
+        <p>Ardhacakri rāvaṇa paṇḍita nē, ākara dhyāna lagāyā thā.<br/>Agaṇita vidyā ’ōṁ kā svāmī, vidyādhara kahalāyā thā..3..</p>
+        <p>Ādi tīrthaṅkara r̥ṣabhadēva kā, samavaśaraṇa mana bhāyā thā.<br/>Agaṇita tīrthaṅkara upadēśī, bhavyōṁ bōdha karāyā thā..4..</p>
+        <p>Candraprabhu aru vimalanātha kā, yaśa-gaurava bhī chāyā thā.<br/>Pārasanātha vīra prabhujī kā, samōśaraṇa laharāyā thā..5..</p>
+        <p>Baṛāgām̐va kī pāvana-bhūmī, yaha itihāsa purānā hai.<br/>Bhavyajanōṁ nē karī sādhanā, muktī kā paimānā hai..6..</p>
+        <p>Kāla pariṇamana kē cakkara mēṁ, parivartana bahubāra hu ’ē.<br/>Rājā nēka śūra-kavi-paṇḍita, sādhaka bhī krama vāra hu ’ē..7..</p>
+        <p>Jaina dharma kī dhvajā dharā para, ādikāla sē phaharāyī.<br/>Syādvāda kī sapta-taraṅgēṁ, jana-mānasa mēṁ laharāyī..8..</p>
+        <p>Baṛāgām̐va jainōṁ kā gaṛha thā, dēvōṁ gaṛhā kahātā thā.<br/>Pām̐cōṁ pāṇḍava kā bhī gaharā, isa bhūmī sē nātā thā..9..</p>
+        <p>Pārasa-ṭīlā ēka yahām̐ para, jana-ādarśa kahātā thā.<br/>Bhakta murādēṁ pūrī hōtīṁ, dēvōṁ sama yaśa pātā thā..10..</p>
+        <p>Ṭīlē kī khyātī vāyu sama, dig-diganta mēṁ laharāi.<br/>Agaṇita camatkāra atiśaya-yuta, suragaṇa nē mahimā gāi..11..</p>
+        <p>Śīśarāma kī sundara dhēnu, nita ṭīlē para ātī thī.<br/>Maukā pākara dūdha jharākara, bhakti-bhāva pragaṭātī thī..12..</p>
+        <p>Ailaka jī jaba lakhā najārā, kaisī adbhuta māyā hai.<br/>Binā nikālē dūdha jhara rahā, kyā dēvōṁ kī chāyā hai..13..</p>
+        <p>Ṭīlē para jaba dhyāna lagāyā, dēvōṁ nē ā batalāyā.<br/>Pārasa-prabhu kī atiśaya pratimā, camatkāra sura dikhalāyā..14..</p>
+        <p>Bhaktagaṇōṁ kī bhīṛa bhāvanā, dhairya bām̐dha bhī phūṭa paṛā.<br/>Lagē khōdanē ṭīlē kō saba, nāgōṁ kā dala ṭūṭa paṛā..15..</p>
+        <p>Bhayākulita lakha bhakta-gaṇōṁ kō, nabha sē madhura-dhvanī āyī.<br/>Ghabarā ’ō mata pārasa pratimā, śanai: Śanai: Khōdō bhāi..16..</p>
+        <p>Ailaka jī nē mantra śakti sē, sārē viṣadhara vidā kiyē.<br/>Ṇamōkāra kā jāpa karā kara, pārśva-prabhū kē darśa liyē..17..</p>
+        <p>Atiśaya divya suśōbhita pratimā, lakhatē khuśiyām̐ laharāi.<br/>Nāca uṭhē nara-nāri khuśī sē, jaya-jaya dhvani bhū nabha chāi..18..</p>
+        <p>Mēlā sā laga gayā dharā, pārasa prabhu jaya-jayakārē.<br/>Mānava paśugaṇa kī kyā gaṇanā, bhaktī mēṁ surapati hārē..19..</p>
+        <p>Jaba-jaba saṅkaṭa mēṁ bhaktōṁ nē, pārasa prabhu pukārē haiṁ.<br/>Jaga-jīvana mēṁ sātha na kōi, prabhuvara banē sahārē haiṁ..20..</p>
+        <p>Ban̄jārōṁ kē bājārōṁ mēṁ, baṛēgām̐va kī kīrata thī.<br/>Lakṣmaṇa sēṭha baṛē vyāpārī, sēṭha ratna kī sīrata thī..21..</p>
+        <p>Aṅgrējōṁ nē aparādhī kaha, jhūṭhā dāga lagāyā thā.<br/>Tōpōṁ sē uṛavānē kā phira, nirdaya hukuma sunāyā thā..22..</p>
+        <p>Dukhi hr̥daya lakṣmaṇa nē ākara, pārasa-prabhu sē arja karī.<br/>Agara satya hūm̐ hē nirṇāyaka, karavā dō prabhu mujhē barī..23..</p>
+        <p>Kaisā atiśaya hu ’ā vahām̐ para, śītala hu ’ā tōpa gōlā.<br/>Gada-gad-hr̥daya hu ’ā bhaktōṁ kā, utara gayā mithyā-cōlā..24..</p>
+        <p>Bhakta-dēva ākara kē pratidina, nūtana nr̥tya dikhātē haiṁ.<br/>Āpatti lakha bhaktagaṇōṁ para, unakō dhairya bandhātē haiṁ..25..</p>
+        <p>Bhūta-prēta jindōṁ kī bādhā, japa karatē kaṭa jātī hai.<br/>Kaisī bhī hō kaṭhina samasyā, arcē hala hō jātī hai..26..</p>
+        <p>Nētrahīna katipaya bhaktōṁ nē, nētra-bhakti kara pāyē haiṁ.<br/>Kuṣṭha-rōga sē mukta anēkōṁ, kan̄cana-kāyā bhāyē haiṁ..27..</p>
+        <p>Dukha-dāridra dhyāna sē miṭatā, śatru mitra bana jātē haiṁ.<br/>Mithyā timira bhakti dīpaka lakha, svābhāvika chaṇṭa jātē haiṁ..28..</p>
+        <p>Tīna śataka pahalē sē mahimā, adhunā banī yathāvat hai.<br/>Śrad ’dhā-bhaktī bhakta śakti sē, phala nita varē tathāvat hai..30..</p>
+        <p>Svapna salōnā dē śrāvaka kō, ādīśvara pratimā pāyī.<br/>Vasudhā-garbha milē candāprabhu, vimala sanmatī gaharāyī..31..</p>
+        <p>Ādinātha kā sumirana karakē, ādhi-vyādhi miṭa jātī hai.<br/>Candāprabhu arcē chavi nirmala, candā sama mana bhātī hai..32..</p>
+        <p>Vimalanātha pūjana sē vimalā, svābhāvika mila jātī hai.<br/>Pārasa prabhu pārasa sama mahimā, vard ’dhamāna sukha thātī hai..33..</p>
+        <p>Divya manōhara ucca jinālaya samavaśaraṇa saha śōbhita haiṁ.<br/>Pan̄ca jinālaya paramēśvara kē, bhavyōṁ kē mana mōhita haiṁ..34..</p>
+        <p>Banī dharmaśālā ati sundara, mānastambha suhātā hai.<br/>Āśrama gurukula vidyālaya yaśa, gaurava kṣētra baṛhātā hai..35..</p>
+        <p>Yaha syādvāda kā mukhyālaya, yaha dharma-dhvajā phaharātā hai.<br/>Samyagdarśana-jñāna-caraṇa saha, muktī-patha daraśātā hai..36..</p>
+        <p>Tīna lōka tīratha kī racanā, jñāna dhyāna anubhūti karō.<br/>Gurukula sām̐valiyā bābājī, jō mām̐gō dēṁ arja karō..37..</p>
+        <p>Agahana śuklā pan̄cami gurudina, vidyābhūṣaṇa śaraṇa lahī.<br/>Syādvāda gurukula sthāpana, paccīsōṁ caubīsa bhai..38..</p>
+        <p>Śikṣā mandira auṣadhi śālā, banē sādhanā kēndra yahīṁ.<br/>Dukha dāridra miṭē bhaktōṁ kā, anaśaraṇōṁ kī śaraṇa sahī..39..</p>
+        <p>Svāratha jaga nita-prati dhōkhē khā, sanmati śaraṇā āyē haiṁ.<br/>Cūka māpha manavān̄chita phala dō, syādvāda guṇa gāyē haiṁ..40..</p>
+        <p>Hē pārasa jaga jīva hōṁ, sukha sampati bharapūra.<br/>Sāmyabhāva ‘sanmati’ rahē, bhava dukha hō cakacūra..</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 13 | Chalisa -->
+<article class="bhajan-card" data-tags="chalisa,munisuvrat" data-title="श्री मुनिसुव्रतनाथ जिन चालीसा Śrī Munisuvratanātha Jina Cālīsā">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">13</span>
+      <div>
+        <h3>🪷 श्री मुनिसुव्रतनाथ जिन चालीसा 🪷</h3>
+        <span class="bhajan-subhead">Śrī Munisuvratanātha Jina Cālīsā</span>
+      </div>
+      <div class="bhajan-tag-list">
+        <button class="bhajan-tag" data-tag="chalisa" type="button">chalisa</button>
+        <button class="bhajan-tag" data-tag="munisuvrat" type="button">munisuvrat</button>
+      </div>
+    </div>
+    <span class="bhajan-label">Chalisa</span>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-hi" lang="hi">
+        <p>अरिहंत सिद्ध आचार्य को करूँ प्रणाम ।<br/>उपाध्याय सर्व-साधू करते स्व-पर-कल्याण ।।</p>
+        <p>जिनधर्म जिनागम जिनमंदिर पवित्र-धाम ।<br/>वीतराग की प्रतिमा को कोटि-कोटि प्रणाम ।।</p>
+        <p>जय मुनिसुव्रत दया के सागर, नाम प्रभू का लोक-उजागर ।<br/>सुमित्रा राजा के तुम नंदा, माँ शामा की आँखों के चंदा ।।१।।</p>
+        <p>श्यामवर्ण-मूरत प्रभू की प्यारी, गुणगान करें निश-दिन नर-नारी ।<br/>मुनिसुव्रत-जिन हो अंतरयामी, श्रद्धा-भाव-सहित तुम्हें प्रणामी ।।२।।</p>
+        <p>भक्ति आपकी जो निश-दिन करता, पाप-ताप भय-संकट हरता ।<br/>प्रभु संकटमोचन नाम तुम्हारा, दीन-दु:खी जीवों का सहारा ।।३।।</p>
+        <p>कोर्इ दरिद्री या तन का रोगी, प्रभु दर्शन से होते हैं निरोगी ।<br/>मिथ्या-तिमिर भयो अतिभारी, भव-भव की बाधा हरो हमारी ।।४।।</p>
+        <p>यह संसार महादु:खदार्इ, सुख नहीं यहाँ दु:ख की खार्इ ।<br/>मोह-जाल में फंसा है बंदा, काटो प्रभु भव भव का फंदा ।।५।।</p>
+        <p>रोग-शोक-भय-व्याधि मिटावो, भवसागर से पार लगावो ।<br/>घिरा कर्म से चौरासी भटका, मोह-माया-बंधन में अटका ।।६।।</p>
+        <p>संयोग-वियोग भव-भव का नाता, राग-द्वेष जग में भटकाता ।<br/>हित-मित-प्रिय प्रभु की वाणी, स्व-पर-कल्याण करें मुनि ध्यानी ।।७।।</p>
+        <p>भवसागर बीच नाव हमारी, प्रभु पार करो यह विरद तिहारी ।<br/>मन-विवेक मेरा अब जागा, प्रभु-दर्शन से कर्म-मल भागा ।।८।।</p>
+        <p>नाम आपका जपे जो भार्इ, लोकालोक सुख-सम्पदा पार्इ ।<br/>कृपा-दृष्टि जब आपकी होवे, धन-आरोग्य सुख-समृधि पावे ।।९।।</p>
+        <p>प्रभु-चरणन में जो जो आवे, श्रद्धा-भक्ति फल-वाँछित पावे ।<br/>प्रभु आपका चमत्कार है न्यारा, संकटमोचन प्रभु नाम तुम्हारा ।।१०।।</p>
+        <p>सर्वज्ञ अनंत-चतुष्टय के धारी, मन-वच-तन वंदना हमारी ।<br/>सम्मेद-शिखर से मोक्ष सिधारे, उद्धार करो मैं शरण तिहारे ।।११।।</p>
+        <p>महाराष्ट्र का पैठण-तीर्थ, सुप्रसिद्ध यह अतिशय-क्षेत्र ।<br/>मनोज्ञ-मंदिर बना है भारी, वीतराग की प्रतिमा सुखकारी ।।१२।।</p>
+        <p>चतुर्थ-कालीन मूर्ति है निराली, मुनिसुव्रत प्रभु की छवि है प्यारी ।<br/>मानस्तंभ उत्तंग की शोभा न्यारी, देखत गलत मान-कषाय भारी ।।१३।।</p>
+        <p>मुनिसुव्रत शनिग्रह-अधिष्ठाता, दु:ख-संकट हरे देवे सुख-साता ।<br/>शनि-अमावस की महिमा भारी, दूर-दूर से आते नर-नारी ।</p>
+        <p>मुनिसुव्रत-दर्शन महा-हितकारी, मन-वच-तन वंदना हमारी ।।१४।।<br/>सम्यक् श्रद्धा से चालीसा, चालीस दिन पढिये नर-नार ।</p>
+        <p>मुक्ति-पथ के राही बन, भक्ति से होवे भव-पार ।।</p>
+      </div>
+    </div>
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-roman" lang="en">
+        <p>Arihanta sid ’dha ācārya kō karūm̐ praṇāma.<br/>Upādhyāya sarva-sādhū karatē sva-para-kalyāṇa..</p>
+        <p>Jinadharma jināgama jinamandira pavitra-dhāma.<br/>Vītarāga kī pratimā kō kōṭi-kōṭi praṇāma ..</p>
+        <p>Jaya munisuvrata dayā kē sāgara, nāma prabhū kā lōka-ujāgara.<br/>Sumitrā rājā kē tuma nandā, mām̐ śāmā kī ām̐khōṁ kē candā..1..</p>
+        <p>Shyaamavarn-muurat prabhu kee pyaaree, gunagaan kar nish-din nar-naaree .<br/>Munisuvrat-jin hoo antarayaamee, shraddha-bhaav-sahit tumheen pranaamee ..2..</p>
+        <p>Bhakti āpakī jō niśa-dina karatā, pāpa-tāpa bhaya-saṅkaṭa haratā.<br/>Prabhu saṅkaṭamōcana nāma tumhārā, dīna-du:Khī jīvōṁ kā sahārā..3..</p>
+        <p>Kōi daridrī yā tana kā rōgī, prabhu darśana sē hōtē haiṁ nirōgī.<br/>Mithyā-timira bhayō atibhārī, bhava-bhava kī bādhā harō hamārī..4..</p>
+        <p>Yaha sansāra mahādu:Khadāi, sukha nahīṁ yahām̐ du:Kha kī khāi.<br/>Mōha-jāla mēṁ phansā hai bandā, kāṭō prabhu bhava bhava kā phandā..5..</p>
+        <p>Rōga-śōka-bhaya-vyādhi miṭāvō, bhavasāgara sē pāra lagāvō.<br/>Ghirā karma sē caurāsī bhaṭakā, mōha-māyā-bandhana mēṁ aṭakā..6..</p>
+        <p>Sanyōga-viyōga bhava-bhava kā nātā, rāga-dvēṣa jaga mēṁ bhaṭakātā.<br/>Hita-mita-priya prabhu kī vāṇī, sva-para-kalyāṇa karēṁ muni dhyānī..7..</p>
+        <p>Bhavasāgara bīca nāva hamārī, prabhu pāra karō yaha virada tihārī.<br/>Mana-vivēka mērā aba jāgā, prabhu-darśana sē karma-mala bhāgā..8..</p>
+        <p>Nāma āpakā japē jō bhāi, lōkālōka sukha-sampadā pāi.<br/>Kr̥pā-dr̥ṣṭi jaba āpakī hōvē, dhana-ārōgya sukha-samr̥dhi pāvē..9..</p>
+        <p>Prabhu-caraṇana mēṁ jō jō āvē, śrad ’dhā-bhakti phala-vām̐chita pāvē.<br/>Prabhu āpakā camatkāra hai n ’yārā, saṅkaṭamōcana prabhu nāma tumhārā..10..</p>
+        <p>Sarvajña ananta-catuṣṭaya kē dhārī, mana-vaca-tana vandanā hamārī.<br/>Sam ’mēda-śikhara sē mōkṣa sidhārē, ud ’dhāra karō maiṁ śaraṇa tihārē..11..</p>
+        <p>Mahārāṣṭra kā paiṭhaṇa-tīrtha, suprasid ’dha yaha atiśaya-kṣētra.<br/>Manōjña-mandira banā hai bhārī, vītarāga kī pratimā sukhakārī..12..</p>
+        <p>Caturtha-kālīna mūrti hai nirālī, munisuvrata prabhu kī chavi hai pyārī.<br/>Mānastambha uttaṅga kī śōbhā n ’yārī, dēkhata galata māna-kaṣāya bhārī..13..</p>
+        <p>Munisuvrata śanigraha-adhiṣṭhātā, du:Kha-saṅkaṭa harē dēvē sukha-sātā.<br/>Śani-amāvasa kī mahimā bhārī, dūra-dūra sē ātē nara-nārī.</p>
+        <p>Munisuvrata-darśana mahā-hitakārī, mana-vaca-tana vandanā hamārī..14..<br/>Samyak śrad ’dhā sē cālīsā, cālīsa dina paḍhiyē nara-nāra.</p>
+        <p>Mukti-patha kē rāhī bana, bhakti sē hōvē bhava-pāra..</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 14 | Chalisa -->
+<article class="bhajan-card" data-tags="chalisa,chandraprabha" data-title="श्री चंद्रप्रभ जिन चालीसा Śrī Candraprabha Jina Cālīsā">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">14</span>
+      <div>
+        <h3>🪷 श्री चंद्रप्रभ जिन चालीसा 🪷</h3>
+        <span class="bhajan-subhead">Śrī Candraprabha Jina Cālīsā</span>
+      </div>
+      <div class="bhajan-tag-list">
+        <button class="bhajan-tag" data-tag="chalisa" type="button">chalisa</button>
+        <button class="bhajan-tag" data-tag="chandraprabha" type="button">chandraprabha</button>
+      </div>
+    </div>
+    <span class="bhajan-label">Chalisa</span>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-hi" lang="hi">
+        <p>कविश्री सुरेश<br/>वीतराग सर्वज्ञ जिन, जिनवाणी को ध्याय ।</p>
+        <p>लिखने का साहस करूँ, चालीसा सिर-नाय ।।१।।<br/>देहरे के श्री चंद्र को, पूजूं मन-वच-काय ।।</p>
+        <p>ऋद्धि-सिद्धि मंगल करें, विघ्न दूर हो जाय ।।२।।<br/>जय श्री चंद्र दया के सागर, देहरेवाले ज्ञान-उजागर ।।३।।</p>
+        <p>शांति-छवि मूरति अति-प्यारी, भेष-दिगम्बर धारा भारी ।।४।।<br/>नासा पर है दृष्टि तुम्हारी, मोहनी-मूरति कितनी प्यारी ।५।।</p>
+        <p>देवों के तुम देव कहावो, कष्ट भक्त के दूर हटावो ।।६।।<br/>समंतभद्र मुनिवर ने ध्याया, पिंडी फटी दर्श तुम पाया ।।७।।</p>
+        <p>तुम जग में सर्वज्ञ कहावो, अष्टम-तीर्थंकर कहलावो ।।८।।<br/>महासेन के राजदुलारे, मात सुलक्षणा के हो प्यारे ।।९।।</p>
+        <p>चंद्रपुरी नगरी अतिनामी, जन्म लिया चंद्र-प्रभ स्वामी ।।१०।।<br/>पौष-वदी-ग्यारस को जन्मे, नर-नारी हरषे तब मन में ।।११।।</p>
+        <p>काम-क्रोध-तृष्णा दु:खकारी, त्याग सुखद मुनिदीक्षा-धारी ।।१२।।<br/>फाल्गुन-वदी-सप्तमी भार्इ, केवलज्ञान हुआ सुखदार्इ ।।१३।।</p>
+        <p>फिर सम्मेद-शिखर पर जाके, मोक्ष गये प्रभु आप वहाँ से ।।१४।।<br/>लोभ-मोह और छोड़ी माया, तुमने मान-कषाय नसाया ।।१५।।</p>
+        <p>रागी नहीं नहीं तू द्वेषी, वीतराग तू हित-उपदेशी ।।१६।।<br/>पंचम-काल महा दु:खदार्इ, धर्म-कर्म भूले सब भार्इ ।।१७।।</p>
+        <p>अलवर-प्रांत में नगर तिजारा, होय जहाँ पर दर्शन प्यारा ।।१८।।<br/>उत्तर-दिशि में देहरा-माँहीं, वहाँ आकर प्रभुता प्रगटार्इ ।।१९।।</p>
+        <p>सावन सुदि दशमी शुभ नामी, प्रकट भये त्रिभुवन के स्वामी ।।२०।।<br/>चिह्न चंद्र का लख नर-नारी, चंद्रप्रभ की मूरती मानी ।।२१।।</p>
+        <p>मूर्ति आपकी अति-उजियाली, लगता हीरा भी है जाली ।।२२।।<br/>अतिशय चंद्रप्रभ का भारी, सुनकर आते यात्री भारी ।।२३।।</p>
+        <p>फाल्गुन-सुदी-सप्तमी प्यारी, जुड़ता है मेला यहाँ भारी ।।२४।।<br/>कहलाने को तो शशिधर हो, तेज-पुंज रवि से बढ़कर हो ।।२५।।</p>
+        <p>नाम तुम्हारा जग में साँचा, ध्यावत भागत भूत-पिशाचा ।।२६।।<br/>राक्षस-भूत-प्रेत सब भागें, तुम सुमिरत भय कभी न लागे ।।२७।।</p>
+        <p>कीर्ति तुम्हारी है अतिभारी, गुण गाते नित नर और नारी ।।२८।।<br/>जिस पर होती कृपा तुम्हारी, संकट झट कटता है भारी ।।२९।।</p>
+        <p>जो भी जैसी आस लगाता, पूरी उसे तुरत कर पाता ।।३०।।<br/>दु:खिया दर पर जो आते हैं, संकट सब खोकर जाते हैं ।।३१।।</p>
+        <p>खुला सभी हित प्रभु-द्वार है, चमत्कार को नमस्कार है ।।३२।।<br/>अंधा भी यदि ध्यान लगावे, उसके नेत्र शीघ्र खुल जावें ।।३३।।</p>
+        <p>बहरा भी सुनने लग जावे, पगले का पागलपन जावे ।।३४।।<br/>अखंड-ज्योति का घृत जो लगावे, संकट उसका सब कट जावे ।।३५।।</p>
+        <p>चरणों की रज अति-सुखकारी, दु:ख-दरिद्र सब नाशनहारी ।।३६।।<br/>चालीसा जो मन से ध्यावे, पुत्र-पौत्र सब सम्पति पावे ।।३७।।</p>
+        <p>पार करो दु:खियों की नैया, स्वामी तुम बिन नहीं खिवैया ।।३८।।<br/>प्रभु मैं तुम से कुछ नहिं चाहूँ, दर्श तिहारा निश-दिन पाऊँ ।।३९।।</p>
+        <p>करूँ वंदना आपकी, श्री चंद्रप्रभ जिनराज ।<br/>जंगल में मंगल कियो, रखो ‘सुरेश’ की लाज ।।४०।।</p>
+      </div>
+    </div>
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-roman" lang="en">
+        <p>Vītarāga sarvajña jina, jinavāṇī kō dhyāya.<br/>Likhanē kā sāhasa karūm̐, cālīsā sira-nāya..1..</p>
+        <p>Dēharē kē śrī candra kō, pūjūṁ mana-vaca-kāya..<br/>R̥d ’dhi-sid ’dhi maṅgala karēṁ, vighna dūra hō jāya..2..</p>
+        <p>Jaya śrī candra dayā kē sāgara, dēharēvālē jñāna-ujāgara..3..<br/>zŚānti-chavi mūrati ati-pyārī, bhēṣa-digambara dhārā bhārī..4..</p>
+        <p>Nāsā para hai dr̥ṣṭi tumhārī, mōhanī-mūrati kitanī pyārī.5..<br/>Dēvōṁ kē tuma dēva kahāvō, kaṣṭa bhakta kē dūra haṭāvō..6..</p>
+        <p>Samantabhadra munivara nē dhyāyā, piṇḍī phaṭī darśa tuma pāyā..7..<br/>Tuma jaga mēṁ sarvajña kahāvō, aṣṭama-tīrthaṅkara kahalāvō..8..</p>
+        <p>Mahāsēna kē rājadulārē, māta sulakṣaṇā kē hō pyārē..9..<br/>Candrapurī nagarī atināmī, janma liyā candra-prabha svāmī..10..</p>
+        <p>Pauṣa-vadī-gyārasa kō janmē, nara-nārī haraṣē taba mana mēṁ..11..<br/>Kāma-krōdha-tr̥ṣṇā du:Khakārī, tyāga sukhada munidīkṣā-dhārī..12..</p>
+        <p>Phālguna-vadī-saptamī bhāi, kēvalajñāna hu ’ā sukhadāi..13..<br/>Phira sam ’mēda-śikhara para jākē, mōkṣa gayē prabhu āpa vahām̐ sē..14..</p>
+        <p>Lōbha-mōha aura chōṛī māyā, tumanē māna-kaṣāya nasāyā..15..<br/>Rāgī nahīṁ nahīṁ tū dvēṣī, vītarāga tū hita-upadēśī..16..</p>
+        <p>Pan̄cama-kāla mahā du:Khadāi, dharma-karma bhūlē saba bhāi..17..<br/>Alavara-prānta mēṁ nagara tijārā, hōya jahām̐ para darśana pyārā..18..</p>
+        <p>Uttara-diśi mēṁ dēharā-mām̐hīṁ, vahām̐ ākara prabhutā pragaṭāi..19..<br/>Sāvana sudi daśamī śubha nāmī, prakaṭa bhayē tribhuvana kē svāmī..20..</p>
+        <p>Cihna candra kā lakha nara-nārī, candraprabha kī mūratī mānī..21..<br/>Mūrti āpakī ati-ujiyālī, lagatā hīrā bhī hai jālī..22..</p>
+        <p>Atiśaya candraprabha kā bhārī, sunakara ātē yātrī bhārī..23..<br/>Phālguna-sudī-saptamī pyārī, juṛatā hai mēlā yahām̐ bhārī..24..</p>
+        <p>Kahalānē kō tō śaśidhara hō, tēja-pun̄ja ravi sē baṛhakara hō..25..<br/>Nāma tumhārā jaga mēṁ sām̐cā, dhyāvata bhāgata bhūta-piśācā..26..</p>
+        <p>Rākṣasa-bhūta-prēta saba bhāgēṁ, tuma sumirata bhaya kabhī na lāgē..27..<br/>Kīrti tumhārī hai atibhārī, guṇa gātē nita nara aura nārī..28..</p>
+        <p>Jisa para hōtī kr̥pā tumhārī, saṅkaṭa jhaṭa kaṭatā hai bhārī..29..<br/>Jō bhī jaisī āsa lagātā, pūrī usē turata kara pātā..30..</p>
+        <p>Du:Khiyā dara para jō ātē haiṁ, saṅkaṭa saba khōkara jātē haiṁ..31..<br/>Khulā sabhī hita prabhu-dvāra hai, camatkāra kō namaskāra hai..32..</p>
+        <p>Andhā bhī yadi dhyāna lagāvē, usakē nētra śīghra khula jāvēṁ..33..<br/>Baharā bhī sunanē laga jāvē, pagalē kā pāgalapana jāvē..34..</p>
+        <p>Akhaṇḍa-jyōti kā ghr̥ta jō lagāvē, saṅkaṭa usakā saba kaṭa jāvē..35..<br/>Caraṇōṁ kī raja ati-sukhakārī, du:Kha-daridra saba nāśanahārī..36..</p>
+        <p>Cālīsā jō mana sē dhyāvē, putra-pautra saba sampati pāvē..37..<br/>Pāra karō du:Khiyōṁ kī naiyā, svāmī tuma bina nahīṁ khivaiyā..38..</p>
+        <p>Prabhu maiṁ tuma sē kucha nahiṁ cāhūm̐, darśa tihārā niśa-dina pā ’ūm̐ ..39..<br/>Karūm̐ vandanā āpakī, śrī candraprabha jinarāja.</p>
+        <p>Jaṅgala mēṁ maṅgala kiyō, rakhō ‘surēśa’ kī lāja..40..</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 15 | Chalisa -->
+<article class="bhajan-card" data-tags="chalisa,padmaprabha" data-title="श्री पद्मप्रभ भगवान की चालीसा Śrī Padmaprabha Bhagavāna Cālīsā">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">15</span>
+      <div>
+        <h3>🪷 श्री पद्मप्रभ भगवान की चालीसा 🪷</h3>
+        <span class="bhajan-subhead">Śrī Padmaprabha Bhagavāna Cālīsā</span>
+      </div>
+      <div class="bhajan-tag-list">
+        <button class="bhajan-tag" data-tag="chalisa" type="button">chalisa</button>
+        <button class="bhajan-tag" data-tag="padmaprabha" type="button">padmaprabha</button>
+      </div>
+    </div>
+    <span class="bhajan-label">Chalisa</span>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-hi" lang="hi">
+        <p>कविश्री चंद्र<br/>शीश नवा अरिहन्त को सिद्धन करूँ प्रणाम ।</p>
+        <p>उपाध्याय आचार्य का ले सुखकारी नाम ।।<br/>सर्व साधु और सरस्वती जिनमंदिर सुखकार ।</p>
+        <p>पद्मपुरी के पद्म को मन-मंदिर में धार ।।<br/>जय श्री पद्मप्रभ गुणधारी, भवि-जन को तुम हो हितकारी ।</p>
+        <p>देवों के तुम देव कहाओ, पाप भक्त के दूर हटाओ ।।१।।<br/>तुम जग में सर्वज्ञ कहाओ, छट्ठे तीर्थंकर कहलाओ ।</p>
+        <p>तीन-काल तिहुँ-जग को जानो, सब बातें क्षण में पहचानो ।।२।।<br/>वेष-दिगम्बर धारणहारे, तुम से कर्म-शत्रु भी हारे ।</p>
+        <p>मूर्ति तुम्हारी कितनी सुन्दर, दृष्टि-सुखद जमती नासा पर ।।३।।<br/>क्रोध-मान-मद-लोभ भगाया, राग-द्वेष का लेश न पाया ।</p>
+        <p>वीतराग तुम कहलाते हो, सब जग के मन को भाते हो ।।४।।<br/>कौशाम्बी नगरी कहलाए, राजा धारण जी बतलाए ।</p>
+        <p>सुन्दरी नाम सुसीमा उनके, जिनके उर से स्वामी जन्मे ।।५।।<br/>कितनी लम्बी उमर कहाई, तीस लाख पूरब बतलाई ।</p>
+        <p>इक दिन हाथी बँधा निरखकर, झट आया वैराग उमड़कर ।।६।।<br/>कार्तिक-वदी-त्रयोदशी भारी, तुमने मुनिपद-दीक्षा धारी ।</p>
+        <p>सारे राज-पाट को तज के, तभी मनोहर-वन में पहुँचे ।।७।।<br/>तपकर केवलज्ञान उपाया, चैत सुदी पूनम कहलाया ।</p>
+        <p>एक सौ दस गणधर बतलाए, मुख्य वज्रचामर कहलाए ।।८।।<br/>लाखों मुनि अर्यिका लाखों, श्रावक और श्राविका लाखों ।</p>
+        <p>संख्याते तिर्यंच बताये, देवी-देव गिनत नहीं पाये ।।९।।<br/>फिर सम्मेदशिखर पर जाकर, शिवरमणी को ली परणा कर ।</p>
+        <p>पंचमकाल महादु:खदाई, जब तुमने महिमा दिखलाई ।।१०।।<br/>जयपुर-राज ग्राम ‘बाड़ा’ है, स्टेशन ‘शिवदासपुरा’ है ।</p>
+        <p>‘मूला’ नाम जाट का लड़का, घर की नींव खोदने लागा ।।११।।<br/>खोदत-खोदत मूर्ति दिखाई, उसने जनता को बतलाई ।</p>
+        <p>चिहन ‘कमल’ लख लोग लुगाई, पद्म-प्रभ की मूर्ति बताई ।।१२।।<br/>मन में अति हर्षित होते हैं, अपने दिल का मल धोते हैं ।</p>
+        <p>तुमने यह अतिशय दिखलाया, भूत-प्रेत को दूर भगाया ।।१३।।<br/>भूत-प्रेत दु:ख देते जिसको, चरणों में लेते हो उसको ।</p>
+        <p>जब गंधोदक छींटे मारे, भूत-प्रेत तब आप बकारे ।।१४।।<br/>जपने से जब नाम तुम्हारा, भूत-प्रेत वो करे किनारा ।</p>
+        <p>ऐसी महिमा बतलाते हैं, अन्धे भी आँखें पाते हैं ।।१५।।<br/>प्रतिमा श्वेत-वर्ण कहलाए, देखत ही हिरदय को भाए ।</p>
+        <p>ध्यान तुम्हारा जो धरता है, इस-भव से वह नर तरता है ।।१६।।<br/>अन्धा देखे गूंगा गावे, लंगड़ा पर्वत पर चढ़ जावे ।</p>
+        <p>बहरा सुन-सुनकर खुश होवे, जिस पर कृपा तुम्हारी होवे ।।१७।।<br/>मैं हूँ स्वामी दास तुम्हारा, मेरी नैया कर दो पारा ।</p>
+        <p>चालीसे को ‘चंद्र’ बनावे, पद्म-प्रभ को शीश नवावे ।।१८।।<br/>नित चालीसहिं बार, पाठ करे चालीस दिन ।</p>
+        <p>खेय सुगंध अपार, पद्मपुरी में आयके !!<br/>होय कुबेर-समान, जन्म-दरिद्री होय जो ।</p>
+        <p>जिसके नहिं संतान, नाम-वंश जग में चले ।।</p>
+      </div>
+    </div>
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-roman" lang="en">
+        <p>śīśa navā arihanta kō sid ’dhana karūm̐ praṇāma.<br/>Upādhyāya ācārya kā lē sukhakārī nāma..</p>
+        <p>Sarva sādhu aura sarasvatī jinamandira sukhakāra.<br/>Padmapurī kē padma kō mana-mandira mēṁ dhāra..</p>
+        <p>Jaya śrī padmaprabha guṇadhārī, bhavi-jana kō tuma hō hitakārī.<br/>Dēvōṁ kē tuma dēva kahā ’ō, pāpa bhakta kē dūra haṭā ’ō..1..</p>
+        <p>Tuma jaga mēṁ sarvajña kahā ’ō, chaṭṭhē tīrthaṅkara kahalā ’ō.<br/>Tīna-kāla tihum̐-jaga kō jānō, saba bātēṁ kṣaṇa mēṁ pahacānō..2..</p>
+        <p>Vēṣa-digambara dhāraṇahārē, tuma sē karma-śatru bhī hārē.<br/>Mūrti tumhārī kitanī sundara, dr̥ṣṭi-sukhada jamatī nāsā para..3..</p>
+        <p>Krōdha-māna-mada-lōbha bhagāyā, rāga-dvēṣa kā lēśa na pāyā.<br/>Vītarāga tuma kahalātē hō, saba jaga kē mana kō bhātē hō..4..</p>
+        <p>Kauśāmbī nagarī kahalā ’ē, rājā dhāraṇa jī batalā ’ē.<br/>Sundarī nāma susīmā unakē, jinakē ura sē svāmī janmē..5..</p>
+        <p>Kitanī lambī umara kahāi, tīsa lākha pūraba batalāi.<br/>Ika dina hāthī bam̐dhā nirakhakara, jhaṭa āyā vairāga umaṛakara..6..</p>
+        <p>Kārtika-vadī-trayōdaśī bhārī, tumanē munipada-dīkṣā dhārī.<br/>Sārē rāja-pāṭa kō taja kē, tabhī manōhara-vana mēṁ pahum̐cē..7..</p>
+        <p>Tapakara kēvalajñāna upāyā, caita sudī pūnama kahalāyā.<br/>Ēka sau dasa gaṇadhara batalā ’ē, mukhya vajracāmara kahalā ’ē..8..</p>
+        <p>Lākhōṁ muni aryikā lākhōṁ, śrāvaka aura śrāvikā lākhōṁ.<br/>Saṅkhyātē tiryan̄ca batāyē, dēvī-dēva ginata nahīṁ pāyē..9..</p>
+        <p>Phira sam ’mēdaśikhara para jākara, śivaramaṇī kō lī paraṇā kara.<br/>Pan̄camakāla mahādu:Khadāi, jaba tumanē mahimā dikhalāi..10..</p>
+        <p>Jayapura-rāja grāma ‘bāṛā’ hai, sṭēśana ‘śivadāsapurā’ hai.<br/>‘Mūlā’ nāma jāṭa kā laṛakā, ghara kī nīnva khōdanē lāgā..11..</p>
+        <p>Khōdata-khōdata mūrti dikhāi, usanē janatā kō batalāi.<br/>Cihana ‘kamala’ lakha lōga lugāi, padma-prabha kī mūrti batāi..12..</p>
+        <p>Mana mēṁ ati harṣita hōtē haiṁ, apanē dila kā mala dhōtē haiṁ.<br/>Tumanē yaha atiśaya dikhalāyā, bhūta-prēta kō dūra bhagāyā..13..</p>
+        <p>Bhūta-prēta du:Kha dētē jisakō, caraṇōṁ mēṁ lētē hō usakō.<br/>Jaba gandhōdaka chīṇṭē mārē, bhūta-prēta taba āpa bakārē..14..</p>
+        <p>Japanē sē jaba nāma tumhārā, bhūta-prēta vō karē kinārā.<br/>Aisī mahimā batalātē haiṁ, andhē bhī ām̐khēṁ pātē haiṁ..15..</p>
+        <p>Pratimā śvēta-varṇa kahalā ’ē, dēkhata hī hiradaya kō bhā ’ē.<br/>Dhyāna tumhārā jō dharatā hai, isa-bhava sē vaha nara taratā hai..16..</p>
+        <p>Andhā dēkhē gūṅgā gāvē, laṅgaṛā parvata para caṛha jāvē.<br/>Baharā suna-sunakara khuśa hōvē, jisa para kr̥pā tumhārī hōvē..17..</p>
+        <p>Maiṁ hūm̐ svāmī dāsa tumhārā, mērī naiyā kara dō pārā.<br/>Cālīsē kō ‘candra’ banāvē, padma-prabha kō śīśa navāvē..18..</p>
+        <p>Nita cālīsahiṁ bāra, pāṭha karē cālīsa dina.<br/>Khēya sugandha apāra, padmapurī mēṁ āyakē!!</p>
+        <p>Hōya kubēra-samāna, janma-daridrī hōya jō.<br/>Jisakē nahiṁ santāna, nāma-vanśa jaga mēṁ calē..</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 16 | Chalisa -->
+<article class="bhajan-card" data-tags="chalisa,adinath" data-title="भगवान् आदिनाथ चालीसा (चाँदखेड़ी) Bhagavān Ādinātha Cālīsā (Chāndkheṛī)">
+  <div class="bhajan-head">
+    <div>
+      <span class="bhajan-number">16</span>
+      <div>
+        <h3>🪷 भगवान् आदिनाथ चालीसा (चाँदखेड़ी) 🪷</h3>
+        <span class="bhajan-subhead">Bhagavān Ādinātha Cālīsā (Chāndkheṛī)</span>
+      </div>
+      <div class="bhajan-tag-list">
+        <button class="bhajan-tag" data-tag="chalisa" type="button">chalisa</button>
+        <button class="bhajan-tag" data-tag="adinath" type="button">adinath</button>
+      </div>
+    </div>
+    <span class="bhajan-label">Chalisa</span>
+  </div>
+  <div class="lyrics-columns">
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-hi" lang="hi">
+        <p>शीश नवा अरिहंत को, सिद्धन करूँ प्रणाम ।<br/>उपाध्याय आचार्य का ले सुखकारी नाम ।।</p>
+        <p>सर्व साधु और सरस्वती जिनमंदिर सुखकार ।<br/>आदिनाथ भगवान् को मन-मंदिर में धार ।।</p>
+        <p>जै जै आदिनाथ जिन स्वामी, तीन-काल तिहुँ-जग में नामी ।<br/>वेष-दिगम्बर धार रहे हो, कर्मों को तुम मार रहे हो ।।१।।</p>
+        <p>हो सर्वज्ञ बात सब जानो; सारी दुनियाँ को पहचानो ।<br/>नगर अयोध्या जो कहलाये, राजा नाभिराज बतलाये ।।२।।</p>
+        <p>मरुदेवी माता के उदर से, चैत-वदी-नवमी को जन्मे ।<br/>तुमने जग को ज्ञान सिखाया, कर्मभूमि का बीज उपाया ।।३।।</p>
+        <p>कल्पवृक्ष जब लगे बिछरने, जनता आई दु:खड़ा कहने ।<br/>सब का संशय तभी भगाया, सूर्य-चंद्र का ज्ञान कराया ।।४।।</p>
+        <p>खेती करना भी सिखलाया, न्याय-दंड आदिक समझाया ।<br/>तुमने राज किया नीति का, सबक आपसे जग ने सीखा ।।५।।</p>
+        <p>पुत्र आपका भरत बताया, चक्रवर्ती जग में कहलाया ।<br/>बाहुबलि जो पुत्र तुम्हारे, भरत से पहले मोक्ष सिधारे ।।६।।</p>
+        <p>सुता आपकी दो बतलाई, ‘ब्राह्मी’ और ‘सुन्दरी’ कहलाई ।<br/>उनको भी विद्या सिखलाई, अक्षर और गिनती बतलाई ।।७।।</p>
+        <p>एक दिन राजसभा के अंदर, एक अप्सरा नाच रही थी ।<br/>आयु उसकी बची अल्प थी, इसीलिए आगे नहिं नाच सकी थी ।।८।।</p>
+        <p>विलय हो गया उसका सत्वर, झट आया वैराग्य उमड़कर ।<br/>बेटों को झट पास बुलाया, राजपाट सब में बँटवाया ।।९।।</p>
+        <p>छोड़ सभी झंझट संसारी, वन जाने की करी तैयारी ।<br/>राजा हजारों साथ सिधाए, राजपाट-तज वन को धाये ।।१०।।</p>
+        <p>लेकिन जब तुमने तप कीना, सबने अपना रस्ता लीना ।<br/>वेष-दिगम्बर तजकर सबने, छाल आदि के कपड़े पहने ।।११।।</p>
+        <p>भूख-प्यास से जब घबराये, फल आदिक खा भूख मिटाये ।<br/>तीन सौ त्रेसठ धर्म फैलाये, जो अब दुनियाँ में दिखलाये ।।१२।।</p>
+        <p>छै: महीने तक ध्यान लगाये, फिर भोजन करने को धाये ।<br/>भोजन-विधि जाने नहिं कोय, कैसे प्रभु का भोजन होय ।।१३।।</p>
+        <p>इसी तरह बस चलते चलते, छै: महीने भोजन-बिन बीते ।<br/>नगर हस्तिनापुर में आये, राजा सोम श्रेयांस बताए ।।१४।।</p>
+        <p>याद तभी पिछला-भव आया, तुमको फौरन ही पड़घाया ।<br/>रस-गन्ने का तुमने पाया, दुनिया को उपदेश सुनाया ।।१५।।</p>
+        <p>तप कर केवलज्ञान उपाया, मोक्ष गए सब जग हर्षाया ।<br/>अतिशययुक्त तुम्हारा मंदिर, चाँदखेड़ी भँवरे के अंदर ।।१६।।</p>
+        <p>उसका यह अतिशय बतलाया, कष्ट-क्लेश का होय सफाया ।<br/>मानतुंग पर दया दिखाई, जंजीरें सब काट गिराई ।।१७।।</p>
+        <p>राजसभा में मान बढ़ाया, जैनधर्म जग में फैलाया ।<br/>मुझ पर भी महिमा दिखलाओ, कष्ट भक्त का दूर भगाओ ।।१८।।</p>
+        <p>पाठ करे चालीस दिन, नित चालीस ही बार ।<br/>चाँदखेड़ी में आय के, खेवे धूप अपार ।।</p>
+        <p>जन्म दरिद्री होय जो, होय कुबेर-समान ।<br/>नाम-वंश जग में चले, जिनके नहीं संतान ।।</p>
+      </div>
+    </div>
+    <div class="lyrics-column">
+      <div class="lyrics-panel lyrics-roman" lang="en">
+        <p>śīśa navā arihanta kō, sid ’dhana karūm̐ praṇāma.<br/>Upādhyāya ācārya kā lē sukhakārī nāma.</p>
+        <p>Sarva sādhu aura sarasvatī jinamandira sukhakāra.<br/>Ādinātha bhagavān kō mana-mandira mēṁ dhāra.</p>
+        <p>Jai jai ādinātha jina svāmī, tīna-kāla tihum̐-jaga mēṁ nāmī.<br/>Vēṣa-digambara dhāra rahē hō, karmōṁ kō tuma māra rahē hō..1..</p>
+        <p>Hō sarvajña bāta saba jānō; sārī duniyām̐ kō pahacānō.<br/>Nagara ayōdhyā jō kahalāyē, rājā nābhirāja batalāyē..2..</p>
+        <p>Marudēvī mātā kē udara sē, caita-vadī-navamī kō janmē.<br/>Tumanē jaga kō jñāna sikhāyā, karmabhūmi kā bīja upāyā..3..</p>
+        <p>Kalpavr̥kṣa jaba lagē bicharanē, janatā āi du:Khaṛā kahanē.<br/>Saba kā sanśaya tabhī bhagāyā, sūrya-candra kā jñāna karāyā..4..</p>
+        <p>Khētī karanā bhī sikhalāyā, n ’yāya-daṇḍa ādika samajhāyā.<br/>Tumanē rāja kiyā nīti kā, sabaka āpasē jaga nē sīkhā..5..</p>
+        <p>Putra āpakā bharata batāyā, cakravartī jaga mēṁ kahalāyā.<br/>Bāhubali jō putra tumhārē, bharata sē pahalē mōkṣa sidhārē..6..</p>
+        <p>Sutā āpakī dō batalāi, ‘brāhmī’ aura ‘sundarī’ kahalāi.<br/>Unakō bhī vidyā sikhalāi, akṣara aura ginatī batalāi..7..</p>
+        <p>Ēka dina rājasabhā kē andara, ēka apsarā nāca rahī thī.<br/>Āyu usakī bacī alpa thī, isīli’ē āgē nahiṁ nāca sakī thī..8..</p>
+        <p>Vilaya hō gayā usakā satvara, jhaṭa āyā vairāgya umaṛakara.<br/>Bēṭōṁ kō jhaṭa pāsa bulāyā, rājapāṭa saba mēṁ bam̐ṭavāyā..9..</p>
+        <p>Chōṛa sabhī jhan̄jhaṭa sansārī, vana jānē kī karī taiyārī.<br/>Rājā hajārōṁ sātha sidhā’ē, rājapāṭa-taja vana kō dhāyē..10..</p>
+        <p>Lēkina jaba tumanē tapa kīnā, sabanē apanā rastā līnā.<br/>Vēṣa-digambara tajakara sabanē, chāla ādi kē kapaṛē pahanē..11..</p>
+        <p>Bhūkha-pyāsa sē jaba ghabarāyē, phala ādika khā bhūkha miṭāyē.<br/>Tīna sau trēsaṭha dharma phailāyē, jō aba duniyām̐ mēṁ dikhalāyē..12..</p>
+        <p>Chai: Mahīnē taka dhyāna lagāyē, phira bhōjana karanē kō dhāyē.<br/>Bhōjana-vidhi jānē nahiṁ kōya, kaisē prabhu kā bhōjana hōya..13..</p>
+        <p>Isī taraha basa calatē calatē, chai: Mahīnē bhōjana-bina bītē.<br/>Nagara hastināpura mēṁ āyē, rājā sōma śrēyānsa batā’ē..14..</p>
+        <p>Yāda tabhī pichalā-bhava āyā, tumakō phaurana hī paṛaghāyā.<br/>Rasa-gannē kā tumanē pāyā, duniyā kō upadēśa sunāyā..15..</p>
+        <p>Tapa kara kēvalajñāna upāyā, mōkṣa ga ’ē saba jaga harṣāyā.<br/>Atiśayayukta tumhārā mandira, cām̐dakhēṛī bham̐varē kē andara..16..</p>
+        <p>Usakā yaha atiśaya batalāyā, kaṣṭa-klēśa kā hōya saphāyā.<br/>Mānatuṅga para dayā dikhāi, jan̄jīrēṁ saba kāṭa girāi..17..</p>
+        <p>Rājasabhā mēṁ māna baṛhāyā, jainadharma jaga mēṁ phailāyā.<br/>Mujha para bhī mahimā dikhalā’ō, kaṣṭa bhakta kā dūra bhagā’ō..18..</p>
+        <p>Pāṭha karē cālīsa dina, nita cālīsa hī bāra.<br/>Cām̐dakhēṛī mēṁ āya kē, khēvē dhūpa apāra..</p>
+        <p>Janma daridrī hōya jō, hōya kubēra-samāna.<br/>Nāma-vanśa jaga mēṁ calē, jinakē nahīṁ santāna..</p>
+      </div>
+    </div>
+  </div>
+</article>
 </div>
 <div class="bhakti-note"><span>🪷</span><p data-i18n="bhakti.note"><strong>Bhakti Sangeet</strong><br/>More Jain bhajans and devotional content can be added here over time.</p></div></div></section>
 </main>

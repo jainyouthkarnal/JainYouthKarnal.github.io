@@ -1466,7 +1466,7 @@ setLanguage=function(lang){
 
   const modes=[
     ['hindi','हिंदी','bhakti.hindi'],
-    ['roman','English','bhakti.roman'],
+    ['roman','Roman','bhakti.roman'],
     ['both','Both','bhakti.both']
   ];
 
