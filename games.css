@@ -23,7 +23,7 @@
 .game-status { display:flex; gap:.7rem; flex-wrap:wrap; margin:.5rem 0 1rem; }
 .status-pill { background:#f9f4e8; border-radius:9px; padding:.55rem .8rem; font-size:.88rem; }
 .word-layout { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr); gap:1.25rem; align-items:start; }
-.letter-grid { display:grid; grid-template-columns:repeat(15,minmax(0,1fr)); gap:3px; max-width:640px; margin:auto; touch-action:manipulation; user-select:none; }
+.letter-grid { display:grid; grid-template-columns:repeat(var(--grid-size,20),minmax(0,1fr)); gap:3px; max-width:640px; margin:auto; touch-action:manipulation; user-select:none; }
 .letter { aspect-ratio:1; display:grid; place-items:center; border:1px solid #f0e6d1; border-radius:5px; background:#fffdf8; color:#493a2c; font-weight:700; font-size:clamp(.62rem,2.2vw,1rem); cursor:pointer; padding:0; min-width:0; }
 .letter.selected { background:#f5d987; border-color:#c79a32; }
 .letter.found { background:#dcefe0; border-color:#148a45; color:#126c38; }
@@ -69,3 +69,9 @@
 .guess-tirthankar-image { display:block; width:min(100%,260px); height:260px; object-fit:contain; margin:0 auto; border-radius:14px; background:#fff; }
 .image-caption { color:#8a6b28; font-weight:700; font-size:.9rem; margin:.55rem 0 0; }
 .guess-image-placeholder { display:grid; place-items:center; width:min(100%,300px); min-height:180px; margin:0 auto 1rem; padding:1rem; box-sizing:border-box; text-align:center; background:#f9f4e8; border:1px dashed #d7c28e; border-radius:14px; color:#756957; font-size:.9rem; }
+
+/* Word challenge explanation appears after a correct answer. */
+.word-explanation { margin-top:1rem; padding:1rem 1.1rem; border:1px solid #cfe5d3; border-radius:14px; background:#f1f8f1; color:#285b37; line-height:1.65; }
+.word-explanation h3 { margin:0 0 .35rem; font-size:1.05rem; }
+.word-explanation p { margin:0; }
+@media(max-width:420px) { .letter-grid { gap:1px; } .letter { font-size:.62rem; border-radius:2px; } .game-panel { padding:.75rem; } }
