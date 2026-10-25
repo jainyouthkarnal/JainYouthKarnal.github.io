@@ -1,12 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Read Jain bhajan and aarti lyrics in Hindi and English transliteration, aligned verse by verse.">
-<meta name="theme-color" content="#148A45"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-icon.png">
+<meta name="theme-color" content="#148A45">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-icon.png">
 <title>Bhajan Lyrics | Jain Youth Karnal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="animations.css">
 <style>
 .lyrics-language-cards {
@@ -36,15 +41,6 @@
   padding: clamp(20px, 3vw, 32px);
   box-shadow: 0 8px 24px rgba(12,59,46,.05);
 }
-.language-card-hindi h3, .language-card-english h3 {
-  color: var(--green);
-  font-size: 0.82rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin: 0 0 18px;
-  padding-bottom: 10px;
-  border-bottom: 1px dashed var(--line);
-}
 .lyrics-language-stanza {
   margin-bottom: 20px;
   line-height: 2;
@@ -70,20 +66,31 @@
 <div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 <div id="site-header"></div>
 <script src="layout.js"></script>
-<main id="main"><section class="section section-bhakti lyrics-page-section"><div class="container">
-<a class="lyrics-back" href="bhakti.html">← Back to Bhakti Sangeet</a>
-<div class="lyrics-page-heading">
-  <p class="eyebrow">BHAKTI SANGEET</p>
-  <h1 id="lyrics-title">Loading lyrics…</h1>
-  <p id="lyrics-subtitle">Hindi and English transliteration, aligned verse by verse.</p>
-</div>
-<div class="bhajan-view-controls lyrics-page-controls" role="group" aria-label="Choose lyrics language">
-  <button class="bhajan-view-btn" data-view="hindi" type="button" aria-pressed="false">हिंदी</button>
-  <button class="bhajan-view-btn" data-view="roman" type="button" aria-pressed="false">English</button>
-  <button class="bhajan-view-btn active" data-view="both" type="button" aria-pressed="true">Both</button>
-</div>
-<div id="lyrics-content" class="lyrics-language-cards" aria-live="polite"><p>Loading the full lyrics…</p></div>
-</div></section></main>
+
+<main id="main">
+  <section class="section section-bhakti lyrics-page-section">
+    <div class="container">
+      <a class="lyrics-back" href="bhakti.html">← Back to Bhakti Sangeet</a>
+      <div class="lyrics-page-heading">
+        <p class="eyebrow">BHAKTI SANGEET</p>
+        <h1 id="lyrics-title">Loading lyrics…</h1>
+        <p id="lyrics-subtitle">Devotional verses</p>
+      </div>
+
+      <!-- Controls matching the shared pill style -->
+      <div class="bhajan-view-controls lyrics-page-controls" role="group" aria-label="Choose lyrics language">
+        <button class="bhajan-view-btn" data-view="hindi" type="button" aria-pressed="false">हिंदी</button>
+        <button class="bhajan-view-btn" data-view="roman" type="button" aria-pressed="false">English</button>
+        <button class="bhajan-view-btn active" data-view="both" type="button" aria-pressed="true">Both</button>
+      </div>
+
+      <div id="lyrics-content" class="lyrics-language-cards" aria-live="polite">
+        <p>Loading the full lyrics…</p>
+      </div>
+    </div>
+  </section>
+</main>
+
 <div id="site-footer"></div>
 <script src="script.js"></script>
 <script>
@@ -91,6 +98,7 @@
   const params = new URLSearchParams(location.search);
   const id = Number(params.get('id'));
   const title = document.getElementById('lyrics-title');
+  const subtitle = document.getElementById('lyrics-subtitle');
   const content = document.getElementById('lyrics-content');
 
   try {
@@ -103,13 +111,8 @@
     const card = cards[id - 1];
     if (!card) throw new Error('This bhajan could not be found');
 
-    const heading = card.querySelector('.bhajan-head h3');
-    const subhead = card.querySelector('.bhajan-subhead');
-    title.textContent = heading ? heading.textContent.trim() : 'Bhajan Lyrics';
-    document.title = title.textContent + ' | Jain Youth Karnal';
-    if (subhead) {
-      document.getElementById('lyrics-subtitle').textContent = subhead.textContent.trim();
-    }
+    const hiTitle = card.querySelector('.bhajan-title-hi')?.textContent?.trim() || card.querySelector('.bhajan-head h3')?.textContent?.trim() || '';
+    const enTitle = card.querySelector('.bhajan-title-en')?.textContent?.trim() || card.querySelector('.bhajan-subhead')?.textContent?.trim() || '';
 
     const hi = [...(card.querySelector('.lyrics-hi')?.querySelectorAll('p') || [])];
     const en = [...(card.querySelector('.lyrics-roman')?.querySelectorAll('p') || [])];
@@ -117,11 +120,11 @@
 
     content.innerHTML = '';
 
-    const makeLanguageCard = (language, label, items) => {
+    // Generates the language card without any H3 heading labels
+    const makeLanguageCard = (language, items) => {
       const cardEl = document.createElement('section');
       cardEl.className = 'lyrics-language-card ' + (language === 'hindi' ? 'language-card-hindi' : 'language-card-english');
       cardEl.dataset.language = language;
-      cardEl.innerHTML = `<h3>${label}</h3>`;
       const body = document.createElement('div');
       body.className = 'lyrics-language-card-body';
       body.lang = language === 'hindi' ? 'hi' : 'en';
@@ -143,19 +146,41 @@
     };
 
     content.append(
-      makeLanguageCard('hindi', 'हिंदी पाठ (Devanagari)', hi),
-      makeLanguageCard('roman', 'English Transliteration', en)
+      makeLanguageCard('hindi', hi),
+      makeLanguageCard('roman', en)
     );
 
     const controls = [...document.querySelectorAll('.lyrics-page-controls [data-view]')];
+
+    // Updates both lyrics columns and top heading dynamically
     function setView(mode) {
       const safeMode = ['hindi', 'roman', 'both'].includes(mode) ? mode : 'both';
       content.dataset.view = safeMode;
+
+      if (safeMode === 'hindi') {
+        title.textContent = hiTitle || enTitle;
+        subtitle.hidden = true;
+      } else if (safeMode === 'roman') {
+        title.textContent = enTitle || hiTitle;
+        subtitle.hidden = true;
+      } else {
+        title.textContent = hiTitle;
+        if (enTitle) {
+          subtitle.textContent = enTitle;
+          subtitle.hidden = false;
+        } else {
+          subtitle.hidden = true;
+        }
+      }
+
+      document.title = (title.textContent || 'Bhajan Lyrics') + ' | Jain Youth Karnal';
+
       controls.forEach(b => {
         const active = b.dataset.view === safeMode;
         b.classList.toggle('active', active);
         b.setAttribute('aria-pressed', String(active));
       });
+
       try { localStorage.setItem('jyk-bhakti-view', safeMode); } catch(e) {}
     }
 
@@ -166,6 +191,7 @@
 
   } catch (err) {
     title.textContent = 'Lyrics unavailable';
+    subtitle.hidden = true;
     content.textContent = 'We could not load these lyrics. Please return to the Bhakti Sangeet library and try again.';
   }
 })();

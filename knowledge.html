@@ -96,6 +96,13 @@
       padding-top: 10px;
       border-top: 1px dashed rgba(179,139,66,.3);
     }
+    .daslakshan-marquee {
+      margin: 28px 0 32px;
+      border-radius: 16px;
+    }
+    .daslakshan-marquee .marquee-track {
+      animation-duration: 52s;
+    }
     .virtue-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -231,6 +238,12 @@
       }
       .learning-panel {
         padding: 20px;
+      }
+    }
+    @media(max-width:600px){
+      .daslakshan-marquee .marquee-track span {
+        font-size: 1.15rem;
+        padding: 0 18px;
       }
     }
     @media(max-width:560px){
@@ -557,6 +570,32 @@
           <span class="lang-content lang-en">Celebrated annually from Bhadrapada Shukla Panchami to Bhadrapada Shukla Chaturdashi (Anant Chaturdashi), Das Lakshan Parva is the quintessential Jain festival of reflection, fasting, and spiritual rejuvenation. Over ten days, devotees meditate upon the 10 Supreme Virtues (Uttam Dharmas) outlined in Acharya Umaswati's <em>Tattvartha Sutra</em>:</span>
           <span class="lang-content lang-hi" hidden>भाद्रपद शुक्ल पंचमी से अनंत चतुर्दशी तक मनाया जाने वाला दशलक्षण महापर्व आत्मा के स्वभाव को पहचानने का पावन अवसर है। आचार्य उमास्वामी विरचित <em>तत्वार्थ सूत्र</em> के अनुसार आत्मा के दस स्वाभाविक धर्मों का प्रतिदिन चिंतन, स्वाध्याय और तप किया जाता है:</span>
         </p>
+
+        <!-- Das Lakshan 10 Virtues Infinite Moving Marquee Strip -->
+        <div aria-hidden="true" class="values-marquee daslakshan-marquee">
+          <div class="marquee-track">
+            <span>उत्तम क्षमा • Uttam Kshama</span>
+            <span>उत्तम मार्दव • Uttam Mardava</span>
+            <span>उत्तम आर्जव • Uttam Aarjava</span>
+            <span>उत्तम शौच • Uttam Shauch</span>
+            <span>उत्तम सत्य • Uttam Satya</span>
+            <span>उत्तम संयम • Uttam Sanyam</span>
+            <span>उत्तम तप • Uttam Tapa</span>
+            <span>उत्तम त्याग • Uttam Tyaga</span>
+            <span>उत्तम आकिंचन्य • Uttam Akinchanya</span>
+            <span>उत्तम ब्रह्मचर्य • Uttam Brahmacharya</span>
+            <span>उत्तम क्षमा • Uttam Kshama</span>
+            <span>उत्तम मार्दव • Uttam Mardava</span>
+            <span>उत्तम आर्जव • Uttam Aarjava</span>
+            <span>उत्तम शौच • Uttam Shauch</span>
+            <span>उत्तम सत्य • Uttam Satya</span>
+            <span>उत्तम संयम • Uttam Sanyam</span>
+            <span>उत्तम तप • Uttam Tapa</span>
+            <span>उत्तम त्याग • Uttam Tyaga</span>
+            <span>उत्तम आकिंचन्य • Uttam Akinchanya</span>
+            <span>उत्तम ब्रह्मचर्य • Uttam Brahmacharya</span>
+          </div>
+        </div>
 
         <div class="virtue-grid">
           <article class="virtue-card">
