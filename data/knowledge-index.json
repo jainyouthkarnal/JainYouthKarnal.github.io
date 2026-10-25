@@ -24,6 +24,30 @@
       "type": "Article",
       "url": "arghya.html",
       "action": "Read Arghya"
+    },
+    {
+      "title": "Das Lakshan Parva",
+      "description": "Das Lakshan Parva is the ten-day Digambar Jain festival of the ten supreme virtues of the soul, observed from Bhadrapada Shukla Panchami to Bhadrapada Shukla Chaturdashi, when one dharma such as forgiveness, humility or ",
+      "category": "Articles",
+      "type": "Article",
+      "url": "knowledge/articles/das-lakshan-parva.md",
+      "action": "Read article"
+    },
+    {
+      "title": "Panch Balyati",
+      "description": "The five Balayati Tirthankaras are traditionally named as:",
+      "category": "Articles",
+      "type": "Article",
+      "url": "knowledge/articles/panch-balyati.md",
+      "action": "Read article"
+    },
+    {
+      "title": "Panch Kalyanak",
+      "description": "In Jain tradition, the life of each Tirthankara is associated with five auspicious events known as *Panch Kalyanaka*. These events mark important spiritual milestones in the Tirthankara’s life and are commemorated throug",
+      "category": "Articles",
+      "type": "Article",
+      "url": "knowledge/articles/panch-kalyanak.md",
+      "action": "Read article"
     }
   ]
 }
