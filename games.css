@@ -70,8 +70,11 @@
 .image-caption { color:#8a6b28; font-weight:700; font-size:.9rem; margin:.55rem 0 0; }
 .guess-image-placeholder { display:grid; place-items:center; width:min(100%,300px); min-height:180px; margin:0 auto 1rem; padding:1rem; box-sizing:border-box; text-align:center; background:#f9f4e8; border:1px dashed #d7c28e; border-radius:14px; color:#756957; font-size:.9rem; }
 
-/* Word challenge explanation appears after a correct answer. */
-.word-explanation { margin-top:1rem; padding:1rem 1.1rem; border:1px solid #cfe5d3; border-radius:14px; background:#f1f8f1; color:#285b37; line-height:1.65; }
-.word-explanation h3 { margin:0 0 .35rem; font-size:1.05rem; }
-.word-explanation p { margin:0; }
-@media(max-width:420px) { .letter-grid { gap:1px; } .letter { font-size:.62rem; border-radius:2px; } .game-panel { padding:.75rem; } }
+/* Match game progress states */
+.match-item { display:flex; align-items:center; justify-content:space-between; gap:.6rem; flex-wrap:wrap; transition:background .15s,border-color .15s; }
+.match-item small { display:inline-flex; align-items:center; border-radius:999px; padding:.22rem .5rem; font-size:.72rem; font-weight:700; background:#f3eee4; color:#756957; white-space:nowrap; }
+.match-item.pending { border-style:dashed; background:#fffdf8; }
+.match-item.pending small { background:#f4efe5; color:#786b59; }
+.match-item.matched, .match-item.matched:disabled { border-style:solid; background:#e4f5e7; border-color:#25834a; color:#126b37; opacity:1; cursor:default; }
+.match-item.matched small { background:#c9ebd1; color:#126b37; }
+.letter-grid { grid-template-columns:repeat(var(--grid-size,20),minmax(0,1fr)); }
