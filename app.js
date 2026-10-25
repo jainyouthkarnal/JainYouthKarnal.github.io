@@ -2428,19 +2428,38 @@ window.refreshHomeDynamicContent = async function refreshHomeDynamicContent(lang
   };
   ['kundalpur-card-home','kundalpur-card-yatra'].forEach(id=>{const target=document.getElementById(id);if(target)target.innerHTML=makeYatraCard(kundalpur);});
 
-  // The next three calendar dates, excluding the dedicated Kundalpur feature card.
-  const todayISO = new Date().toISOString().slice(0,10);
-  const candidates=[];
-  eventData.filter(e=>e.id!=='kundalpur-yatra-2026').forEach(e=>{if(e.date>=todayISO)candidates.push({date:e.date,title:hi?(e.titleHi||e.title):e.title,note:hi?(e.noteHi||e.note||''):(e.note||''),type:e.type||'event'});});
-  if(typeof kalyanakEvents!=='undefined') Object.entries(kalyanakEvents).forEach(([date,items])=>{if(date>=todayISO)(items||[]).forEach(item=>candidates.push({date,title:hi?item.hi:item.en,note:hi?'जैन कैलेंडर':'Jain calendar',type:'kalyanak'}));});
-  // Sunday Pathshala is a recurring calendar item; include the next upcoming Sundays.
-  const nextSunday = new Date(); nextSunday.setHours(0,0,0,0); nextSunday.setDate(nextSunday.getDate() + ((7-nextSunday.getDay())%7 || 7));
-  for(let i=0;i<5;i++){const d=new Date(nextSunday);d.setDate(d.getDate()+7*i);const date=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;candidates.push({date,title:hi?'रविवार पाठशाला':'Sunday Pathshala',note:hi?'हर रविवार • सुबह 8–9 बजे • करनाल':'Every Sunday • 8–9 AM • Karnal',type:'pathshala'});}
-  candidates.sort((a,b)=>a.date.localeCompare(b.date));
-  const unique=[], seen=new Set();
-  candidates.forEach(e=>{const key=e.date+'|'+e.title;if(!seen.has(key)){seen.add(key);unique.push(e);}});
+  // Homepage highlights: the next dated community event, monthly Bhajan Sandhya,
+  // Panch Kalyanak 2027 (date to be announced), and the recurring Sunday Pathshala.
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayISO = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  const datedEvents=[];
+  eventData.filter(e=>e.id!=='kundalpur-yatra-2026').forEach(e=>{if(e.date && e.date>=todayISO)datedEvents.push({date:e.date,title:hi?(e.titleHi||e.title):e.title,note:hi?(e.noteHi||e.note||''):(e.note||''),type:e.type||'event'});});
+  if(typeof kalyanakEvents!=='undefined') Object.entries(kalyanakEvents).forEach(([date,items])=>{if(date>=todayISO)(items||[]).forEach(item=>datedEvents.push({date,title:hi?item.hi:item.en,note:hi?'जैन कैलेंडर':'Jain calendar',type:'kalyanak'}));});
+  datedEvents.sort((a,b)=>a.date.localeCompare(b.date));
+
+  // Find the next last Sunday of the month. If it is already Sunday evening,
+  // show the next month's occurrence instead of a Bhajan Sandhya that has passed.
+  const now = new Date();
+  const lastSundayAtSeven = (year, month) => { const d=new Date(year,month+1,0); d.setDate(d.getDate()-d.getDay()); d.setHours(19,0,0,0); return d; };
+  let bhajanDate=lastSundayAtSeven(now.getFullYear(),now.getMonth());
+  if(bhajanDate<=now){const nextMonth=new Date(now.getFullYear(),now.getMonth()+1,1);bhajanDate=lastSundayAtSeven(nextMonth.getFullYear(),nextMonth.getMonth());}
+  const isoDate = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  const bhajan={date:isoDate(bhajanDate),title:hi?'मासिक भजन संध्या':'Monthly Bhajan Sandhya',note:hi?'हर महीने के अंतिम रविवार • शाम 7:00 बजे':'Last Sunday of every month • 7:00 PM',type:'bhajan'};
+  const panch={date:null,title:hi?'पंचकल्याणक 2027':'Panch Kalyanak 2027',note:hi?'तिथि एवं विवरण शीघ्र घोषित किए जाएँगे।':'Date and details to be announced.',type:'tba'};
+  const nextSunday = new Date(today); nextSunday.setDate(nextSunday.getDate() + ((7-today.getDay())%7 || 7));
+  const pathshalaDate=isoDate(nextSunday);
+  const pathshala={date:pathshalaDate,title:hi?'रविवार पाठशाला':'Sunday Pathshala',note:hi?'हर रविवार • सुबह 8–9 बजे • करनाल':'Every Sunday • 8–9 AM • Karnal',type:'pathshala'};
+  const selected=[];
+  if(datedEvents.length) selected.push(datedEvents[0]);
+  selected.push(bhajan,panch,pathshala);
   const upcoming=document.getElementById('home-upcoming-events');
-  if(upcoming){const three=unique.slice(0,3);upcoming.innerHTML=three.length?three.map(e=>`<article class="home-event-card"><span class="event-type">${e.type==='kalyanak'?(hi?'कल्याणक':'KALYANAK'):e.type==='pathshala'?(hi?'नियमित पाठशाला':'REGULAR PATHSHALA'):(hi?'कार्यक्रम':'COMMUNITY EVENT')}</span><time class="event-date" datetime="${esc(e.date)}">${esc(dateFmt(e.date))}</time><h3>${esc(e.title)}</h3><p>${esc(e.note)}</p><a href="community.html#calendar">${hi?'कैलेंडर देखें →':'View calendar →'}</a></article>`).join(''):`<article class="home-event-card"><h3>${hi?'कोई आगामी कार्यक्रम सूचीबद्ध नहीं है':'No upcoming events listed yet'}</h3><a href="community.html#calendar">${hi?'कैलेंडर देखें →':'View calendar →'}</a></article>`;}
+  if(upcoming){upcoming.innerHTML=selected.map(e=>{
+    const label=e.type==='kalyanak'?(hi?'कल्याणक':'KALYANAK'):e.type==='pathshala'?(hi?'नियमित पाठशाला':'REGULAR PATHSHALA'):e.type==='bhajan'?(hi?'भक्ति कार्यक्रम':'DEVOTIONAL GATHERING'):e.type==='tba'?(hi?'घोषणा शीघ्र':'COMING SOON'):(hi?'कार्यक्रम':'COMMUNITY EVENT');
+    const dateMarkup=e.date?`<time class="event-date" datetime="${esc(e.date)}">${esc(dateFmt(e.date))}</time>`:`<span class="event-date">${hi?'तिथि शीघ्र घोषित होगी':'Date to be announced'}</span>`;
+    const href=e.type==='bhajan'?'bhakti.html':e.type==='tba'?'community.html#calendar':'community.html#calendar';
+    const cta=e.type==='bhajan'?(hi?'भक्ति देखें →':'Explore Bhakti →'):e.type==='tba'?(hi?'अपडेट देखें →':'Stay tuned →'):(hi?'कैलेंडर देखें →':'View calendar →');
+    return `<article class="home-event-card"><span class="event-type">${label}</span>${dateMarkup}<h3>${esc(e.title)}</h3><p>${esc(e.note)}</p><a href="${href}">${cta}</a></article>`;
+  }).join('');}
 
   // Community moments only show completed trips; future trips remain in Upcoming Events.
   const moments=document.getElementById('home-community-moments');

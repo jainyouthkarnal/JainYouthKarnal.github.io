@@ -1,0 +1,24 @@
+/* YouTube card styles. Reuse existing .social-card and header styles if present. */
+.youtube-card { min-width: 0; overflow: hidden; border-radius: 16px; }
+.youtube-card .social-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.youtube-card .social-account-info { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.youtube-logo { display: flex; flex: 0 0 44px; align-items: center; justify-content: center; width: 44px; height: 44px; color: #fff; background: #ff0033; border-radius: 50%; }
+.youtube-logo svg { display: block; width: 23px; height: 23px; }
+.youtube-card h2 { margin: 0 0 4px; font-size: 1.05rem; }
+.youtube-channel-link { display: inline-block; max-width: 100%; overflow-wrap: anywhere; color: inherit; font-size: .85rem; text-decoration: none; opacity: .75; }
+.youtube-channel-link:hover { opacity: 1; text-decoration: underline; }
+.youtube-view-all { flex-shrink: 0; color: inherit; font-size: .85rem; font-weight: 600; text-decoration: none; }
+.youtube-view-all:hover { text-decoration: underline; }
+.youtube-video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.youtube-video { position: relative; display: block; overflow: hidden; aspect-ratio: 1 / 1; border-radius: 10px; background: #eee; isolation: isolate; text-decoration: none; }
+.youtube-video img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease, filter .3s ease; }
+.youtube-video::after { position: absolute; z-index: 1; inset: 0; content: ""; background: linear-gradient(to top, rgb(0 0 0 / 35%), transparent 55%); pointer-events: none; }
+.youtube-play-badge { position: absolute; z-index: 2; top: 50%; left: 50%; display: flex; align-items: center; justify-content: center; width: 42px; height: 30px; color: #fff; background: rgb(255 0 51 / 95%); border-radius: 9px; transform: translate(-50%, -50%); transition: background .25s ease, transform .25s ease; }
+.youtube-play-badge svg { width: 15px; height: 15px; margin-left: 2px; fill: currentColor; }
+.youtube-video:hover img { transform: scale(1.07); filter: brightness(.85); }
+.youtube-video:hover .youtube-play-badge { background: #d9002b; transform: translate(-50%, -50%) scale(1.1); }
+.youtube-video:focus-visible, .youtube-view-all:focus-visible, .youtube-channel-link:focus-visible { outline: 3px solid #ff0033; outline-offset: 3px; }
+.youtube-loading, .youtube-error { grid-column: 1 / -1; padding: 28px 12px; color: #666; font-size: .9rem; line-height: 1.5; text-align: center; }
+.youtube-error a { color: inherit; font-weight: 600; }
+.youtube-card-footer { margin: 14px 0 0; color: inherit; font-size: .85rem; line-height: 1.5; opacity: .75; }
+@media (prefers-reduced-motion: reduce) { .youtube-video img, .youtube-play-badge { transition: none; } }
