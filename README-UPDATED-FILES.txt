@@ -35,3 +35,9 @@ INSTALL
 
 VALIDATION
 JavaScript syntax, JSON parsing, duplicate HTML IDs, current bhajan tags, unique trip/mandir counts and the nine map-card entries were checked. A full live-browser test on GitHub Pages has not been performed.
+
+
+Latest refinements (25 Oct 2026):
+- Teerth Directory cards no longer label Hansi destinations as Darshan/Prakshal and remove the generic Hastinapur/Gannaur trip-recording sentence.
+- Monthly Yatra Map now offers per-temple Google Maps embeds, reusing the embed URLs from the Teerth Directory when a matching temple is available; maps load only when expanded. Where a temple has no saved directory embed, an accurate Google Maps search link is shown instead.
+- Homepage KPI cards have refreshed visual hierarchy, icons, softer accent colours, improved spacing, hover treatment, and mobile layout.

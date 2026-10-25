@@ -495,12 +495,12 @@
         lang = lang === 'hi' ? 'hi' : 'en';
         document.documentElement.lang = lang;
         document.querySelectorAll('.lang-content').forEach(function(el){
-          if (el.classList.contains('lang-' + lang)) {
-            el.removeAttribute('hidden');
-          } else {
-            el.setAttribute('hidden', '');
-          }
+          const isSelectedLanguage = el.classList.contains('lang-' + lang);
+          el.hidden = !isSelectedLanguage;
+          if (isSelectedLanguage) el.removeAttribute('hidden');
+          else el.setAttribute('hidden', '');
         });
+        // Keep one card per topic; only its localized title/description/button is visible.
         if (activeArticleSlug) loadKnowledgeArticle(activeArticleSlug, lang);
       }
 
@@ -584,19 +584,26 @@
         reader.hidden = false;
         status.textContent = lang === 'hi' ? 'लेख लोड हो रहा है…' : 'Loading article…';
         content.innerHTML = '';
-        const titles = {
+        const fallbackTitles = {
           'panch-kalyanak': {en:'Panch Kalyanak',hi:'पंच कल्याणक'},
           'panch-balyati': {en:'Panch Balayati',hi:'पंच बालयति'},
           'das-lakshan-parva': {en:'Das Lakshan Parva',hi:'दशलक्षण पर्व'},
           'three-jewels-of-jainism': {en:'The Three Jewels of Jainism',hi:'जैन धर्म के तीन रत्न'}
         };
-        const articleTitle = (titles[slug] || titles['panch-kalyanak'])[lang] || (titles[slug] || titles['panch-kalyanak']).en;
-        title.textContent = articleTitle;
+        const fallbackTitle = (fallbackTitles[slug] || fallbackTitles['panch-kalyanak'])[lang];
+        title.textContent = fallbackTitle;
         try {
           const response = await fetch('knowledge/articles/' + slug + '.' + lang + '.md', {cache:'no-store'});
           if (!response.ok) throw new Error('Article not found');
-          const markdown = await response.text();
+          let markdown = await response.text();
           if (requestId !== activeArticleRequest) return;
+          // Use the selected language file's own first H1 as the article title.
+          // This keeps the title and body in sync without maintaining duplicate title strings.
+          const headingMatch = markdown.match(/^#\s+(.+)\s*$/m);
+          if (headingMatch) {
+            title.textContent = headingMatch[1].trim();
+            markdown = markdown.replace(/^#\s+.+\s*\n?/, '');
+          }
           content.innerHTML = renderMarkdown(markdown);
           status.textContent = '';
           reader.scrollIntoView({behavior:'smooth', block:'start'});

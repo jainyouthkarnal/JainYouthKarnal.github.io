@@ -911,10 +911,43 @@ window.renderYatraMap=async function renderYatraMap(){
   const activityIcon=a=>a==='prakshal'
     ?`<img class="prakshal-icon" src="assets/prakshal-icon.png" alt="" aria-hidden="true">`
     :`<span class="darshan-icon" aria-hidden="true">🙏</span>`;
+  // Reuse the Google Maps embed locations maintained in the Teerth Directory below.
+  const teerthMaps = new Map();
+  document.querySelectorAll('.teerth-card').forEach(card => {
+    const title = card.querySelector('h3')?.textContent?.trim();
+    const frame = card.querySelector('iframe[data-src]');
+    if (title && frame) teerthMaps.set(title.toLowerCase(), frame.dataset.src);
+  });
+  const normalize = value => String(value || '').toLowerCase().replace(/[—–]/g,'-').replace(/[^a-z0-9]+/g,' ').trim();
+  const findTeerthMap = name => {
+    const key = normalize(name);
+    for (const [title, src] of teerthMaps) {
+      if (normalize(title) === key || normalize(title).includes(key) || key.includes(normalize(title))) return src;
+    }
+    // Known alternate naming used in the monthly trip records.
+    const aliases = [
+      [/parasnath.*jalalabad|parasnath.*jalabaad/i, 'Shri 1008 Parasnath Digamber Jain Mandir'],
+      [/ranila/i, 'Ranila Jain Mandir'],
+      [/vehalna|vehlana/i, 'Vehlana Ji Jain Temple'],
+      [/gupti dhaam/i, 'Gupti Dhaam Digamber Jain Mandir'],
+      [/jambu dweep/i, 'Digamber Jain Mandir — Jambu Dweep Rachna'],
+      [/bada mandir/i, 'Digamber Jain Bada Mandir'],
+      [/panchayati mandir/i, 'Shri Digamber Jain Panchayati Mandir'],
+      [/punyodaya/i, 'Punyodaya Tirth Khestra'],
+      [/trilok teerth/i, 'Trilok Teerth Dham']
+    ];
+    const alias = aliases.find(([pattern]) => pattern.test(name));
+    if (alias) return teerthMaps.get(normalize(alias[1])) || '';
+    return '';
+  };
   const templeList=(t,cls)=>`<ul class="${cls}">${mandirs(t).map(m=>{
     const isP=m.activity==='prakshal';
     const pending=m.note?` <em>${esc(m.note)}</em>`:'';
-    return `<li class="mandir-item ${isP?'is-prakshal':'is-darshan'}"><strong class="mandir-activity ${isP?'prakshal':'darshan'}">${activityIcon(m.activity)} ${activityLabel(m.activity)}</strong><span class="mandir-name">${esc(m.name)}${pending}</span></li>`;
+    const mapSrc=findTeerthMap(m.name);
+    const locationControl=mapSrc
+      ? `<details class="map-temple-map"><summary>${document.documentElement.lang==='hi'?'स्थान देखें':'View location'}</summary><iframe title="${esc(m.name)} Google Maps location" data-src="${esc(mapSrc)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></details>`
+      : `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name)}" target="_blank" rel="noopener">${document.documentElement.lang==='hi'?'Google Maps में खोलें →':'Open in Google Maps →'}</a>`;
+    return `<li class="mandir-item ${isP?'is-prakshal':'is-darshan'}"><span class="mandir-name">${esc(m.name)}${pending}</span>${locationControl}</li>`;
   }).join('')}</ul>`;
 
   let data;
@@ -2423,7 +2456,7 @@ window.refreshHomeDynamicContent = async function refreshHomeDynamicContent(lang
 document.addEventListener('toggle', event => {
   const details = event.target;
   if (!(details instanceof HTMLDetailsElement)) return;
-  if (details.matches('.teerth-map-details') && details.open) {
+  if (details.matches('.teerth-map-details, .map-temple-map') && details.open) {
     const frame = details.querySelector('iframe[data-src]');
     if (frame && !frame.src) frame.src = frame.dataset.src;
   }
