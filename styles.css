@@ -3947,3 +3947,148 @@ body.page-bhakti .bhajan-view-btn.active {
 .kids-card .button { margin-top:auto; }
 @media (max-width:850px) { .kids-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:560px) { .kids-grid { grid-template-columns:1fr; } .kids-card { padding:22px; } }
+
+
+/* ===== HOME PAGE: clear hierarchy, reusable cards and responsive grids ===== */
+.home-quick .section-heading { margin-bottom:1.5rem; }
+.quick-access-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:14px; }
+.quick-access-card { position:relative; display:flex; min-height:150px; flex-direction:column; gap:.55rem; padding:20px 17px; border:1px solid var(--line,#e7e8df); border-radius:18px; background:#fff; color:var(--ink,#173f34); text-decoration:none; box-shadow:0 8px 22px rgba(25,53,39,.035); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
+.quick-access-card:hover { transform:translateY(-3px); border-color:#d3b56b; box-shadow:0 14px 28px rgba(25,53,39,.09); }
+.quick-icon { font-size:1.45rem; }
+.quick-access-card strong { font-size:1.02rem; }
+.quick-access-card small { color:#748077; line-height:1.45; }
+.quick-arrow { position:absolute; right:16px; bottom:14px; color:#b58a36; font-size:1.1rem; }
+.home-kpi-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:24px; }
+.home-kpi { display:flex; align-items:center; justify-content:center; flex-direction:column; gap:7px; min-height:116px; padding:18px; border:1px solid #e8e6db; border-bottom:4px solid #d8b65c; border-radius:17px; background:#fff; text-align:center; }
+.home-kpi strong { color:#0f4234; font:700 clamp(1.8rem,3vw,2.8rem)/1 Georgia,serif; }
+.home-kpi span { color:#68756c; font-size:.78rem; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
+.kpi-note { margin:10px 0 0; color:#7c857d; font-size:.78rem; text-align:right; }
+.home-event-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.home-event-card { display:flex; min-height:220px; flex-direction:column; align-items:flex-start; padding:24px; border:1px solid #e5e7df; border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(30,55,40,.04); }
+.event-type,.trip-status { display:inline-flex; color:#a87c2b; font-size:.7rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+.event-date { display:block; margin:14px 0 7px; color:#758078; font-size:.86rem; }
+.home-event-card h3 { margin:.1rem 0 .55rem; color:#123f33; font:600 1.55rem/1.15 Georgia,serif; }
+.home-event-card p { margin:0 0 16px; color:#6d786f; line-height:1.6; }
+.home-event-card a,.text-link { margin-top:auto; color:#164a3b; font-weight:700; text-decoration:none; }
+.home-event-card a:hover,.text-link:hover { color:#a87c2b; }
+.kundalpur-home-slot,.kundalpur-yatra-slot { margin-top:20px; }
+.kundalpur-card { padding:24px clamp(18px,3vw,32px); border:1px solid #e3e7dc; border-radius:22px; background:linear-gradient(120deg,#f6faf4 0%,#fff 68%); box-shadow:0 10px 28px rgba(30,55,40,.055); }
+.kundalpur-card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.kundalpur-date { color:#a77a2d; font-size:.74rem; font-weight:800; letter-spacing:.12em; }
+.kundalpur-card h3 { margin:13px 0 5px; color:#0d4032; font:600 clamp(1.55rem,2.5vw,2.1rem)/1.15 Georgia,serif; }
+.kundalpur-subtitle { margin:0; color:#314f42; font-weight:700; }
+.kundalpur-date-range { margin:8px 0; color:#707d73; font-size:.9rem; }
+.kundalpur-note { max-width:850px; margin:.65rem 0 1rem; color:#69756c; line-height:1.6; }
+.kundalpur-details { border-top:1px solid #e5e8df; margin-top:15px; }
+.kundalpur-details summary,.trip-visit-details summary,.teerth-map-details summary { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 0 3px; color:#154637; font-weight:750; cursor:pointer; list-style:none; }
+.kundalpur-details summary::-webkit-details-marker,.trip-visit-details summary::-webkit-details-marker,.teerth-map-details summary::-webkit-details-marker { display:none; }
+.kundalpur-details[open] .details-chevron { transform:rotate(45deg); }
+.details-chevron { font-size:1.25rem; transition:transform .2s ease; }
+.kundalpur-expanded h4 { margin:16px 0 10px; color:#174b3b; }
+.kundalpur-itinerary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px 18px; margin:0; padding:0; list-style:none; }
+.kundalpur-itinerary li { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid #edf0e8; }
+.kundalpur-itinerary li div { display:grid; gap:4px; }
+.kundalpur-itinerary strong { color:#5f7065; font-size:.82rem; }
+.kundalpur-itinerary li span { color:#233f34; line-height:1.45; }
+.kundalpur-itinerary time { flex:0 0 auto; color:#a17429; font-size:.82rem; font-weight:750; text-align:right; }
+.kundalpur-final-note { color:#69756c; font-size:.88rem; }
+.kundalpur-cta { display:inline-block; margin-top:10px; color:#174b3b; font-weight:750; text-decoration:none; }
+.journey-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.journey-card { display:flex; flex-direction:column; min-height:240px; padding:24px; border:1px solid #e7e4d8; border-radius:20px; background:#fff; color:#163f33; text-decoration:none; transition:transform .2s ease,box-shadow .2s ease; }
+.journey-card:hover { transform:translateY(-3px); box-shadow:0 12px 26px rgba(28,52,38,.08); }
+.journey-card>span { color:#b68a39; font-weight:800; letter-spacing:.1em; }
+.journey-card h3 { margin:25px 0 8px; font:600 1.65rem Georgia,serif; }
+.journey-card p { color:#6c786e; line-height:1.55; }
+.journey-card b { margin-top:auto; }
+.featured-week-card { display:grid; grid-template-columns:minmax(180px,.75fr) minmax(0,1.5fr); overflow:hidden; border:1px solid #e6e6dc; border-radius:24px; background:#fff; box-shadow:0 12px 30px rgba(25,53,39,.055); }
+.featured-week-art { display:flex; align-items:center; justify-content:center; position:relative; min-height:260px; background:linear-gradient(145deg,#f7eac7,#f4f8ee); color:#15503b; font:700 clamp(3rem,6vw,5rem) Georgia,serif; }
+.featured-week-art i { position:absolute; right:24%; bottom:24%; color:#b68a39; font-size:1.8rem; }
+.featured-week-copy { padding:clamp(22px,4vw,44px); }
+.featured-week-copy h2 { margin:.35rem 0 .7rem; color:#124436; font:600 clamp(1.7rem,3vw,2.4rem)/1.12 Georgia,serif; }
+.featured-week-copy p:not(.eyebrow) { color:#6e796f; line-height:1.7; }
+.kids-corner-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.kids-corner-card { display:flex; flex-direction:column; align-items:flex-start; min-height:280px; padding:26px; border:1px solid #e5e7df; border-radius:22px; background:#fff; box-shadow:0 8px 24px rgba(30,55,40,.04); }
+.kids-corner-card .kids-card-icon { display:grid; place-items:center; width:50px; height:50px; border-radius:15px; background:#f6f0df; font-size:1.55rem; }
+.kids-corner-card .eyebrow { margin:18px 0 8px; color:#a87c2b; }
+.kids-corner-card h3 { margin:0 0 8px; color:#143f33; font:600 1.65rem Georgia,serif; }
+.kids-corner-card>p:not(.eyebrow) { color:#6c786e; line-height:1.6; }
+.kids-corner-card a { margin-top:auto; color:#164a3b; font-weight:750; text-decoration:none; }
+.pathshala-card { background:linear-gradient(145deg,#f4faf3,#fff); }
+.games-card { background:linear-gradient(145deg,#fdf8eb,#fff); }
+.colouring-card { background:linear-gradient(145deg,#f3f7ff,#fff); }
+.community-moments-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.moment-card { padding:24px; border:1px solid #e4e7df; border-radius:20px; background:#fff; }
+.moment-card>span { color:#a87c2b; font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.moment-card h3 { margin:13px 0 8px; color:#124436; font:600 1.7rem Georgia,serif; }
+.moment-card p { color:#6c786e; line-height:1.55; }
+.moment-card a { color:#164a3b; font-weight:750; text-decoration:none; }
+.home-join { background:#123e32; }
+.home-join-inner { display:flex; justify-content:space-between; align-items:center; gap:32px; }
+.home-join-inner h2 { max-width:700px; margin:.4rem 0 .8rem; color:#fff; font:600 clamp(2rem,4vw,3.2rem)/1.08 Georgia,serif; }
+.home-join-inner p:not(.eyebrow) { max-width:700px; color:#d5e2d8; line-height:1.7; }
+.home-join .eyebrow { color:#e1c57d; }
+.home-join-actions { display:flex; flex-direction:column; gap:10px; min-width:210px; }
+.home-join .button.secondary { border-color:rgba(255,255,255,.45); color:#fff; }
+
+/* ===== YATRA PAGE: short consistent cards and click-to-load directory maps ===== */
+.trip-grid { align-items:start; }
+.trip-card-compact { display:flex; flex-direction:column; min-height:205px; height:100%; padding:22px; border:1px solid #e5e7df; border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(30,55,40,.045); }
+.trip-card-compact.featured { border-top:3px solid #d7ad4e; }
+.trip-card-topline { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+.trip-card-topline time { color:#7a857b; font-size:.78rem; }
+.trip-card-compact h3 { margin:15px 0 8px; color:#123f33; font:600 1.7rem/1.12 Georgia,serif; }
+.trip-card-summary { margin:0 0 15px; color:#6b786e; line-height:1.55; }
+.trip-visit-details { margin-top:auto; border-top:1px solid #edf0e8; }
+.trip-visit-details summary { padding:13px 0 0; font-size:.9rem; }
+.trip-visit-details summary span { color:#b18533; font-size:1.1rem; }
+.trip-visit-details[open] summary span { transform:rotate(45deg); }
+.trip-visit-details .trip-mandir-label { margin:.9rem 0 .5rem; color:#66776b; font-weight:700; }
+.trip-visit-details .trip-mandirs { margin:0; padding:0; list-style:none; }
+.trip-visit-details .mandir-item { padding:10px 0; border-bottom:1px solid #f0f1eb; }
+.trip-visit-details .mandir-name { display:block; margin-top:4px; color:#68766c; line-height:1.5; }
+.trip-visit-details .trip-media-links:not([hidden]) { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+.trip-visit-details .trip-media-links a { padding:7px 10px; border-radius:999px; background:#f3f6ef; color:#174b3b; font-size:.8rem; font-weight:700; text-decoration:none; }
+.teerth-directory-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.teerth-card { min-width:0; padding:21px; border:1px solid #e4e7df; border-radius:20px; background:#fff; box-shadow:0 8px 22px rgba(30,55,40,.035); }
+.teerth-kind { color:#a77a2d; font-size:.7rem; font-weight:800; letter-spacing:.13em; }
+.teerth-card h3 { margin:12px 0 7px; color:#124436; font:600 1.35rem/1.2 Georgia,serif; }
+.teerth-card p { color:#6c786e; line-height:1.55; }
+.teerth-map-details { border-top:1px solid #edf0e8; margin-top:14px; }
+.teerth-map-details summary { padding:12px 0 0; }
+.teerth-map-details iframe { display:block; width:100%; height:220px; margin-top:14px; border:0; border-radius:12px; background:#f3f5ef; }
+.footer-grid { grid-template-columns: minmax(240px,1.4fr) repeat(3,minmax(140px,1fr)); }
+.footer-mandir-map { width:100%; max-width:360px; margin-top:14px; overflow:hidden; border-radius:12px; }
+.footer-mandir-map iframe { display:block; width:100%; height:180px; border:0; }
+.footer-connect .footer-socials { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+.footer-spirituality { display:flex; flex-direction:column; gap:10px; }
+.footer-spirituality a,.footer-explore a,.footer-connect a { text-decoration:none; }
+
+@media(max-width:1100px) {
+ .quick-access-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .journey-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .teerth-directory-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+ .quick-access-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+ .quick-access-card { min-height:142px; padding:16px 14px; }
+ .home-kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+ .home-kpi { min-height:100px; padding:14px 8px; }
+ .home-kpi span { font-size:.65rem; letter-spacing:.06em; }
+ .kpi-note { text-align:left; }
+ .home-event-grid,.community-moments-grid,.kids-corner-grid { grid-template-columns:1fr; }
+ .home-event-card { min-height:0; }
+ .kundalpur-itinerary { grid-template-columns:1fr; }
+ .kundalpur-itinerary li { flex-wrap:wrap; }
+ .journey-grid { grid-template-columns:1fr 1fr; gap:10px; }
+ .journey-card { min-height:220px; padding:17px; }
+ .journey-card h3 { margin-top:18px; }
+ .featured-week-card { grid-template-columns:1fr; }
+ .featured-week-art { min-height:140px; }
+ .home-join-inner { align-items:flex-start; flex-direction:column; }
+ .home-join-actions { width:100%; }
+ .teerth-directory-grid { grid-template-columns:1fr; }
+ .trip-card-compact { min-height:0; }
+ .footer-grid { grid-template-columns:1fr; }
+}
+@media(prefers-reduced-motion:reduce) { .quick-access-card,.journey-card { transition:none; } }

@@ -4,37 +4,24 @@
   const cur=(location.pathname.split('/').pop()||'index').replace(/\.html$/i,'').toLowerCase();
 
   const MENU=[
-    {k:'nav.about',t:'About',href:'index.html#about'},
-
+    {k:'nav.explore',t:'Explore',page:'index',pages:['index','knowledge','learn','tirthankaras','arghya','games','colouring'],sub:[
+      ['nav.about','About Us','index.html#about'],
+      ['nav.knowledge','Knowledge Hub','knowledge.html'],
+      ['nav.tirthankaras','24 Tirthankaras','tirthankaras.html'],
+      ['nav.kids','Kids & Family','index.html#kids-corner']
+    ]},
+    {k:'nav.bhakti',t:'Bhakti',page:'bhakti',href:'bhakti.html'},
     {k:'nav.yatra',t:'Yatra',page:'yatra',sub:[
       ['nav.trips','Monthly Trips','yatra.html#trips'],
       ['nav.map','Yatra Map','yatra.html#yatra-map'],
+      ['nav.directory','Jain Teerth Directory','yatra.html#directory'],
       ['nav.darshan','Darshan','yatra.html#darshan']
     ]},
-
-    {k:'nav.knowledge',t:'Knowledge',page:'knowledge',pages:['knowledge','learn'],sub:[
-      ['nav.kalyanak','Panch Kalyanak','knowledge.html#panch-kalyanak'],
-      ['nav.balayati','Panch Balayati','knowledge.html#panch-balayati'],
-      ['nav.daslakshan','Das Lakshan Parva','knowledge.html#das-lakshan'],
-      ['nav.tirthankaras','24 Tirthankaras','tirthankaras.html'],
-      ['nav.arghya','24 Tirthankara Arghya','arghya.html'],
-      ['nav.library','Resource Library','knowledge.html#knowledge-library']
-    ]},
-
-    {k:'nav.kids',t:'Kids & Family',page:'kids-family',pages:['games','colouring'],sub:[
-      ['nav.pathshala','Sunday Pathshala','knowledge.html#pathshala'],
-      ['nav.games','Jain Games','games.html'],
-      ['nav.colouring','Colouring Studio','colouring.html']
-    ]},
-
-    {k:'nav.bhakti',t:'Bhakti',page:'bhakti',href:'bhakti.html'},
-
-    {k:'nav.community',t:'Community',page:'community',sub:[
+    {k:'nav.more',t:'More',page:'community',pages:['community','join'],sub:[
       ['nav.calendar','Calendar','community.html#calendar'],
       ['nav.events','Events','community.html#events'],
       ['nav.mandirMap','Our Mandir','community.html#mandir-location'],
-      ['nav.follow','Follow Us','community.html#follow'],
-      ['nav.announcements','Announcements','index.html#announcements']
+      ['nav.follow','Follow Us','community.html#follow']
     ]}
   ];
 
@@ -104,6 +91,7 @@
       const response=await fetch('footer.html');
       if(!response.ok)throw new Error(`Could not load footer.html (${response.status})`);
       target.innerHTML=await response.text();
+      if(typeof window.setLanguage==='function') window.setLanguage(localStorage.getItem('jyk-language')||'en');
     }catch(error){
       console.error('Unable to load shared footer:',error);
       target.innerHTML='<p class="container">The footer could not be loaded. Please open this site through a web server.</p>';

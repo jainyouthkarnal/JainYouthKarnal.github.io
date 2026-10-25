@@ -12,8 +12,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-<style>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    .knowledge-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px;align-items:stretch}
+    .knowledge-topic-card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:clamp(20px,2.5vw,30px);border:1px solid var(--line);border-radius:20px;background:#fffdf8;box-shadow:0 8px 24px rgba(12,59,46,.04);min-height:250px}
+    .knowledge-topic-card h3{margin:0;color:var(--green);font-family:var(--serif);font-size:1.35rem;line-height:1.35}
+    .knowledge-topic-card p{margin:0;color:var(--muted);line-height:1.7;flex:1}
+    .knowledge-topic-card .button{margin-top:4px}
+    .knowledge-article-reader{margin-top:28px;padding:clamp(20px,3vw,36px);border:1px solid var(--line);border-radius:22px;background:#fffdf8;scroll-margin-top:100px}
+    .article-reader-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .article-reader-top h2{margin:0;color:var(--green);font-family:var(--serif)}
+    .knowledge-article-content{line-height:1.8;color:var(--ink);overflow-wrap:anywhere}
+    .knowledge-article-content h1,.knowledge-article-content h2,.knowledge-article-content h3{color:var(--green);font-family:var(--serif);line-height:1.4;margin:1.5em 0 .5em}
+    .knowledge-article-content h1{font-size:1.8rem}.knowledge-article-content h2{font-size:1.5rem}.knowledge-article-content h3{font-size:1.2rem}
+    .knowledge-article-content ul,.knowledge-article-content ol{padding-left:1.5rem}
+    .knowledge-article-content blockquote{margin:1rem 0;padding:12px 20px;border-left:3px solid #b38b42;background:#f8f4e9;border-radius:0 12px 12px 0}
+    .knowledge-article-content blockquote p{margin:.25rem 0}
+    .knowledge-article-content hr{border:0;border-top:1px solid var(--line);margin:1.5rem 0}
+    @media(max-width:900px){.knowledge-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){.knowledge-category-grid{grid-template-columns:1fr}.knowledge-topic-card{min-height:0}.article-reader-top{align-items:flex-start}}
+
     .lang-content[hidden] {
       display: none !important;
     }
@@ -251,7 +270,7 @@
       }
     }
   </style>
-
+</head>
 <body class="page-learn kalyanak-page">
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="jain-flag-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
@@ -284,32 +303,14 @@
           <span class="lang-content lang-hi" hidden>रविवार पाठशाला, तीर्थंकर भगवंतों के पावन पंचकल्याणक, बाल ब्रह्मचारी पंच बालयति प्रभु, पर्वाधिराज दशलक्षण के दस उत्तम धर्म एवं जैन अध्ययन सामग्री।</span>
         </p>
 
-        <!-- Jump-link subnav -->
-        <nav class="learning-subnav" aria-label="Page sections">
-          <a href="#pathshala">
-            <span class="lang-content lang-en">Sunday Pathshala</span>
-            <span class="lang-content lang-hi" hidden>रविवार पाठशाला</span>
-          </a>
-          <a href="#panch-kalyanak">
-            <span class="lang-content lang-en">Panch Kalyanak</span>
-            <span class="lang-content lang-hi" hidden>पंच कल्याणक</span>
-          </a>
-          <a href="#panch-balayati">
-            <span class="lang-content lang-en">Panch Balayati</span>
-            <span class="lang-content lang-hi" hidden>पंच बालयति</span>
-          </a>
-          <a href="#das-lakshan">
-            <span class="lang-content lang-en">Das Lakshan Parva</span>
-            <span class="lang-content lang-hi" hidden>दशलक्षण पर्व</span>
-          </a>
-          <a href="#directories">
-            <span class="lang-content lang-en">Tirthankaras &amp; Arghya</span>
-            <span class="lang-content lang-hi" hidden>तीर्थंकर एवं अर्घ्य</span>
-          </a>
-          <a href="#knowledge-library">
-            <span class="lang-content lang-en">Knowledge Library</span>
-            <span class="lang-content lang-hi" hidden>साहित्य एवं ग्रंथ</span>
-          </a>
+        <!-- Jump-link subnav: grouped by the new Knowledge Hub headings -->
+        <nav class="learning-subnav" aria-label="Knowledge sections">
+          <a href="#pathshala"><span class="lang-content lang-en">Sunday Pathshala</span><span class="lang-content lang-hi" hidden>रविवार पाठशाला</span></a>
+          <a href="#philosophy-parvas"><span class="lang-content lang-en">Philosophy &amp; Parvas</span><span class="lang-content lang-hi" hidden>दर्शन एवं पर्व</span></a>
+          <a href="#directories"><span class="lang-content lang-en">Directories</span><span class="lang-content lang-hi" hidden>दर्शिकाएँ</span></a>
+          <a href="#prayers-stotras"><span class="lang-content lang-en">Prayers &amp; Stotras</span><span class="lang-content lang-hi" hidden>प्रार्थना एवं स्तोत्र</span></a>
+          <a href="#articles"><span class="lang-content lang-en">Articles</span><span class="lang-content lang-hi" hidden>लेख</span></a>
+          <a href="#knowledge-library"><span class="lang-content lang-en">Resource Library</span><span class="lang-content lang-hi" hidden>ज्ञान सामग्री</span></a>
         </nav>
       </div>
     </section>
@@ -347,408 +348,119 @@
       </div>
     </section>
 
-    <!-- 3. Panch Kalyanak (पंच कल्याणक) -->
-    <section id="panch-kalyanak" class="section section-anchor">
+<!-- 3. Philosophy & Parvas -->
+    <section id="philosophy-parvas" class="section section-anchor">
       <div class="container">
-        <p class="eyebrow">
-          <span class="lang-content lang-en">FIVE SACRED MILESTONES</span>
-          <span class="lang-content lang-hi" hidden>तीर्थंकर जीवन के पाँच मंगल प्रसंग</span>
-        </p>
-        <h2>
-          <span class="lang-content lang-en">The Five Kalyanaks (पंच कल्याणक)</span>
-          <span class="lang-content lang-hi" hidden>पंच कल्याणक महोत्सव</span>
-        </h2>
-        <p class="section-intro">
-          <span class="lang-content lang-en">In Jain philosophy, the life of every Tirthankara is illumined by five momentous spiritual events known as the <em>Panch Kalyanaka</em>. Revered and celebrated by celestial devas and human devotees alike, they reflect the soul’s triumphant ascension from worldly conception to eternal liberation.</span>
-          <span class="lang-content lang-hi" hidden>जैन दर्शन में प्रत्येक तीर्थंकर भगवंत के जीवनकाल में पाँच अत्यंत पावन एवं कल्याणकारी घटनाएँ घटित होती हैं, जिन्हें <em>पंच कल्याणक</em> कहा जाता है। सौधर्म इन्द्र सहित देवगण एवं भव्य जीव इन प्रसंगों का महोत्सव मनाकर अपने जीवन को धन्य करते हैं।</span>
-        </p>
-
-        <div class="virtue-grid">
-          <!-- 1: Garbh -->
-          <article class="virtue-card">
-            <span class="day">
-              <span class="lang-content lang-en">01 • Conception</span>
-              <span class="lang-content lang-hi" hidden>प्रथम कल्याणक</span>
-            </span>
-            <h3>
-              <span class="lang-content lang-en">Garbh Kalyanaka (गर्भ कल्याणक)</span>
-              <span class="lang-content lang-hi" hidden>गर्भ कल्याणक</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en"><strong>What it marks:</strong> The descent of the supreme soul into the purified womb of the mother for its final human incarnation before attaining absolute liberation.</span>
-              <span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> जब तीर्थंकर की विशुद्ध आत्मा स्वर्गारोहण के उपरांत माता के पवित्र गर्भ में अपने अंतिम मनुष्य भव हेतु अवतरित होती है। छः माह पूर्व से ही कुबेर द्वारा रत्नवृष्टि की जाती है।</span>
-            </p>
-            <p class="reflection">
-              <span class="lang-content lang-en"><strong>Reflection:</strong> How can I orient my daily thoughts and intentions toward spiritual uprightness?</span>
-              <span class="lang-content lang-hi" hidden><strong>चिंतन:</strong> मैं अपने विचारों और संकल्पों को किस प्रकार निरंतर सन्मार्ग और आत्म-शुद्धि की ओर अग्रसर रखूँ?</span>
-            </p>
-          </article>
-
-          <!-- 2: Janma -->
-          <article class="virtue-card">
-            <span class="day">
-              <span class="lang-content lang-en">02 • Holy Birth</span>
-              <span class="lang-content lang-hi" hidden>द्वितीय कल्याणक</span>
-            </span>
-            <h3>
-              <span class="lang-content lang-en">Janma Kalyanaka (जन्म कल्याणक)</span>
-              <span class="lang-content lang-hi" hidden>जन्म कल्याणक</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en"><strong>What it marks:</strong> The divine birth of the future Tirthankara. Indra and the devas escort the infant Jina to Mount Meru for the grand ceremonial bath (<em>Janmabhishek</em>).</span>
-              <span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> तीर्थंकर बालक का जगत में प्राकट्य। सौधर्म इन्द्र बाल तीर्थंकर को सुमेरु पर्वत की पाण्डुक शिला पर ले जाकर क्षीरसागर के जल से 1008 कलशों द्वारा महा-अभिषेक करते हैं।</span>
-            </p>
-            <p class="reflection">
-              <span class="lang-content lang-en"><strong>Reflection:</strong> How can I use the rare gift of human birth to practise Ahimsa and compassion toward all?</span>
-              <span class="lang-content lang-hi" hidden><strong>चिंतन:</strong> दुर्लभ मानव जीवन प्राप्त कर मैं किस प्रकार सभी जीवों के प्रति दया, करुणा और अहिंसा का भाव रखूँ?</span>
-            </p>
-          </article>
-
-          <!-- 3: Tapa / Diksha -->
-          <article class="virtue-card">
-            <span class="day">
-              <span class="lang-content lang-en">03 • Renunciation</span>
-              <span class="lang-content lang-hi" hidden>तृतीय कल्याणक</span>
-            </span>
-            <h3>
-              <span class="lang-content lang-en">Tapa / Diksha Kalyanaka (तप / दीक्षा कल्याणक)</span>
-              <span class="lang-content lang-hi" hidden>तप / दीक्षा कल्याणक</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en"><strong>What it marks:</strong> The Tirthankara's voluntary renunciation of imperial sovereignty, material wealth, and worldly bonds to embrace Digambara asceticism.</span>
-              <span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> चक्रवर्ती और राजाधिराज का पद, समस्त ऐश्वर्य और परिग्रह त्यागकर जिनलिंग (दिगम्बर मुनि दीक्षा) अंगीकार करना एवं घोर तपस्या में लीन होना।</span>
-            </p>
-            <p class="reflection">
-              <span class="lang-content lang-en"><strong>Reflection:</strong> What unnecessary material craving or attachment can I let go of today?</span>
-              <span class="lang-content lang-hi" hidden><strong>चिंतन:</strong> आज मैं अपने जीवन से किस अनावश्यक इच्छा अथवा आसक्ति का त्याग कर संयमी बन सकता हूँ?</span>
-            </p>
-          </article>
-
-          <!-- 4: Kevalgyan -->
-          <article class="virtue-card">
-            <span class="day">
-              <span class="lang-content lang-en">04 • Omniscience</span>
-              <span class="lang-content lang-hi" hidden>चतुर्थ कल्याणक</span>
-            </span>
-            <h3>
-              <span class="lang-content lang-en">Kevalgyan Kalyanaka (केवलज्ञान कल्याणक)</span>
-              <span class="lang-content lang-hi" hidden>केवलज्ञान कल्याणक</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en"><strong>What it marks:</strong> The destruction of the four destructive (Ghatiya) karmas, unveiling boundless omniscience and the divine discourse (Divya Dhwani).</span>
-              <span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> कठोर साधना के उपरांत चार घातिया कर्मों का नाश और लोकालोक को युगपत् जानने वाले केवलज्ञान का प्राकट्य तथा समवशरण में दिव्यध्वनि का प्रस्फुटन।</span>
-            </p>
-            <p class="reflection">
-              <span class="lang-content lang-en"><strong>Reflection:</strong> How faithfully do I seek Right Knowledge (Samyak Jnana) before making life choices?</span>
-              <span class="lang-content lang-hi" hidden><strong>चिंतन:</strong> क्या मैं अपने निर्णय सम्यक ज्ञान और विवेक के आधार पर लेता हूँ अथवा अज्ञान और मोह के वश में?</span>
-            </p>
-          </article>
-
-          <!-- 5: Moksha -->
-          <article class="virtue-card">
-            <span class="day">
-              <span class="lang-content lang-en">05 • Supreme Liberation</span>
-              <span class="lang-content lang-hi" hidden>पंचम कल्याणक</span>
-            </span>
-            <h3>
-              <span class="lang-content lang-en">Moksha / Nirvana Kalyanaka (मोक्ष / निर्वाण कल्याणक)</span>
-              <span class="lang-content lang-hi" hidden>मोक्ष / निर्वाण कल्याणक</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en"><strong>What it marks:</strong> The shedding of all remaining non-destructive karmas, dissolving worldly birth and death forever to dwell in eternal bliss at Siddhashila.</span>
-              <span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> शेष चार अघातिया कर्मों का क्षय कर संसार चक्र से सर्वथा मुक्त होना और सिद्धशिला पर अनंत ज्ञान, दर्शन, सुख और वीर्य के साथ सदा के लिए स्थित होना।</span>
-            </p>
-            <p class="reflection">
-              <span class="lang-content lang-en"><strong>Reflection:</strong> What deliberate step can I take today to eradicate anger, ego, deceit, and greed?</span>
-              <span class="lang-content lang-hi" hidden><strong>चिंतन:</strong> आज मैं क्रोध, मान, माया और लोभ रूपी कषायों को घटाने के लिए क्या ठोस कदम उठा रहा हूँ?</span>
-            </p>
-          </article>
-
-          <!-- Framework Card -->
-          <article class="virtue-card">
-            <span class="day">
-              <span class="lang-content lang-en">Spiritual Blueprint</span>
-              <span class="lang-content lang-hi" hidden>आध्यात्मिक प्रेरणा</span>
-            </span>
-            <h3>
-              <span class="lang-content lang-en">A Roadmap for Inner Growth</span>
-              <span class="lang-content lang-hi" hidden>जीवन में कल्याणक का संदेश</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en">• <strong>Garbh:</strong> Inception of noble spiritual ideals.<br>• <strong>Janma:</strong> Living with non-violence and ethical duty.<br>• <strong>Tapa:</strong> Practising restraint and self-mastery.<br>• <strong>Kevalgyan:</strong> Awakening luminous insight and equanimity.<br>• <strong>Moksha:</strong> Attaining eternal liberation from suffering.</span>
-              <span class="lang-content lang-hi" hidden>• <strong>गर्भ:</strong> जीवन में धर्म और सद्गुणों का बीजारोपण।<br>• <strong>जन्म:</strong> लोककल्याण और अहिंसापूर्ण जीवनचर्या।<br>• <strong>तप:</strong> इन्द्रिय दमन और इच्छाओं पर विजय।<br>• <strong>केवलज्ञान:</strong> राग-द्वेष रहित समता और प्रज्ञा का जागरण।<br>• <strong>मोक्ष:</strong> समस्त बंधनों से मुक्ति पाकर सिद्ध पद की प्राप्ति।</span>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Panch Balayati Tirthankaras (पंच बालयति) -->
-    <section id="panch-balayati" class="section section-cream section-anchor">
-      <div class="container">
-        <p class="eyebrow">
-          <span class="lang-content lang-en">LIFELONG CELIBACY &amp; PURITY</span>
-          <span class="lang-content lang-hi" hidden>बाल ब्रह्मचर्य की पावन साधना</span>
-        </p>
-        <h2>
-          <span class="lang-content lang-en">Panch Balayati Tirthankaras (पंच बालयति तीर्थंकर)</span>
-          <span class="lang-content lang-hi" hidden>पंच बालयति तीर्थंकर भगवंत</span>
-        </h2>
-        <p class="section-intro">
-          <span class="lang-content lang-en">In Digambara Jain tradition, five revered Tirthankaras maintained unbroken celibacy (Akhand Brahmacharya) from early childhood. They declined worldly marriage and kingdom, opting straightway for monkhood to attain omniscience and salvation:</span>
-          <span class="lang-content lang-hi" hidden>दिगम्बर जैन परम्परा में चौबीस तीर्थंकरों में से पाँच तीर्थंकर भगवंत ऐसे हुए हैं जिन्होंने बाल्यकाल से ही अखंड ब्रह्मचर्य व्रत धारण किया। उन्होंने राजभोग और विवाह का त्याग कर सीधे बाल्यकाल में ही जैनेश्वरी दीक्षा धारण की:</span>
-        </p>
-
-        <div class="learning-panel">
-          <ul class="balayati-list">
-            <li>
-              <strong>12. Shri Vasupujya Swami</strong><br>
-              <span lang="hi">श्री वासुपूज्य स्वामी (लक्ष्मण: भैंसा / Buffalo)</span>
-            </li>
-            <li>
-              <strong>19. Shri Mallinath Swami</strong><br>
-              <span lang="hi">श्री मल्लिनाथ स्वामी (लक्ष्मण: कलश / Pitcher)</span>
-            </li>
-            <li>
-              <strong>22. Shri Neminath Swami</strong><br>
-              <span lang="hi">श्री नेमिनाथ स्वामी (लक्ष्मण: शंख / Conch)</span>
-            </li>
-            <li>
-              <strong>23. Shri Parshvanath Swami</strong><br>
-              <span lang="hi">श्री पार्श्वनाथ स्वामी (लक्ष्मण: सर्प / Serpent)</span>
-            </li>
-            <li>
-              <strong>24. Shri Mahavir Swami</strong><br>
-              <span lang="hi">श्री महावीर स्वामी (लक्ष्मण: सिंह / Lion)</span>
-            </li>
-          </ul>
-
-          <h3>
-            <span class="lang-content lang-en">Traditional Balayati Devotional Stuti</span>
-            <span class="lang-content lang-hi" hidden>पारंपरिक पंच बालयति छंद</span>
-          </h3>
-          <blockquote class="traditional-verse" lang="hi">
-            <p>सजि वसु-विधि द्रव्य मनोज्ञ, अरघ बनावत हैं।<br>
-            वसु-कर्म अनादि-संयोग, ताहि नशावत हैं॥<br>
-            श्री वासुपूज्य, मल्लि, नेमि, पारस, वीर अती।<br>
-            मन-वच-तन धरि प्रेम, पूजों पंच बालयती॥</p>
-            <div class="roman-verse">
-              Saji vasu-vidhi dravya manojna, aragh banāvat hain.<br>
-              Vasu-karma anādi-sanyog, tāhi nashāvat hain.<br>
-              Shri Vāsupūjya, Malli, Nemi, Pāras, Veer atī.<br>
-              Man-vach-tan dhari prem, pūjon panch bālayatī.
-            </div>
-          </blockquote>
-
-          <h3 style="margin-top:28px">
-            <span class="lang-content lang-en">Reverence Mantra</span>
-            <span class="lang-content lang-hi" hidden>समर्पण महामंत्र</span>
-          </h3>
-          <blockquote class="traditional-verse" lang="hi">
-            <p>ॐ ह्रीं श्री वासुपूज्य-मल्लिनाथ-नेमिनाथ-पार्श्वनाथ-महावीरस्वामी पंच-बालयति-तीर्थंकरेभ्यो अनर्घ्यपदप्राप्तये अर्घ्यं निर्वपामीति स्वाहा।</p>
-            <div class="roman-verse">
-              Om hrīṁ Shrī Vāsupūjya-Mallināth-Nemināth-Pārshvanāth-Mahāvīraswāmī pancha-bālayati-tīrthaṅkarebhyo anarghya-pada-prāptaye arghyaṁ nirvapāmīti svāhā.
-            </div>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Das Lakshan Parva (दशलक्षण पर्व) & Kshamavani -->
-    <section id="das-lakshan" class="section section-anchor">
-      <div class="container">
-        <p class="eyebrow">
-          <span class="lang-content lang-en">SOUL PURIFICATION FESTIVAL</span>
-          <span class="lang-content lang-hi" hidden>पर्वाधिराज दशलक्षण महापर्व</span>
-        </p>
-        <h2>
-          <span class="lang-content lang-en">Das Lakshan Parva (दशलक्षण पर्व)</span>
-          <span class="lang-content lang-hi" hidden>दश धर्मों की आत्मिक साधना</span>
-        </h2>
-        <p class="section-intro">
-          <span class="lang-content lang-en">Celebrated annually from Bhadrapada Shukla Panchami to Bhadrapada Shukla Chaturdashi (Anant Chaturdashi), Das Lakshan Parva is the quintessential Jain festival of reflection, fasting, and spiritual rejuvenation. Over ten days, devotees meditate upon the 10 Supreme Virtues (Uttam Dharmas) outlined in Acharya Umaswati's <em>Tattvartha Sutra</em>:</span>
-          <span class="lang-content lang-hi" hidden>भाद्रपद शुक्ल पंचमी से अनंत चतुर्दशी तक मनाया जाने वाला दशलक्षण महापर्व आत्मा के स्वभाव को पहचानने का पावन अवसर है। आचार्य उमास्वामी विरचित <em>तत्वार्थ सूत्र</em> के अनुसार आत्मा के दस स्वाभाविक धर्मों का प्रतिदिन चिंतन, स्वाध्याय और तप किया जाता है:</span>
-        </p>
-
-        <!-- Das Lakshan 10 Virtues Infinite Moving Marquee Strip -->
-        <div aria-hidden="true" class="values-marquee daslakshan-marquee">
-          <div class="marquee-track">
-            <span>उत्तम क्षमा • Uttam Kshama</span>
-            <span>उत्तम मार्दव • Uttam Mardava</span>
-            <span>उत्तम आर्जव • Uttam Aarjava</span>
-            <span>उत्तम शौच • Uttam Shauch</span>
-            <span>उत्तम सत्य • Uttam Satya</span>
-            <span>उत्तम संयम • Uttam Sanyam</span>
-            <span>उत्तम तप • Uttam Tapa</span>
-            <span>उत्तम त्याग • Uttam Tyaga</span>
-            <span>उत्तम आकिंचन्य • Uttam Akinchanya</span>
-            <span>उत्तम ब्रह्मचर्य • Uttam Brahmacharya</span>
-            <span>उत्तम क्षमा • Uttam Kshama</span>
-            <span>उत्तम मार्दव • Uttam Mardava</span>
-            <span>उत्तम आर्जव • Uttam Aarjava</span>
-            <span>उत्तम शौच • Uttam Shauch</span>
-            <span>उत्तम सत्य • Uttam Satya</span>
-            <span>उत्तम संयम • Uttam Sanyam</span>
-            <span>उत्तम तप • Uttam Tapa</span>
-            <span>उत्तम त्याग • Uttam Tyaga</span>
-            <span>उत्तम आकिंचन्य • Uttam Akinchanya</span>
-            <span>उत्तम ब्रह्मचर्य • Uttam Brahmacharya</span>
+        <p class="eyebrow"><span class="lang-content lang-en">PHILOSOPHY &amp; PARVAS</span><span class="lang-content lang-hi" hidden>दर्शन एवं पर्व</span></p>
+        <div class="section-heading">
+          <div>
+            <h2><span class="lang-content lang-en">Philosophy &amp; Parvas</span><span class="lang-content lang-hi" hidden>जैन दर्शन एवं पर्व</span></h2>
+            <p class="section-intro"><span class="lang-content lang-en">Explore core Jain concepts and sacred observances. Each article has English and Hindi versions.</span><span class="lang-content lang-hi" hidden>जैन धर्म के प्रमुख सिद्धांतों और पवित्र पर्वों को जानें। प्रत्येक लेख हिंदी और अंग्रेज़ी में उपलब्ध है।</span></p>
           </div>
         </div>
-
-        <div class="virtue-grid">
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 01</span><span class="lang-content lang-hi" hidden>प्रथम दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Kshama (उत्तम क्षमा)</span><span class="lang-content lang-hi" hidden>उत्तम क्षमा धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Forgiveness:</strong> Subduing anger (krodh) and nurturing universal tolerance and tranquility.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> क्रोध का सर्वथा त्याग कर आत्मा में समता धारण करना एवं वैर-विरोध समाप्त करना।</span></p>
+        <div class="knowledge-category-grid">
+          <article class="knowledge-topic-card" id="panch-kalyanak">
+            <span class="knowledge-resource-kind">PHILOSOPHY &amp; PARVAS</span>
+            <h3><span class="lang-content lang-en">Panch Kalyanak</span><span class="lang-content lang-hi" hidden>पंच कल्याणक</span></h3>
+            <p><span class="lang-content lang-en">The five auspicious milestones in a Tirthankara’s life.</span><span class="lang-content lang-hi" hidden>तीर्थंकर भगवान के जीवन के पाँच मंगल प्रसंग।</span></p>
+            <button class="button secondary article-open" type="button" data-article="panch-kalyanak"><span class="lang-content lang-en">Read article →</span><span class="lang-content lang-hi" hidden>लेख पढ़ें →</span></button>
           </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 02</span><span class="lang-content lang-hi" hidden>द्वितीय दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Mardava (उत्तम मार्दव)</span><span class="lang-content lang-hi" hidden>उत्तम मार्दव धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Humility:</strong> Eliminating pride, arrogance, and ego (maan) arising from wealth, learning, or status.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> अहंकार का त्याग कर मन में कोमलता और निरहंकार भाव लाना।</span></p>
+          <article class="knowledge-topic-card" id="panch-balyati">
+            <span class="knowledge-resource-kind">PHILOSOPHY &amp; PARVAS</span>
+            <h3><span class="lang-content lang-en">Panch Balayati</span><span class="lang-content lang-hi" hidden>पंच बालयति</span></h3>
+            <p><span class="lang-content lang-en">Learn about the five traditionally named Balayati Tirthankaras, with a traditional verse and mantra.</span><span class="lang-content lang-hi" hidden>पाँच बालयति तीर्थंकरों के नाम, पारंपरिक स्तुति और मंत्र।</span></p>
+            <button class="button secondary article-open" type="button" data-article="panch-balyati"><span class="lang-content lang-en">Read article →</span><span class="lang-content lang-hi" hidden>लेख पढ़ें →</span></button>
           </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 03</span><span class="lang-content lang-hi" hidden>तृतीय दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Aarjava (उत्तम आर्जव)</span><span class="lang-content lang-hi" hidden>उत्तम आर्जव धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Straightforwardness:</strong> Absolute honesty without hypocrisy or deceit (maya) in thought, speech, and action.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> छल-कपट त्यागकर मन, वचन और काया में पूर्ण सरलता रखना।</span></p>
+          <article class="knowledge-topic-card" id="das-lakshan">
+            <span class="knowledge-resource-kind">PHILOSOPHY &amp; PARVAS</span>
+            <h3><span class="lang-content lang-en">Das Lakshan Parva</span><span class="lang-content lang-hi" hidden>दशलक्षण पर्व</span></h3>
+            <p><span class="lang-content lang-en">Discover the ten supreme virtues and the practices associated with this Digambar Jain festival.</span><span class="lang-content lang-hi" hidden>दशलक्षण पर्व के दस उत्तम धर्म और उनसे जुड़ी धार्मिक क्रियाएँ।</span></p>
+            <button class="button secondary article-open" type="button" data-article="das-lakshan-parva"><span class="lang-content lang-en">Read article →</span><span class="lang-content lang-hi" hidden>लेख पढ़ें →</span></button>
           </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 04</span><span class="lang-content lang-hi" hidden>चतुर्थ दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Shauch (उत्तम शौच)</span><span class="lang-content lang-hi" hidden>उत्तम शौच धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Contentment:</strong> Overcoming greed (lobh) and consumerist cravings by discovering purity within.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> लोभ और तृष्णा का त्याग कर आत्म-संतोष और आंतरिक पवित्रता प्रकट करना।</span></p>
-          </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 05</span><span class="lang-content lang-hi" hidden>पंचम दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Satya (उत्तम सत्य)</span><span class="lang-content lang-hi" hidden>उत्तम सत्य धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Truthfulness:</strong> Speaking beneficial, measured words anchored in universal compassion.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> असत्य का त्याग कर हितकारी, प्रिय और अहिंसक सत्य वचन बोलना।</span></p>
-          </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 06</span><span class="lang-content lang-hi" hidden>षष्ठ दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Sanyam (उत्तम संयम)</span><span class="lang-content lang-hi" hidden>उत्तम संयम धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Restraint:</strong> Protecting all living beings and controlling the five senses and mind.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> समस्त जीवों की रक्षा करना तथा पाँचों इन्द्रियों और मन को वश में रखना।</span></p>
-          </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 07</span><span class="lang-content lang-hi" hidden>सप्तम दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Tapa (उत्तम तप)</span><span class="lang-content lang-hi" hidden>उत्तम तप धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Austerity:</strong> Exercising penances, fasting, and meditation to shed accumulated karmas.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> इच्छाओं का निरोध कर स्वाध्याय, ध्यान और तप द्वारा कर्मों की निर्जरा करना।</span></p>
-          </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 08</span><span class="lang-content lang-hi" hidden>अष्टम दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Tyaga (उत्तम त्याग)</span><span class="lang-content lang-hi" hidden>उत्तम त्याग धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Renunciation:</strong> Practising fourfold charity (food, medicine, knowledge, fearlessness) selflessly.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> सुपात्र को आहार, औषधि, ज्ञान और अभय दान देना तथा ममत्व का त्याग करना।</span></p>
-          </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 09</span><span class="lang-content lang-hi" hidden>नवम दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Akinchanya (उत्तम आकिंचन्य)</span><span class="lang-content lang-hi" hidden>उत्तम आकिंचन्य धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Non-Attachment:</strong> Realizing that the pure soul owns nothing external in this material realm.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> आत्मा के अतिरिक्त अन्य किसी भी बाह्य पदार्थ में ममत्व का सर्वथा त्याग।</span></p>
-          </article>
-
-          <article class="virtue-card">
-            <span class="day"><span class="lang-content lang-en">Day 10</span><span class="lang-content lang-hi" hidden>दशम दिन</span></span>
-            <h3><span class="lang-content lang-en">Uttam Brahmacharya (उत्तम ब्रह्मचर्य)</span><span class="lang-content lang-hi" hidden>उत्तम ब्रह्मचर्य धर्म</span></h3>
-            <p><span class="lang-content lang-en"><strong>Supreme Celibacy:</strong> Dwelling wholly in the pure consciousness of one’s own divine soul.</span><span class="lang-content lang-hi" hidden><strong>स्वरूप:</strong> अपनी शुद्ध आत्मा में ही रमण करना और समस्त शारीरिक व मानसिक वासनाओं का त्याग।</span></p>
-          </article>
-        </div>
-
-        <!-- Kshamavani -->
-        <div id="kshamavani" class="learning-panel" style="margin-top:28px">
-          <h3>
-            <span class="lang-content lang-en">Kshamavani Parva: Universal Forgiveness Day</span>
-            <span class="lang-content lang-hi" hidden>क्षमावाणी पर्व: क्षमापना एवं मैत्री दिवस</span>
-          </h3>
-          <p>
-            <span class="lang-content lang-en">Observed immediately following Das Lakshan Parva, <em>Kshamavani</em> is the pinnacle of Jain ethics. Every Jain approaches fellow beings asking for heartfelt forgiveness without vanity:</span>
-            <span class="lang-content lang-hi" hidden>दशलक्षण पर्व के पूर्ण होने पर क्षमावाणी पर्व मनाया जाता है। यह समस्त प्राणियों से वैर-विरोध समाप्त कर शुद्ध हृदय से क्षमा माँगने और क्षमा प्रदान करने का अनुपम पर्व है:</span>
-          </p>
-
-          <blockquote class="traditional-verse" lang="hi">
-            <p>खम्मामि सव्वजीवेसु, सव्वे जीवा खमंतु मे।<br>
-            मित्ती मे सव्वभूएस्, वेरं मज्झं न केणइ॥</p>
-            <div class="roman-verse">
-              Khāmāmi savva-jīvesu, savve jīvā khamantu me.<br>
-              Mittī me savva-bhūesu, veraṁ majjhaṁ na keṇa-i.
-            </div>
-          </blockquote>
-
-          <p style="margin-top:14px;font-weight:700;color:var(--green)">
-            <span class="lang-content lang-en">"I forgive all living beings; may all living beings forgive me. I cherish friendship toward all life; I harbour animosity toward none." — <em>Michchhami Dukkadam.</em></span>
-            <span class="lang-content lang-hi" hidden>"मैं समस्त जीवों को क्षमा करता हूँ, सभी जीव मुझे क्षमा करें। मेरी विश्व के समस्त प्राणियों से मैत्री है, मेरा किसी से कोई वैर नहीं है।" — <em>मिच्छामि दुक्कडम्।</em></span>
-          </p>
         </div>
       </div>
     </section>
 
-    <!-- 6. Sacred Directories & Quick-Links -->
+    <!-- 4. Directories -->
     <section id="directories" class="section section-cream section-anchor">
       <div class="container">
-        <p class="eyebrow">
-          <span class="lang-content lang-en">SACRED DIRECTORIES &amp; TEXTS</span>
-          <span class="lang-content lang-hi" hidden>तीर्थंकर संदर्भ एवं अर्घ्य पाठ</span>
-        </p>
+        <p class="eyebrow"><span class="lang-content lang-en">DIRECTORIES</span><span class="lang-content lang-hi" hidden>दर्शिकाएँ</span></p>
         <div class="section-heading">
           <div>
-            <h2>
-              <span class="lang-content lang-en">Tirthankara Database &amp; Stotras</span>
-              <span class="lang-content lang-hi" hidden>तीर्थंकर परिचय एवं अर्घ्य संग्रह</span>
-            </h2>
-            <p class="section-intro">
-              <span class="lang-content lang-en">Explore our dedicated searchable directory of all 24 Tirthankaras and the sacred Arghya prayer verses.</span>
-              <span class="lang-content lang-hi" hidden>चौबीस तीर्थंकर भगवंतों के संपूर्ण विवरण और दैनिक पूजा हेतु अर्घ्य छंदों का विस्तृत अवलोकन करें।</span>
-            </p>
+            <h2><span class="lang-content lang-en">Directories</span><span class="lang-content lang-hi" hidden>जैन संदर्भ दर्शिकाएँ</span></h2>
+            <p class="section-intro"><span class="lang-content lang-en">Use dedicated reference pages for searchable details instead of repeating directory content here.</span><span class="lang-content lang-hi" hidden>विस्तृत और खोजने योग्य जानकारी के लिए संबंधित संदर्भ पृष्ठ देखें।</span></p>
           </div>
         </div>
-
-        <div class="cards two">
-          <article class="card">
-            <span class="card-number">01</span>
-            <h3>
-              <span class="lang-content lang-en">24 Tirthankaras Directory</span>
-              <span class="lang-content lang-hi" hidden>२४ तीर्थंकर परिचय दर्शिका</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en">Searchable bilingual reference with symbols (lanchhans), birthplaces, parents, renunciation trees, and birth nakshatras.</span>
-              <span class="lang-content lang-hi" hidden>२४ तीर्थंकर भगवंतों के चिन्ह (लांछन), जन्मभूमि, माता-पिता, दीक्षा वृक्ष एवं जन्म नक्षत्र का संपूर्ण विवरण।</span>
-            </p>
-            <a class="button secondary" href="tirthankaras.html" style="margin-top:12px">
-              <span class="lang-content lang-en">Open Directory &rarr;</span>
-              <span class="lang-content lang-hi" hidden>दर्शिका देखें &rarr;</span>
-            </a>
-          </article>
-          <article class="card">
-            <span class="card-number">02</span>
-            <h3>
-              <span class="lang-content lang-en">24 Tirthankara Arghya</span>
-              <span class="lang-content lang-hi" hidden>२४ तीर्थंकर अर्घ्य संग्रह</span>
-            </h3>
-            <p>
-              <span class="lang-content lang-en">Traditional Hindi devotional verses, Sanskrit mantras, and Roman transliterations for daily Swadhyaya and Puja rituals.</span>
-              <span class="lang-content lang-hi" hidden>देव-शास्त्र-गुरु, २४ तीर्थंकर एवं अन्य प्रमुख अर्घ्य पाठ हिंदी एवं रोमन लिपि में।</span>
-            </p>
-            <a class="button secondary" href="arghya.html" style="margin-top:12px">
-              <span class="lang-content lang-en">Read Arghyas &rarr;</span>
-              <span class="lang-content lang-hi" hidden>अर्घ्य पाठ पढ़ें &rarr;</span>
-            </a>
+        <div class="knowledge-category-grid">
+          <article class="knowledge-topic-card">
+            <span class="knowledge-resource-kind">DIRECTORY</span>
+            <h3><span class="lang-content lang-en">24 Tirthankaras Directory</span><span class="lang-content lang-hi" hidden>२४ तीर्थंकर दर्शिका</span></h3>
+            <p><span class="lang-content lang-en">Search names, symbols (lanchhans), birthplaces, parents, renunciation trees and birth nakshatras.</span><span class="lang-content lang-hi" hidden>नाम, लांछन, जन्मभूमि, माता-पिता, दीक्षा वृक्ष और जन्म नक्षत्र खोजें।</span></p>
+            <a class="button secondary" href="tirthankaras.html"><span class="lang-content lang-en">View Directory →</span><span class="lang-content lang-hi" hidden>दर्शिका देखें →</span></a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 7. Knowledge Library Archive -->
-    <section id="knowledge-library" class="section section-anchor">
+    <!-- 5. Prayers & Stotras -->
+    <section id="prayers-stotras" class="section section-anchor">
       <div class="container">
-        <p class="eyebrow">RESOURCE ARCHIVE</p>
+        <p class="eyebrow"><span class="lang-content lang-en">PRAYERS &amp; STOTRAS</span><span class="lang-content lang-hi" hidden>प्रार्थना एवं स्तोत्र</span></p>
         <div class="section-heading">
           <div>
-            <h2>Jain Knowledge Library</h2>
-            <p class="section-intro">Articles, PDFs, prayers, and media catalogued automatically from our verified repository.</p>
+            <h2><span class="lang-content lang-en">Prayers &amp; Stotras</span><span class="lang-content lang-hi" hidden>प्रार्थना एवं स्तोत्र</span></h2>
+            <p class="section-intro"><span class="lang-content lang-en">Read devotional verses and mantras in their dedicated collection.</span><span class="lang-content lang-hi" hidden>भक्ति-पाठ और मंत्रों के लिए समर्पित संग्रह देखें।</span></p>
+          </div>
+        </div>
+        <div class="knowledge-category-grid">
+          <article class="knowledge-topic-card">
+            <span class="knowledge-resource-kind">PRAYERS &amp; STOTRAS</span>
+            <h3><span class="lang-content lang-en">24 Tirthankara Arghya</span><span class="lang-content lang-hi" hidden>२४ तीर्थंकर अर्घ्य संग्रह</span></h3>
+            <p><span class="lang-content lang-en">Traditional arghya verses, Sanskrit mantras and Roman transliterations for Swadhyaya and puja.</span><span class="lang-content lang-hi" hidden>स्वाध्याय और पूजा हेतु पारंपरिक अर्घ्य, संस्कृत मंत्र और रोमन लिप्यंतरण।</span></p>
+            <a class="button secondary" href="arghya.html"><span class="lang-content lang-en">Read Arghya →</span><span class="lang-content lang-hi" hidden>अर्घ्य पढ़ें →</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Articles -->
+    <section id="articles" class="section section-cream section-anchor">
+      <div class="container">
+        <p class="eyebrow"><span class="lang-content lang-en">ARTICLES</span><span class="lang-content lang-hi" hidden>लेख</span></p>
+        <div class="section-heading">
+          <div>
+            <h2><span class="lang-content lang-en">Articles</span><span class="lang-content lang-hi" hidden>जैन धर्म पर लेख</span></h2>
+            <p class="section-intro"><span class="lang-content lang-en">Short learning articles saved in knowledge/articles, with language versions paired by filename.</span><span class="lang-content lang-hi" hidden>knowledge/articles में सुरक्षित छोटे अध्ययन लेख; हिंदी और अंग्रेज़ी संस्करण फ़ाइल नाम से जुड़े हैं।</span></p>
+          </div>
+        </div>
+        <div class="knowledge-category-grid">
+          <article class="knowledge-topic-card" id="three-jewels-of-jainism">
+            <span class="knowledge-resource-kind">ARTICLES</span>
+            <h3><span class="lang-content lang-en">The Three Jewels of Jainism</span><span class="lang-content lang-hi" hidden>जैन धर्म के तीन रत्न</span></h3>
+            <p><span class="lang-content lang-en">An introduction to Samyak Darshana, Samyak Gyan and Samyak Charitra.</span><span class="lang-content lang-hi" hidden>सम्यक दर्शन, सम्यक ज्ञान और सम्यक चरित्र का परिचय।</span></p>
+            <button class="button secondary article-open" type="button" data-article="three-jewels-of-jainism"><span class="lang-content lang-en">Read article →</span><span class="lang-content lang-hi" hidden>लेख पढ़ें →</span></button>
+          </article>
+        </div>
+
+        <section id="knowledge-article-reader" class="knowledge-article-reader" hidden aria-live="polite" aria-labelledby="knowledge-article-title">
+          <div class="article-reader-top">
+            <div><p class="eyebrow"><span class="lang-content lang-en">READING</span><span class="lang-content lang-hi" hidden>अध्ययन</span></p><h2 id="knowledge-article-title"></h2></div>
+            <button type="button" class="button secondary" id="article-close"><span class="lang-content lang-en">Close ×</span><span class="lang-content lang-hi" hidden>बंद करें ×</span></button>
+          </div>
+          <p id="knowledge-article-status" class="muted" role="status"></p>
+          <div id="knowledge-article-content" class="knowledge-article-content"></div>
+        </section>
+      </div>
+    </section>
+
+        <!-- 7. Knowledge Library Archive -->
+    <section id="knowledge-library" class="section section-anchor">
+      <div class="container">
+        <p class="eyebrow"><span class="lang-content lang-en">ADDITIONAL RESOURCES</span><span class="lang-content lang-hi" hidden>अतिरिक्त सामग्री</span></p>
+        <div class="section-heading">
+          <div>
+            <h2><span class="lang-content lang-en">Browse All Resources</span><span class="lang-content lang-hi" hidden>सभी अध्ययन सामग्री</span></h2>
+            <p class="section-intro"><span class="lang-content lang-en">Search additional PDFs, images, media, and resources from the repository.</span><span class="lang-content lang-hi" hidden>संग्रह में उपलब्ध अतिरिक्त PDF, चित्र, मीडिया और अन्य सामग्री खोजें।</span></p>
           </div>
           <span class="pill" id="knowledge-count">Loading resources...</span>
         </div>
@@ -772,9 +484,15 @@
   </main>
 
   <div id="site-footer"></div>
+  <script src="app.js"></script>
+
   <script>
     (function(){
+      let activeArticleSlug = '';
+      let activeArticleRequest = 0;
+
       function syncKnowledgeLanguage(lang) {
+        lang = lang === 'hi' ? 'hi' : 'en';
         document.documentElement.lang = lang;
         document.querySelectorAll('.lang-content').forEach(function(el){
           if (el.classList.contains('lang-' + lang)) {
@@ -783,7 +501,122 @@
             el.setAttribute('hidden', '');
           }
         });
+        if (activeArticleSlug) loadKnowledgeArticle(activeArticleSlug, lang);
       }
+
+      // Render the limited Markdown syntax used by the saved article files.
+      function escapeHTML(value) {
+        return String(value).replace(/[&<>"']/g, function(c) {
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+        });
+      }
+      function inlineMarkdown(value) {
+        return escapeHTML(value)
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>')
+          .replace(/`([^`]+)`/g, '<code>$1</code>');
+      }
+      function renderMarkdown(markdown) {
+        const lines = markdown.replace(/\r/g, '').split('\n');
+        const out = [];
+        let paragraph = [];
+        let listType = '';
+        let quote = [];
+
+        function flushParagraph() {
+          if (paragraph.length) {
+            out.push('<p>' + inlineMarkdown(paragraph.join(' ')) + '</p>');
+            paragraph = [];
+          }
+        }
+        function flushList() {
+          if (listType) {
+            out.push('</' + listType + '>');
+            listType = '';
+          }
+        }
+        function flushQuote() {
+          if (quote.length) {
+            out.push('<blockquote>' + quote.map(x => '<p>' + inlineMarkdown(x) + '</p>').join('') + '</blockquote>');
+            quote = [];
+          }
+        }
+
+        lines.forEach(function(line) {
+          const trimmed = line.trim();
+          const heading = /^(#{1,3})\s+(.+)$/.exec(trimmed);
+          const bullet = /^[-*]\s+(.+)$/.exec(trimmed);
+          const numbered = /^\d+\.\s+(.+)$/.exec(trimmed);
+          const quoteLine = /^>\s?(.*)$/.exec(trimmed);
+
+          if (!trimmed) { flushParagraph(); flushList(); flushQuote(); return; }
+          if (heading) {
+            flushParagraph(); flushList(); flushQuote();
+            const level = heading[1].length;
+            out.push('<h' + level + '>' + inlineMarkdown(heading[2]) + '</h' + level + '>');
+          } else if (bullet || numbered) {
+            flushParagraph(); flushQuote();
+            const nextType = bullet ? 'ul' : 'ol';
+            if (listType && listType !== nextType) flushList();
+            if (!listType) { listType = nextType; out.push('<' + listType + '>'); }
+            out.push('<li>' + inlineMarkdown((bullet || numbered)[1]) + '</li>');
+          } else if (quoteLine) {
+            flushParagraph(); flushList();
+            quote.push(quoteLine[1]);
+          } else if (/^---+$/.test(trimmed)) {
+            flushParagraph(); flushList(); flushQuote(); out.push('<hr>');
+          } else {
+            flushList(); flushQuote(); paragraph.push(trimmed);
+          }
+        });
+        flushParagraph(); flushList(); flushQuote();
+        return out.join('\n');
+      }
+
+      async function loadKnowledgeArticle(slug, lang) {
+        const reader = document.getElementById('knowledge-article-reader');
+        const title = document.getElementById('knowledge-article-title');
+        const status = document.getElementById('knowledge-article-status');
+        const content = document.getElementById('knowledge-article-content');
+        if (!reader || !content) return;
+        const requestId = ++activeArticleRequest;
+        activeArticleSlug = slug;
+        reader.hidden = false;
+        status.textContent = lang === 'hi' ? 'लेख लोड हो रहा है…' : 'Loading article…';
+        content.innerHTML = '';
+        const titles = {
+          'panch-kalyanak': {en:'Panch Kalyanak',hi:'पंच कल्याणक'},
+          'panch-balyati': {en:'Panch Balayati',hi:'पंच बालयति'},
+          'das-lakshan-parva': {en:'Das Lakshan Parva',hi:'दशलक्षण पर्व'},
+          'three-jewels-of-jainism': {en:'The Three Jewels of Jainism',hi:'जैन धर्म के तीन रत्न'}
+        };
+        const articleTitle = (titles[slug] || titles['panch-kalyanak'])[lang] || (titles[slug] || titles['panch-kalyanak']).en;
+        title.textContent = articleTitle;
+        try {
+          const response = await fetch('knowledge/articles/' + slug + '.' + lang + '.md', {cache:'no-store'});
+          if (!response.ok) throw new Error('Article not found');
+          const markdown = await response.text();
+          if (requestId !== activeArticleRequest) return;
+          content.innerHTML = renderMarkdown(markdown);
+          status.textContent = '';
+          reader.scrollIntoView({behavior:'smooth', block:'start'});
+        } catch (error) {
+          if (requestId !== activeArticleRequest) return;
+          status.textContent = lang === 'hi'
+            ? 'यह लेख अभी लोड नहीं हो सका। कृपया जाँचें कि हिंदी और अंग्रेज़ी Markdown फ़ाइलें knowledge/articles/ में मौजूद हैं।'
+            : 'This article could not be loaded. Check that both language Markdown files are published in knowledge/articles/.';
+        }
+      }
+
+      document.querySelectorAll('.article-open').forEach(function(button) {
+        button.addEventListener('click', function() {
+          loadKnowledgeArticle(button.dataset.article, localStorage.getItem('jyk-language') || 'en');
+        });
+      });
+      document.getElementById('article-close')?.addEventListener('click', function() {
+        activeArticleSlug = '';
+        document.getElementById('knowledge-article-reader').hidden = true;
+      });
 
       // Synchronize with the global header language switcher from script.js
       const prevSetLanguage = window.setLanguage;
@@ -793,9 +626,7 @@
       };
 
       window.addEventListener('storage', function(e){
-        if (e.key === 'jyk-language' && e.newValue) {
-          syncKnowledgeLanguage(e.newValue);
-        }
+        if (e.key === 'jyk-language' && e.newValue) syncKnowledgeLanguage(e.newValue);
       });
 
       syncKnowledgeLanguage(localStorage.getItem('jyk-language') || 'en');
@@ -834,7 +665,17 @@
           const r = await fetch('data/knowledge-index.json', { cache: 'no-store' });
           if (!r.ok) throw new Error('catalogue unavailable');
           const data = await r.json();
-          items = Array.isArray(data.items) ? data.items : [];
+          const represented = ['panch-kalyanak', 'panch-balyati', 'das-lakshan-parva', 'three-jewels-of-jainism'];
+          items = (Array.isArray(data.items) ? data.items : []).filter(function(item) {
+            const url = String(item.url || '').toLowerCase();
+            const title = String(item.title || '').toLowerCase();
+            return !represented.some(function(slug) { return url.includes(slug); })
+              && !title.includes('24 tirthankaras directory')
+              && !title.includes('24 tirthankara arghya')
+              && !title.includes('panch kalyanak & jain parvas');
+          });
+          const archiveSection = document.getElementById('knowledge-library');
+          if (archiveSection) archiveSection.hidden = items.length === 0;
           const cats = [...new Set(items.map(x => x.category).filter(Boolean))].sort();
           cats.forEach(c => {
             const o = document.createElement('option');
@@ -853,6 +694,5 @@
       })();
     })();
   </script>
-<script src="app.js"></script>
 </body>
 </html>

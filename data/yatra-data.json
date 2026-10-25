@@ -92,7 +92,7 @@
       "id": "hansi",
       "place": "Hansi",
       "date": "2026-07-18",
-      "temple": "Shri Digamber Jain Panchayati Mandir",
+      "temple": "Shri Digamber Jain Panchayati Mandir; Punyodaya Tirth Khestra",
       "coordinates": [
         29.1009391,
         75.9636061
@@ -105,6 +105,10 @@
         {
           "name": "Shri Digamber Jain Panchayati Mandir",
           "activity": "darshan"
+        },
+        {
+          "name": "Punyodaya Tirth Khestra",
+          "activity": "prakshal"
         }
       ]
     },
