@@ -4,7 +4,7 @@
 
 const translations={
 en:{
-'nav.about':'About','nav.trips':'Monthly Trips','nav.mandirMap':'Our Mandir','nav.map':'Yatra Map','nav.calendar':'Calendar','nav.announcements':'Announcements','nav.pathshala':'Sunday Pathshala','nav.events':'Events','nav.knowledge':'Knowledge', 'nav.arghya':'24 Tirthankara Arghya','nav.bhakti':'Bhakti','nav.bhajans':'📖 Bhajan Library','nav.darshan':'Darshan','nav.join':'Join Us',
+'nav.about':'About','nav.trips':'Monthly Trips','nav.mandirMap':'Our Mandir','nav.map':'Yatra Map','nav.calendar':'Calendar','nav.announcements':'Announcements','nav.pathshala':'Sunday Pathshala','nav.events':'Events','nav.knowledge':'Knowledge','nav.kids':'Kids & Family','nav.games':'Jain Games','nav.colouring':'Colouring Studio', 'nav.arghya':'24 Tirthankara Arghya','nav.bhakti':'Bhakti','nav.bhajans':'📖 Bhajan Library','nav.darshan':'Darshan','nav.join':'Join Us',
 
 'hero.eyebrow':'JIN SHASAN PRABHAVNA SANGH • KARNAL',
 'hero.title':'A digital home for <em>Jain youth</em> in Karnal.',
@@ -17,6 +17,12 @@ en:{
 'about.title':'Building a connected Jain youth community.',
 'about.p1':'Jain Youth Karnal is a collective of young Jains united by faith, guided by Jain values, and connected by a shared commitment to <strong>Jin Shasan Prabhavna Sangh Karnal</strong>.',
 'about.p2':'From spiritual reflections and Jain knowledge to temple visits, yatras, bhakti, community celebrations, and seva, we strive to keep our traditions alive, strengthen our bonds, and carry the essence of Jainism forward to the next generation.',
+
+'kids.eyebrow':'KIDS & FAMILY','kids.title':'Little ways to learn, play & create.','kids.intro':'Explore Jain values through child-friendly learning, games and creative activities.',
+'kids.pathshalaLabel':'LEARN TOGETHER','kids.pathshalaTitle':'Sunday Pathshala','kids.pathshalaText':'Stories, Jain Dharma, values and sanskar for young learners.','kids.pathshalaCta':'Explore Pathshala →',
+'kids.gamesLabel':'PLAY & DISCOVER','kids.gamesTitle':'Jain Games','kids.gamesText':'Find Tirthankars, solve word challenges, match symbols and try a Jain quiz.','kids.gamesCta':'Play Games →',
+'kids.colouringLabel':'MAKE SOMETHING','kids.colouringTitle':'Colouring Studio','kids.colouringText':'Colour Jain-inspired pictures on screen, then save, download or print your artwork.','kids.colouringCta':'Start Colouring →',
+
 'about.p3':'<strong>A space where faith finds expression, traditions live on, and memories become part of our shared journey.</strong> Jain Youth Karnal brings together our stories, experiences, and initiatives — preserving our journey while inspiring more young Jains to connect with their roots and contribute to the community.',
 
 'trips.eyebrow':'MONTHLY JAIN TRIPS',
@@ -133,12 +139,20 @@ hi:{
 'nav.pathshala':'रविवार पाठशाला',
 'nav.events':'कार्यक्रम',
 'nav.knowledge':'जैन ज्ञान',
+'nav.kids':'बच्चे और परिवार',
+'nav.games':'जैन खेल',
+'nav.colouring':'रंग भरो',
 'nav.bhakti':'भक्ति',
 'nav.bhajans':'📖 भजन संग्रह',
 
 'nav.darshan':'जिन दर्शन',
 'nav.join':'जुड़ें',
 
+
+'kids.eyebrow':'बच्चे और परिवार','kids.title':'सीखें, खेलें और कुछ नया बनाएँ।','kids.intro':'बच्चों के अनुकूल सीखने, खेलों और रचनात्मक गतिविधियों के माध्यम से जैन मूल्यों से जुड़ें।',
+'kids.pathshalaLabel':'साथ सीखें','kids.pathshalaTitle':'रविवार पाठशाला','kids.pathshalaText':'बच्चों के लिए जैन धर्म, कहानियाँ, मूल्य और संस्कार।','kids.pathshalaCta':'पाठशाला देखें →',
+'kids.gamesLabel':'खेलें और जानें','kids.gamesTitle':'जैन खेल','kids.gamesText':'तीर्थंकरों के नाम खोजें, शब्द पहेलियाँ हल करें, चिह्न मिलाएँ और जैन क्विज़ खेलें।','kids.gamesCta':'खेलें →',
+'kids.colouringLabel':'रचनात्मक बनें','kids.colouringTitle':'रंग भरो स्टूडियो','kids.colouringText':'जैन-प्रेरित चित्रों में ऑनलाइन रंग भरें और अपनी कला सेव, डाउनलोड या प्रिंट करें।','kids.colouringCta':'रंग भरना शुरू करें →',
 'hero.eyebrow':'जिन शासन प्रभावना संघ • करनाल',
 'hero.title':'करनाल के <em>जैन युवाओं</em> का डिजिटल घर।',
 'hero.lead':'जानें। जुड़ें। सीखें। अनुभव करें। सहभागी बनें। सेवा करें।',

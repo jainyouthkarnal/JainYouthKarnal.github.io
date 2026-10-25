@@ -13,13 +13,16 @@
     ]},
 
     {k:'nav.knowledge',t:'Knowledge',page:'knowledge',pages:['knowledge','learn'],sub:[
-      ['nav.pathshala','Sunday Pathshala','knowledge.html#pathshala'],
       ['nav.kalyanak','Panch Kalyanak','knowledge.html#panch-kalyanak'],
       ['nav.balayati','Panch Balayati','knowledge.html#panch-balayati'],
       ['nav.daslakshan','Das Lakshan Parva','knowledge.html#das-lakshan'],
       ['nav.tirthankaras','24 Tirthankaras','tirthankaras.html'],
       ['nav.arghya','24 Tirthankara Arghya','arghya.html'],
-      ['nav.library','Resource Library','knowledge.html#knowledge-library'],
+      ['nav.library','Resource Library','knowledge.html#knowledge-library']
+    ]},
+
+    {k:'nav.kids',t:'Kids & Family',page:'kids-family',pages:['games','colouring'],sub:[
+      ['nav.pathshala','Sunday Pathshala','knowledge.html#pathshala'],
       ['nav.games','Jain Games','games.html'],
       ['nav.colouring','Colouring Studio','colouring.html']
     ]},
