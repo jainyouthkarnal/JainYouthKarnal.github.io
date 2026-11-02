@@ -1,7 +1,7 @@
 <!-- Shared footer. Loaded by layout.js on every page. -->
 <footer class="footer">
   <div class="container footer-grid">
-<!-- Footer Identity and Mandir Address -->
+<!-- BRAND IDENTITY -->
 <div class="footer-identity">
   <img
     src="assets/logo.png"
@@ -12,76 +12,35 @@
     <strong>Jin Shasan Prabhavna Sangh</strong><br>
     Jain Youth Karnal
   </p>
-  <p>
-    <strong>Shree Digamber Jain Mandir</strong><br>
-    <strong>Address:</strong> Mitthan Mohalla, Kunjpura Road, Karnal, Haryana 132001
-  </p>
-  <a
-    href="https://share.google/tR5QPo4lzuzhaojf9"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Mandir on Google Maps ↗
-  </a>
-  <div class="footer-mandir-map">
-    <iframe
-      title="Shree Digamber Jain Mandir, Karnal — Google Maps"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3466.2855478858646!2d76.9909295!3d29.6824999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e70168d5e6691%3A0xe28126bda7ad3a7d!2sShree%20Digamber%20Jain%20Mandir!5e0!3m2!1sen!2sin!4v1792915605422!5m2!1sen!2sin"
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
-  </div>
 </div>
-<!-- Explore Navigation -->
+<!-- EXPLORE -->
 <nav class="footer-explore" aria-label="Explore">
   <p class="footer-title" data-i18n="footer.explore">Explore</p>
-  <a href="index.html#quick-access" data-i18n="footer.quickAccess">
-    Quick Access
-  </a>
-  <a href="knowledge.html" data-i18n="nav.knowledge">
-    Knowledge Hub
-  </a>
-  <a href="tirthankaras.html" data-i18n="nav.tirthankaras">
-    24 Tirthankaras
-  </a>
-  <a href="games.html" data-i18n="nav.games">
-    Jain Games
-  </a>
-  <a href="colouring.html" data-i18n="nav.colouring">
-    Colouring Studio
-  </a>
+  <a href="index.html#quick-access" data-i18n="footer.quickAccess">Quick Access</a>
+  <a href="knowledge.html" data-i18n="nav.knowledge">Knowledge Hub</a>
+  <a href="tirthankaras.html" data-i18n="nav.tirthankaras">24 Tirthankaras</a>
+  <a href="games.html" data-i18n="nav.games">Jain Games</a>
+  <a href="colouring.html" data-i18n="nav.colouring">Colouring Studio</a>
 </nav>
-<!-- Spirituality Navigation -->
+<!-- SPIRITUALITY -->
 <nav class="footer-spirituality" aria-label="Spirituality">
-  <p class="footer-title" data-i18n="footer.spirituality">
-    Spirituality
-  </p>
-  <a href="bhakti.html" data-i18n="nav.bhajans">
-    Bhakti Sangeet
-  </a>
-  <a href="arghya.html" data-i18n="footer.arghya">
-    Arghya &amp; Stotras
-  </a>
-  <a href="knowledge.html#panch-kalyanak" data-i18n="nav.kalyanak">
-    Panch Kalyanak
-  </a>
-  <a href="knowledge.html#pathshala" data-i18n="nav.pathshala">
-    Sunday Pathshala
-  </a>
+  <p class="footer-title" data-i18n="footer.spirituality">Spirituality</p>
+  <a href="bhakti.html" data-i18n="nav.bhajans">Bhakti Sangeet</a>
+  <a href="arghya.html" data-i18n="footer.arghya">Arghya &amp; Stotras</a>
+  <a href="knowledge.html#panch-kalyanak" data-i18n="nav.kalyanak">Panch Kalyanak</a>
+  <a href="knowledge.html#pathshala" data-i18n="nav.pathshala">Sunday Pathshala</a>
 </nav>
-<!-- Community and Social Links -->
+<!-- COMMUNITY AND SOCIAL LINKS -->
 <div class="footer-connect">
-  <p class="footer-title" data-i18n="footer.community">
-    Community
-  </p>
+  <p class="footer-title" data-i18n="footer.community">Community</p>
   <div class="footer-socials">
-    <!-- Instagram -->
+    <!-- INSTAGRAM -->
     <a
       class="footer-social"
       href="https://www.instagram.com/jainyouth.karnal/"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Visit Jain Youth Karnal on Instagram"
     >
       <img src="assets/social/instagram.png" alt="">
       <span class="social-text">
@@ -89,12 +48,13 @@
         <b>@jainyouth.karnal</b>
       </span>
     </a>
-    <!-- YouTube -->
+    <!-- YOUTUBE -->
     <a
       class="footer-social"
       href="https://www.youtube.com/@jainyouth.karnal"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Visit Jain Youth Karnal on YouTube"
     >
       <img src="assets/social/youtube.png" alt="">
       <span class="social-text">
@@ -102,20 +62,36 @@
         <b>@jainyouth.karnal</b>
       </span>
     </a>
-    <!-- Gmail -->
+    <!-- EMAIL / GMAIL -->
     <a
-      class="footer-social"
+      class="footer-social footer-email"
       href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jainyouthkarnal@gmail.com"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Email Jain Youth Karnal"
     >
-      <img src="assets/social/gmail.png" alt="">
+      <!-- Inline Gmail-style SVG icon -->
+      <svg
+        class="footer-email-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 48 48"
+        width="32"
+        height="32"
+        role="img"
+        aria-label="Email"
+      >
+        <path fill="#4285F4" d="M6 12v24h7V20L6 12z"/>
+        <path fill="#34A853" d="M35 36h7V12l-7 8v16z"/>
+        <path fill="#FBBC04" d="M35 12v8l7-8v-1c0-2-2-3-4-2l-3 3z"/>
+        <path fill="#EA4335" d="M6 11v1l7 8 11 8 11-8v-8L24 19 6 11z"/>
+        <path fill="#C5221F" d="M6 11l7 9v-8l-3-2c-2-1-4 0-4 1z"/>
+      </svg>
       <span class="social-text">
         <small>Email us</small>
         <b>jainyouthkarnal@gmail.com</b>
       </span>
     </a>
-    <!-- Community Navigation -->
+    <!-- COMMUNITY LINKS -->
     <a href="community.html#calendar" data-i18n="nav.calendar">
       Calendar &amp; Events
     </a>
@@ -127,15 +103,45 @@
     </a>
   </div>
 </div>
+<!-- FIND US: GOOGLE MAPS -->
+<div class="footer-find-us">
+  <p class="footer-title">FIND US</p>
+  <p class="footer-mandir-name">
+    <strong>Shree Digamber Jain Mandir</strong>
+  </p>
+  <p class="footer-address">
+    Mitthan Mohalla, Kunjpura Road,<br>
+    Karnal, Haryana 132001
+  </p>
+  <!-- Google Maps Preview -->
+  <div class="footer-mandir-map">
+    <iframe
+      title="Find us — Shree Digamber Jain Mandir, Karnal"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3466.2855478858646!2d76.9909295!3d29.6824999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e70168d5e6691%3A0xe28126bda7ad3a7d!2sShree%20Digamber%20Jain%20Mandir!5e0!3m2!1sen!2sin!4v1792915605422!5m2!1sen!2sin"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
   </div>
-  <!-- Copyright -->
+  <!-- Directions Link -->
+  <a
+    href="https://share.google/tR5QPo4lzuzhaojf9"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="footer-map-link"
+  >
+    Get Directions on Google Maps ↗
+  </a>
+</div>
+  </div>
+  <!-- COPYRIGHT -->
   <div class="container footer-bottom">
     <span>
       © <span id="footer-year">2026</span> Jain Youth Karnal
     </span>
   </div>
 </footer>
-<!-- Automatically Update Copyright Year -->
+<!-- AUTOMATIC COPYRIGHT YEAR -->
 <script>
   const footerYear = document.getElementById('footer-year');
   if (footerYear) {
